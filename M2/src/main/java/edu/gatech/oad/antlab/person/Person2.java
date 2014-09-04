@@ -1,3 +1,6 @@
+import java.util.Random;
+import java.util.Collections;
+import java.util.ArrayList;
 package edu.gatech.oad.antlab.person;
 
 /**
@@ -30,8 +33,17 @@ public class Person2 {
 	 * @return the modified string
 	 */
 	private String calc(String input) {
-	  //Person 2 put your implementation here
-	  return null;
+        Random rand = new Random();   
+        String str = "";        
+        ArrayList<Integer> list = new ArrayList<Integer>();        
+        for (int i = 0; i < input.length(); i++) {
+            list.add(i);
+        }
+        Collections.shuffle(list);
+        for (int i = 0; i < input.length(); i++) {
+            str += input.charAt(list.get(i));
+        }
+        return str;
 	}
 	/**
 	 * Return a string rep of this object
