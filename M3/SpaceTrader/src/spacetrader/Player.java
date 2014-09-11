@@ -32,4 +32,15 @@ public class Player {
         credit = 1000;
         currShip = new Ship();
     }
+    
+    public void debug() {
+        System.out.println(name);
+        System.out.println(pilot);
+        System.out.println(fighter);
+        System.out.println(trader);
+        System.out.println(engineer);
+        System.out.println(investor);
+        System.out.println(credit);
+        System.out.println(currShip);
+    }
 }

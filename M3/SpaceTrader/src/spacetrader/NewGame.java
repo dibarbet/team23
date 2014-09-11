@@ -12,12 +12,12 @@ package spacetrader;
  */
 public class NewGame extends javax.swing.JFrame {
     // variable declariation for the variables used in NewGmae class, also used to create the new Player
-    private String nname;
-    private int npilot;
-    private int nfighter;
-    private int ntrader;
-    private int nengineer;
-    private int ninvestor;
+    private String nname = "";
+    private int npilot = 0;
+    private int nfighter = 0;
+    private int ntrader = 0;
+    private int nengineer = 0;
+    private int ninvestor = 0;
     // end declariation
     /**
      * Creates new form NewGame
@@ -186,7 +186,18 @@ public class NewGame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        nname = jTextField1.getText();
+        npilot = (int)jSpinner1.getValue();
+        nfighter = (int)jSpinner2.getValue();
+        ntrader = (int)jSpinner3.getValue();
+        nengineer = (int)jSpinner4.getValue();
+        ninvestor = (int)jSpinner5.getValue();
+        if ((npilot + nfighter + ntrader + nengineer + ninvestor != 15) || (nname.equals(""))) {
+            new ErrorWin().setVisible(true);
+        } else {
+            SpaceTrader.player = new Player(nname, npilot, nfighter, ntrader, nengineer, ninvestor);
+            SpaceTrader.player.debug();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed

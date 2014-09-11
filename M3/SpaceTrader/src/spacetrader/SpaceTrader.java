@@ -14,7 +14,7 @@ import javafx.stage.Stage;
  * @author YaxiongLiu
  */
 public class SpaceTrader extends Application {
-    public Player player;
+    protected static Player player;
     @Override
     public void start(Stage primaryStage) {
         new WelcomeWin().setVisible(true);

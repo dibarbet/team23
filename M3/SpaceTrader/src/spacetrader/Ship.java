@@ -11,5 +11,5 @@ package spacetrader;
  * @author YaxiongLiu
  */
 public class Ship {
-    //empty class, have not been implemented yet
+    //empty class, has not been implemented yet
 }
