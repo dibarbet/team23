@@ -28,7 +28,7 @@ public class SolarSystem {
     
     public SolarSystem(String name, String[] pNames, int x, int y) {
         if (pNames.length == 1) {
-            pNames[1] = name;
+            pNames[0] = name;
         }
         solarName = name;
         planetNames = pNames;

@@ -301,6 +301,10 @@ public class NewGame extends javax.swing.JFrame {
         } else {
             SpaceTrader.player = new Player(nname, npilot, nfighter, ntrader, nengineer, ninvestor);
             SpaceTrader.player.debug();
+            Universe gameUniverse = new Universe();
+            System.out.println(gameUniverse.toString());
+            dispose();
+            new GameWindow().setVisible(true); 
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
