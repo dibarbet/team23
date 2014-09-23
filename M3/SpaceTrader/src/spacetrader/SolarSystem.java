@@ -11,6 +11,44 @@ import java.util.Random;
  * @author David Barbet
  */
 public class SolarSystem {
+    private static String[] techLevels = {"Pre-Agriculture",
+                                          "Agriculture",
+                                          "Medieval",
+                                          "Renaissance",
+                                          "Early Industrial",
+                                          "Industrial",
+                                          "Post-Industrial",
+                                          "Hi-Tech"};
+    private static String[] resourceLevels = {"No Special Resources",
+    										"Mineral Rich",
+    										"MineralPoor",
+    										"Desert",
+    										"Lots of Water",
+    										"Rich Soil",
+    										"Poor Soil",
+    										"Rich Fauna",
+    										"Lifeless",
+    										"Weird Mushrooms",
+    										"Lots of Herbs",
+    										"Artistic",
+    										"Warlike"};
+    private static String[] governmentTypes = {"Anarchy",
+    											"Capitalist State",
+    											"Communist State",
+    											"Confederacy",
+    											"Corporate State",
+    											"Cybernetic State",
+    											"Democracy",
+    											"Dictatorship",
+    											"Fascist State",
+    											"Feudal State",
+    											"Military State",
+    											"Monarchy",
+    											"Pacifist State",
+    											"Socialist State",
+    											"State of Satori",
+    											"Technocracy",
+    											"Theocracy"};
     private String solarName;
     private String[] planetNames;
     private int techLevel;
@@ -49,13 +87,25 @@ public class SolarSystem {
     public int getTechLevel() {
         return techLevel;
     }
+
+    public String getTechString() {
+    	return techLevels[techLevel];
+    }
     
     public int getResourceType() {
         return resources;
     }
     
+    public String getResourceString() {
+    	return resourceLevels[resources];
+    }
+    
     public int getGovType() {
         return govType;
+    }
+    
+    public String getGovString() {
+    	return governmentTypes[govType];
     }
     
     public int getPoliceChance() {
