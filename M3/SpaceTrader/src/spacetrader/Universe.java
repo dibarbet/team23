@@ -147,7 +147,7 @@ public class Universe {
     public String toString() {
         String s = "";
         for (int i = 0; i < 113; i++) {
-            s += (Universe[i].getSolarName() + ": " + Universe[i].getX() + " " + Universe[i].getY() + ", ");
+            s += (Universe[i].getSolarName() + "; Position: " + Universe[i].getX() + ", " + Universe[i].getY() + "; Government Type: " + Universe[i].getGovType() + "; Resource Type: " + Universe[i].getResourceType() + "; Tech Level: " + Universe[i].getTechLevel() + "\n");
         }
         return s;
     }
