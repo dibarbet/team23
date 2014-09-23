@@ -136,7 +136,13 @@ public class Universe {
     };
     public Universe() {
         for (int i = 0; i < 113; i++) {
-            String name = names[rand.nextInt(114)];
+            int j = rand.nextInt(114);
+            String name = names[j];
+            while (name == null) {
+                j = rand.nextInt(114);
+                name = names[j];
+            }
+            names[j] = null;
             String[] n = new String[1];
             n[0] = name;
             Universe[i] = new SolarSystem(name, n, rand.nextInt(150), rand.nextInt(100));
@@ -147,7 +153,7 @@ public class Universe {
     public String toString() {
         String s = "";
         for (int i = 0; i < 113; i++) {
-            s += (Universe[i].getSolarName() + "; Position: " + Universe[i].getX() + ", " + Universe[i].getY() + "; Government Type: " + Universe[i].getGovType() + "; Resource Type: " + Universe[i].getResourceType() + "; Tech Level: " + Universe[i].getTechLevel() + "\n");
+            s += (Universe[i].getSolarName() + ": " + Universe[i].getX() + " " + Universe[i].getY() + ", " + Universe[i].getTechLevel() + ", " + Universe[i].getResourceType() + ", " + Universe[i].getGovType() + "\n");
         }
         return s;
     }
