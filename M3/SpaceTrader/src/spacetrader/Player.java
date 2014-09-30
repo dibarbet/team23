@@ -18,7 +18,7 @@ public class Player {
     private int trader;
     private int engineer;
     private int investor;
-    private int credit;
+    protected int credit;
     private Ship currShip;
     
     // constructor of Player, takes 5 argument
