@@ -17,11 +17,15 @@ public class MarketWindow extends javax.swing.JFrame {
     private int money;
     private Ship ship = new Ship();
     private String[] stock;
+    private SolarSystem solarsystem;
     /**
      * Creates new form MarketWindow
+     * @param solarsystem  solar system of this market
      */
-    public MarketWindow() {
+    
+    public MarketWindow(SolarSystem solarsystem) {
         initComponents();
+        this.solarsystem = solarsystem;
         //ship.testCase(); // create test case
         for (int i = 0; i < ship.cargo.length; i++) { //get the numbers of goods in cargo space
             if (ship.cargo[i] == "Water") {
@@ -60,18 +64,18 @@ public class MarketWindow extends javax.swing.JFrame {
         System.out.println("nRobots:" + nrobots);
         
         
-        
+        int techLevel = solarsystem.getTechLevel();
                 
         Random rand = new Random(); // creates prices for goods based on a model
-        pwater = Good.Water.basePrice * (1 + rand.nextInt(Good.Water.var) / 10) + (Good.Water.ipl * (2 - Good.Water.mtlp));
-        pfurs = Good.Furs.basePrice * (1 + rand.nextInt(Good.Furs.var) / 10) + (Good.Furs.ipl * (2 - Good.Furs.mtlp));
-        pfood = Good.Food.basePrice * (1 + rand.nextInt(Good.Food.var) / 10) + (Good.Food.ipl * (2 - Good.Food.mtlp));
-        pore = Good.Ore.basePrice * (1 + rand.nextInt(Good.Ore.var) / 10) + (Good.Ore.ipl * (2 - Good.Ore.mtlp));
-        pgames = Good.Games.basePrice * (1 + rand.nextInt(Good.Games.var) / 10) + (Good.Games.ipl * (2 - Good.Games.mtlp));
-        pfirearms = Good.Firearms.basePrice * (1 + rand.nextInt(Good.Firearms.var) / 10) + (Good.Firearms.ipl * (2 - Good.Firearms.mtlp));
-        pmedicine = Good.Medicine.basePrice * (1 + rand.nextInt(Good.Medicine.var) / 10) + (Good.Medicine.ipl * (2 - Good.Medicine.mtlp));
-        pmachines = Good.Machines.basePrice * (1 + rand.nextInt(Good.Machines.var) / 10) + (Good.Machines.ipl * (2 - Good.Machines.mtlp));
-        pnarcotics = Good.Narcotics.basePrice * (1 + rand.nextInt(Good.Narcotics.var) / 10) + (Good.Narcotics.ipl * (2 - Good.Narcotics.mtlp));
+        pwater = Good.Water.basePrice * (1 + rand.nextInt(Good.Water.var) / 10) + (Good.Water.ipl * (techLevel - Good.Water.mtlp));
+        pfurs = Good.Furs.basePrice * (1 + rand.nextInt(Good.Furs.var) / 10) + (Good.Furs.ipl * (techLevel - Good.Furs.mtlp));
+        pfood = Good.Food.basePrice * (1 + rand.nextInt(Good.Food.var) / 10) + (Good.Food.ipl * (techLevel - Good.Food.mtlp));
+        pore = Good.Ore.basePrice * (1 + rand.nextInt(Good.Ore.var) / 10) + (Good.Ore.ipl * (techLevel - Good.Ore.mtlp));
+        pgames = Good.Games.basePrice * (1 + rand.nextInt(Good.Games.var) / 10) + (Good.Games.ipl * (techLevel - Good.Games.mtlp));
+        pfirearms = Good.Firearms.basePrice * (1 + rand.nextInt(Good.Firearms.var) / 10) + (Good.Firearms.ipl * (techLevel - Good.Firearms.mtlp));
+        pmedicine = Good.Medicine.basePrice * (1 + rand.nextInt(Good.Medicine.var) / 10) + (Good.Medicine.ipl * (techLevel - Good.Medicine.mtlp));
+        pmachines = Good.Machines.basePrice * (1 + rand.nextInt(Good.Machines.var) / 10) + (Good.Machines.ipl * (techLevel - Good.Machines.mtlp));
+        pnarcotics = Good.Narcotics.basePrice * (1 + rand.nextInt(Good.Narcotics.var) / 10) + (Good.Narcotics.ipl * (techLevel - Good.Narcotics.mtlp));
         probots = Good.Robots.basePrice * (1 + rand.nextInt(Good.Robots.var) / 10) + (Good.Robots.ipl * (2 - Good.Robots.mtlp));
         
         System.out.println("pWater:" + pwater); //prints out prices of goods
@@ -110,8 +114,17 @@ public class MarketWindow extends javax.swing.JFrame {
         money = SpaceTrader.player.credit; //get money of the player
         jTextField41.setText(Integer.toString(money)); //display amount of money in the corresponding textfields
         
-         //testCase for market stock - will be modified later with actual model.
-        stock = new String[10 + rand.nextInt(20)];
+        mwater = (1+ rand.nextInt(10)) * techLevel;
+        mfurs = (1+ rand.nextInt(10)) * techLevel;
+        mfood = (1+ rand.nextInt(10)) * techLevel;
+        more = (1+ rand.nextInt(10)) * techLevel;
+        mgames = (1+ rand.nextInt(10)) * techLevel;
+        mfirearms = (1+ rand.nextInt(10)) * techLevel;
+        mmedicine = (1+ rand.nextInt(10)) * techLevel;
+        mmachines = (1+ rand.nextInt(10)) * techLevel;
+        mnarcotics = (1+ rand.nextInt(10)) * techLevel;
+        mrobots = (1+ rand.nextInt(10)) * techLevel;
+        /*stock = new String[100 + rand.nextInt(20)];
         for (int i = 0; i < stock.length; i++) { //generate stock in market
             int num = rand.nextInt(10);
             if (num == 0) {
@@ -147,7 +160,7 @@ public class MarketWindow extends javax.swing.JFrame {
             } else if (num == 10) {
                 stock[i] = null;
             }
-        }
+        }*/
         jTextField21.setText(Integer.toString(mwater));
         jTextField22.setText(Integer.toString(mfurs));
         jTextField23.setText(Integer.toString(mfood));
@@ -159,6 +172,27 @@ public class MarketWindow extends javax.swing.JFrame {
         jTextField45.setText(Integer.toString(mnarcotics));
         jTextField46.setText(Integer.toString(mrobots));
         
+        System.out.println("Tech Lv: " + solarsystem.getTechLevel());
+        jButton1.setEnabled(solarsystem.getTechLevel() >= Good.water.mtlp);
+        jButton2.setEnabled(solarsystem.getTechLevel() >= Good.furs.mtlp);
+        jButton3.setEnabled(solarsystem.getTechLevel() >= Good.food.mtlp);
+        jButton4.setEnabled(solarsystem.getTechLevel() >= Good.ore.mtlp);
+        jButton5.setEnabled(solarsystem.getTechLevel() >= Good.games.mtlp);
+        jButton6.setEnabled(solarsystem.getTechLevel() >= Good.firearms.mtlp);
+        jButton7.setEnabled(solarsystem.getTechLevel() >= Good.medicine.mtlp);
+        jButton8.setEnabled(solarsystem.getTechLevel() >= Good.machines.mtlp);
+        jButton9.setEnabled(solarsystem.getTechLevel() >= Good.narcotics.mtlp);
+        jButton10.setEnabled(solarsystem.getTechLevel() >= Good.robots.mtlp);
+        jButton11.setEnabled(solarsystem.getTechLevel() >= Good.water.mtlu);
+        jButton12.setEnabled(solarsystem.getTechLevel() >= Good.furs.mtlu);
+        jButton13.setEnabled(solarsystem.getTechLevel() >= Good.food.mtlu);
+        jButton14.setEnabled(solarsystem.getTechLevel() >= Good.ore.mtlu);
+        jButton15.setEnabled(solarsystem.getTechLevel() >= Good.games.mtlu);
+        jButton16.setEnabled(solarsystem.getTechLevel() >= Good.firearms.mtlu);
+        jButton17.setEnabled(solarsystem.getTechLevel() >= Good.medicine.mtlu);
+        jButton18.setEnabled(solarsystem.getTechLevel() >= Good.machines.mtlu);
+        jButton19.setEnabled(solarsystem.getTechLevel() >= Good.narcotics.mtlu);
+        jButton20.setEnabled(solarsystem.getTechLevel() >= Good.robots.mtlu);
     }
 
     
@@ -237,7 +271,7 @@ public class MarketWindow extends javax.swing.JFrame {
         jButton17 = new javax.swing.JButton();
         jButton18 = new javax.swing.JButton();
         jButton19 = new javax.swing.JButton();
-        jButton20 = new javax.swing.JButton();
+        jButton20 = new javax.swing.JButton();        
         jLabel10 = new javax.swing.JLabel();
         jTextField41 = new javax.swing.JTextField();
         jTextField21 = new javax.swing.JTextField();
@@ -1302,7 +1336,7 @@ public class MarketWindow extends javax.swing.JFrame {
     private void jTextField21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField21ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField21ActionPerformed
-
+   
     /**
      * @param args the command line arguments
      */
@@ -1330,12 +1364,12 @@ public class MarketWindow extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the form 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MarketWindow().setVisible(true);
+                new MarketWindow(solarsystem).setVisible(true);
             }
-        });
+        });*/
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

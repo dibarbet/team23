@@ -11,163 +11,163 @@ package spacetrader;
  * @author YaxiongLiu
  */
 public class Good {
-    public final Water water = new Water();
-    public final Furs furs = new Furs();
-    public final Food food = new Food();
-    public final Ore ore = new Ore();
-    public final Games games = new Games();
-    public final Firearms firarms = new Firearms();
-    public final Medicine medicine = new Medicine();
-    public final Machines machines = new Machines();
-    public final Narcotics narcotics = new Narcotics();
-    public final Robots robots = new Robots();
+    public static final Water water = new Water();
+    public static final Furs furs = new Furs();
+    public static final Food food = new Food();
+    public static final Ore ore = new Ore();
+    public static final Games games = new Games();
+    public static final Firearms firearms = new Firearms();
+    public static final Medicine medicine = new Medicine();
+    public static final Machines machines = new Machines();
+    public static final Narcotics narcotics = new Narcotics();
+    public static final Robots robots = new Robots();
     
-    public class Water {
-        final String name = "Water";
-        final int mtlp = 0;
-        final int mtlu = 0;
-        final int ttp = 2;
-        final int basePrice = 30;
-        final int ipl = 3;
-        final int var = 4;
-        final String ie = "DROUGHT";
-        final String cr = "LOTSOFWATER";
-        final String er = "DESERT";
-        final int mtl = 30;
-        final int mth = 50;
+    public static class Water {
+        final static String name = "Water";
+        final static int mtlp = 0;
+        final static int mtlu = 0;
+        final static int ttp = 2;
+        final static int basePrice = 30;
+        final static int ipl = 3;
+        final static int var = 4;
+        final static String ie = "DROUGHT";
+        final static String cr = "LOTSOFWATER";
+        final static String er = "DESERT";
+        final static int mtl = 30;
+        final static int mth = 50;
     }
     
-    public class Furs {
-        final String name = "Furs";
-        final int mtlp = 0;
-        final int mtlu = 0;
-        final int ttp = 0;
-        final int basePrice = 250;
-        final int ipl = 10;
-        final int var = 10;
-        final String ie = "COLD";
-        final String cr = "RICHFAUNA";
-        final String er = "LIFELESS";
-        final int mtl = 230;
-        final int mth = 280;
+    public static class Furs {
+        final static String name = "Furs";
+        final static int mtlp = 0;
+        final static int mtlu = 0;
+        final static int ttp = 0;
+        final static int basePrice = 250;
+        final static int ipl = 10;
+        final static int var = 10;
+        final static String ie = "COLD";
+        final static String cr = "RICHFAUNA";
+        final static String er = "LIFELESS";
+        final static int mtl = 230;
+        final static int mth = 280;
     }
     
-    public class Food {
-        final String name = "Food";
-        final int mtlp = 1;
-        final int mtlu = 0;
-        final int ttp = 1;
-        final int basePrice = 100;
-        final int ipl = 5;
-        final int var = 5;
-        final String ie = "CROPFAIL";
-        final String cr = "RICHSOIL";
-        final String er = "POORSOIL";
-        final int mtl = 90;
-        final int mth = 160;
+    public static class Food {
+        final static String name = "Food";
+        final static int mtlp = 1;
+        final static int mtlu = 0;
+        final static int ttp = 1;
+        final static int basePrice = 100;
+        final static int ipl = 5;
+        final static int var = 5;
+        final static String ie = "CROPFAIL";
+        final static String cr = "RICHSOIL";
+        final static String er = "POORSOIL";
+        final static int mtl = 90;
+        final static int mth = 160;
     }    
-    public class Ore {
-        final String name = "Ore";
-        final int mtlp = 2;
-        final int mtlu = 2;
-        final int ttp = 3;
-        final int basePrice = 350;
-        final int ipl = 20;
-        final int var = 10;
-        final String ie = "WAR";
-        final String cr = "MINERALRICH";
-        final String er = "MINERALPOOR";
-        final int mtl = 350;
-        final int mth = 420;
+    public static class Ore {
+        final static String name = "Ore";
+        final static int mtlp = 2;
+        final static int mtlu = 2;
+        final static int ttp = 3;
+        final static int basePrice = 350;
+        final static int ipl = 20;
+        final static int var = 10;
+        final static String ie = "WAR";
+        final static String cr = "MINERALRICH";
+        final static String er = "MINERALPOOR";
+        final static int mtl = 350;
+        final static int mth = 420;
     }
     
-    public class Games {
-        final String name = "Games";
-        final int mtlp = 3;
-        final int mtlu = 1;
-        final int ttp = 6;
-        final int basePrice = 250;
-        final int ipl = -10;
-        final int var = 5;
-        final String ie = "BOREDOM";
-        final String cr = "ARTISTIC";
-        final String er = "Never";
-        final int mtl = 160;
-        final int mth = 270;
+    public static class Games {
+        final static String name = "Games";
+        final static int mtlp = 3;
+        final static int mtlu = 1;
+        final static int ttp = 6;
+        final static int basePrice = 250;
+        final static int ipl = -10;
+        final static int var = 5;
+        final static String ie = "BOREDOM";
+        final static String cr = "ARTISTIC";
+        final static String er = "Never";
+        final static int mtl = 160;
+        final static int mth = 270;
     }
     
-    public class Firearms {
-        final String name = "Firearms";
-        final int mtlp = 3;
-        final int mtlu = 1;
-        final int ttp = 5;
-        final int basePrice = 1250;
-        final int ipl = -75;
-        final int var = 100;
-        final String ie = "WAR";
-        final String cr = "WARLIKE";
-        final String er = "Never";
-        final int mtl = 600;
-        final int mth = 1100;
+    public static class Firearms {
+        final static String name = "Firearms";
+        final static int mtlp = 3;
+        final static int mtlu = 1;
+        final static int ttp = 5;
+        final static int basePrice = 1250;
+        final static int ipl = -75;
+        final static int var = 100;
+        final static String ie = "WAR";
+        final static String cr = "WARLIKE";
+        final static String er = "Never";
+        final static int mtl = 600;
+        final static int mth = 1100;
     }
     
-    public class Medicine {
-        final String name = "Medicine";
-        final int mtlp = 4;
-        final int mtlu = 1;
-        final int ttp = 6;
-        final int basePrice = 650;
-        final int ipl = -20;
-        final int var = 10;
-        final String ie = "PLAGUE";
-        final String cr = "LOTSOFHERBS";
-        final String er = "Never";
-        final int mtl = 400;
-        final int mth = 700;
+    public static class Medicine {
+        final static String name = "Medicine";
+        final static int mtlp = 4;
+        final static int mtlu = 1;
+        final static int ttp = 6;
+        final static int basePrice = 650;
+        final static int ipl = -20;
+        final static int var = 10;
+        final static String ie = "PLAGUE";
+        final static String cr = "LOTSOFHERBS";
+        final static String er = "Never";
+        final static int mtl = 400;
+        final static int mth = 700;
     }
     
-    public class Machines {
-        final String name = "Machines";
-        final int mtlp = 4;
-        final int mtlu = 3;
-        final int ttp = 5;
-        final int basePrice = 900;
-        final int ipl = -30;
-        final int var = 5;
-        final String ie = "LACKOFWORKERS";
-        final String cr = "Never";
-        final String er = "Never";
-        final int mtl = 600;
-        final int mth = 800;
+    public static class Machines {
+        final static String name = "Machines";
+        final static int mtlp = 4;
+        final static int mtlu = 3;
+        final static int ttp = 5;
+        final static int basePrice = 900;
+        final static int ipl = -30;
+        final static int var = 5;
+        final static String ie = "LACKOFWORKERS";
+        final static String cr = "Never";
+        final static String er = "Never";
+        final static int mtl = 600;
+        final static int mth = 800;
     }
     
-    public class Narcotics {
-        final String name = "Narcotics";
-        final int mtlp = 5;
-        final int mtlu = 0;
-        final int ttp = 5;
-        final int basePrice = 3500;
-        final int ipl = -125;
-        final int var = 150;
-        final String ie = "BOREDOM";
-        final String cr = "WEIRDMUSHROOMS";
-        final String er = "Never";
-        final int mtl = 2000;
-        final int mth = 3000;
+    public static class Narcotics {
+        final static String name = "Narcotics";
+        final static int mtlp = 5;
+        final static int mtlu = 0;
+        final static int ttp = 5;
+        final static int basePrice = 3500;
+        final static int ipl = -125;
+        final static int var = 150;
+        final static String ie = "BOREDOM";
+        final static String cr = "WEIRDMUSHROOMS";
+        final static String er = "Never";
+        final static int mtl = 2000;
+        final static int mth = 3000;
     }
     
-    public class Robots {
-        final String name = "Robots";
-        final int mtlp = 6;
-        final int mtlu = 4;
-        final int ttp = 7;
-        final int basePrice = 5000;
-        final int ipl = -150;
-        final int var = 100;
-        final String ie = "LACKOFWORKERS";
-        final String cr = "Never";
-        final String er = "Never";
-        final int mtl = 3500;
-        final int mth = 5000;
+    public static class Robots {
+        final static String name = "Robots";
+        final static int mtlp = 6;
+        final static int mtlu = 4;
+        final static int ttp = 7;
+        final static int basePrice = 5000;
+        final static int ipl = -150;
+        final static int var = 100;
+        final static String ie = "LACKOFWORKERS";
+        final static String cr = "Never";
+        final static String er = "Never";
+        final static int mtl = 3500;
+        final static int mth = 5000;
     }
 }

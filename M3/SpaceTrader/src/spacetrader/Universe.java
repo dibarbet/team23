@@ -13,6 +13,7 @@ import java.util.Random;
  */
 public class Universe {
     Random rand = new Random();
+    SolarSystem currentSolarSystem;
     SolarSystem[] Universe = new SolarSystem[114];
     String[] names = {
         "Acamar",
@@ -147,10 +148,16 @@ public class Universe {
             n[0] = name;
             Universe[i] = new SolarSystem(name, n, rand.nextInt(150), rand.nextInt(100));
         }
+        currentSolarSystem = Universe[0];
     }
     
+    public SolarSystem getCurrentSolarSystem() {
+        System.out.println("Current Solar System" + currentSolarSystem.getSolarName());
+        return currentSolarSystem;
+    }
     @Override
     public String toString() {
+        
         String s = "";
         for (int i = 0; i < 113; i++) {
             s += (Universe[i].getSolarName() + ": " + Universe[i].getX() + " " + Universe[i].getY() + ", " + Universe[i].getTechLevel() + ", " + Universe[i].getResourceType() + ", " + Universe[i].getGovType() + "\n");

@@ -15,8 +15,12 @@ public class GameWindow extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
-    public GameWindow() {
+    private SolarSystem solarsystem;
+    
+    public GameWindow(SolarSystem solarsystem) {
+        this.solarsystem = solarsystem;
         initComponents();
+        
     }
 
     /**
@@ -70,7 +74,13 @@ public class GameWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new MarketWindow().setVisible(true);
+       // new MarketWindow(solarsystem).setVisible(true);
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new MarketWindow(solarsystem).setVisible(true);
+            }
+        });
     }//GEN-LAST:event_jButton1ActionPerformed
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

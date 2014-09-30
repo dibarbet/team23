@@ -303,7 +303,7 @@ public class NewGame extends javax.swing.JFrame {
             Universe gameUniverse = new Universe();
             System.out.println(gameUniverse.toString());
             dispose();
-            new GameWindow().setVisible(true); 
+            new GameWindow(gameUniverse.getCurrentSolarSystem()).setVisible(true); 
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
