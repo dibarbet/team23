@@ -7,7 +7,8 @@
 package spacetrader;
 
 /**
- *
+ * This class is a JFrame of the welcome Screen
+ * 
  * @author YaxiongLiu
  */
 public class WelcomeWin extends javax.swing.JFrame {
@@ -72,11 +73,13 @@ public class WelcomeWin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    // This method is called when jButton1 is pressed
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        dispose();
-        new NewGame().setVisible(true);
+        dispose(); // dispose the welcome windows
+        new NewGame().setVisible(true); // active the new game window
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    // end jButton1ActionPerformed
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

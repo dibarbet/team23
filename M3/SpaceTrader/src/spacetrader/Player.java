@@ -12,35 +12,35 @@ package spacetrader;
  */
 public class Player {
     // variable declariation
-    private String name;
-    private int pilot;
-    private int fighter;
-    private int trader;
-    private int engineer;
-    private int investor;
-    protected int credit;
-    private Ship currShip;
+    private String name; // the name of the player
+    private int pilot; // the pilot skill points of player
+    private int fighter; // the fighter skill point of player
+    private int trader; // the trader skill points of player
+    private int engineer; // the engineer skill point of player
+    private int investor; // the investor skill point of player
+    protected int credit; // the credit skill point of player
+    private Ship currShip; // the current ship that the player owns
+    // end variable declariation
     
-    // constructor of Player, takes 5 argument
+    /**
+     * The constructor of Player class
+     * 
+     * @param newName  the name of the player
+     * @param newPilot  the pilot skill points of player
+     * @param newFighter  the fighter skill points of player
+     * @param newTrader  the trader skill points of player
+     * @param newEngineer  the engineer kill points of player
+     * @param newInvestor the investor skill points of player
+     */
     public Player(String newName, int newPilot, int newFighter, int newTrader, int newEngineer, int newInvestor) {
-        name = newName;
-        pilot = newPilot;
-        fighter = newFighter;
-        trader = newTrader;
-        engineer = newEngineer;
-        investor = newInvestor;
-        credit = 1000;
-        currShip = new Ship();
-    }
+        name = newName; // set the player's name
+        pilot = newPilot; // set player's pilot skill points
+        fighter = newFighter; // set player's fighter skill point
+        trader = newTrader; // set player's trader skill point
+        engineer = newEngineer; // set player's engineer skill point
+        investor = newInvestor; // set player's investor skill point
+        credit = 1000; // initialize the amount of money that play owns to 1000
+        currShip = new Ship(); // initialize the ship of player
+    } // end constructor
     
-    public void debug() {
-        System.out.println(name);
-        System.out.println(pilot);
-        System.out.println(fighter);
-        System.out.println(trader);
-        System.out.println(engineer);
-        System.out.println(investor);
-        System.out.println(credit);
-        System.out.println(currShip);
-    }
 }
