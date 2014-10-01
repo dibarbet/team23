@@ -271,7 +271,7 @@ public class MarketWindow extends javax.swing.JFrame {
         jButton17 = new javax.swing.JButton();
         jButton18 = new javax.swing.JButton();
         jButton19 = new javax.swing.JButton();
-        jButton20 = new javax.swing.JButton();        
+        jButton20 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jTextField41 = new javax.swing.JTextField();
         jTextField21 = new javax.swing.JTextField();
@@ -308,6 +308,9 @@ public class MarketWindow extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addContainerGap(271, Short.MAX_VALUE))
         );
+
+        jDialog2.setMinimumSize(new java.awt.Dimension(450, 100));
+        jDialog2.setResizable(false);
 
         jLabel8.setText("You cannot buy more goods than you have money or cargo space. ");
 
