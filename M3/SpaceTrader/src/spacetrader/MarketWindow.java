@@ -20,14 +20,14 @@ public class MarketWindow extends javax.swing.JFrame {
     private SolarSystem solarsystem;
     /**
      * Creates new form MarketWindow
-     * @param solarsystem  solar system of this market
+     * @param solarsystem  Solar system of this market
      */
     
     public MarketWindow(SolarSystem solarsystem) {
         initComponents();
         this.solarsystem = solarsystem;
-        //ship.testCase(); // create test case
-        for (int i = 0; i < ship.cargo.length; i++) { //get the numbers of goods in cargo space
+        // Get the number of goods in the cargo space
+        for (int i = 0; i < ship.cargo.length; i++) {
             if (ship.cargo[i] == "Water") {
                 nwater++;
             } else if (ship.cargo[i] == "Furs") {
@@ -50,9 +50,9 @@ public class MarketWindow extends javax.swing.JFrame {
                 nrobots++;
             }            
         }
-        
-        
-        System.out.println("nWater:" + nwater); //prints out the numbers of cargo space
+        //Prints out the number of goods in cargo
+        /*
+        System.out.println("nWater:" + nwater);
         System.out.println("nFurs:" + nfurs);
         System.out.println("nFood:" + nfood);
         System.out.println("nOre:" + nore);
@@ -62,11 +62,11 @@ public class MarketWindow extends javax.swing.JFrame {
         System.out.println("nMachines:" + nmachines);
         System.out.println("nNarcotics:" + nnarcotics);
         System.out.println("nRobots:" + nrobots);
-        
+        */
         
         int techLevel = solarsystem.getTechLevel();
-                
-        Random rand = new Random(); // creates prices for goods based on a model
+        //Creates prices for goods based on a model    
+        Random rand = new Random(); 
         pwater = Good.Water.basePrice * (1 + rand.nextInt(Good.Water.var) / 10) + (Good.Water.ipl * (techLevel - Good.Water.mtlp));
         pfurs = Good.Furs.basePrice * (1 + rand.nextInt(Good.Furs.var) / 10) + (Good.Furs.ipl * (techLevel - Good.Furs.mtlp));
         pfood = Good.Food.basePrice * (1 + rand.nextInt(Good.Food.var) / 10) + (Good.Food.ipl * (techLevel - Good.Food.mtlp));
@@ -78,7 +78,9 @@ public class MarketWindow extends javax.swing.JFrame {
         pnarcotics = Good.Narcotics.basePrice * (1 + rand.nextInt(Good.Narcotics.var) / 10) + (Good.Narcotics.ipl * (techLevel - Good.Narcotics.mtlp));
         probots = Good.Robots.basePrice * (1 + rand.nextInt(Good.Robots.var) / 10) + (Good.Robots.ipl * (2 - Good.Robots.mtlp));
         
-        System.out.println("pWater:" + pwater); //prints out prices of goods
+        //Prints out prices of goods
+        /*
+        System.out.println("pWater:" + pwater);
         System.out.println("pFurs:" + pfurs);
         System.out.println("pFood:" + pfood);
         System.out.println("pOre:" + pore);
@@ -88,8 +90,10 @@ public class MarketWindow extends javax.swing.JFrame {
         System.out.println("pMachines:" + pmachines);
         System.out.println("pNarcotics:" + pnarcotics);
         System.out.println("pRobots:" + probots);
+        */
         
-        jTextField31.setText(Integer.toString(nwater)); //display numbers of goods in the corresponding textfields
+        //Fill in number of goods in the corresponding JTextFields
+        jTextField31.setText(Integer.toString(nwater));
         jTextField32.setText(Integer.toString(nfurs));
         jTextField33.setText(Integer.toString(nfood));
         jTextField34.setText(Integer.toString(nore));
@@ -100,7 +104,8 @@ public class MarketWindow extends javax.swing.JFrame {
         jTextField39.setText(Integer.toString(nnarcotics));
         jTextField40.setText(Integer.toString(nrobots));
         
-        jTextField1.setText(Integer.toString(pwater)); //display prices of goods in the corresponding textfields.
+        //Fill in prices of goods in the corresponding JTextFields
+        jTextField1.setText(Integer.toString(pwater));
         jTextField12.setText(Integer.toString(pfurs));
         jTextField13.setText(Integer.toString(pfood));
         jTextField14.setText(Integer.toString(pore));
@@ -111,56 +116,25 @@ public class MarketWindow extends javax.swing.JFrame {
         jTextField19.setText(Integer.toString(pnarcotics));
         jTextField20.setText(Integer.toString(probots));
         
-        money = SpaceTrader.player.credit; //get money of the player
-        jTextField41.setText(Integer.toString(money)); //display amount of money in the corresponding textfields
+        //Get money of the player from Player class
+        money = SpaceTrader.player.credit;
         
-        mwater = (1+ rand.nextInt(10)) * techLevel;
-        mfurs = (1+ rand.nextInt(10)) * techLevel;
-        mfood = (1+ rand.nextInt(10)) * techLevel;
-        more = (1+ rand.nextInt(10)) * techLevel;
-        mgames = (1+ rand.nextInt(10)) * techLevel;
-        mfirearms = (1+ rand.nextInt(10)) * techLevel;
-        mmedicine = (1+ rand.nextInt(10)) * techLevel;
-        mmachines = (1+ rand.nextInt(10)) * techLevel;
-        mnarcotics = (1+ rand.nextInt(10)) * techLevel;
-        mrobots = (1+ rand.nextInt(10)) * techLevel;
-        /*stock = new String[100 + rand.nextInt(20)];
-        for (int i = 0; i < stock.length; i++) { //generate stock in market
-            int num = rand.nextInt(10);
-            if (num == 0) {
-                stock[i] = "Water";
-                mwater++;
-            } else if (num == 1) {
-                stock[i] = "Furs";
-                mfurs++;
-            } else if (num == 2) {
-                stock[i] = "Food";
-                mfood++;
-            } else if (num == 3) {
-                stock[i] = "Ore";
-                more++;
-            } else if (num == 4) {
-                stock[i] = "Games";
-                mgames++;
-            } else if (num == 5) {
-                stock[i] = "Firearms";
-                mfirearms++;
-            } else if (num == 6) {
-                stock[i] = "Medicine";
-                mmedicine++;
-            } else if (num == 7) {
-                stock[i] = "Machines";
-                mmachines++;
-            } else if (num == 8) {
-                stock[i] = "Narcotics";
-                mnarcotics++;
-            } else if (num == 9) {
-                stock[i] = "Robots";
-                mrobots++;
-            } else if (num == 10) {
-                stock[i] = null;
-            }
-        }*/
+        //Fill in amount of money in the corresponding JTextField
+        jTextField41.setText(Integer.toString(money));
+        
+        //Generates number of goods in the market stock based on the tech level of the planet
+        mwater = (1+ rand.nextInt(10)) * techLevel + 10 + rand.nextInt(20);
+        mfurs = (1+ rand.nextInt(10)) * techLevel + 10 + rand.nextInt(20);
+        mfood = (1+ rand.nextInt(10)) * techLevel + 10 + rand.nextInt(20);
+        more = (1+ rand.nextInt(10)) * techLevel + 10 + rand.nextInt(20);
+        mgames = (1+ rand.nextInt(10)) * techLevel + 10 + rand.nextInt(20);
+        mfirearms = (1+ rand.nextInt(10)) * techLevel + 10 + rand.nextInt(20);
+        mmedicine = (1+ rand.nextInt(10)) * techLevel + 10 + rand.nextInt(20);
+        mmachines = (1+ rand.nextInt(10)) * techLevel + 10 + rand.nextInt(20);
+        mnarcotics = (1+ rand.nextInt(10)) * techLevel + 10 + rand.nextInt(20);
+        mrobots = (1+ rand.nextInt(10)) * techLevel + 10 + rand.nextInt(20);
+        
+        //Fill in numer of goods in the market stock to the corresponding JTextFields
         jTextField21.setText(Integer.toString(mwater));
         jTextField22.setText(Integer.toString(mfurs));
         jTextField23.setText(Integer.toString(mfood));
@@ -172,7 +146,7 @@ public class MarketWindow extends javax.swing.JFrame {
         jTextField45.setText(Integer.toString(mnarcotics));
         jTextField46.setText(Integer.toString(mrobots));
         
-        System.out.println("Tech Lv: " + solarsystem.getTechLevel());
+        //Disable jButtons if the tech level of planet is less than MTLP of goods.
         jButton1.setEnabled(solarsystem.getTechLevel() >= Good.water.mtlp);
         jButton2.setEnabled(solarsystem.getTechLevel() >= Good.furs.mtlp);
         jButton3.setEnabled(solarsystem.getTechLevel() >= Good.food.mtlp);
@@ -1025,8 +999,9 @@ public class MarketWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField11ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //Update money, number of water in cargo space and market stock when player buys good
         int tempmoney = money;
-        if (tempmoney - pwater > 0 && mwater >0) {
+        if (tempmoney - pwater >= 0 && mwater >0) {
             money = money - pwater;
             nwater++;
             mwater--;
@@ -1040,8 +1015,9 @@ public class MarketWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        //Update money, number of water in cargo space and market stock when player buys good
         int tempmoney = money;
-        if (tempmoney - pfurs > 0 && mfurs >0) {
+        if (tempmoney - pfurs >= 0 && mfurs >0) {
             money = money - pfurs;
             nfurs++;
             mfurs--;
@@ -1055,8 +1031,9 @@ public class MarketWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        //Update money, number of water in cargo space and market stock when player buys good
         int tempmoney = money;
-        if (tempmoney - pfood > 0 && mfood >0) {
+        if (tempmoney - pfood >= 0 && mfood >0) {
             money = money - pfood;
             nfood++;
             mfood--;
@@ -1070,8 +1047,9 @@ public class MarketWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        //Update money, number of water in cargo space and market stock when player buys good
         int tempmoney = money;
-        if (tempmoney - pore > 0&& more > 0) {
+        if (tempmoney - pore >= 0&& more > 0) {
             money = money - pore;
             nore++;
             more--;
@@ -1085,8 +1063,9 @@ public class MarketWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        //Update money, number of water in cargo space and market stock when player buys good
         int tempmoney = money;
-        if (tempmoney - pgames > 0 && mgames > 0) {
+        if (tempmoney - pgames >= 0 && mgames > 0) {
             money = money - pgames;
             ngames++;
             mgames--;
@@ -1100,8 +1079,9 @@ public class MarketWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        //Update money, number of water in cargo space and market stock when player buys good
         int tempmoney = money;
-        if (tempmoney - pfirearms > 0 && mfirearms > 0) {
+        if (tempmoney - pfirearms >= 0 && mfirearms > 0) {
             money = money - pfirearms;
             nfurs++;
             mfurs--;
@@ -1115,8 +1095,9 @@ public class MarketWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+//Update money, number of water in cargo space and market stock when player buys good        
         int tempmoney = money;
-        if (tempmoney - pmedicine > 0 && mmedicine > 0) {
+        if (tempmoney - pmedicine >= 0 && mmedicine > 0) {
             money = money - pmedicine;
             nmedicine++;
             mmedicine--;
@@ -1130,8 +1111,9 @@ public class MarketWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        //Update money, number of water in cargo space and market stock when player buys good
         int tempmoney = money;
-        if (tempmoney - pmachines > 0&& mmachines > 0) {
+        if (tempmoney - pmachines >= 0 && mmachines > 0) {
             money = money - pmachines;
             nmachines++;
             mmachines--;
@@ -1145,8 +1127,9 @@ public class MarketWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        //Update money, number of water in cargo space and market stock when player buys good
         int tempmoney = money;
-        if (tempmoney - pnarcotics > 0 && mnarcotics > 0) {
+        if (tempmoney - pnarcotics >= 0 && mnarcotics > 0) {
             money = money - pnarcotics;
             nnarcotics++;
             mnarcotics--;
@@ -1160,8 +1143,9 @@ public class MarketWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        //Update money, number of water in cargo space and market stock when player buys good
         int tempmoney = money;
-        if (tempmoney - probots > 0 && mrobots > 0) {
+        if (tempmoney - probots >= 0 && mrobots > 0) {
             money = money - probots;
             nrobots++;
             mrobots--;
@@ -1175,6 +1159,7 @@ public class MarketWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        //Update money, number of water in cargo space and market stock when player sells good
         int tempmoney = money;
         if (nwater> 0) {
             money = money + pwater;
@@ -1190,6 +1175,7 @@ public class MarketWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        //Update money, number of water in cargo space and market stock when player sells good
         int tempmoney = money;
         if (nfurs > 0) {
             money = money + pfurs;
@@ -1205,6 +1191,7 @@ public class MarketWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        //Update money, number of water in cargo space and market stock when player sells good
         int tempmoney = money;
         if (nfood > 0) {
             money = money + pfood;
@@ -1220,6 +1207,7 @@ public class MarketWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        //Update money, number of water in cargo space and market stock when player sells good
         int tempmoney = money;
         if (nore > 0) {
             money = money + pore;
@@ -1235,6 +1223,7 @@ public class MarketWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        //Update money, number of water in cargo space and market stock when player sells good
         int tempmoney = money;
         if (ngames > 0) {
             money = money + pgames;
@@ -1250,6 +1239,7 @@ public class MarketWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        //Update money, number of water in cargo space and market stock when player sells good
         int tempmoney = money;
         if (nfirearms > 0) {
             money = money + pfirearms;
@@ -1265,6 +1255,7 @@ public class MarketWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+        //Update money, number of water in cargo space and market stock when player sells good
         int tempmoney = money;
         if (nmedicine > 0) {
             money = money + pmedicine;
@@ -1280,6 +1271,7 @@ public class MarketWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton17ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        //Update money, number of water in cargo space and market stock when player sells good
         int tempmoney = money;
         if (nmachines > 0) {
             money = money + pmachines;
@@ -1295,6 +1287,7 @@ public class MarketWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+       //Update money, number of water in cargo space and market stock when player sells good
         int tempmoney = money;
         if (nnarcotics > 0) {
             money = money + pnarcotics;
@@ -1310,6 +1303,7 @@ public class MarketWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton19ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+        //Update money, number of water in cargo space and market stock when player sells good
         int tempmoney = money;
         if (nrobots > 0) {
             money = money + probots;
