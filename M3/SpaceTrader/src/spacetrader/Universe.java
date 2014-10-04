@@ -13,8 +13,8 @@ import java.util.Random;
  */
 public class Universe {
     Random rand = new Random();
-    SolarSystem currentSolarSystem;
     SolarSystem[] Universe = new SolarSystem[114];
+    static SolarSystem current;
     String[] names = {
         "Acamar",
         "Adahn",		
@@ -148,16 +148,11 @@ public class Universe {
             n[0] = name;
             Universe[i] = new SolarSystem(name, n, rand.nextInt(150), rand.nextInt(100));
         }
-        currentSolarSystem = Universe[0];
+        current = Universe[0];
     }
     
-    public SolarSystem getCurrentSolarSystem() {
-        System.out.println("Current Solar System" + currentSolarSystem.getSolarName());
-        return currentSolarSystem;
-    }
     @Override
     public String toString() {
-        
         String s = "";
         for (int i = 0; i < 113; i++) {
             s += (Universe[i].getSolarName() + ": " + Universe[i].getX() + " " + Universe[i].getY() + ", " + Universe[i].getTechLevel() + ", " + Universe[i].getResourceType() + ", " + Universe[i].getGovType() + "\n");
@@ -165,8 +160,27 @@ public class Universe {
         return s;
     }
     
-    public static void main(String[] args) {
-        Universe uni = new Universe();
-        System.out.println(uni.toString());
+    /**
+     *
+     * @return the current solar system
+     */
+    public static SolarSystem getCurrentSolarSystem() {
+        return current;
+    }
+    
+    public static void setCurrentSolarSystem(SolarSystem s) {
+        current = s;
+    }
+    
+    /**
+     *
+     * @param from the current solar system
+     * @param to the destination solar system
+     * @return double the distance between the two solar systems
+     */
+    public static double distance(SolarSystem from, SolarSystem to) {
+        double a = Math.pow(to.getX() - from.getX(), 2);
+        double b = Math.pow(to.getY() - from.getY(), 2);
+        return Math.pow(a + b, 0.5);
     }
 }
