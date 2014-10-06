@@ -13,7 +13,7 @@ import java.util.Random;
  */
 public class Universe {
     Random rand = new Random();
-    SolarSystem[] Universe = new SolarSystem[114];
+    SolarSystem[] gameUniverse = new SolarSystem[114];
     static SolarSystem current;
     String[] names = {
         "Acamar",
@@ -136,7 +136,7 @@ public class Universe {
         "Zuul"		
     };
     public Universe() {
-        for (int i = 0; i < 113; i++) {
+        for (int i = 0; i < 114; i++) {
             int j = rand.nextInt(114);
             String name = names[j];
             while (name == null) {
@@ -146,16 +146,16 @@ public class Universe {
             names[j] = null;
             String[] n = new String[1];
             n[0] = name;
-            Universe[i] = new SolarSystem(name, n, rand.nextInt(150), rand.nextInt(100));
+            gameUniverse[i] = new SolarSystem(name, n, rand.nextInt(150), rand.nextInt(100));
         }
-        current = Universe[0];
+        current = gameUniverse[0];
     }
     
     @Override
     public String toString() {
         String s = "";
         for (int i = 0; i < 113; i++) {
-            s += (Universe[i].getSolarName() + ": " + Universe[i].getX() + " " + Universe[i].getY() + ", " + Universe[i].getTechLevel() + ", " + Universe[i].getResourceType() + ", " + Universe[i].getGovType() + "\n");
+            s += (gameUniverse[i].getSolarName() + ": " + gameUniverse[i].getX() + " " + gameUniverse[i].getY() + ", " + gameUniverse[i].getTechLevel() + ", " + gameUniverse[i].getResourceType() + ", " + gameUniverse[i].getGovType() + "\n");
         }
         return s;
     }

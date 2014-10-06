@@ -296,7 +296,7 @@ public class NewGame extends javax.swing.JFrame {
             Universe gameUniverse = new Universe(); // create the universe
             System.out.println(gameUniverse.toString()); // Display the info of the universe to the console
             dispose(); // dispose the new game window
-            new GameWindow(gameUniverse.getCurrentSolarSystem()).setVisible(true);  // Show the game window
+            new GameWindow(gameUniverse).setVisible(true);  // Show the game window
         }
     }//GEN-LAST:event_jButton1ActionPerformed
     // end jButton1ActionPerformed

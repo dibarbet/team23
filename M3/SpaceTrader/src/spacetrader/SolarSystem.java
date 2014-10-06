@@ -98,9 +98,7 @@ public class SolarSystem {
      *@param index, the index of the planet to return
      *@return planetNames, the name of the planet as a string
      */
-    public String getPlanetName(int index) {
-        return planetNames[index];
-    }
+    
     /**
      * Returns the tech level of the solar system
      * @return techLevel, the tech level as an int

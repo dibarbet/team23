@@ -14,6 +14,14 @@ public class Ship {
     private int fuel;
     private String[] cargo = new String[limit];
     
+    public int getCount() {
+        return count;
+    }
+    
+    public String getCargo(int i) {
+        return cargo[i];
+    }
+    
     public void addCargo(int amount, String good) {
         if (count + amount <= limit) {
             for (int i = 0; i < amount; i++) {

@@ -27,26 +27,26 @@ public class MarketWindow extends javax.swing.JFrame {
         initComponents();
         this.solarsystem = solarsystem;
         // Get the number of goods in the cargo space
-        for (int i = 0; i < ship.cargo.length; i++) {
-            if (ship.cargo[i] == "Water") {
+        for (int i = 0; i < ship.getCount(); i++) {
+            if (ship.getCargo(i) == "Water") {
                 nwater++;
-            } else if (ship.cargo[i] == "Furs") {
+            } else if (ship.getCargo(i) == "Furs") {
                 nfurs++;
-            } else if (ship.cargo[i] == "Food") {
+            } else if (ship.getCargo(i) == "Food") {
                 nfood++;
-            } else if (ship.cargo[i] == "Ore") {
+            } else if (ship.getCargo(i) == "Ore") {
                 nore++;
-            } else if (ship.cargo[i] == "Games") {
+            } else if (ship.getCargo(i) == "Games") {
                 ngames++;
-            } else if (ship.cargo[i] == "Firearms") {
+            } else if (ship.getCargo(i) == "Firearms") {
                 nfirearms++;
-            } else if (ship.cargo[i] == "Medicine") {
+            } else if (ship.getCargo(i) == "Medicine") {
                 nmedicine++;
-            } else if (ship.cargo[i] == "Machines") {
+            } else if (ship.getCargo(i) == "Machines") {
                 nmachines++;
-            } else if (ship.cargo[i] == "Narcotics") {
+            } else if (ship.getCargo(i) == "Narcotics") {
                 nnarcotics++;
-            } else if (ship.cargo[i] == "Robots") {
+            } else if (ship.getCargo(i) == "Robots") {
                 nrobots++;
             }            
         }
@@ -283,9 +283,6 @@ public class MarketWindow extends javax.swing.JFrame {
                 .addContainerGap(271, Short.MAX_VALUE))
         );
 
-        jDialog2.setMinimumSize(new java.awt.Dimension(450, 100));
-        jDialog2.setResizable(false);
-
         jLabel8.setText("You cannot buy more goods than you have money or cargo space. ");
 
         javax.swing.GroupLayout jDialog2Layout = new javax.swing.GroupLayout(jDialog2.getContentPane());
@@ -305,7 +302,7 @@ public class MarketWindow extends javax.swing.JFrame {
                 .addContainerGap(262, Short.MAX_VALUE))
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jTextField2.setEditable(false);
         jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -1161,14 +1158,14 @@ public class MarketWindow extends javax.swing.JFrame {
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         //Update money, number of water in cargo space and market stock when player sells good
         int tempmoney = money;
-        if (nwater> 0) {
+        if (nwater > 0) {
             money = money + pwater;
             nwater--;
             mwater++;
             jTextField21.setText(Integer.toString(mwater));
             jTextField31.setText(Integer.toString(nwater));
             jTextField41.setText(Integer.toString(money));
-            ship.removeCargo(1, "Water");
+            ship.sellCargo(1, "Water");
         } else {
             jDialog1.setVisible(true);
         }
@@ -1184,7 +1181,7 @@ public class MarketWindow extends javax.swing.JFrame {
             jTextField22.setText(Integer.toString(mfurs));
             jTextField32.setText(Integer.toString(nfurs));
             jTextField41.setText(Integer.toString(money));
-            ship.removeCargo(1, "Furs");
+            ship.sellCargo(1, "Furs");
         } else {
             jDialog1.setVisible(true);
         }
@@ -1200,7 +1197,7 @@ public class MarketWindow extends javax.swing.JFrame {
             jTextField23.setText(Integer.toString(mfood));
             jTextField33.setText(Integer.toString(nfood));
             jTextField41.setText(Integer.toString(money));
-            ship.removeCargo(1, "Food");
+            ship.sellCargo(1, "Food");
         } else {
             jDialog1.setVisible(true);
         }
@@ -1216,7 +1213,7 @@ public class MarketWindow extends javax.swing.JFrame {
             jTextField24.setText(Integer.toString(more));
             jTextField34.setText(Integer.toString(nore));
             jTextField41.setText(Integer.toString(money));
-            ship.removeCargo(1, "Ore");
+            ship.sellCargo(1, "Ore");
         } else {
             jDialog1.setVisible(true);
         }
@@ -1232,7 +1229,7 @@ public class MarketWindow extends javax.swing.JFrame {
             jTextField25.setText(Integer.toString(mgames));
             jTextField35.setText(Integer.toString(ngames));
             jTextField41.setText(Integer.toString(money));
-            ship.removeCargo(1, "Games");
+            ship.sellCargo(1, "Games");
         } else {
             jDialog1.setVisible(true);
         }
@@ -1248,7 +1245,7 @@ public class MarketWindow extends javax.swing.JFrame {
             jTextField42.setText(Integer.toString(mfirearms));
             jTextField36.setText(Integer.toString(nfirearms));
             jTextField41.setText(Integer.toString(money));
-            ship.removeCargo(1, "Firearms");
+            ship.sellCargo(1, "Firearms");
         } else {
             jDialog1.setVisible(true);
         }
@@ -1264,7 +1261,7 @@ public class MarketWindow extends javax.swing.JFrame {
             jTextField43.setText(Integer.toString(mmedicine));
             jTextField37.setText(Integer.toString(nmedicine));
             jTextField41.setText(Integer.toString(money));
-            ship.removeCargo(1, "Medicine");
+            ship.sellCargo(1, "Medicine");
         } else {
             jDialog1.setVisible(true);
         }
@@ -1280,7 +1277,7 @@ public class MarketWindow extends javax.swing.JFrame {
             jTextField44.setText(Integer.toString(mmachines));
             jTextField38.setText(Integer.toString(nmachines));
             jTextField41.setText(Integer.toString(money));
-            ship.removeCargo(1, "Machines");
+            ship.sellCargo(1, "Machines");
         } else {
             jDialog1.setVisible(true);
         }
@@ -1296,7 +1293,7 @@ public class MarketWindow extends javax.swing.JFrame {
             jTextField45.setText(Integer.toString(mnarcotics));
             jTextField39.setText(Integer.toString(nnarcotics));
             jTextField41.setText(Integer.toString(money));
-            ship.removeCargo(1, "Narcotics");
+            ship.sellCargo(1, "Narcotics");
         } else {
             jDialog1.setVisible(true);
         }
@@ -1312,7 +1309,7 @@ public class MarketWindow extends javax.swing.JFrame {
             jTextField46.setText(Integer.toString(mrobots));
             jTextField40.setText(Integer.toString(nrobots));
             jTextField41.setText(Integer.toString(money));
-            ship.removeCargo(1, "Robots");
+            ship.sellCargo(1, "Robots");
         } else {
             jDialog1.setVisible(true);
         }
