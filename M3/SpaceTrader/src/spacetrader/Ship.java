@@ -12,7 +12,13 @@ public class Ship {
     private int count = 0;
     private int limit = 30;
     private int fuel;
+    private int shipType;
     private String[] cargo = new String[limit];
+    
+    public Ship(int shipType) {
+        this.fuel = 30;
+        this.shipType = shipType;
+    }
     
     public int getCount() {
         return count;
