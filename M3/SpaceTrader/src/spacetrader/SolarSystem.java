@@ -207,7 +207,7 @@ public class SolarSystem {
         if (weightZero <= 7) {
             aResource = 0;
         } else {
-            aResource = randomIntRange(1, 13);
+            aResource = randomIntRange(1, 11);
         }
         return aResource;
     }
@@ -215,9 +215,9 @@ public class SolarSystem {
      * Sets attributes of the solar system
      */
     private void setAttributes() {
-        techLevel = randomIntRange(0, 8);
+        techLevel = randomIntRange(0, 7);
         resources = setResourceLevel();
-        govType = randomIntRange(0, 18);
+        govType = randomIntRange(0, 16);
         policeEncounterChance = randomIntRange(25, 51);
         pirateEncounterChance = randomIntRange(10, 51);
     }
