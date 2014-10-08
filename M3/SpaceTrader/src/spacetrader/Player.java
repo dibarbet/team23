@@ -43,8 +43,4 @@ public class Player {
         currShip = new Ship(); // initialize the ship of player
     } // end constructor
     
-    public Ship getShip() {
-        return currShip;
-    }
-    
 }
