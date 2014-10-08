@@ -19,7 +19,6 @@ import java.util.Random;
 public class TravelEncounter extends javax.swing.JFrame {
 
     private int dist;
-    private int oDist;
     Random rand = new Random();
     int encNum;
     boolean stop;
@@ -71,12 +70,11 @@ public class TravelEncounter extends javax.swing.JFrame {
         dist = 20;
     }
 
-    public TravelEncounter(double oX, double oY, double nX, double nY) {
+    public TravelEncounter(double d) {
         initComponents();
         //dist = (int)Math.sqrt(Math.pow(Math.abs(nY-oY),2)+Math.pow(Math.abs(nX-oX),2));
         timer.addActionListener(myal);
-        dist = 20;
-        oDist = dist;
+        dist = (int)d;
     }
 
     /**
