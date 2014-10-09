@@ -70,15 +70,17 @@ public class Ship {
      * If able to travel, sets the new location and updates the ships fuel.
      * @param dest the destination solar system
      */
-    public void travel(SolarSystem dest) {
+    public boolean travel(SolarSystem dest) {
         int miles = fuelToMiles(1, fuel);
         double distance = Universe.distance(Universe.getCurrentSolarSystem(), dest);
-        if (miles > distance) {
+        if (miles < distance) {
             System.out.println("Ship unable to travel that distance");
+            return false;
         } else {
             Universe.setCurrentSolarSystem(dest);
             miles = (int)distance - miles;
             fuel = milesToFuel(1, miles);
+            return true;
         }
     }
 }
