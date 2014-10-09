@@ -40,7 +40,7 @@ public class Player {
         engineer = newEngineer; // set player's engineer skill point
         investor = newInvestor; // set player's investor skill point
         credit = 1000; // initialize the amount of money that play owns to 1000
-        currShip = new Ship(); // initialize the ship of player
+        currShip = new Ship(1); // initialize the ship of player
     } // end constructor
     
     public Ship getShip() {

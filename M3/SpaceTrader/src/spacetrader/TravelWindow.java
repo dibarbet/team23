@@ -136,6 +136,7 @@ public class TravelWindow extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         new TravelEncounter(universe.distance(universe.getCurrentSolarSystem(),solarsystem)).setVisible(true);
         SpaceTrader.player.getShip().travel(solarsystem);
+        universe.current = solarsystem;
         new PlanetWindow(solarsystem, universe).setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed

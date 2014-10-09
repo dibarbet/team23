@@ -15,7 +15,7 @@ public class MarketWindow extends javax.swing.JFrame {
     private int pwater, pfurs, pfood, pore, pgames, pfirearms, pmedicine, pmachines, pnarcotics, probots;
     private int mwater, mfurs, mfood, more, mgames, mfirearms, mmedicine, mmachines, mnarcotics, mrobots;
     private int money;
-    private Ship ship = new Ship();
+    private Ship ship = new Ship(1);
     private String[] stock;
     private SolarSystem solarsystem;
     /**
