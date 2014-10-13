@@ -78,7 +78,7 @@ public class Ship {
             return false;
         } else {
             Universe.setCurrentSolarSystem(dest);
-            miles = (int)distance - miles;
+            miles = Math.abs((int)distance - miles);
             fuel = milesToFuel(1, miles);
             return true;
         }
