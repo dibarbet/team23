@@ -15,7 +15,7 @@ import javafx.stage.Stage;
  * @author YaxiongLiu
  */
 public class SpaceTrader extends Application {
-    protected static Player player; // The variavle holds represents the player of thi game
+    public static Player player; // The variavle holds represents the player of thi game
     @Override
     public void start(Stage primaryStage) {
         new WelcomeWin().setVisible(true);

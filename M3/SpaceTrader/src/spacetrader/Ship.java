@@ -16,7 +16,7 @@ public class Ship {
     private String[] cargo = new String[limit];
     
     public Ship(int shipType) {
-        this.fuel = 30;
+        this.fuel = 100;
         this.shipType = shipType;
     }
     
@@ -78,7 +78,7 @@ public class Ship {
             return false;
         } else {
             Universe.setCurrentSolarSystem(dest);
-            miles = (int)distance - miles;
+            miles = Math.abs((int)distance - miles);
             fuel = milesToFuel(1, miles);
             return true;
         }

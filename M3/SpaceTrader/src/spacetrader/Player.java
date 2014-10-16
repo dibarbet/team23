@@ -47,4 +47,20 @@ public class Player {
         return currShip;
     }
     
+    public int gainCredit(int gainedCredit) {
+        credit = credit + gainedCredit;
+        return gainedCredit;
+    }
+    
+    public int loseCredit(int lostCredit) {
+        if (credit > lostCredit) {
+            credit = credit - lostCredit;
+            return lostCredit;
+        } else {
+            int tempCredit = credit;
+            credit = 0;
+            return tempCredit;
+        }
+        
+    }
 }
