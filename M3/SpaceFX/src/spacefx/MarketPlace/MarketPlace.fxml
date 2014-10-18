@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="497.0" prefWidth="449.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="spacefx.MarketPlace.MarketPlaceController">
+   <children>
+      <Label alignment="CENTER" layoutX="106.0" layoutY="134.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+      <Button layoutX="54.0" layoutY="130.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Sell" />
+      <Label alignment="CENTER" layoutX="151.0" layoutY="134.0" prefHeight="17.0" prefWidth="92.0" text="Water" />
+      <Label alignment="CENTER" layoutX="249.0" layoutY="134.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+      <Label alignment="CENTER" layoutX="304.0" layoutY="134.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+      <Button layoutX="344.0" layoutY="130.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Buy" />
+      <Label layoutX="101.0" layoutY="107.0" text="Amount" />
+      <Label layoutX="182.0" layoutY="107.0" text="Good" />
+      <Label layoutX="252.0" layoutY="107.0" text="Price" />
+      <Label layoutX="299.0" layoutY="107.0" text="Amount" />
+      <Label layoutX="70.0" layoutY="79.0" text="Cargo Bay">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="300.0" layoutY="79.0" text="Market Goods">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="166.0" layoutY="79.0" text="Money  $">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="225.0" layoutY="79.0" prefHeight="20.0" prefWidth="59.0" text="0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button layoutX="344.0" layoutY="163.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Buy" />
+      <Label alignment="CENTER" layoutX="304.0" layoutY="167.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+      <Label alignment="CENTER" layoutX="249.0" layoutY="167.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+      <Label alignment="CENTER" layoutX="151.0" layoutY="167.0" prefHeight="17.0" prefWidth="92.0" text="Furs" />
+      <Button layoutX="54.0" layoutY="163.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Sell" />
+      <Label alignment="CENTER" layoutX="106.0" layoutY="167.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+      <Label alignment="CENTER" layoutX="106.0" layoutY="234.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+      <Button layoutX="54.0" layoutY="230.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Sell" />
+      <Label alignment="CENTER" layoutX="151.0" layoutY="234.0" prefHeight="17.0" prefWidth="92.0" text="Ore" />
+      <Label alignment="CENTER" layoutX="249.0" layoutY="234.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+      <Label alignment="CENTER" layoutX="304.0" layoutY="234.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+      <Button layoutX="344.0" layoutY="230.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Buy" />
+      <Button layoutX="344.0" layoutY="197.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Buy" />
+      <Label alignment="CENTER" layoutX="304.0" layoutY="201.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+      <Label alignment="CENTER" layoutX="249.0" layoutY="201.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+      <Label alignment="CENTER" layoutX="151.0" layoutY="201.0" prefHeight="17.0" prefWidth="92.0" text="Food" />
+      <Button layoutX="54.0" layoutY="197.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Sell" />
+      <Label alignment="CENTER" layoutX="106.0" layoutY="201.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+      <Label alignment="CENTER" layoutX="106.0" layoutY="336.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+      <Button layoutX="54.0" layoutY="332.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Sell" />
+      <Label alignment="CENTER" layoutX="151.0" layoutY="336.0" prefHeight="17.0" prefWidth="92.0" text="Medicine" />
+      <Label alignment="CENTER" layoutX="249.0" layoutY="336.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+      <Label alignment="CENTER" layoutX="304.0" layoutY="336.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+      <Button layoutX="344.0" layoutY="332.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Buy" />
+      <Button layoutX="344.0" layoutY="365.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Buy" />
+      <Label alignment="CENTER" layoutX="304.0" layoutY="369.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+      <Label alignment="CENTER" layoutX="249.0" layoutY="369.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+      <Label alignment="CENTER" layoutX="151.0" layoutY="369.0" prefHeight="17.0" prefWidth="92.0" text="Machines" />
+      <Button layoutX="54.0" layoutY="365.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Sell" />
+      <Label alignment="CENTER" layoutX="106.0" layoutY="369.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+      <Label alignment="CENTER" layoutX="106.0" layoutY="302.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+      <Button layoutX="54.0" layoutY="298.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Sell" />
+      <Label alignment="CENTER" layoutX="151.0" layoutY="302.0" prefHeight="17.0" prefWidth="92.0" text="Firearms" />
+      <Label alignment="CENTER" layoutX="249.0" layoutY="302.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+      <Label alignment="CENTER" layoutX="304.0" layoutY="302.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+      <Button layoutX="344.0" layoutY="298.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Buy" />
+      <Button layoutX="344.0" layoutY="265.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Buy" />
+      <Label alignment="CENTER" layoutX="304.0" layoutY="269.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+      <Label alignment="CENTER" layoutX="249.0" layoutY="269.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+      <Label alignment="CENTER" layoutX="151.0" layoutY="269.0" prefHeight="17.0" prefWidth="92.0" text="Games" />
+      <Button layoutX="54.0" layoutY="265.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Sell" />
+      <Label alignment="CENTER" layoutX="106.0" layoutY="269.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+      <Label alignment="CENTER" layoutX="106.0" layoutY="436.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+      <Button layoutX="54.0" layoutY="432.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Sell" />
+      <Label alignment="CENTER" layoutX="151.0" layoutY="436.0" prefHeight="17.0" prefWidth="92.0" text="Robots" />
+      <Label alignment="CENTER" layoutX="249.0" layoutY="436.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+      <Label alignment="CENTER" layoutX="304.0" layoutY="436.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+      <Button layoutX="344.0" layoutY="432.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Buy" />
+      <Button layoutX="344.0" layoutY="399.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Buy" />
+      <Label alignment="CENTER" layoutX="304.0" layoutY="403.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+      <Label alignment="CENTER" layoutX="249.0" layoutY="403.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+      <Label alignment="CENTER" layoutX="151.0" layoutY="403.0" prefHeight="17.0" prefWidth="92.0" text="Narcotics" />
+      <Button layoutX="54.0" layoutY="399.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Sell" />
+      <Label alignment="CENTER" layoutX="106.0" layoutY="403.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+      <Label layoutX="173.0" layoutY="34.0" text="Market Place">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
