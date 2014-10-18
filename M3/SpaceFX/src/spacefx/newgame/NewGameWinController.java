@@ -343,7 +343,7 @@ public class NewGameWinController implements Initializable {
         dialogBox.initStyle(StageStyle.UTILITY);
         Scene aScene = new Scene(new Group(new Text(25, 25, "Please make sure you have exactly 15 points")));
         dialogBox.setHeight(80);
-        dialogBox.setWidth(200);
+        dialogBox.setWidth(300);
         dialogBox.setScene(aScene);
         dialogBox.show();
     }
