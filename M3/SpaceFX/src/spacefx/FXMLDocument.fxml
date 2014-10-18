@@ -37,11 +37,11 @@
                   <AnchorPane id="AnchorPane" prefHeight="497.0" prefWidth="449.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
                     <children>
                         <Label fx:id="waterCargo" alignment="CENTER" layoutX="286.0" layoutY="131.0" prefHeight="17.0" prefWidth="32.0" text="0" />
-                        <Button layoutX="234.0" layoutY="127.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Sell" />
+                        <Button fx:id="sWaterB" layoutX="234.0" layoutY="127.0" mnemonicParsing="false" onAction="#sWaterBAction" prefHeight="25.0" prefWidth="47.0" text="Sell" />
                         <Label alignment="CENTER" layoutX="331.0" layoutY="131.0" prefHeight="17.0" prefWidth="92.0" text="Water" />
                         <Label fx:id="pWater" alignment="CENTER" layoutX="429.0" layoutY="131.0" prefHeight="17.0" prefWidth="52.0" text="0" />
                         <Label fx:id="planetWater" alignment="CENTER" layoutX="511.0" layoutY="132.0" prefHeight="17.0" prefWidth="32.0" text="0" />
-                        <Button layoutX="551.0" layoutY="128.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Buy" />
+                        <Button fx:id="bWaterB" layoutX="551.0" layoutY="128.0" mnemonicParsing="false" onAction="#bWaterBAction" prefHeight="25.0" prefWidth="47.0" text="Buy" />
                         <Label layoutX="281.0" layoutY="104.0" text="Amount" />
                         <Label layoutX="362.0" layoutY="104.0" text="Good" />
                         <Label layoutX="432.0" layoutY="104.0" text="Price" />
@@ -66,59 +66,59 @@
                                 <Font size="14.0" />
                             </font>
                         </Label>
-                        <Button layoutX="551.0" layoutY="161.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Buy" />
+                        <Button fx:id="bFursB" layoutX="551.0" layoutY="161.0" mnemonicParsing="false" onAction="#bFursBAction" prefHeight="25.0" prefWidth="47.0" text="Buy" />
                         <Label fx:id="planetFur" alignment="CENTER" layoutX="511.0" layoutY="165.0" prefHeight="17.0" prefWidth="32.0" text="0" />
                         <Label fx:id="pFur" alignment="CENTER" layoutX="429.0" layoutY="164.0" prefHeight="17.0" prefWidth="52.0" text="0" />
                         <Label alignment="CENTER" layoutX="331.0" layoutY="164.0" prefHeight="17.0" prefWidth="92.0" text="Furs" />
-                        <Button layoutX="234.0" layoutY="160.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Sell" />
+                        <Button fx:id="sFursB" layoutX="234.0" layoutY="160.0" mnemonicParsing="false" onAction="#sFursBAction" prefHeight="25.0" prefWidth="47.0" text="Sell" />
                         <Label fx:id="furCargo" alignment="CENTER" layoutX="286.0" layoutY="164.0" prefHeight="17.0" prefWidth="32.0" text="0" />
                         <Label fx:id="oreCargo" alignment="CENTER" layoutX="286.0" layoutY="231.0" prefHeight="17.0" prefWidth="32.0" text="0" />
-                        <Button layoutX="234.0" layoutY="227.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Sell" />
+                        <Button fx:id="sOreB" layoutX="234.0" layoutY="227.0" mnemonicParsing="false" onAction="#sOreBAction" prefHeight="25.0" prefWidth="47.0" text="Sell" />
                         <Label alignment="CENTER" layoutX="331.0" layoutY="231.0" prefHeight="17.0" prefWidth="92.0" text="Ore" />
                         <Label fx:id="pOre" alignment="CENTER" layoutX="429.0" layoutY="231.0" prefHeight="17.0" prefWidth="52.0" text="0" />
                         <Label fx:id="planetOre" alignment="CENTER" layoutX="511.0" layoutY="232.0" prefHeight="17.0" prefWidth="32.0" text="0" />
-                        <Button layoutX="551.0" layoutY="228.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Buy" />
-                        <Button layoutX="551.0" layoutY="195.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Buy" />
+                        <Button fx:id="bOreB" layoutX="551.0" layoutY="228.0" mnemonicParsing="false" onAction="#bOreBAction" prefHeight="25.0" prefWidth="47.0" text="Buy" />
+                        <Button fx:id="bFoodB" layoutX="551.0" layoutY="195.0" mnemonicParsing="false" onAction="#bFoodBAction" prefHeight="25.0" prefWidth="47.0" text="Buy" />
                         <Label fx:id="planetFood" alignment="CENTER" layoutX="511.0" layoutY="199.0" prefHeight="17.0" prefWidth="32.0" text="0" />
                         <Label fx:id="pFood" alignment="CENTER" layoutX="429.0" layoutY="198.0" prefHeight="17.0" prefWidth="52.0" text="0" />
                         <Label alignment="CENTER" layoutX="331.0" layoutY="198.0" prefHeight="17.0" prefWidth="92.0" text="Food" />
-                        <Button layoutX="234.0" layoutY="194.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Sell" />
+                        <Button fx:id="sFoodB" layoutX="234.0" layoutY="194.0" mnemonicParsing="false" onAction="#sFoodBAction" prefHeight="25.0" prefWidth="47.0" text="Sell" />
                         <Label fx:id="foodCargo" alignment="CENTER" layoutX="286.0" layoutY="198.0" prefHeight="17.0" prefWidth="32.0" text="0" />
                         <Label fx:id="medCargo" alignment="CENTER" layoutX="286.0" layoutY="333.0" prefHeight="17.0" prefWidth="32.0" text="0" />
-                        <Button layoutX="234.0" layoutY="329.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Sell" />
+                        <Button fx:id="sMedicineB" layoutX="234.0" layoutY="329.0" mnemonicParsing="false" onAction="#sMedicineBAction" prefHeight="25.0" prefWidth="47.0" text="Sell" />
                         <Label alignment="CENTER" layoutX="331.0" layoutY="333.0" prefHeight="17.0" prefWidth="92.0" text="Medicine" />
                         <Label fx:id="pMed" alignment="CENTER" layoutX="429.0" layoutY="333.0" prefHeight="17.0" prefWidth="52.0" text="0" />
                         <Label fx:id="planetMed" alignment="CENTER" layoutX="511.0" layoutY="334.0" prefHeight="17.0" prefWidth="32.0" text="0" />
-                        <Button layoutX="551.0" layoutY="330.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Buy" />
-                        <Button layoutX="551.0" layoutY="363.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Buy" />
+                        <Button fx:id="bMedicineB" layoutX="551.0" layoutY="330.0" mnemonicParsing="false" onAction="#bMedicineBAction" prefHeight="25.0" prefWidth="47.0" text="Buy" />
+                        <Button fx:id="bMachinesB" layoutX="551.0" layoutY="363.0" mnemonicParsing="false" onAction="#bMachinesBAction" prefHeight="25.0" prefWidth="47.0" text="Buy" />
                         <Label fx:id="planetMach" alignment="CENTER" layoutX="511.0" layoutY="367.0" prefHeight="17.0" prefWidth="32.0" text="0" />
                         <Label fx:id="pMach" alignment="CENTER" layoutX="429.0" layoutY="366.0" prefHeight="17.0" prefWidth="52.0" text="0" />
                         <Label alignment="CENTER" layoutX="331.0" layoutY="366.0" prefHeight="17.0" prefWidth="92.0" text="Machines" />
-                        <Button layoutX="234.0" layoutY="362.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Sell" />
+                        <Button fx:id="sMachinesB" layoutX="234.0" layoutY="362.0" mnemonicParsing="false" onAction="#sMachinesBAction" prefHeight="25.0" prefWidth="47.0" text="Sell" />
                         <Label fx:id="machCargo" alignment="CENTER" layoutX="286.0" layoutY="366.0" prefHeight="17.0" prefWidth="32.0" text="0" />
                         <Label fx:id="fireCargo" alignment="CENTER" layoutX="286.0" layoutY="299.0" prefHeight="17.0" prefWidth="32.0" text="0" />
-                        <Button layoutX="234.0" layoutY="295.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Sell" />
+                        <Button fx:id="sFirearmsB" layoutX="234.0" layoutY="295.0" mnemonicParsing="false" onAction="#sFirearmsBAction" prefHeight="25.0" prefWidth="47.0" text="Sell" />
                         <Label alignment="CENTER" layoutX="331.0" layoutY="299.0" prefHeight="17.0" prefWidth="92.0" text="Firearms" />
                         <Label fx:id="pFire" alignment="CENTER" layoutX="429.0" layoutY="299.0" prefHeight="17.0" prefWidth="52.0" text="0" />
                         <Label fx:id="planetFire" alignment="CENTER" layoutX="511.0" layoutY="300.0" prefHeight="17.0" prefWidth="32.0" text="0" />
-                        <Button layoutX="551.0" layoutY="296.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Buy" />
-                        <Button layoutX="551.0" layoutY="263.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Buy" />
+                        <Button fx:id="bFirearmsB" layoutX="551.0" layoutY="296.0" mnemonicParsing="false" onAction="#bFirearmsBAction" prefHeight="25.0" prefWidth="47.0" text="Buy" />
+                        <Button fx:id="bGamesB" layoutX="551.0" layoutY="263.0" mnemonicParsing="false" onAction="#bGamesBAction" prefHeight="25.0" prefWidth="47.0" text="Buy" />
                         <Label fx:id="planetGame" alignment="CENTER" layoutX="511.0" layoutY="267.0" prefHeight="17.0" prefWidth="32.0" text="0" />
                         <Label fx:id="pGame" alignment="CENTER" layoutX="429.0" layoutY="266.0" prefHeight="17.0" prefWidth="52.0" text="0" />
                         <Label alignment="CENTER" layoutX="331.0" layoutY="266.0" prefHeight="17.0" prefWidth="92.0" text="Games" />
-                        <Button layoutX="234.0" layoutY="262.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Sell" />
+                        <Button fx:id="sGamesB" layoutX="234.0" layoutY="262.0" mnemonicParsing="false" onAction="#sGamesBAction" prefHeight="25.0" prefWidth="47.0" text="Sell" />
                         <Label fx:id="gameCargo" alignment="CENTER" layoutX="286.0" layoutY="266.0" prefHeight="17.0" prefWidth="32.0" text="0" />
                         <Label fx:id="robCargo" alignment="CENTER" layoutX="286.0" layoutY="433.0" prefHeight="17.0" prefWidth="32.0" text="0" />
-                        <Button layoutX="234.0" layoutY="429.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Sell" />
+                        <Button fx:id="sRobotsB" layoutX="234.0" layoutY="429.0" mnemonicParsing="false" onAction="#sRobotsBAction" prefHeight="25.0" prefWidth="47.0" text="Sell" />
                         <Label alignment="CENTER" layoutX="331.0" layoutY="433.0" prefHeight="17.0" prefWidth="92.0" text="Robots" />
                         <Label fx:id="pRob" alignment="CENTER" layoutX="429.0" layoutY="433.0" prefHeight="17.0" prefWidth="52.0" text="0" />
                         <Label fx:id="planetRob" alignment="CENTER" layoutX="511.0" layoutY="434.0" prefHeight="17.0" prefWidth="32.0" text="0" />
-                        <Button layoutX="551.0" layoutY="430.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Buy" />
-                        <Button layoutX="551.0" layoutY="397.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Buy" />
+                        <Button fx:id="bRobotsB" layoutX="551.0" layoutY="430.0" mnemonicParsing="false" onAction="#bRobotsBAction" prefHeight="25.0" prefWidth="47.0" text="Buy" />
+                        <Button fx:id="bNarcoticsB" layoutX="551.0" layoutY="397.0" mnemonicParsing="false" onAction="#bNarcoticsBAction" prefHeight="25.0" prefWidth="47.0" text="Buy" />
                         <Label fx:id="planetNarc" alignment="CENTER" layoutX="511.0" layoutY="401.0" prefHeight="17.0" prefWidth="32.0" text="0" />
                         <Label fx:id="pNarc" alignment="CENTER" layoutX="429.0" layoutY="400.0" prefHeight="17.0" prefWidth="52.0" text="0" />
                         <Label alignment="CENTER" layoutX="331.0" layoutY="400.0" prefHeight="17.0" prefWidth="92.0" text="Narcotics" />
-                        <Button layoutX="234.0" layoutY="396.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="47.0" text="Sell" />
+                        <Button fx:id="sNarcotics" layoutX="234.0" layoutY="396.0" mnemonicParsing="false" onAction="#sNarcoticsBAction" prefHeight="25.0" prefWidth="47.0" text="Sell" />
                         <Label fx:id="narcCargo" alignment="CENTER" layoutX="286.0" layoutY="400.0" prefHeight="17.0" prefWidth="32.0" text="0" />
                         <Label layoutX="353.0" layoutY="31.0" text="Market Place">
                            <font>

@@ -5,16 +5,19 @@
  */
 package spacefx.newgame;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -330,6 +333,7 @@ public class NewGameWinController implements Initializable {
         }
     }
     private void handleBadName() {
+        /*
         Stage dialogBox = new Stage();
         dialogBox.initStyle(StageStyle.UTILITY);
         Scene aScene = new Scene(new Group(new Text(25, 25, "Please enter a valid name")));
@@ -337,8 +341,23 @@ public class NewGameWinController implements Initializable {
         dialogBox.setWidth(200);
         dialogBox.setScene(aScene);
         dialogBox.show();
+        */
+        try {
+            FXMLLoader loader = new FXMLLoader(SpaceFX.class.getResource("newgame/emptyNameErr.fxml"));
+            AnchorPane newPage = (AnchorPane) loader.load();
+            Stage newGameStage = new Stage();
+            newGameStage.setTitle("Error");
+            Scene scene = new Scene(newPage);
+            newGameStage.setScene(scene);
+            EmptyNameErrController controller = loader.getController();
+            controller.setTheStage(newGameStage);
+            newGameStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     private void handleBadPoints() {
+        /*
         Stage dialogBox = new Stage();
         dialogBox.initStyle(StageStyle.UTILITY);
         Scene aScene = new Scene(new Group(new Text(25, 25, "Please make sure you have exactly 15 points")));
@@ -346,6 +365,20 @@ public class NewGameWinController implements Initializable {
         dialogBox.setWidth(300);
         dialogBox.setScene(aScene);
         dialogBox.show();
+        */
+        try {
+            FXMLLoader loader = new FXMLLoader(SpaceFX.class.getResource("newgame/unallocPointsErr.fxml"));
+            AnchorPane newPage = (AnchorPane) loader.load();
+            Stage newGameStage = new Stage();
+            newGameStage.setTitle("Error");
+            Scene scene = new Scene(newPage);
+            newGameStage.setScene(scene);
+            UnallocPointsErrController controller = loader.getController();
+            controller.setTheStage(newGameStage);
+            newGameStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     @FXML
     private void handleOK() {

@@ -68,6 +68,11 @@ public class Market {
         mnarcotics = (1+ rand.nextInt(10)) * techLevel + 10 + rand.nextInt(20);
         mrobots = (1+ rand.nextInt(10)) * techLevel + 10 + rand.nextInt(20);
     }
+    
+    public void setMoney(int m) {
+        money = m;
+    }
+    
     /*Returns the amount of money after buying One water
      *@return money left after buying, or -1 if buying would make money
      *drop below 0
@@ -398,4 +403,5 @@ public class Market {
         }
         return money;
     }
+    
 }
