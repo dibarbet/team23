@@ -17,7 +17,11 @@ import javafx.scene.control.Label;
  * @author David
  */
 public class FXMLDocumentController implements Initializable {
-    
+    private SolarSystem currentSolarSystem;
+    private Universe universe;
+    private Player player;
+    private Market market;
+    private Ship ship;
 
     
     @Override
