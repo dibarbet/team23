@@ -15,11 +15,15 @@ public class Market {
     protected int pwater, pfurs, pfood, pore, pgames, pfirearms, pmedicine, pmachines, pnarcotics, probots;
     protected int mwater, mfurs, mfood, more, mgames, mfirearms, mmedicine, mmachines, mnarcotics, mrobots;
     private int money;
-    private Ship ship = new Ship(1);
+    private Ship ship;
     private String[] stock;
     private int techLevel;
-    
+    /**
+     * Initializes the market for a solar system
+     * @param techLevel the tech level for the solar system
+     */
     public Market(int techLevel) {
+        ship = GameData.getShip();
         this.techLevel = techLevel;
         // Get the number of goods in the cargo space
         for (int i = 0; i < ship.getCount(); i++) {
@@ -68,7 +72,10 @@ public class Market {
         mnarcotics = (1+ rand.nextInt(10)) * techLevel + 10 + rand.nextInt(20);
         mrobots = (1+ rand.nextInt(10)) * techLevel + 10 + rand.nextInt(20);
     }
-    
+    /**
+     * Sets the money for the market place
+     * @param m the amount of money for the player to have
+     */
     public void setMoney(int m) {
         money = m;
     }
@@ -403,7 +410,9 @@ public class Market {
         }
         return money;
     }
-    
+    /**
+     * Updates the ship quantities.
+     */
     public void updateShip() {
         GameData.setShip(ship);
     }

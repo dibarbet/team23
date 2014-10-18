@@ -149,8 +149,22 @@ public class FXMLDocumentController implements Initializable {
     private Button bNarcoticsB;
     @FXML
     private Button bRobotsB;
+    @FXML
+    private Label curSolarName;
+    @FXML
+    private Label curSolarTech;
+    @FXML
+    private Label curSolarResource;
+    @FXML
+    private Label curSolarGov;
+    @FXML
+    private Label curSolarLoc;
     
     // </editor-fold>
+    /**
+     * Method to handle new game menu option being pressed
+     * Creates new window to allow user to create a new game
+     */
     @FXML
     private void handleNewGame() {
         try {
@@ -175,6 +189,9 @@ public class FXMLDocumentController implements Initializable {
         }
         
     }
+    /**
+     * Refreshes market when the market tab is selected
+     */
     @FXML
     private void refreshMarket() {
         market = currentSolarSystem.getMarket();
@@ -212,7 +229,18 @@ public class FXMLDocumentController implements Initializable {
         planetRob.setText(Integer.toString(market.mrobots));
         
     }
-    
+    /**
+     * Refreshes solar system tab when selected.
+     */
+    @FXML
+    private void refreshSolar() {
+        curSolarName.setText(currentSolarSystem.getSolarName());
+        curSolarTech.setText(currentSolarSystem.getTechString());
+        curSolarResource.setText(currentSolarSystem.getResourceString());
+        curSolarGov.setText(currentSolarSystem.getGovString());
+        curSolarLoc.setText(Integer.toString(currentSolarSystem.getX()) + ", "
+                + Integer.toString(currentSolarSystem.getY()));
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         if (!gameCreated) {

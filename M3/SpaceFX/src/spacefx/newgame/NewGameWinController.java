@@ -24,6 +24,7 @@ import javafx.stage.StageStyle;
 import spacefx.FXMLDocumentController;
 import spacefx.GameData;
 import spacefx.Player;
+import spacefx.Ship;
 import spacefx.SpaceFX;
 import spacefx.Universe;
 
@@ -384,6 +385,8 @@ public class NewGameWinController implements Initializable {
     private void handleOK() {
         if (isValidName() && checkPoints()) {
             player = new Player(pilotName, numPilot, numFighter, numTrader, numEngineer, numInvestor);
+            Ship startShip = new Ship(1);
+            GameData.setShip(startShip);
             Universe universe = new Universe();
             GameData.setUniverse(universe);
             GameData.setPlayer(player);
