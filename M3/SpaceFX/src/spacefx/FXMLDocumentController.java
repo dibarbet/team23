@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -19,7 +20,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Tab;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import spacefx.marketerr.BuyErrController;
+import spacefx.marketerr.SellErrController;
 import spacefx.newgame.EmptyNameErrController;
 import spacefx.newgame.NewGameWinController;
 
@@ -33,7 +38,6 @@ public class FXMLDocumentController implements Initializable {
     private Universe universe;
     private Player player;
     private Market market;
-    private Ship ship;
     private boolean gameCreated;
     @FXML
     private MenuItem newGame;
@@ -221,6 +225,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void sWaterBAction(ActionEvent event) {
+        
         int money = market.sellWater();
         if (money>=0) {
             waterCargo.setText(Integer.toString(market.nwater));
@@ -229,8 +234,7 @@ public class FXMLDocumentController implements Initializable {
             updatePlayer();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
-            System.out.println("erroe");
-            //showBErr();
+            showSErr();
         }
     }
     
@@ -244,8 +248,7 @@ public class FXMLDocumentController implements Initializable {
             updatePlayer();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
-            System.out.println("erroe");
-            //showBErr();
+            showBErr();
         }
     }
     
@@ -259,8 +262,7 @@ public class FXMLDocumentController implements Initializable {
             updatePlayer();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
-            System.out.println("erroe");
-            //showBErr();
+            showSErr();
         }
     }
     
@@ -274,8 +276,7 @@ public class FXMLDocumentController implements Initializable {
             updatePlayer();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
-            System.out.println("erroe");
-            //showBErr();
+            showBErr();
         }
     }
     
@@ -289,8 +290,7 @@ public class FXMLDocumentController implements Initializable {
             updatePlayer();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
-            System.out.println("erroe");
-            //showBErr();
+            showSErr();
         }
     }
     
@@ -304,8 +304,7 @@ public class FXMLDocumentController implements Initializable {
             updatePlayer();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
-            System.out.println("erroe");
-            //showBErr();
+            showBErr();
         }
     }
     
@@ -319,8 +318,7 @@ public class FXMLDocumentController implements Initializable {
             updatePlayer();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
-            System.out.println("erroe");
-            //showBErr();
+            showSErr();
         }
     }
     
@@ -334,8 +332,7 @@ public class FXMLDocumentController implements Initializable {
             updatePlayer();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
-            System.out.println("erroe");
-            //showBErr();
+            showBErr();
         }
     }
     
@@ -349,8 +346,7 @@ public class FXMLDocumentController implements Initializable {
             updatePlayer();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
-            System.out.println("erroe");
-            //showBErr();
+            showSErr();
         }
     }
     
@@ -364,8 +360,7 @@ public class FXMLDocumentController implements Initializable {
             updatePlayer();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
-            System.out.println("erroe");
-            //showBErr();
+            showBErr();
         }
     }
     
@@ -379,8 +374,7 @@ public class FXMLDocumentController implements Initializable {
             updatePlayer();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
-            System.out.println("erroe");
-            //showBErr();
+            showSErr();
         }
     }
     
@@ -394,8 +388,7 @@ public class FXMLDocumentController implements Initializable {
             updatePlayer();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
-            System.out.println("erroe");
-            //showBErr();
+            showBErr();
         }
     }
     
@@ -409,8 +402,7 @@ public class FXMLDocumentController implements Initializable {
             updatePlayer();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
-            System.out.println("erroe");
-            //showBErr();
+            showSErr();
         }
     }
     
@@ -424,8 +416,7 @@ public class FXMLDocumentController implements Initializable {
             updatePlayer();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
-            System.out.println("erroe");
-            //showBErr();
+            showBErr();
         }
     }
     
@@ -439,8 +430,7 @@ public class FXMLDocumentController implements Initializable {
             updatePlayer();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
-            System.out.println("erroe");
-            //showBErr();
+            showSErr();
         }
     }
     
@@ -454,8 +444,7 @@ public class FXMLDocumentController implements Initializable {
             updatePlayer();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
-            System.out.println("erroe");
-            //showBErr();
+            showBErr();
         }
     }
     
@@ -469,8 +458,7 @@ public class FXMLDocumentController implements Initializable {
             updatePlayer();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
-            System.out.println("erroe");
-            //showBErr();
+            showSErr();
         }
     }
     
@@ -484,8 +472,7 @@ public class FXMLDocumentController implements Initializable {
             updatePlayer();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
-            System.out.println("erroe");
-            //showBErr();
+            showBErr();
         }
     }
     
@@ -499,8 +486,7 @@ public class FXMLDocumentController implements Initializable {
             updatePlayer();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
-            System.out.println("erroe");
-            //showBErr();
+            showSErr();
         }
     }
     
@@ -514,41 +500,58 @@ public class FXMLDocumentController implements Initializable {
             updatePlayer();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
-            System.out.println("erroe");
-            //showBErr();
+            showBErr();
         }
     }
     
     private void showBErr() {
         try {
-            FXMLLoader loader = new FXMLLoader(SpaceFX.class.getResource("BuyErr.fxml"));
+            FXMLLoader loader = new FXMLLoader(SpaceFX.class.getResource("marketerr/buyErr.fxml"));
             AnchorPane newPage = (AnchorPane) loader.load();
             Stage newGameStage = new Stage();
             newGameStage.setTitle("Error");
             Scene scene = new Scene(newPage);
             newGameStage.setScene(scene);
-            BuyErrController controller = loader.getController();
-            controller.setTheStage(newGameStage);
+            BuyErrController errController = loader.getController();
+            errController.setTheStage(newGameStage);
             newGameStage.showAndWait();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        /*
+        Stage dialogBox = new Stage();
+        dialogBox.initStyle(StageStyle.UTILITY);
+        Scene aScene = new Scene(new Group(new Text(25, 25, "Not enough good tobuy")));
+        dialogBox.setHeight(80);
+        dialogBox.setWidth(200);
+        dialogBox.setScene(aScene);
+        dialogBox.show();
+        */
     }
     
     private void showSErr() {
         try {
-            FXMLLoader loader = new FXMLLoader(SpaceFX.class.getResource("SellErr.fxml"));
+            FXMLLoader loader = new FXMLLoader(SpaceFX.class.getResource("marketerr/sellErr.fxml"));
             AnchorPane newPage = (AnchorPane) loader.load();
             Stage newGameStage = new Stage();
             newGameStage.setTitle("Error");
             Scene scene = new Scene(newPage);
             newGameStage.setScene(scene);
-            SellErrController controller = loader.getController();
-            controller.setTheStage(newGameStage);
+            SellErrController errController = loader.getController();
+            errController.setTheStage(newGameStage);
             newGameStage.showAndWait();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        /*
+        Stage dialogBox = new Stage();
+        dialogBox.initStyle(StageStyle.UTILITY);
+        Scene aScene = new Scene(new Group(new Text(25, 25, "Not enough good for sell")));
+        dialogBox.setHeight(80);
+        dialogBox.setWidth(200);
+        dialogBox.setScene(aScene);
+        dialogBox.show();
+        */
     }
     
     @FXML

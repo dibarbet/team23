@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package spacefx;
+package spacefx.marketerr;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -18,9 +18,9 @@ import javafx.stage.Stage;
  *
  * @author YaxiongLiu
  */
-public class SellErrController implements Initializable {
+public class BuyErrController implements Initializable {
     @FXML
-    private Button sellErrOKButton;
+    private Button buyErrOKB;
     private Stage theStage;
 
     /**
@@ -30,13 +30,14 @@ public class SellErrController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-
-    @FXML
-    private void handleSellErrOKButton(ActionEvent event) {
-        this.theStage.close();
-    }
     
     public void setTheStage(Stage theStage) {
         this.theStage = theStage;
     }
+
+    @FXML
+    private void buyErrOKBAction(ActionEvent event) {
+        this.theStage.close();
+    }
+    
 }

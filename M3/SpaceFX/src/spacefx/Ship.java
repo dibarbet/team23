@@ -33,17 +33,19 @@ public class Ship {
             for (int i = 0; i < amount; i++) {
                 cargo[count] = good;
                 count++;
+                System.out.println(count + "Added");
             }
         }
     }
     
     public void sellCargo(int amount, String good) {
         if (count - amount >= 0) {
-            for (int i = 0; i < count; i++) {
-                if (cargo[i].equals(good)) {
-                    cargo[i] = null;
+            for (int i = 0; i < limit; i++) {
+                if (good.equals(cargo[i])) {
+                    cargo[i] = "";
                     count--;
                     amount--;
+                    System.out.println(count + "Sell");
                 }
                 if (amount == 0) {
                     return;

@@ -25,23 +25,23 @@ public class Market {
         for (int i = 0; i < ship.getCount(); i++) {
             if (ship.getCargo(i).equals("Water")) {
                 nwater++;
-            } else if (ship.getCargo(i).equals("Furs")) {
+            } else if (ship.getCargo(i).equals("Fur")) {
                 nfurs++;
             } else if (ship.getCargo(i).equals("Food")) {
                 nfood++;
             } else if (ship.getCargo(i).equals("Ore")) {
                 nore++;
-            } else if (ship.getCargo(i).equals("Games")) {
+            } else if (ship.getCargo(i).equals("Game")) {
                 ngames++;
-            } else if (ship.getCargo(i).equals("Firearms")) {
+            } else if (ship.getCargo(i).equals("Firearm")) {
                 nfirearms++;
             } else if (ship.getCargo(i).equals("Medicine")) {
                 nmedicine++;
-            } else if (ship.getCargo(i).equals("Machines")) {
+            } else if (ship.getCargo(i).equals("Machine")) {
                 nmachines++;
-            } else if (ship.getCargo(i).equals("Narcotics")) {
+            } else if (ship.getCargo(i).equals("Narcotic")) {
                 nnarcotics++;
-            } else if (ship.getCargo(i).equals("Robots")) {
+            } else if (ship.getCargo(i).equals("Robot")) {
                 nrobots++;
             }            
         }
@@ -84,7 +84,7 @@ public class Market {
             money = money - pwater;
             nwater++;
             mwater--;
-            ship.addCargo(1, "Waters");
+            ship.addCargo(1, "Water");
         } else {
             return -1;
         }
@@ -101,7 +101,7 @@ public class Market {
             money = money - pfurs;
             nfurs++;
             mfurs--;
-            ship.addCargo(1, "Furs");
+            ship.addCargo(1, "Fur");
         } else {
             return -1;
         }
@@ -152,7 +152,7 @@ public class Market {
             money = money - pgames;
             ngames++;
             mgames--;
-            ship.addCargo(1, "Games");
+            ship.addCargo(1, "Game");
         } else {
             return -1;
         }
@@ -169,7 +169,7 @@ public class Market {
             money = money - pfirearms;
             nfurs++;
             mfurs--;
-            ship.addCargo(1, "Firearms");
+            ship.addCargo(1, "Firearm");
         } else {
             return -1;
         }
@@ -203,7 +203,7 @@ public class Market {
             money = money - pmachines;
             nmachines++;
             mmachines--;
-            ship.addCargo(1, "Machines");
+            ship.addCargo(1, "Machine");
         } else {
             return -1;
         }
@@ -220,7 +220,7 @@ public class Market {
             money = money - pnarcotics;
             nnarcotics++;
             mnarcotics--;
-            ship.addCargo(1, "Narcotics");
+            ship.addCargo(1, "Narcotic");
         } else {
             return -1;
         }
@@ -237,7 +237,7 @@ public class Market {
             money = money - probots;
             nrobots++;
             mrobots--;
-            ship.addCargo(1, "Robots");
+            ship.addCargo(1, "Robot");
         } else {
             return -1;
         }
@@ -269,7 +269,7 @@ public class Market {
             money = money + pfurs;
             nfurs--;
             mfurs++;
-            ship.sellCargo(1, "Furs");
+            ship.sellCargo(1, "Fur");
         } else {
             return -1;
         }
@@ -317,7 +317,7 @@ public class Market {
             money = money + pgames;
             ngames--;
             mgames++;
-            ship.sellCargo(1, "Games");
+            ship.sellCargo(1, "Game");
         } else {
             return -1;
         }
@@ -333,7 +333,7 @@ public class Market {
             money = money + pfirearms;
             nfirearms--;
             mfirearms++;
-            ship.sellCargo(1, "Firearms");
+            ship.sellCargo(1, "Firearm");
         } else {
             return -1;
         }
@@ -365,7 +365,7 @@ public class Market {
             money = money + pmachines;
             nmachines--;
             mmachines++;
-            ship.sellCargo(1, "Machines");
+            ship.sellCargo(1, "Machine");
         } else {
             return -1;
         }
@@ -381,7 +381,7 @@ public class Market {
             money = money + pnarcotics;
             nnarcotics--;
             mnarcotics++;
-            ship.sellCargo(1, "Narcotics");
+            ship.sellCargo(1, "Narcotic");
         } else {
             return -1;
         }
@@ -397,11 +397,15 @@ public class Market {
             money = money + probots;
             nrobots--;
             mrobots++;
-            ship.sellCargo(1, "Robots");
+            ship.sellCargo(1, "Robot");
         } else {
             return -1;
         }
         return money;
+    }
+    
+    public void updateShip() {
+        GameData.setShip(ship);
     }
     
 }
