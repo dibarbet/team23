@@ -16,9 +16,18 @@ import javafx.stage.Stage;
  * @author David
  */
 public class SpaceFX extends Application {
-    
+    private Player player;
     @Override
     public void start(Stage stage) throws Exception {
+//        FXMLLoader load = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+//        FXMLDocumentController controller = new FXMLDocumentController();
+//        load.setController(controller);
+//        load.setRoot(controller);
+//        Parent root = (Parent) load.load();
+//        Scene scene = new Scene(root);
+//        stage.setTitle("Space Traders");
+//        stage.setScene(scene);
+//        stage.show();
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
         
         Scene scene = new Scene(root);
@@ -26,7 +35,9 @@ public class SpaceFX extends Application {
         stage.setScene(scene);
         stage.show();
     }
-
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
     /**
      * @param args the command line arguments
      */

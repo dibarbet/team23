@@ -46,6 +46,12 @@ public class Player {
     public Ship getShip() {
         return currShip;
     }
+    public int getCredit() {
+        return credit;
+    }
+    public void setCredit(int amt) {
+        credit = amt;
+    }
     
     public int gainCredit(int gainedCredit) {
         credit = credit + gainedCredit;

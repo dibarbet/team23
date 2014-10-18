@@ -59,6 +59,7 @@ public class SolarSystem {
     private int xLoc;
     private int yLoc;
     private int numPlanets;
+    private Market solarMarket;
     /**
      * Creates Solar system with 1 planet.
      *@param name, the name of the solar system and planet
@@ -85,7 +86,16 @@ public class SolarSystem {
         yLoc = y;
         numPlanets = pNames.length;
         setAttributes();
+        solarMarket = new Market(techLevel);
     }
+    /**
+     * Get Marketplace for this solar system
+     * @return solarMarket, the market
+     */
+    public Market getMarket() {
+        return solarMarket;
+    }
+
     /**
      * Returns the name of the solar system
      *@return solarname, the name

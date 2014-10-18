@@ -11,16 +11,16 @@ import java.util.Random;
  * @author David Barbet, Guy, Seung Lee
  */
 public class Market {
-    private int nwater, nfurs, nfood, nore, ngames, nfirearms, nmedicine, nmachines, nnarcotics, nrobots;
-    private int pwater, pfurs, pfood, pore, pgames, pfirearms, pmedicine, pmachines, pnarcotics, probots;
-    private int mwater, mfurs, mfood, more, mgames, mfirearms, mmedicine, mmachines, mnarcotics, mrobots;
+    protected int nwater, nfurs, nfood, nore, ngames, nfirearms, nmedicine, nmachines, nnarcotics, nrobots;
+    protected int pwater, pfurs, pfood, pore, pgames, pfirearms, pmedicine, pmachines, pnarcotics, probots;
+    protected int mwater, mfurs, mfood, more, mgames, mfirearms, mmedicine, mmachines, mnarcotics, mrobots;
     private int money;
     private Ship ship = new Ship(1);
     private String[] stock;
-    private SolarSystem solarsystem;
+    private int techLevel;
     
-    public Market(SolarSystem solarsystem) {
-        this.solarsystem = solarsystem;
+    public Market(int techLevel) {
+        this.techLevel = techLevel;
         // Get the number of goods in the cargo space
         for (int i = 0; i < ship.getCount(); i++) {
             if (ship.getCargo(i).equals("Water")) {
@@ -45,7 +45,6 @@ public class Market {
                 nrobots++;
             }            
         }
-        int techLevel = solarsystem.getTechLevel();
         //Creates prices for goods based on a model    
         Random rand = new Random(); 
         pwater = Good.Water.basePrice * (1 + rand.nextInt(Good.Water.var) / 10) + (Good.Water.ipl * (techLevel - Good.Water.mtlp));
