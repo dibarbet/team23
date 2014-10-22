@@ -435,6 +435,7 @@ public class FXMLDocumentController implements Initializable {
             player = GameData.getPlayer();
             universe = GameData.getUniverse();
             currentSolarSystem = universe.getCurrentSolarSystem();
+            GameData.setCurrSolarSys(currentSolarSystem);
             gameCreated = true;
             marketPlace.setDisable(false);
             map.setDisable(false);
@@ -452,7 +453,7 @@ public class FXMLDocumentController implements Initializable {
      */
     @FXML
     private void refreshMarket() {
-        market = currentSolarSystem.getMarket();
+        market = GameData.getCurrSolarSys().getMarket();
         GameData.setMarket(market);
         market.setMoney(player.getCredit());
         marketMoney.setText(Integer.toString(player.getCredit()));
@@ -493,6 +494,7 @@ public class FXMLDocumentController implements Initializable {
      */
     @FXML
     private void refreshSolar() {
+        currentSolarSystem = GameData.getCurrSolarSys();
         curSolarName.setText(currentSolarSystem.getSolarName());
         curSolarTech.setText(currentSolarSystem.getTechString());
         curSolarResource.setText(currentSolarSystem.getResourceString());
