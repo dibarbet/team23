@@ -5,14 +5,22 @@
  */
 package spacefx;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import spacefx.newgame.NewGameWinController;
+import spacefx.randomEvent.TravellingController;
 
 /**
  * FXML Controller class
@@ -36,7 +44,8 @@ public class TravelController implements Initializable {
     private Stage theStage;
     
     SolarSystem solar;
-
+    SolarSystem currSolar=GameData.getCurrSolarSys();
+    double dist;
     /**
      * Initializes the controller class.
      */
@@ -63,7 +72,22 @@ public class TravelController implements Initializable {
     
     @FXML
     private void buttonPressed(){
-        
+        try {
+            dist = Universe.distance(currSolar, solar);
+            GameData.setCurrSolarSys(solar);
+            FXMLLoader loader = new FXMLLoader(SpaceFX.class.getResource("randomEvent/Travelling.fxml"));
+            AnchorPane newPage = (AnchorPane) loader.load();
+            Stage newGameStage = new Stage();
+            newGameStage.setTitle("Travelling");
+            Scene scene = new Scene(newPage);
+            newGameStage.setScene(scene);
+            TravellingController controller = loader.getController();
+            controller.setTheStage(newGameStage,dist); 
+            newGameStage.showAndWait();
+            this.theStage.close();
+        } catch (IOException ex) {
+            Logger.getLogger(TravelController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

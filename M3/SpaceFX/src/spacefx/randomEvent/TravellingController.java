@@ -69,8 +69,9 @@ public class TravellingController implements Initializable {
         Duration.millis(500),
         ae -> checkRand()));
     
-    public void setTheStage(Stage theStage) {
+    public void setTheStage(Stage theStage, double newDist) {
         this.theStage = theStage;
+        dist = (int)newDist;
     }
     
     public void setRandCreditStage(Stage theStage) {
@@ -92,7 +93,7 @@ public class TravellingController implements Initializable {
     
     private void showRandCreditWin() {
         try {
-            FXMLLoader randCreditLoader = new FXMLLoader(SpaceFX.class.getResource("randomEvent/randCredit.fxml"));
+            FXMLLoader randCreditLoader = new FXMLLoader(SpaceFX.class.getResource("randomEvent/RandCredit.fxml"));
             AnchorPane randCreditPage = (AnchorPane) randCreditLoader.load();
             Stage myRandCreditStage = new Stage();
             myRandCreditStage.setTitle("Error");
@@ -143,7 +144,7 @@ public class TravellingController implements Initializable {
                 dotdot.setText("");
             }
             encFac = rand.nextInt(20);
-            if (encFac<5) {
+            if (encFac<3) {
                 running=false;
                 showRandCreditWin();  
             }
