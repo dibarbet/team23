@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,9 +8,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="539.0" prefWidth="804.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacefx.FXMLDocumentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacefx.FXMLDocumentController">
    <children>
-      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="804.0">
+      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="900.0">
         <menus>
           <Menu mnemonicParsing="false" text="Game">
             <items>
@@ -20,68 +21,185 @@
           </Menu>
         </menus>
       </MenuBar>
-      <TabPane layoutY="27.0" prefHeight="514.0" prefWidth="804.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutY="27.0" prefHeight="635.0" prefWidth="900.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab fx:id="map" text="Map">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="900.0">
+                     <children>
+                        <Circle fx:id="Planet1" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet1Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet2" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet2Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet3" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet3Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet4" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet4Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet5" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet5Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet6" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet6Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet7" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet7Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet8" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet8Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet9" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet9Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet10" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet10Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet11" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet11Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet12" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet12Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet13" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet13Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet14" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet14Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet15" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet15Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet16" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet16Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet17" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet17Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet18" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet18Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet19" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet19Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet20" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet20Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet21" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet21Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet22" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet22Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet23" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet23Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet24" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet24Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet25" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet25Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet26" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet26Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet27" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet27Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet28" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet28Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet29" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet29Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet30" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet30Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet31" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet31Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet32" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet32Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet33" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet33Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet34" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet34Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet35" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet35Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet36" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet36Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet37" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet37Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet38" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet38Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet39" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet39Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet40" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet40Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet41" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet41Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet42" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet42Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet43" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet43Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet44" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet44Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet45" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet45Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet46" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet46Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet47" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet47Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet48" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet48Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet49" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet49Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet50" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet50Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet51" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet51Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet52" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet52Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet53" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet53Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet54" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet54Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet55" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet55Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet56" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet56Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet57" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet57Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet58" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet58Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet59" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet59Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet60" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet60Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet61" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet61Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet62" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet62Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet63" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet63Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet64" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet64Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet65" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet65Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet66" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet66Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet67" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet67Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet68" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet68Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet69" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet69Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet70" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet70Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet71" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet71Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet72" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet72Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet73" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet73Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet74" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet74Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet75" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet75Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet76" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet76Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet77" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet77Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet78" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet78Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet79" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet79Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet80" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet80Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet81" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet81Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet82" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet82Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet83" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet83Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet84" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet84Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet85" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet85Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet86" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet86Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet87" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet87Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet88" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet88Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet89" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet89Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet90" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet90Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet91" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet91Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet92" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet92Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet93" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet93Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet94" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet94Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet95" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet95Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet96" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet96Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet97" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet97Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet98" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet98Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet99" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet99Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet100" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet100Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet101" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet101Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet102" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet102Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet103" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet103Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet104" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet104Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet105" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet105Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet106" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet106Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet107" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet107Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet108" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet108Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet109" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet109Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet110" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet110Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet111" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet111Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet112" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet112Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet113" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet113Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                        <Circle fx:id="Planet114" fill="DODGERBLUE" layoutX="146.0" layoutY="91.0" onMouseClicked="#planet114Clicked" radius="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
+                  </children>
+              </AnchorPane>
             </content>
           </Tab>
           <Tab fx:id="curSolar" onSelectionChanged="#refreshSolar" text="Current Solar System">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Label alignment="CENTER" layoutX="231.0" layoutY="14.0" prefHeight="76.0" prefWidth="342.0" text="Current Solar System">
+                        <Label alignment="CENTER" layoutX="279.0" layoutY="14.0" prefHeight="76.0" prefWidth="342.0" text="Current Solar System">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Label>
-                        <Label layoutX="127.0" layoutY="67.0" prefHeight="58.0" prefWidth="104.0" text="Name:">
+                        <Label layoutX="175.0" layoutY="67.0" prefHeight="58.0" prefWidth="104.0" text="Name:">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label layoutX="127.0" layoutY="125.0" prefHeight="58.0" prefWidth="104.0" text="Tech Level:">
+                        <Label layoutX="175.0" layoutY="125.0" prefHeight="58.0" prefWidth="104.0" text="Tech Level:">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label layoutX="127.0" layoutY="183.0" prefHeight="58.0" prefWidth="154.0" text="Resource Type:">
+                        <Label layoutX="175.0" layoutY="183.0" prefHeight="58.0" prefWidth="154.0" text="Resource Type:">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label layoutX="127.0" layoutY="241.0" prefHeight="58.0" prefWidth="154.0" text="Government Type:">
+                        <Label layoutX="175.0" layoutY="241.0" prefHeight="58.0" prefWidth="154.0" text="Government:">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label layoutX="127.0" layoutY="299.0" prefHeight="58.0" prefWidth="154.0" text="Location:">
+                        <Label layoutX="175.0" layoutY="299.0" prefHeight="58.0" prefWidth="154.0" text="Location:">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label fx:id="curSolarName" alignment="CENTER_RIGHT" layoutX="425.0" layoutY="67.0" prefHeight="58.0" prefWidth="252.0" text="Unknown">
+                        <Label fx:id="curSolarName" alignment="CENTER_RIGHT" layoutX="473.0" layoutY="67.0" prefHeight="58.0" prefWidth="252.0" text="Unknown">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label fx:id="curSolarTech" alignment="CENTER_RIGHT" layoutX="431.0" layoutY="125.0" prefHeight="58.0" prefWidth="246.0" text="Unknown">
+                        <Label fx:id="curSolarTech" alignment="CENTER_RIGHT" layoutX="479.0" layoutY="125.0" prefHeight="58.0" prefWidth="246.0" text="Unknown">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label fx:id="curSolarResource" alignment="CENTER_RIGHT" layoutX="428.0" layoutY="183.0" prefHeight="58.0" prefWidth="249.0" text="Unknown">
+                        <Label fx:id="curSolarResource" alignment="CENTER_RIGHT" layoutX="476.0" layoutY="183.0" prefHeight="58.0" prefWidth="249.0" text="Unknown">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label fx:id="curSolarGov" alignment="CENTER_RIGHT" layoutX="426.0" layoutY="241.0" prefHeight="58.0" prefWidth="251.0" text="Unknown">
+                        <Label fx:id="curSolarGov" alignment="CENTER_RIGHT" layoutX="474.0" layoutY="241.0" prefHeight="58.0" prefWidth="251.0" text="Unknown">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label fx:id="curSolarLoc" alignment="CENTER_RIGHT" layoutX="431.0" layoutY="299.0" prefHeight="58.0" prefWidth="246.0" text="Unknown">
+                        <Label fx:id="curSolarLoc" alignment="CENTER_RIGHT" layoutX="479.0" layoutY="299.0" prefHeight="58.0" prefWidth="246.0" text="Unknown">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -93,91 +211,91 @@
                <content>
                   <AnchorPane id="AnchorPane" prefHeight="497.0" prefWidth="449.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
                     <children>
-                        <Label fx:id="waterCargo" alignment="CENTER" layoutX="286.0" layoutY="131.0" prefHeight="17.0" prefWidth="32.0" text="0" />
-                        <Button fx:id="sWaterB" layoutX="234.0" layoutY="127.0" mnemonicParsing="false" onAction="#sWaterBAction" prefHeight="25.0" prefWidth="47.0" text="Sell" />
-                        <Label alignment="CENTER" layoutX="331.0" layoutY="131.0" prefHeight="17.0" prefWidth="92.0" text="Water" />
-                        <Label fx:id="pWater" alignment="CENTER" layoutX="429.0" layoutY="131.0" prefHeight="17.0" prefWidth="52.0" text="0" />
-                        <Label fx:id="planetWater" alignment="CENTER" layoutX="511.0" layoutY="132.0" prefHeight="17.0" prefWidth="32.0" text="0" />
-                        <Button fx:id="bWaterB" layoutX="551.0" layoutY="128.0" mnemonicParsing="false" onAction="#bWaterBAction" prefHeight="25.0" prefWidth="47.0" text="Buy" />
-                        <Label layoutX="281.0" layoutY="104.0" text="Amount" />
-                        <Label layoutX="362.0" layoutY="104.0" text="Good" />
-                        <Label layoutX="432.0" layoutY="104.0" text="Price" />
-                        <Label layoutX="506.0" layoutY="105.0" text="Amount" />
-                        <Label layoutX="250.0" layoutY="76.0" text="Cargo Bay">
+                        <Label fx:id="waterCargo" alignment="CENTER" layoutX="319.0" layoutY="128.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+                        <Button fx:id="sWaterB" layoutX="267.0" layoutY="124.0" mnemonicParsing="false" onAction="#sWaterBAction" prefHeight="25.0" prefWidth="47.0" text="Sell" />
+                        <Label alignment="CENTER" layoutX="364.0" layoutY="128.0" prefHeight="17.0" prefWidth="92.0" text="Water" />
+                        <Label fx:id="pWater" alignment="CENTER" layoutX="462.0" layoutY="128.0" prefHeight="17.0" prefWidth="52.0" text="0" />
+                        <Label fx:id="planetWater" alignment="CENTER" layoutX="544.0" layoutY="129.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+                        <Button fx:id="bWaterB" layoutX="584.0" layoutY="125.0" mnemonicParsing="false" onAction="#bWaterBAction" prefHeight="25.0" prefWidth="47.0" text="Buy" />
+                        <Label layoutX="314.0" layoutY="101.0" text="Amount" />
+                        <Label layoutX="395.0" layoutY="101.0" text="Good" />
+                        <Label layoutX="465.0" layoutY="101.0" text="Price" />
+                        <Label layoutX="539.0" layoutY="102.0" text="Amount" />
+                        <Label layoutX="283.0" layoutY="73.0" text="Cargo Bay">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Label>
-                        <Label layoutX="507.0" layoutY="77.0" text="Market Goods">
+                        <Label layoutX="540.0" layoutY="74.0" text="Market Goods">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Label>
-                        <Label layoutX="346.0" layoutY="76.0" text="Money  $">
+                        <Label layoutX="379.0" layoutY="73.0" text="Money  $">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Label>
-                        <Label fx:id="marketMoney" layoutX="405.0" layoutY="76.0" prefHeight="20.0" prefWidth="59.0" text="0">
+                        <Label fx:id="marketMoney" layoutX="438.0" layoutY="73.0" prefHeight="20.0" prefWidth="59.0" text="0">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Label>
-                        <Button fx:id="bFursB" layoutX="551.0" layoutY="161.0" mnemonicParsing="false" onAction="#bFursBAction" prefHeight="25.0" prefWidth="47.0" text="Buy" />
-                        <Label fx:id="planetFur" alignment="CENTER" layoutX="511.0" layoutY="165.0" prefHeight="17.0" prefWidth="32.0" text="0" />
-                        <Label fx:id="pFur" alignment="CENTER" layoutX="429.0" layoutY="164.0" prefHeight="17.0" prefWidth="52.0" text="0" />
-                        <Label alignment="CENTER" layoutX="331.0" layoutY="164.0" prefHeight="17.0" prefWidth="92.0" text="Furs" />
-                        <Button fx:id="sFursB" layoutX="234.0" layoutY="160.0" mnemonicParsing="false" onAction="#sFursBAction" prefHeight="25.0" prefWidth="47.0" text="Sell" />
-                        <Label fx:id="furCargo" alignment="CENTER" layoutX="286.0" layoutY="164.0" prefHeight="17.0" prefWidth="32.0" text="0" />
-                        <Label fx:id="oreCargo" alignment="CENTER" layoutX="286.0" layoutY="231.0" prefHeight="17.0" prefWidth="32.0" text="0" />
-                        <Button fx:id="sOreB" layoutX="234.0" layoutY="227.0" mnemonicParsing="false" onAction="#sOreBAction" prefHeight="25.0" prefWidth="47.0" text="Sell" />
-                        <Label alignment="CENTER" layoutX="331.0" layoutY="231.0" prefHeight="17.0" prefWidth="92.0" text="Ore" />
-                        <Label fx:id="pOre" alignment="CENTER" layoutX="429.0" layoutY="231.0" prefHeight="17.0" prefWidth="52.0" text="0" />
-                        <Label fx:id="planetOre" alignment="CENTER" layoutX="511.0" layoutY="232.0" prefHeight="17.0" prefWidth="32.0" text="0" />
-                        <Button fx:id="bOreB" layoutX="551.0" layoutY="228.0" mnemonicParsing="false" onAction="#bOreBAction" prefHeight="25.0" prefWidth="47.0" text="Buy" />
-                        <Button fx:id="bFoodB" layoutX="551.0" layoutY="195.0" mnemonicParsing="false" onAction="#bFoodBAction" prefHeight="25.0" prefWidth="47.0" text="Buy" />
-                        <Label fx:id="planetFood" alignment="CENTER" layoutX="511.0" layoutY="199.0" prefHeight="17.0" prefWidth="32.0" text="0" />
-                        <Label fx:id="pFood" alignment="CENTER" layoutX="429.0" layoutY="198.0" prefHeight="17.0" prefWidth="52.0" text="0" />
-                        <Label alignment="CENTER" layoutX="331.0" layoutY="198.0" prefHeight="17.0" prefWidth="92.0" text="Food" />
-                        <Button fx:id="sFoodB" layoutX="234.0" layoutY="194.0" mnemonicParsing="false" onAction="#sFoodBAction" prefHeight="25.0" prefWidth="47.0" text="Sell" />
-                        <Label fx:id="foodCargo" alignment="CENTER" layoutX="286.0" layoutY="198.0" prefHeight="17.0" prefWidth="32.0" text="0" />
-                        <Label fx:id="medCargo" alignment="CENTER" layoutX="286.0" layoutY="333.0" prefHeight="17.0" prefWidth="32.0" text="0" />
-                        <Button fx:id="sMedicineB" layoutX="234.0" layoutY="329.0" mnemonicParsing="false" onAction="#sMedicineBAction" prefHeight="25.0" prefWidth="47.0" text="Sell" />
-                        <Label alignment="CENTER" layoutX="331.0" layoutY="333.0" prefHeight="17.0" prefWidth="92.0" text="Medicine" />
-                        <Label fx:id="pMed" alignment="CENTER" layoutX="429.0" layoutY="333.0" prefHeight="17.0" prefWidth="52.0" text="0" />
-                        <Label fx:id="planetMed" alignment="CENTER" layoutX="511.0" layoutY="334.0" prefHeight="17.0" prefWidth="32.0" text="0" />
-                        <Button fx:id="bMedicineB" layoutX="551.0" layoutY="330.0" mnemonicParsing="false" onAction="#bMedicineBAction" prefHeight="25.0" prefWidth="47.0" text="Buy" />
-                        <Button fx:id="bMachinesB" layoutX="551.0" layoutY="363.0" mnemonicParsing="false" onAction="#bMachinesBAction" prefHeight="25.0" prefWidth="47.0" text="Buy" />
-                        <Label fx:id="planetMach" alignment="CENTER" layoutX="511.0" layoutY="367.0" prefHeight="17.0" prefWidth="32.0" text="0" />
-                        <Label fx:id="pMach" alignment="CENTER" layoutX="429.0" layoutY="366.0" prefHeight="17.0" prefWidth="52.0" text="0" />
-                        <Label alignment="CENTER" layoutX="331.0" layoutY="366.0" prefHeight="17.0" prefWidth="92.0" text="Machines" />
-                        <Button fx:id="sMachinesB" layoutX="234.0" layoutY="362.0" mnemonicParsing="false" onAction="#sMachinesBAction" prefHeight="25.0" prefWidth="47.0" text="Sell" />
-                        <Label fx:id="machCargo" alignment="CENTER" layoutX="286.0" layoutY="366.0" prefHeight="17.0" prefWidth="32.0" text="0" />
-                        <Label fx:id="fireCargo" alignment="CENTER" layoutX="286.0" layoutY="299.0" prefHeight="17.0" prefWidth="32.0" text="0" />
-                        <Button fx:id="sFirearmsB" layoutX="234.0" layoutY="295.0" mnemonicParsing="false" onAction="#sFirearmsBAction" prefHeight="25.0" prefWidth="47.0" text="Sell" />
-                        <Label alignment="CENTER" layoutX="331.0" layoutY="299.0" prefHeight="17.0" prefWidth="92.0" text="Firearms" />
-                        <Label fx:id="pFire" alignment="CENTER" layoutX="429.0" layoutY="299.0" prefHeight="17.0" prefWidth="52.0" text="0" />
-                        <Label fx:id="planetFire" alignment="CENTER" layoutX="511.0" layoutY="300.0" prefHeight="17.0" prefWidth="32.0" text="0" />
-                        <Button fx:id="bFirearmsB" layoutX="551.0" layoutY="296.0" mnemonicParsing="false" onAction="#bFirearmsBAction" prefHeight="25.0" prefWidth="47.0" text="Buy" />
-                        <Button fx:id="bGamesB" layoutX="551.0" layoutY="263.0" mnemonicParsing="false" onAction="#bGamesBAction" prefHeight="25.0" prefWidth="47.0" text="Buy" />
-                        <Label fx:id="planetGame" alignment="CENTER" layoutX="511.0" layoutY="267.0" prefHeight="17.0" prefWidth="32.0" text="0" />
-                        <Label fx:id="pGame" alignment="CENTER" layoutX="429.0" layoutY="266.0" prefHeight="17.0" prefWidth="52.0" text="0" />
-                        <Label alignment="CENTER" layoutX="331.0" layoutY="266.0" prefHeight="17.0" prefWidth="92.0" text="Games" />
-                        <Button fx:id="sGamesB" layoutX="234.0" layoutY="262.0" mnemonicParsing="false" onAction="#sGamesBAction" prefHeight="25.0" prefWidth="47.0" text="Sell" />
-                        <Label fx:id="gameCargo" alignment="CENTER" layoutX="286.0" layoutY="266.0" prefHeight="17.0" prefWidth="32.0" text="0" />
-                        <Label fx:id="robCargo" alignment="CENTER" layoutX="286.0" layoutY="433.0" prefHeight="17.0" prefWidth="32.0" text="0" />
-                        <Button fx:id="sRobotsB" layoutX="234.0" layoutY="429.0" mnemonicParsing="false" onAction="#sRobotsBAction" prefHeight="25.0" prefWidth="47.0" text="Sell" />
-                        <Label alignment="CENTER" layoutX="331.0" layoutY="433.0" prefHeight="17.0" prefWidth="92.0" text="Robots" />
-                        <Label fx:id="pRob" alignment="CENTER" layoutX="429.0" layoutY="433.0" prefHeight="17.0" prefWidth="52.0" text="0" />
-                        <Label fx:id="planetRob" alignment="CENTER" layoutX="511.0" layoutY="434.0" prefHeight="17.0" prefWidth="32.0" text="0" />
-                        <Button fx:id="bRobotsB" layoutX="551.0" layoutY="430.0" mnemonicParsing="false" onAction="#bRobotsBAction" prefHeight="25.0" prefWidth="47.0" text="Buy" />
-                        <Button fx:id="bNarcoticsB" layoutX="551.0" layoutY="397.0" mnemonicParsing="false" onAction="#bNarcoticsBAction" prefHeight="25.0" prefWidth="47.0" text="Buy" />
-                        <Label fx:id="planetNarc" alignment="CENTER" layoutX="511.0" layoutY="401.0" prefHeight="17.0" prefWidth="32.0" text="0" />
-                        <Label fx:id="pNarc" alignment="CENTER" layoutX="429.0" layoutY="400.0" prefHeight="17.0" prefWidth="52.0" text="0" />
-                        <Label alignment="CENTER" layoutX="331.0" layoutY="400.0" prefHeight="17.0" prefWidth="92.0" text="Narcotics" />
-                        <Button fx:id="sNarcotics" layoutX="234.0" layoutY="396.0" mnemonicParsing="false" onAction="#sNarcoticsBAction" prefHeight="25.0" prefWidth="47.0" text="Sell" />
-                        <Label fx:id="narcCargo" alignment="CENTER" layoutX="286.0" layoutY="400.0" prefHeight="17.0" prefWidth="32.0" text="0" />
-                        <Label layoutX="353.0" layoutY="31.0" text="Market Place">
+                        <Button fx:id="bFursB" layoutX="584.0" layoutY="158.0" mnemonicParsing="false" onAction="#bFursBAction" prefHeight="25.0" prefWidth="47.0" text="Buy" />
+                        <Label fx:id="planetFur" alignment="CENTER" layoutX="544.0" layoutY="162.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+                        <Label fx:id="pFur" alignment="CENTER" layoutX="462.0" layoutY="161.0" prefHeight="17.0" prefWidth="52.0" text="0" />
+                        <Label alignment="CENTER" layoutX="364.0" layoutY="161.0" prefHeight="17.0" prefWidth="92.0" text="Furs" />
+                        <Button fx:id="sFursB" layoutX="267.0" layoutY="157.0" mnemonicParsing="false" onAction="#sFursBAction" prefHeight="25.0" prefWidth="47.0" text="Sell" />
+                        <Label fx:id="furCargo" alignment="CENTER" layoutX="319.0" layoutY="161.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+                        <Label fx:id="oreCargo" alignment="CENTER" layoutX="319.0" layoutY="228.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+                        <Button fx:id="sOreB" layoutX="267.0" layoutY="224.0" mnemonicParsing="false" onAction="#sOreBAction" prefHeight="25.0" prefWidth="47.0" text="Sell" />
+                        <Label alignment="CENTER" layoutX="364.0" layoutY="228.0" prefHeight="17.0" prefWidth="92.0" text="Ore" />
+                        <Label fx:id="pOre" alignment="CENTER" layoutX="462.0" layoutY="228.0" prefHeight="17.0" prefWidth="52.0" text="0" />
+                        <Label fx:id="planetOre" alignment="CENTER" layoutX="544.0" layoutY="229.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+                        <Button fx:id="bOreB" layoutX="584.0" layoutY="225.0" mnemonicParsing="false" onAction="#bOreBAction" prefHeight="25.0" prefWidth="47.0" text="Buy" />
+                        <Button fx:id="bFoodB" layoutX="584.0" layoutY="192.0" mnemonicParsing="false" onAction="#bFoodBAction" prefHeight="25.0" prefWidth="47.0" text="Buy" />
+                        <Label fx:id="planetFood" alignment="CENTER" layoutX="544.0" layoutY="196.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+                        <Label fx:id="pFood" alignment="CENTER" layoutX="462.0" layoutY="195.0" prefHeight="17.0" prefWidth="52.0" text="0" />
+                        <Label alignment="CENTER" layoutX="364.0" layoutY="195.0" prefHeight="17.0" prefWidth="92.0" text="Food" />
+                        <Button fx:id="sFoodB" layoutX="267.0" layoutY="191.0" mnemonicParsing="false" onAction="#sFoodBAction" prefHeight="25.0" prefWidth="47.0" text="Sell" />
+                        <Label fx:id="foodCargo" alignment="CENTER" layoutX="319.0" layoutY="195.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+                        <Label fx:id="medCargo" alignment="CENTER" layoutX="319.0" layoutY="330.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+                        <Button fx:id="sMedicineB" layoutX="267.0" layoutY="326.0" mnemonicParsing="false" onAction="#sMedicineBAction" prefHeight="25.0" prefWidth="47.0" text="Sell" />
+                        <Label alignment="CENTER" layoutX="364.0" layoutY="330.0" prefHeight="17.0" prefWidth="92.0" text="Medicine" />
+                        <Label fx:id="pMed" alignment="CENTER" layoutX="462.0" layoutY="330.0" prefHeight="17.0" prefWidth="52.0" text="0" />
+                        <Label fx:id="planetMed" alignment="CENTER" layoutX="544.0" layoutY="331.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+                        <Button fx:id="bMedicineB" layoutX="584.0" layoutY="327.0" mnemonicParsing="false" onAction="#bMedicineBAction" prefHeight="25.0" prefWidth="47.0" text="Buy" />
+                        <Button fx:id="bMachinesB" layoutX="584.0" layoutY="360.0" mnemonicParsing="false" onAction="#bMachinesBAction" prefHeight="25.0" prefWidth="47.0" text="Buy" />
+                        <Label fx:id="planetMach" alignment="CENTER" layoutX="544.0" layoutY="364.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+                        <Label fx:id="pMach" alignment="CENTER" layoutX="462.0" layoutY="363.0" prefHeight="17.0" prefWidth="52.0" text="0" />
+                        <Label alignment="CENTER" layoutX="364.0" layoutY="363.0" prefHeight="17.0" prefWidth="92.0" text="Machines" />
+                        <Button fx:id="sMachinesB" layoutX="267.0" layoutY="359.0" mnemonicParsing="false" onAction="#sMachinesBAction" prefHeight="25.0" prefWidth="47.0" text="Sell" />
+                        <Label fx:id="machCargo" alignment="CENTER" layoutX="319.0" layoutY="363.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+                        <Label fx:id="fireCargo" alignment="CENTER" layoutX="319.0" layoutY="296.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+                        <Button fx:id="sFirearmsB" layoutX="267.0" layoutY="292.0" mnemonicParsing="false" onAction="#sFirearmsBAction" prefHeight="25.0" prefWidth="47.0" text="Sell" />
+                        <Label alignment="CENTER" layoutX="364.0" layoutY="296.0" prefHeight="17.0" prefWidth="92.0" text="Firearms" />
+                        <Label fx:id="pFire" alignment="CENTER" layoutX="462.0" layoutY="296.0" prefHeight="17.0" prefWidth="52.0" text="0" />
+                        <Label fx:id="planetFire" alignment="CENTER" layoutX="544.0" layoutY="297.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+                        <Button fx:id="bFirearmsB" layoutX="584.0" layoutY="293.0" mnemonicParsing="false" onAction="#bFirearmsBAction" prefHeight="25.0" prefWidth="47.0" text="Buy" />
+                        <Button fx:id="bGamesB" layoutX="584.0" layoutY="260.0" mnemonicParsing="false" onAction="#bGamesBAction" prefHeight="25.0" prefWidth="47.0" text="Buy" />
+                        <Label fx:id="planetGame" alignment="CENTER" layoutX="544.0" layoutY="264.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+                        <Label fx:id="pGame" alignment="CENTER" layoutX="462.0" layoutY="263.0" prefHeight="17.0" prefWidth="52.0" text="0" />
+                        <Label alignment="CENTER" layoutX="364.0" layoutY="263.0" prefHeight="17.0" prefWidth="92.0" text="Games" />
+                        <Button fx:id="sGamesB" layoutX="267.0" layoutY="259.0" mnemonicParsing="false" onAction="#sGamesBAction" prefHeight="25.0" prefWidth="47.0" text="Sell" />
+                        <Label fx:id="gameCargo" alignment="CENTER" layoutX="319.0" layoutY="263.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+                        <Label fx:id="robCargo" alignment="CENTER" layoutX="319.0" layoutY="430.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+                        <Button fx:id="sRobotsB" layoutX="267.0" layoutY="426.0" mnemonicParsing="false" onAction="#sRobotsBAction" prefHeight="25.0" prefWidth="47.0" text="Sell" />
+                        <Label alignment="CENTER" layoutX="364.0" layoutY="430.0" prefHeight="17.0" prefWidth="92.0" text="Robots" />
+                        <Label fx:id="pRob" alignment="CENTER" layoutX="462.0" layoutY="430.0" prefHeight="17.0" prefWidth="52.0" text="0" />
+                        <Label fx:id="planetRob" alignment="CENTER" layoutX="544.0" layoutY="431.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+                        <Button fx:id="bRobotsB" layoutX="584.0" layoutY="427.0" mnemonicParsing="false" onAction="#bRobotsBAction" prefHeight="25.0" prefWidth="47.0" text="Buy" />
+                        <Button fx:id="bNarcoticsB" layoutX="584.0" layoutY="394.0" mnemonicParsing="false" onAction="#bNarcoticsBAction" prefHeight="25.0" prefWidth="47.0" text="Buy" />
+                        <Label fx:id="planetNarc" alignment="CENTER" layoutX="544.0" layoutY="398.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+                        <Label fx:id="pNarc" alignment="CENTER" layoutX="462.0" layoutY="397.0" prefHeight="17.0" prefWidth="52.0" text="0" />
+                        <Label alignment="CENTER" layoutX="364.0" layoutY="397.0" prefHeight="17.0" prefWidth="92.0" text="Narcotics" />
+                        <Button fx:id="sNarcotics" layoutX="267.0" layoutY="393.0" mnemonicParsing="false" onAction="#sNarcoticsBAction" prefHeight="25.0" prefWidth="47.0" text="Sell" />
+                        <Label fx:id="narcCargo" alignment="CENTER" layoutX="319.0" layoutY="397.0" prefHeight="17.0" prefWidth="32.0" text="0" />
+                        <Label layoutX="386.0" layoutY="28.0" text="Market Place">
                            <font>
                               <Font size="18.0" />
                            </font>

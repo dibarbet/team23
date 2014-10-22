@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="420.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacefx.TravelController">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+      <Label alignment="CENTER" layoutX="129.0" layoutY="10.0" prefHeight="76.0" prefWidth="342.0" text="Current Solar System">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="63.0" prefHeight="58.0" prefWidth="104.0" text="Name:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="121.0" prefHeight="58.0" prefWidth="104.0" text="Tech Level:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="179.0" prefHeight="58.0" prefWidth="154.0" text="Resource Type:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="237.0" prefHeight="58.0" prefWidth="154.0" text="Government:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="295.0" prefHeight="58.0" prefWidth="154.0" text="Location:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="curSolarName" alignment="CENTER_RIGHT" layoutX="323.0" layoutY="63.0" prefHeight="58.0" prefWidth="252.0" text="Unknown">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="curSolarTech" alignment="CENTER_RIGHT" layoutX="329.0" layoutY="121.0" prefHeight="58.0" prefWidth="246.0" text="Unknown">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="curSolarResource" alignment="CENTER_RIGHT" layoutX="326.0" layoutY="179.0" prefHeight="58.0" prefWidth="249.0" text="Unknown">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="curSolarGov" alignment="CENTER_RIGHT" layoutX="324.0" layoutY="237.0" prefHeight="58.0" prefWidth="251.0" text="Unknown">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="curSolarLoc" alignment="CENTER_RIGHT" layoutX="329.0" layoutY="295.0" prefHeight="58.0" prefWidth="246.0" text="Unknown">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="button" layoutX="270.0" layoutY="367.0" mnemonicParsing="false" onMouseClicked="#buttonPressed" text="Travel?" />
+   </children>
+</AnchorPane>
