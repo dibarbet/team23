@@ -84,6 +84,7 @@ public class TravelController implements Initializable {
             TravellingController controller = loader.getController();
             controller.setTheStage(newGameStage,dist); 
             newGameStage.showAndWait();
+            FXMLDocumentController.planetChanged = true;
             this.theStage.close();
         } catch (IOException ex) {
             Logger.getLogger(TravelController.class.getName()).log(Level.SEVERE, null, ex);

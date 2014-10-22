@@ -57,8 +57,8 @@ public class FXMLDocumentController implements Initializable {
     private Player player;
     private Market market;
     private boolean gameCreated;
-    private Circle current;
-    private Circle previous;
+    private Circle currentPlanet;
+    private Circle nextPlanet;
     private String fileSave;
     private File loadFile;
     @FXML
@@ -416,6 +416,7 @@ public class FXMLDocumentController implements Initializable {
     
     
     // </editor-fold>
+    public static boolean planetChanged = false;
     /**
      * Method to handle new game menu option being pressed
      * Creates new window to allow user to create a new game
@@ -441,7 +442,7 @@ public class FXMLDocumentController implements Initializable {
             map.setDisable(false);
             curSolar.setDisable(false);
             saveGame.setDisable(false);
-            current = Planet1;
+            currentPlanet = Planet1;
             initializeMap();
         } catch (IOException e) {
             e.printStackTrace();
@@ -561,7 +562,7 @@ public class FXMLDocumentController implements Initializable {
             map.setDisable(false);
             curSolar.setDisable(false);
             saveGame.setDisable(false);
-            current = Planet1;
+            currentPlanet = Planet1;
             initializeMap();
             refreshSolar();
             refreshMarket();
@@ -589,465 +590,580 @@ public class FXMLDocumentController implements Initializable {
 //    }
     @FXML
     private void planet1Clicked() {
+        nextPlanet=Planet1;
         showTravel(universe.gameUniverse[0]);
     }    
     @FXML
     private void planet2Clicked() {
+        nextPlanet=Planet2;
         showTravel(universe.gameUniverse[1]);
     }    
     @FXML
     private void planet3Clicked() {
+        nextPlanet=Planet3;
         showTravel(universe.gameUniverse[2]);
     }   
     @FXML
     private void planet4Clicked() {
+        nextPlanet=Planet4;
         showTravel(universe.gameUniverse[3]);
     }  
     @FXML
     private void planet5Clicked() {
+        nextPlanet=Planet5;
         showTravel(universe.gameUniverse[4]);
     }
     @FXML
     private void planet6Clicked() {
+        nextPlanet=Planet6;
         showTravel(universe.gameUniverse[5]);
     }
     @FXML
     private void planet7Clicked() {
+        nextPlanet=Planet7;
         showTravel(universe.gameUniverse[6]);
     }
     @FXML
     private void planet8Clicked() {
+        nextPlanet=Planet8;
         showTravel(universe.gameUniverse[7]);
     }
     @FXML
     private void planet9Clicked() {
+        nextPlanet=Planet9;
         showTravel(universe.gameUniverse[8]);
     }   
     @FXML
     private void planet10Clicked() {
+        nextPlanet=Planet10;
         showTravel(universe.gameUniverse[9]);
     }
     @FXML
     private void planet11Clicked() {
+        nextPlanet=Planet11;
         showTravel(universe.gameUniverse[10]);
     }    
     @FXML
     private void planet12Clicked() {
+        nextPlanet=Planet12;
         showTravel(universe.gameUniverse[11]);
     }    
     @FXML
     private void planet13Clicked() {
+        nextPlanet=Planet13;
         showTravel(universe.gameUniverse[12]);
     }   
     @FXML
     private void planet14Clicked() {
+        nextPlanet=Planet14;
         showTravel(universe.gameUniverse[13]);
     }  
     @FXML
     private void planet15Clicked() {
+        nextPlanet=Planet15;
         showTravel(universe.gameUniverse[14]);
     }
     @FXML
     private void planet16Clicked() {
+        nextPlanet=Planet16;
         showTravel(universe.gameUniverse[15]);
     }
     @FXML
     private void planet17Clicked() {
+        nextPlanet=Planet17;
         showTravel(universe.gameUniverse[16]);
     }
     @FXML
     private void planet18Clicked() {
+        nextPlanet=Planet18;
         showTravel(universe.gameUniverse[17]);
     }
     @FXML
     private void planet19Clicked() {
+        nextPlanet=Planet19;
         showTravel(universe.gameUniverse[18]);
     }   
     @FXML
     private void planet20Clicked() {
+        nextPlanet=Planet20;
         showTravel(universe.gameUniverse[19]);
     }
     @FXML
     private void planet21Clicked() {
+        nextPlanet=Planet21;
         showTravel(universe.gameUniverse[20]);
     }    
     @FXML
     private void planet22Clicked() {
+        nextPlanet=Planet22;
         showTravel(universe.gameUniverse[21]);
     }    
     @FXML
     private void planet23Clicked() {
+        nextPlanet=Planet23;
         showTravel(universe.gameUniverse[22]);
     }   
     @FXML
     private void planet24Clicked() {
+        nextPlanet=Planet24;
         showTravel(universe.gameUniverse[23]);
     }  
     @FXML
     private void planet25Clicked() {
+        nextPlanet=Planet25;
         showTravel(universe.gameUniverse[24]);
     }
     @FXML
     private void planet26Clicked() {
+        nextPlanet=Planet26;
         showTravel(universe.gameUniverse[25]);
     }
     @FXML
     private void planet27Clicked() {
+        nextPlanet=Planet27;
         showTravel(universe.gameUniverse[26]);
     }
     @FXML
     private void planet28Clicked() {
+        nextPlanet=Planet28;
         showTravel(universe.gameUniverse[27]);
     }
     @FXML
     private void planet29Clicked() {
+        nextPlanet=Planet29;
         showTravel(universe.gameUniverse[28]);
     }   
     @FXML
     private void planet30Clicked() {
+        nextPlanet=Planet30;
         showTravel(universe.gameUniverse[29]);
     }
     @FXML
     private void planet31Clicked() {
+        nextPlanet=Planet31;
         showTravel(universe.gameUniverse[30]);
     }    
     @FXML
     private void planet32Clicked() {
+        nextPlanet=Planet32;
         showTravel(universe.gameUniverse[31]);
     }    
     @FXML
     private void planet33Clicked() {
+        nextPlanet=Planet33;
         showTravel(universe.gameUniverse[32]);
     }   
     @FXML
     private void planet34Clicked() {
+        nextPlanet=Planet34;
         showTravel(universe.gameUniverse[33]);
     }  
     @FXML
     private void planet35Clicked() {
+        nextPlanet=Planet35;
         showTravel(universe.gameUniverse[34]);
     }
     @FXML
     private void planet36Clicked() {
+        nextPlanet=Planet36;
         showTravel(universe.gameUniverse[35]);
     }
     @FXML
     private void planet37Clicked() {
+        nextPlanet=Planet37;
         showTravel(universe.gameUniverse[36]);
     }
     @FXML
     private void planet38Clicked() {
+        nextPlanet=Planet38;
         showTravel(universe.gameUniverse[37]);
     }
     @FXML
     private void planet39Clicked() {
+        nextPlanet=Planet39;
         showTravel(universe.gameUniverse[38]);
     }   
     @FXML
     private void planet40Clicked() {
+        nextPlanet=Planet40;
         showTravel(universe.gameUniverse[39]);
     }
     @FXML
     private void planet41Clicked() {
+        nextPlanet=Planet41;
         showTravel(universe.gameUniverse[40]);
     }    
     @FXML
     private void planet42Clicked() {
+        nextPlanet=Planet42;
         showTravel(universe.gameUniverse[41]);
     }    
     @FXML
     private void planet43Clicked() {
+        nextPlanet=Planet43;
         showTravel(universe.gameUniverse[42]);
     }   
     @FXML
     private void planet44Clicked() {
+        nextPlanet=Planet44;
         showTravel(universe.gameUniverse[43]);
     }  
     @FXML
     private void planet45Clicked() {
+        nextPlanet=Planet45;
         showTravel(universe.gameUniverse[44]);
     }
     @FXML
     private void planet46Clicked() {
+        nextPlanet=Planet46;
         showTravel(universe.gameUniverse[45]);
     }
     @FXML
     private void planet47Clicked() {
+        nextPlanet=Planet47;
         showTravel(universe.gameUniverse[46]);
     }
     @FXML
     private void planet48Clicked() {
+        nextPlanet=Planet48;
         showTravel(universe.gameUniverse[47]);
     }
     @FXML
     private void planet49Clicked() {
+        nextPlanet=Planet49;
         showTravel(universe.gameUniverse[48]);
     }   
     @FXML
     private void planet50Clicked() {
+        nextPlanet=Planet50;
         showTravel(universe.gameUniverse[49]);
     }
     @FXML
     private void planet51Clicked() {
+        nextPlanet=Planet51;
         showTravel(universe.gameUniverse[50]);
     }    
     @FXML
     private void planet52Clicked() {
+        nextPlanet=Planet52;
         showTravel(universe.gameUniverse[51]);
     }    
     @FXML
     private void planet53Clicked() {
+        nextPlanet=Planet53;
         showTravel(universe.gameUniverse[52]);
     }   
     @FXML
     private void planet54Clicked() {
+        nextPlanet=Planet54;
         showTravel(universe.gameUniverse[53]);
     }  
     @FXML
     private void planet55Clicked() {
+        nextPlanet=Planet55;
         showTravel(universe.gameUniverse[54]);
     }
     @FXML
     private void planet56Clicked() {
+        nextPlanet=Planet56;
         showTravel(universe.gameUniverse[55]);
     }
     @FXML
     private void planet57Clicked() {
+        nextPlanet=Planet57;
         showTravel(universe.gameUniverse[56]);
     }
     @FXML
     private void planet58Clicked() {
+        nextPlanet=Planet58;
         showTravel(universe.gameUniverse[57]);
     }
     @FXML
     private void planet59Clicked() {
+        nextPlanet=Planet59;
         showTravel(universe.gameUniverse[58]);
     }   
     @FXML
     private void planet60Clicked() {
+        nextPlanet=Planet60;
         showTravel(universe.gameUniverse[59]);
     }
     @FXML
     private void planet61Clicked() {
+        nextPlanet=Planet61;
         showTravel(universe.gameUniverse[60]);
     }    
     @FXML
     private void planet62Clicked() {
+        nextPlanet=Planet62;
         showTravel(universe.gameUniverse[61]);
     }    
     @FXML
     private void planet63Clicked() {
+        nextPlanet=Planet63;
         showTravel(universe.gameUniverse[62]);
     }   
     @FXML
     private void planet64Clicked() {
+        nextPlanet=Planet64;
         showTravel(universe.gameUniverse[63]);
     }  
     @FXML
     private void planet65Clicked() {
+        nextPlanet=Planet65;
         showTravel(universe.gameUniverse[64]);
     }
     @FXML
     private void planet66Clicked() {
+        nextPlanet=Planet66;
         showTravel(universe.gameUniverse[65]);
     }
     @FXML
     private void planet67Clicked() {
+        nextPlanet=Planet67;
         showTravel(universe.gameUniverse[66]);
     }
     @FXML
     private void planet68Clicked() {
+        nextPlanet=Planet68;
         showTravel(universe.gameUniverse[67]);
     }
     @FXML
     private void planet69Clicked() {
+        nextPlanet=Planet69;
         showTravel(universe.gameUniverse[68]);
     }   
     @FXML
     private void planet70Clicked() {
+        nextPlanet=Planet70;
         showTravel(universe.gameUniverse[69]);
     }
     @FXML
     private void planet71Clicked() {
+        nextPlanet=Planet71;
         showTravel(universe.gameUniverse[70]);
     }    
     @FXML
     private void planet72Clicked() {
+        nextPlanet=Planet72;
         showTravel(universe.gameUniverse[71]);
     }    
     @FXML
     private void planet73Clicked() {
+        nextPlanet=Planet73;
         showTravel(universe.gameUniverse[72]);
     }   
     @FXML
     private void planet74Clicked() {
+        nextPlanet=Planet74;
         showTravel(universe.gameUniverse[73]);
     }  
     @FXML
     private void planet75Clicked() {
+        nextPlanet=Planet75;
         showTravel(universe.gameUniverse[74]);
     }
     @FXML
     private void planet76Clicked() {
+        nextPlanet=Planet76;
         showTravel(universe.gameUniverse[75]);
     }
     @FXML
     private void planet77Clicked() {
+        nextPlanet=Planet77;
         showTravel(universe.gameUniverse[76]);
     }
     @FXML
     private void planet78Clicked() {
+        nextPlanet=Planet78;
         showTravel(universe.gameUniverse[77]);
     }
     @FXML
     private void planet79Clicked() {
+        nextPlanet=Planet79;
         showTravel(universe.gameUniverse[78]);
     }   
     @FXML
     private void planet80Clicked() {
+        nextPlanet=Planet80;
         showTravel(universe.gameUniverse[79]);
     }
     @FXML
     private void planet81Clicked() {
+        nextPlanet=Planet81;
         showTravel(universe.gameUniverse[80]);
     }    
     @FXML
     private void planet82Clicked() {
+        nextPlanet=Planet82;
         showTravel(universe.gameUniverse[81]);
     }    
     @FXML
     private void planet83Clicked() {
+        nextPlanet=Planet83;
         showTravel(universe.gameUniverse[82]);
     }   
     @FXML
     private void planet84Clicked() {
+        nextPlanet=Planet84;
         showTravel(universe.gameUniverse[83]);
     }  
     @FXML
     private void planet85Clicked() {
+        nextPlanet=Planet85;
         showTravel(universe.gameUniverse[84]);
     }
     @FXML
     private void planet86Clicked() {
+        nextPlanet=Planet86;
         showTravel(universe.gameUniverse[85]);
     }
     @FXML
     private void planet87Clicked() {
+        nextPlanet=Planet87;
         showTravel(universe.gameUniverse[86]);
     }
     @FXML
     private void planet88Clicked() {
+        nextPlanet=Planet88;
         showTravel(universe.gameUniverse[87]);
     }
     @FXML
     private void planet89Clicked() {
+        nextPlanet=Planet89;
         showTravel(universe.gameUniverse[88]);
     }   
     @FXML
     private void planet90Clicked() {
+        nextPlanet=Planet90;
         showTravel(universe.gameUniverse[89]);
     }
     @FXML
     private void planet91Clicked() {
+        nextPlanet=Planet91;
         showTravel(universe.gameUniverse[90]);
     }    
     @FXML
     private void planet92Clicked() {
+        nextPlanet=Planet92;
         showTravel(universe.gameUniverse[91]);
     }    
     @FXML
     private void planet93Clicked() {
+        nextPlanet=Planet93;
         showTravel(universe.gameUniverse[92]);
     }   
     @FXML
     private void planet94Clicked() {
+        nextPlanet=Planet94;
         showTravel(universe.gameUniverse[93]);
     }  
     @FXML
     private void planet95Clicked() {
+        nextPlanet=Planet95;
         showTravel(universe.gameUniverse[94]);
     }
     @FXML
     private void planet96Clicked() {
+        nextPlanet=Planet96;
         showTravel(universe.gameUniverse[95]);
     }
     @FXML
     private void planet97Clicked() {
+        nextPlanet=Planet97;
         showTravel(universe.gameUniverse[96]);
     }
     @FXML
     private void planet98Clicked() {
+        nextPlanet=Planet98;
         showTravel(universe.gameUniverse[97]);
     }
     @FXML
     private void planet99Clicked() {
+        nextPlanet=Planet99;
         showTravel(universe.gameUniverse[98]);
     }   
     @FXML
     private void planet100Clicked() {
+        nextPlanet=Planet100;
         showTravel(universe.gameUniverse[99]);
     }
     @FXML
     private void planet101Clicked() {
+        nextPlanet=Planet101;
         showTravel(universe.gameUniverse[100]);
     }    
     @FXML
     private void planet102Clicked() {
+        nextPlanet=Planet102;
         showTravel(universe.gameUniverse[101]);
     }    
     @FXML
     private void planet103Clicked() {
+        nextPlanet=Planet103;
         showTravel(universe.gameUniverse[102]);
     }   
     @FXML
     private void planet104Clicked() {
+        nextPlanet=Planet104;
         showTravel(universe.gameUniverse[103]);
     }  
     @FXML
     private void planet105Clicked() {
+        nextPlanet=Planet105;
         showTravel(universe.gameUniverse[104]);
     }
     @FXML
     private void planet106Clicked() {
+        nextPlanet=Planet106;
         showTravel(universe.gameUniverse[105]);
     }
     @FXML
     private void planet107Clicked() {
+        nextPlanet=Planet107;
         showTravel(universe.gameUniverse[106]);
     }
     @FXML
     private void planet108Clicked() {
+        nextPlanet=Planet108;
         showTravel(universe.gameUniverse[107]);
     }
     @FXML
     private void planet109Clicked() {
+        nextPlanet=Planet109;
         showTravel(universe.gameUniverse[108]);
     }   
     @FXML
     private void planet110Clicked() {
+        nextPlanet=Planet110;
         showTravel(universe.gameUniverse[109]);
     }
     @FXML
     private void planet111Clicked() {
+        nextPlanet=Planet111;
         showTravel(universe.gameUniverse[110]);
     }    
     @FXML
     private void planet112Clicked() {
+        nextPlanet=Planet112;
         showTravel(universe.gameUniverse[111]);
     }    
     @FXML
     private void planet113Clicked() {
+        nextPlanet=Planet113;
         showTravel(universe.gameUniverse[112]);
     }   
     @FXML
     private void planet114Clicked() {
+        nextPlanet=Planet114;
         showTravel(universe.gameUniverse[113]);
     }  
     
     @FXML
-    private void refreshMap() {
-        previous.setFill(Color.DODGERBLUE);
-        current.setFill(Color.DARKORANGE);
+    public void refreshMap() {
+        currentPlanet.setFill(Color.DODGERBLUE);
+        nextPlanet.setFill(Color.DARKORANGE);
+        currentPlanet=nextPlanet;
     }
     
     private void initializeMap() {
@@ -1689,6 +1805,11 @@ public class FXMLDocumentController implements Initializable {
             TravelController travelController = loader.getController();
             travelController.setTheStage(newGameStage, solar);
             newGameStage.showAndWait();
+            if (planetChanged) {
+                refreshMap();
+                refreshMarket();
+                planetChanged = false;
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

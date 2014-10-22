@@ -15,7 +15,7 @@
          </font>
       </Label>
       <Label layoutX="98.0" layoutY="239.0" text="Remaining distance" />
-      <Label fx:id="remainDist" layoutX="148.0" layoutY="269.0" text="0" />
+      <Label fx:id="remainDist" layoutX="148.0" layoutY="269.0" />
       <Label fx:id="dotdot" layoutX="207.0" layoutY="112.0" text="...">
          <font>
             <Font name="System Bold" size="24.0" />
