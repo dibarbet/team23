@@ -6,11 +6,13 @@
 
 package spacefx;
 
+import java.io.Serializable;
+
 /**
  *
  * @author YaxiongLiu
  */
-public class Player {
+public class Player implements Serializable {
     // variable declariation
     private String name; // the name of the player
     private int pilot; // the pilot skill points of player
@@ -68,5 +70,8 @@ public class Player {
             return tempCredit;
         }
         
+    }
+    public String toString() {
+        return name;
     }
 }

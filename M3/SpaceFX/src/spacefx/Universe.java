@@ -5,16 +5,17 @@
  */
 package spacefx;
 
+import java.io.Serializable;
 import java.util.Random;
 
 /**
  *
  * @author Dillon
  */
-public class Universe {
+public class Universe implements Serializable {
     Random rand = new Random();
     SolarSystem[] gameUniverse = new SolarSystem[114];
-    static SolarSystem current;
+    private SolarSystem current;
     String[] names = {
         "Acamar",
         "Adahn",		
@@ -164,11 +165,11 @@ public class Universe {
      *
      * @return the current solar system
      */
-    public static SolarSystem getCurrentSolarSystem() {
+    public SolarSystem getCurrentSolarSystem() {
         return current;
     }
     
-    public static void setCurrentSolarSystem(SolarSystem s) {
+    public void setCurrentSolarSystem(SolarSystem s) {
         current = s;
     }
     

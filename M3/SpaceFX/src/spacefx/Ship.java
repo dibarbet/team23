@@ -4,11 +4,14 @@
  * and open the template in the editor.
  */
 package spacefx;
+
+import java.io.Serializable;
+
 /**
  *
  * @author Dillon
  */
-public class Ship {
+public class Ship implements Serializable {
     private int count = 0;
     private int limit = 30;
     private int fuel;
@@ -74,12 +77,13 @@ public class Ship {
      */
     public boolean travel(SolarSystem dest) {
         int miles = fuelToMiles(1, fuel);
-        double distance = Universe.distance(Universe.getCurrentSolarSystem(), dest);
+        Universe universe = GameData.getUniverse();
+        double distance = universe.distance(universe.getCurrentSolarSystem(), dest);
         if (miles < distance) {
             System.out.println("Ship unable to travel that distance");
             return false;
         } else {
-            Universe.setCurrentSolarSystem(dest);
+            universe.setCurrentSolarSystem(dest);
             miles = Math.abs((int)distance - miles);
             fuel = milesToFuel(1, miles);
             return true;

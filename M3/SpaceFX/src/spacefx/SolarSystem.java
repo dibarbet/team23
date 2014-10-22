@@ -5,12 +5,13 @@
  */
 package spacefx;
 
+import java.io.Serializable;
 import java.util.Random;
 /**
  *
  * @author David Barbet
  */
-public class SolarSystem {
+public class SolarSystem implements Serializable {
     private static String[] techLevels = {"Pre-Agriculture",
                                           "Agriculture",
                                           "Medieval",

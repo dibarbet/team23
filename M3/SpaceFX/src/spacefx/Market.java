@@ -5,12 +5,13 @@
  */
 
 package spacefx;
+import java.io.Serializable;
 import java.util.Random;
 /**
  *
  * @author David Barbet, Guy, Seung Lee
  */
-public class Market {
+public class Market implements Serializable {
     protected int nwater, nfurs, nfood, nore, ngames, nfirearms, nmedicine, nmachines, nnarcotics, nrobots;
     protected int pwater, pfurs, pfood, pore, pgames, pfirearms, pmedicine, pmachines, pnarcotics, probots;
     protected int mwater, mfurs, mfood, more, mgames, mfirearms, mmedicine, mmachines, mnarcotics, mrobots;

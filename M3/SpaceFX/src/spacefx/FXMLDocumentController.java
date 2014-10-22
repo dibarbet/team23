@@ -5,8 +5,20 @@
  */
 package spacefx;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInput;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,6 +35,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.shape.Circle;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import spacefx.marketerr.BuyErrController;
@@ -43,8 +56,14 @@ public class FXMLDocumentController implements Initializable {
     private boolean gameCreated;
     private Circle current;
     private Circle previous;
+    private String fileSave;
+    private File loadFile;
     @FXML
     private MenuItem newGame;
+    @FXML
+    private MenuItem saveGame;
+    @FXML
+    private MenuItem loadGame;
     @FXML
     private Tab marketPlace;
     @FXML
@@ -416,6 +435,7 @@ public class FXMLDocumentController implements Initializable {
             marketPlace.setDisable(false);
             map.setDisable(false);
             curSolar.setDisable(false);
+            saveGame.setDisable(false);
             current = Planet1;
             initializeMap();
         } catch (IOException e) {
@@ -429,6 +449,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void refreshMarket() {
         market = currentSolarSystem.getMarket();
+        GameData.setMarket(market);
         market.setMoney(player.getCredit());
         marketMoney.setText(Integer.toString(player.getCredit()));
         waterCargo.setText(Integer.toString(market.nwater));
@@ -480,11 +501,86 @@ public class FXMLDocumentController implements Initializable {
         if (!gameCreated) {
             marketPlace.setDisable(true);
             map.setDisable(true);
-            curSolar.setDisable(true); 
+            curSolar.setDisable(true);
+            saveGame.setDisable(true);
         }
         
     }
     
+    @FXML
+    private void saveGame() {
+        //showSaveWin();
+        String saveString = "save.ser";
+        FileChooser saveFile = new FileChooser();
+        saveFile.setInitialFileName(saveString);
+        saveFile.setTitle("Save Game");
+        Stage stage = new Stage();
+        File savedFile = saveFile.showSaveDialog(stage);
+        try {
+            OutputStream file = new FileOutputStream(savedFile);
+            OutputStream buffer = new BufferedOutputStream(file);
+            ObjectOutput output = new ObjectOutputStream(buffer);
+            output.writeObject(GameData.getClassList());
+            output.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+                
+    }
+    @FXML
+    private void loadGame() {
+        showLoadWin();
+    }
+    private void showLoadWin() {
+        FileChooser fileChoose = new FileChooser();
+        fileChoose.setTitle("Load Game Save");
+        Stage stage = new Stage();
+        loadFile = fileChoose.showOpenDialog(stage);
+        try {
+            InputStream file = new FileInputStream(loadFile);
+            InputStream buffer = new BufferedInputStream(file);
+            ObjectInput input = new ObjectInputStream(buffer);
+            ArrayList<Object> aList = (ArrayList<Object>) input.readObject();
+            input.close();
+            GameData.setPlayer((Player) aList.get(0));
+            GameData.setShip((Ship) aList.get(1));
+            GameData.setSolarSystem((SolarSystem) aList.get(4));
+            GameData.setUniverse((Universe) aList.get(2));
+            GameData.setMarket((Market) aList.get(3));
+            player = GameData.getPlayer();
+            universe = GameData.getUniverse();
+            currentSolarSystem = universe.getCurrentSolarSystem();
+            gameCreated = true;
+            marketPlace.setDisable(false);
+            map.setDisable(false);
+            curSolar.setDisable(false);
+            saveGame.setDisable(false);
+            current = Planet1;
+            initializeMap();
+            refreshSolar();
+            refreshMarket();
+        } catch (ClassNotFoundException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+//    private void showSaveWin() {
+//        try {
+//            FXMLLoader loader = new FXMLLoader(SpaceFX.class.getResource("saveWin.fxml"));
+//            AnchorPane newPage = (AnchorPane) loader.load();
+//            Stage newGameStage = new Stage();
+//            newGameStage.setTitle("Save Game");
+//            Scene scene = new Scene(newPage);
+//            newGameStage.setScene(scene);
+//            SaveWinController saveCont = loader.getController();
+//            saveCont.setTheStage(newGameStage);
+//            newGameStage.showAndWait();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        if (GameData.getFileSaveString() != null) {
+//            fileSave = GameData.getFileSaveString();
+//        }
+//    }
     @FXML
     private void planet1Clicked() {
         showTravel(universe.gameUniverse[0]);

@@ -5,6 +5,8 @@
  */
 package spacefx;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author David Barbet
@@ -15,6 +17,7 @@ public final class GameData {
     private static SolarSystem solarsystem;
     private static Universe universe;
     private static Market market;
+    private static String fileSaveString;
     /**
      * This is essentially a class to store all game data so that it can
      * be saved easier.
@@ -63,5 +66,38 @@ public final class GameData {
      */
     public static Universe getUniverse() {
         return universe;
+    }
+    /**
+     * Sets file save string
+     * @param aString the file string
+     */
+    public static void setFileSaveString(String aString) {
+        fileSaveString = aString;
+    }
+    /**
+     * Gets file save string
+     * @return the file string
+     */
+    public static String getFileSaveString() {
+        return fileSaveString;
+    }
+    public static void setSolarSystem(SolarSystem aSolar) {
+        solarsystem = aSolar;
+    }
+    public static void setMarket(Market aMarket) {
+        market = aMarket;
+    }
+    /**
+     * Returns list of all objects in class
+     * @return the list
+     */
+    public static ArrayList<Object> getClassList() {
+        ArrayList<Object> theList = new ArrayList<Object>();
+        theList.add(player);
+        theList.add(ship);
+        theList.add(universe);
+        theList.add(market);
+        theList.add(solarsystem);
+        return theList;
     }
 }
