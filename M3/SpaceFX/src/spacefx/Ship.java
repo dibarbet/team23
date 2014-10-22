@@ -6,6 +6,7 @@
 package spacefx;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 /**
  *
@@ -16,13 +17,17 @@ public class Ship implements Serializable {
     private int limit = 30;
     private int fuel;
     private int shipType;
+    protected int nwater, nfur, nfood, nore, ngame, nfire, nmed, nmach, nnarc, nrob;
     private String[] cargo = new String[limit];
     
     public Ship(int shipType) {
         this.fuel = 100;
         this.shipType = shipType;
     }
-    
+    public String toString() {
+        return "cargo: " + Arrays.toString(cargo);
+                
+    }
     public int getCount() {
         return count;
     }
@@ -36,8 +41,18 @@ public class Ship implements Serializable {
             for (int i = 0; i < amount; i++) {
                 cargo[count] = good;
                 count++;
-                System.out.println(count + "Added");
+                //System.out.println(count + "Added");
             }
+            if (good.equals("Water")) nwater += amount;
+            if (good.equals("Fur")) nfur += amount;
+            if (good.equals("Food")) nfood += amount;
+            if (good.equals("Ore")) nore += amount;
+            if (good.equals("Game")) ngame += amount;
+            if (good.equals("Firearm")) nfire += amount;
+            if (good.equals("Medicine")) nmed += amount;
+            if (good.equals("Machine")) nmach += amount;
+            if (good.equals("Narcotic")) nnarc += amount;
+            if (good.equals("Robot")) nrob += amount;
         }
     }
     
@@ -48,12 +63,22 @@ public class Ship implements Serializable {
                     cargo[i] = "";
                     count--;
                     amount--;
-                    System.out.println(count + "Sell");
+                    //System.out.println(count + "Sell");
                 }
                 if (amount == 0) {
                     return;
                 }
             }
+            if (good.equals("Water")) nwater -= amount;
+            if (good.equals("Fur")) nfur -= amount;
+            if (good.equals("Food")) nfood -= amount;
+            if (good.equals("Ore")) nore -= amount;
+            if (good.equals("Game")) ngame -= amount;
+            if (good.equals("Firearm")) nfire -= amount;
+            if (good.equals("Medicine")) nmed -= amount;
+            if (good.equals("Machine")) nmach -= amount;
+            if (good.equals("Narcotic")) nnarc -= amount;
+            if (good.equals("Robot")) nrob -= amount;
             if (amount > 0) {
                 System.out.print("Not enough of that good in cargo, sold all that was available.");
             }

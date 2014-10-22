@@ -126,6 +126,7 @@ public class TravellingController implements Initializable {
             }
             randOKBState=1;
             randCreditOKB.setText("OK");
+            update();
         } else if (randOKBState==1) {
             System.out.println(player.getCredit());
             update();

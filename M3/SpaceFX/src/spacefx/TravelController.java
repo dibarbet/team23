@@ -45,6 +45,7 @@ public class TravelController implements Initializable {
     
     SolarSystem solar;
     SolarSystem currSolar=GameData.getCurrSolarSys();
+    Ship ship = GameData.getShip();
     double dist;
     /**
      * Initializes the controller class.
@@ -72,23 +73,42 @@ public class TravelController implements Initializable {
     
     @FXML
     private void buttonPressed(){
-        try {
-            dist = Universe.distance(currSolar, solar);
-            GameData.setCurrSolarSys(solar);
-            FXMLLoader loader = new FXMLLoader(SpaceFX.class.getResource("randomEvent/Travelling.fxml"));
-            AnchorPane newPage = (AnchorPane) loader.load();
-            Stage newGameStage = new Stage();
-            newGameStage.setTitle("Travelling");
-            Scene scene = new Scene(newPage);
-            newGameStage.setScene(scene);
-            TravellingController controller = loader.getController();
-            controller.setTheStage(newGameStage,dist); 
-            newGameStage.showAndWait();
-            FXMLDocumentController.planetChanged = true;
-            this.theStage.close();
-        } catch (IOException ex) {
-            Logger.getLogger(TravelController.class.getName()).log(Level.SEVERE, null, ex);
+        if (ship.travel(solar)) {
+            try {
+                dist = Universe.distance(currSolar, solar);
+                GameData.setCurrSolarSys(solar);
+                FXMLLoader loader = new FXMLLoader(SpaceFX.class.getResource("randomEvent/Travelling.fxml"));
+                AnchorPane newPage = (AnchorPane) loader.load();
+                Stage newGameStage = new Stage();
+                newGameStage.setTitle("Travelling");
+                Scene scene = new Scene(newPage);
+                newGameStage.setScene(scene);
+                TravellingController controller = loader.getController();
+                controller.setTheStage(newGameStage,dist); 
+                newGameStage.showAndWait();
+                FXMLDocumentController.planetChanged = true;
+                this.theStage.close();
+            } catch (IOException ex) {
+                Logger.getLogger(TravelController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            try {
+                FXMLLoader loader = new FXMLLoader(SpaceFX.class.getResource("travelError.fxml"));
+                AnchorPane newPage = (AnchorPane) loader.load();
+                Stage newGameStage = new Stage();
+                newGameStage.setTitle("Travel Error");
+                Scene scene = new Scene(newPage);
+                newGameStage.setScene(scene);
+                TravelErrorController controller = loader.getController();
+                controller.setTheStage(newGameStage); 
+                newGameStage.showAndWait();
+                FXMLDocumentController.planetChanged = false;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
         }
+        
     }
     
 }

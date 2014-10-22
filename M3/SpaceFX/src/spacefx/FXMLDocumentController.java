@@ -455,19 +455,21 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void refreshMarket() {
         market = GameData.getCurrSolarSys().getMarket();
+        player = GameData.getPlayer();
         GameData.setMarket(market);
+        Ship ship = GameData.getShip();
         market.setMoney(player.getCredit());
         marketMoney.setText(Integer.toString(player.getCredit()));
-        waterCargo.setText(Integer.toString(market.nwater));
-        furCargo.setText(Integer.toString(market.nfurs));
-        foodCargo.setText(Integer.toString(market.nfood));
-        oreCargo.setText(Integer.toString(market.nore));
-        gameCargo.setText(Integer.toString(market.ngames));
-        fireCargo.setText(Integer.toString(market.nfirearms));
-        medCargo.setText(Integer.toString(market.nmedicine));
-        machCargo.setText(Integer.toString(market.nmachines));
-        narcCargo.setText(Integer.toString(market.nnarcotics));
-        robCargo.setText(Integer.toString(market.nrobots));
+        waterCargo.setText(Integer.toString(ship.nwater));
+        furCargo.setText(Integer.toString(ship.nfur));
+        foodCargo.setText(Integer.toString(ship.nfood));
+        oreCargo.setText(Integer.toString(ship.nore));
+        gameCargo.setText(Integer.toString(ship.ngame));
+        fireCargo.setText(Integer.toString(ship.nfire));
+        medCargo.setText(Integer.toString(ship.nmed));
+        machCargo.setText(Integer.toString(ship.nmach));
+        narcCargo.setText(Integer.toString(ship.nnarc));
+        robCargo.setText(Integer.toString(ship.nrob));
         pWater.setText(Integer.toString(market.pwater));
         pFur.setText(Integer.toString(market.pfurs));
         pFood.setText(Integer.toString(market.pfood));
@@ -1522,6 +1524,7 @@ public class FXMLDocumentController implements Initializable {
             planetWater.setText(Integer.toString(market.mwater));
             player.credit = money;
             updatePlayer();
+            market.updateShip();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
             showSErr();
@@ -1536,6 +1539,7 @@ public class FXMLDocumentController implements Initializable {
             planetWater.setText(Integer.toString(market.mwater));
             player.credit = money;
             updatePlayer();
+            market.updateShip();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
             showBErr();
@@ -1550,6 +1554,7 @@ public class FXMLDocumentController implements Initializable {
             planetFur.setText(Integer.toString(market.mfurs));
             player.credit = money;
             updatePlayer();
+            market.updateShip();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
             showSErr();
@@ -1564,6 +1569,7 @@ public class FXMLDocumentController implements Initializable {
             planetFur.setText(Integer.toString(market.mfurs));
             player.credit = money;
             updatePlayer();
+            market.updateShip();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
             showBErr();
@@ -1578,6 +1584,7 @@ public class FXMLDocumentController implements Initializable {
             planetFood.setText(Integer.toString(market.mfood));
             player.credit = money;
             updatePlayer();
+            market.updateShip();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
             showSErr();
@@ -1592,6 +1599,7 @@ public class FXMLDocumentController implements Initializable {
             planetFood.setText(Integer.toString(market.mfood));
             player.credit = money;
             updatePlayer();
+            market.updateShip();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
             showBErr();
@@ -1606,6 +1614,7 @@ public class FXMLDocumentController implements Initializable {
             planetOre.setText(Integer.toString(market.more));
             player.credit = money;
             updatePlayer();
+            market.updateShip();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
             showSErr();
@@ -1620,6 +1629,7 @@ public class FXMLDocumentController implements Initializable {
             planetOre.setText(Integer.toString(market.more));
             player.credit = money;
             updatePlayer();
+            market.updateShip();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
             showBErr();
@@ -1634,6 +1644,7 @@ public class FXMLDocumentController implements Initializable {
             planetGame.setText(Integer.toString(market.mgames));
             player.credit = money;
             updatePlayer();
+            market.updateShip();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
             showSErr();
@@ -1648,6 +1659,7 @@ public class FXMLDocumentController implements Initializable {
             planetGame.setText(Integer.toString(market.mgames));
             player.credit = money;
             updatePlayer();
+            market.updateShip();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
             showBErr();
@@ -1662,6 +1674,7 @@ public class FXMLDocumentController implements Initializable {
             planetFire.setText(Integer.toString(market.mfirearms));
             player.credit = money;
             updatePlayer();
+            market.updateShip();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
             showSErr();
@@ -1676,6 +1689,7 @@ public class FXMLDocumentController implements Initializable {
             planetFire.setText(Integer.toString(market.mfirearms));
             player.credit = money;
             updatePlayer();
+            market.updateShip();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
             showBErr();
@@ -1690,6 +1704,7 @@ public class FXMLDocumentController implements Initializable {
             planetMed.setText(Integer.toString(market.mmedicine));
             player.credit = money;
             updatePlayer();
+            market.updateShip();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
             showSErr();
@@ -1704,6 +1719,7 @@ public class FXMLDocumentController implements Initializable {
             planetMed.setText(Integer.toString(market.mmedicine));
             player.credit = money;
             updatePlayer();
+            market.updateShip();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
             showBErr();
@@ -1718,6 +1734,7 @@ public class FXMLDocumentController implements Initializable {
             planetMach.setText(Integer.toString(market.mmachines));
             player.credit = money;
             updatePlayer();
+            market.updateShip();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
             showSErr();
@@ -1732,6 +1749,7 @@ public class FXMLDocumentController implements Initializable {
             planetMach.setText(Integer.toString(market.mmachines));
             player.credit = money;
             updatePlayer();
+            market.updateShip();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
             showBErr();
@@ -1746,6 +1764,7 @@ public class FXMLDocumentController implements Initializable {
             planetNarc.setText(Integer.toString(market.mnarcotics));
             player.credit = money;
             updatePlayer();
+            market.updateShip();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
             showSErr();
@@ -1760,6 +1779,7 @@ public class FXMLDocumentController implements Initializable {
             planetNarc.setText(Integer.toString(market.mnarcotics));
             player.credit = money;
             updatePlayer();
+            market.updateShip();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
             showBErr();
@@ -1774,6 +1794,7 @@ public class FXMLDocumentController implements Initializable {
             planetRob.setText(Integer.toString(market.mrobots));
             player.credit = money;
             updatePlayer();
+            market.updateShip();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
             showSErr();
@@ -1788,6 +1809,7 @@ public class FXMLDocumentController implements Initializable {
             planetRob.setText(Integer.toString(market.mrobots));
             player.credit = money;
             updatePlayer();
+            market.updateShip();
             marketMoney.setText(Integer.toString(player.getCredit()));
         } else {
             showBErr();

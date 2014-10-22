@@ -80,6 +80,10 @@ public class Market implements Serializable {
     public void setMoney(int m) {
         money = m;
     }
+    @Override
+    public String toString() {
+        return Integer.toString(nwater);
+    }
     
     /*Returns the amount of money after buying One water
      *@return money left after buying, or -1 if buying would make money
@@ -93,6 +97,7 @@ public class Market implements Serializable {
             nwater++;
             mwater--;
             ship.addCargo(1, "Water");
+            updateShip();
         } else {
             return -1;
         }
@@ -110,6 +115,7 @@ public class Market implements Serializable {
             nfurs++;
             mfurs--;
             ship.addCargo(1, "Fur");
+            updateShip();
         } else {
             return -1;
         }
@@ -127,6 +133,7 @@ public class Market implements Serializable {
             nfood++;
             mfood--;
             ship.addCargo(1, "Food");
+            updateShip();
         } else {
             return -1;
         }
@@ -144,6 +151,7 @@ public class Market implements Serializable {
             nore++;
             more--;
             ship.addCargo(1, "Ore");
+            updateShip();
         } else {
             return -1;
         }
@@ -161,6 +169,7 @@ public class Market implements Serializable {
             ngames++;
             mgames--;
             ship.addCargo(1, "Game");
+            updateShip();
         } else {
             return -1;
         }
@@ -178,6 +187,7 @@ public class Market implements Serializable {
             nfurs++;
             mfurs--;
             ship.addCargo(1, "Firearm");
+            updateShip();
         } else {
             return -1;
         }
@@ -195,6 +205,7 @@ public class Market implements Serializable {
             nmedicine++;
             mmedicine--;
             ship.addCargo(1, "Medicine");
+            updateShip();
         } else {
             return -1;
         }
@@ -212,6 +223,7 @@ public class Market implements Serializable {
             nmachines++;
             mmachines--;
             ship.addCargo(1, "Machine");
+            updateShip();
         } else {
             return -1;
         }
@@ -229,6 +241,7 @@ public class Market implements Serializable {
             nnarcotics++;
             mnarcotics--;
             ship.addCargo(1, "Narcotic");
+            updateShip();
         } else {
             return -1;
         }
@@ -246,6 +259,7 @@ public class Market implements Serializable {
             nrobots++;
             mrobots--;
             ship.addCargo(1, "Robot");
+            updateShip();
         } else {
             return -1;
         }
@@ -262,6 +276,7 @@ public class Market implements Serializable {
             nwater--;
             mwater++;
             ship.sellCargo(1, "Water");
+            updateShip();
         } else {
             return -1;
         }
@@ -278,6 +293,7 @@ public class Market implements Serializable {
             nfurs--;
             mfurs++;
             ship.sellCargo(1, "Fur");
+            updateShip();
         } else {
             return -1;
         }
@@ -294,6 +310,7 @@ public class Market implements Serializable {
             nfood--;
             mfood++;
             ship.sellCargo(1, "Food");
+            updateShip();
         } else {
             return -1;
         }
@@ -310,6 +327,7 @@ public class Market implements Serializable {
             nore--;
             more++;
             ship.sellCargo(1, "Ore");
+            updateShip();
         } else {
             return -1;
         }
@@ -326,6 +344,7 @@ public class Market implements Serializable {
             ngames--;
             mgames++;
             ship.sellCargo(1, "Game");
+            updateShip();
         } else {
             return -1;
         }
@@ -342,6 +361,7 @@ public class Market implements Serializable {
             nfirearms--;
             mfirearms++;
             ship.sellCargo(1, "Firearm");
+            updateShip();
         } else {
             return -1;
         }
@@ -358,6 +378,7 @@ public class Market implements Serializable {
             nmedicine--;
             mmedicine++;
             ship.sellCargo(1, "Medicine");
+            updateShip();
         } else {
             return -1;
         }
@@ -374,6 +395,7 @@ public class Market implements Serializable {
             nmachines--;
             mmachines++;
             ship.sellCargo(1, "Machine");
+            updateShip();
         } else {
             return -1;
         }
@@ -390,6 +412,7 @@ public class Market implements Serializable {
             nnarcotics--;
             mnarcotics++;
             ship.sellCargo(1, "Narcotic");
+            updateShip();
         } else {
             return -1;
         }
@@ -406,6 +429,7 @@ public class Market implements Serializable {
             nrobots--;
             mrobots++;
             ship.sellCargo(1, "Robot");
+            updateShip();
         } else {
             return -1;
         }
