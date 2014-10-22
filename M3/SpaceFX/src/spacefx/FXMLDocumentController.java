@@ -1808,6 +1808,7 @@ public class FXMLDocumentController implements Initializable {
             if (planetChanged) {
                 refreshMap();
                 refreshMarket();
+                refreshSolar();
                 planetChanged = false;
             }
         } catch (IOException e) {
