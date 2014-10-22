@@ -7,14 +7,20 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="342.0" prefWidth="313.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="spacefx.randomEvent.TravellingController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacefx.randomEvent.TravellingController">
    <children>
-      <Label layoutX="100.0" layoutY="99.0" text="Travelling">
+      <Label layoutX="94.0" layoutY="112.0" text="Travelling">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="103.0" layoutY="205.0" text="Remaining Distance:" />
+      <Label layoutX="98.0" layoutY="239.0" text="Remaining distance" />
+      <Label fx:id="remainDist" layoutX="148.0" layoutY="269.0" text="0" />
+      <Label fx:id="dotdot" layoutX="207.0" layoutY="112.0" text="...">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="startTravellingB" layoutX="104.0" layoutY="316.0" mnemonicParsing="false" onAction="#startTravellingBAction" text="Start Travelling" />
    </children>
 </AnchorPane>

@@ -373,9 +373,7 @@ public class TravelProcess extends javax.swing.JFrame {
                 .addGap(20, 20, 20))
         );
 
-        randCredit.setMaximumSize(new java.awt.Dimension(400, 300));
         randCredit.setMinimumSize(new java.awt.Dimension(400, 300));
-        randCredit.setPreferredSize(new java.awt.Dimension(400, 300));
 
         randCreditInfo1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         randCreditInfo1.setText("jLabel1");
@@ -414,7 +412,6 @@ public class TravelProcess extends javax.swing.JFrame {
                 .addGap(53, 53, 53))
         );
 
-        bribePolice.setMaximumSize(new java.awt.Dimension(400, 300));
         bribePolice.setMinimumSize(new java.awt.Dimension(400, 300));
 
         bribePoliceInfo.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -460,7 +457,6 @@ public class TravelProcess extends javax.swing.JFrame {
                 .addGap(61, 61, 61))
         );
 
-        fight.setMaximumSize(new java.awt.Dimension(400, 300));
         fight.setMinimumSize(new java.awt.Dimension(400, 300));
 
         fightENHP.setText("HP: ");
@@ -701,7 +697,7 @@ public class TravelProcess extends javax.swing.JFrame {
     private javax.swing.JLabel travellingLabel;
     // End of variables declaration//GEN-END:variables
 
-    private void resumeTravelling() {
+    public void resumeTravelling() {
         stop=false;
         try {
             Thread.sleep(200);

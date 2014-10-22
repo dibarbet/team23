@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1">
-    
+<AnchorPane id="AnchorPane" prefHeight="350.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="traderAttB" layoutX="58.0" layoutY="230.0" mnemonicParsing="false" onAction="#traderAttBAction" prefHeight="25.0" prefWidth="380.0" text="Attack" />
+      <Label fx:id="traderEncInfo" layoutX="58.0" layoutY="75.0" text="Encounter Trader">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="traderLeaveB" layoutX="58.0" layoutY="280.0" mnemonicParsing="false" onAction="#traderLeaveBAction" prefHeight="25.0" prefWidth="380.0" text="Leave" />
+      <Button fx:id="traderTraB" layoutX="58.0" layoutY="255.0" mnemonicParsing="false" onAction="#traderTraBAction" prefHeight="25.0" prefWidth="380.0" text="Trade" />
+   </children>
 </AnchorPane>

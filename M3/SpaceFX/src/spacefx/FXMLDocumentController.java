@@ -42,6 +42,7 @@ import spacefx.marketerr.BuyErrController;
 import spacefx.marketerr.SellErrController;
 import spacefx.newgame.EmptyNameErrController;
 import spacefx.newgame.NewGameWinController;
+import spacefx.randomEvent.TravellingController;
 
 /**
  *
@@ -410,6 +411,7 @@ public class FXMLDocumentController implements Initializable {
     private Circle Planet113;
     @FXML
     private Circle Planet114;
+    
     
     // </editor-fold>
     /**
@@ -1751,4 +1753,5 @@ public class FXMLDocumentController implements Initializable {
     private void updatePlayer() {
         GameData.setPlayer(player);
     }
+    
 }

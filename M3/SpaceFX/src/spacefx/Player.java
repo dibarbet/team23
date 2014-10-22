@@ -20,7 +20,7 @@ public class Player implements Serializable {
     private int trader; // the trader skill points of player
     private int engineer; // the engineer skill point of player
     private int investor; // the investor skill point of player
-    protected int credit; // the credit skill point of player
+    public int credit; // the credit skill point of player
     private Ship currShip; // the current ship that the player owns
     // end variable declariation
     

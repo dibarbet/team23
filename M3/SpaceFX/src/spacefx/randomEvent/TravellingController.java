@@ -5,15 +5,36 @@
  */
 package spacefx.randomEvent;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Random;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.animation.Animation;
+import javafx.animation.AnimationTimer;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.util.Duration;
+import javax.swing.Timer;
+import spacefx.GameData;
+import spacefx.Player;
+import spacefx.SpaceFX;
+import spacefx.newgame.EmptyNameErrController;
 
 /**
  * FXML Controller class
@@ -21,10 +42,39 @@ import javafx.stage.Stage;
  * @author YaxiongLiu
  */
 public class TravellingController implements Initializable {
-
+    @FXML
+    private Label remainDist;
+    @FXML
+    private Label dotdot;
+    @FXML
+    private Label randCreditInfo1;
+    @FXML
+    private Label randCreditInfo2;
+    @FXML
+    private Button randCreditOKB;
+    @FXML
+    private Button startTravellingB;
     
-    private void handleEmptyNameOKButtonAction(ActionEvent e) {
-        
+    Player player = GameData.getPlayer();
+    Random rand = new Random();
+    public int dist = 30;
+    private int encFac;
+    private int randOKBState=0;
+    private static boolean running=true;
+    final int delay = 500;
+    
+    private Stage theStage;
+    private Stage randCreditStage;
+    Timeline timeline = new Timeline(new KeyFrame(
+        Duration.millis(500),
+        ae -> checkRand()));
+    
+    public void setTheStage(Stage theStage) {
+        this.theStage = theStage;
+    }
+    
+    public void setRandCreditStage(Stage theStage) {
+        this.randCreditStage = theStage;
     }
     
     
@@ -33,7 +83,78 @@ public class TravellingController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+
     }    
     
+    private void update() {
+        GameData.setPlayer(player);
+    }
+    
+    private void showRandCreditWin() {
+        try {
+            FXMLLoader randCreditLoader = new FXMLLoader(SpaceFX.class.getResource("randomEvent/randCredit.fxml"));
+            AnchorPane randCreditPage = (AnchorPane) randCreditLoader.load();
+            Stage myRandCreditStage = new Stage();
+            myRandCreditStage.setTitle("Error");
+            Scene scene = new Scene(randCreditPage);
+            myRandCreditStage.setScene(scene);
+            TravellingController randCreditController = randCreditLoader.getController();
+            randCreditController.setRandCreditStage(myRandCreditStage);
+            myRandCreditStage.show();
+        } catch (IOException exc) {
+            exc.printStackTrace();
+        }
+    }
+    
+    @FXML
+    private void startTravellingBAction(javafx.event.ActionEvent event) {
+        startTravellingB.setDisable(true);
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
+    }
+    
+    @FXML
+    private void randCreditOKBAction(javafx.event.ActionEvent event) {
+        if(randOKBState==0) {
+            if (rand.nextInt(2)==0){
+                randCreditInfo1.setText("You have gained " + player.gainCredit(rand.nextInt(1000)) + " credits");
+                randCreditInfo2.setText("Lucky! Who lost credits in universe.");
+            } else {
+                randCreditInfo1.setText("You were stolen " + player.loseCredit(rand.nextInt(1000)) + " credits in your ship");
+                randCreditInfo2.setText("HOW COULD THAT HAPPEN?");
+            }
+            randOKBState=1;
+            randCreditOKB.setText("OK");
+        } else if (randOKBState==1) {
+            System.out.println(player.getCredit());
+            update();
+            running=true;
+            randCreditOKB.setText("What happened?");
+            randCreditInfo1.setText("Something happend...");
+            randCreditInfo2.setText("");
+            randOKBState=0;
+            randCreditStage.close();
+        }
+    }
+    
+    private void checkRand(){
+        if (running) {
+            if (dist%3==0) {
+                dotdot.setText("");
+            }
+            encFac = rand.nextInt(20);
+            if (encFac<5) {
+                running=false;
+                showRandCreditWin();  
+            }
+            dist--;
+            remainDist.setText("" + dist);
+            dotdot.setText(dotdot.getText() + ".");
+            if (dist<0) {
+                update();
+                timeline.stop();
+                theStage.close();
+            }
+        }
+    }
 }

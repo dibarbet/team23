@@ -1,11 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1">
-    
+
+<AnchorPane id="AnchorPane" prefHeight="300.0" prefWidth="500.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <Button fx:id="attB" layoutX="294.0" layoutY="185.0" mnemonicParsing="false" onAction="#attBAction" prefHeight="30.0" prefWidth="150.0" text="Attack" />
+      <Button fx:id="surB" layoutX="294.0" layoutY="215.0" mnemonicParsing="false" onAction="#surBAction" prefHeight="30.0" prefWidth="150.0" text="Surrender" />
+      <Button fx:id="escB" layoutX="294.0" layoutY="245.0" mnemonicParsing="false" onAction="#escBAction" prefHeight="30.0" prefWidth="150.0" text="Escape" />
+      <Label layoutX="38.0" layoutY="53.0" text="battleInfo" />
+      <Label layoutX="326.0" layoutY="51.0" text="HP:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="enemyHP" layoutX="369.0" layoutY="51.0" text="0/0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="myHP" layoutX="96.0" layoutY="207.0" text="0/0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="53.0" layoutY="207.0" text="HP:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
 </AnchorPane>

@@ -18,6 +18,12 @@
                   <MenuItem fx:id="newGame" mnemonicParsing="false" onAction="#handleNewGame" text="New Game" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="deBug">
+               <items>
+                  <MenuItem fx:id="deBugTravellingItem" mnemonicParsing="false" onAction="#deBugTravellingItemAction" text="deBugTravelling" />
+                  <MenuItem fx:id="deBugRand" mnemonicParsing="false" onAction="#deBugRandAction" text="deBugRand" />
+               </items>
+            </Menu>
         </menus>
       </MenuBar>
       <TabPane layoutY="27.0" prefHeight="514.0" prefWidth="804.0" tabClosingPolicy="UNAVAILABLE">
@@ -27,9 +33,66 @@
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
             </content>
           </Tab>
-          <Tab fx:id="curSolar" text="Current Solar System">
+          <Tab fx:id="curSolar" onSelectionChanged="#refreshSolar" text="Current Solar System">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label alignment="CENTER" layoutX="231.0" layoutY="14.0" prefHeight="76.0" prefWidth="342.0" text="Current Solar System">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="127.0" layoutY="67.0" prefHeight="58.0" prefWidth="104.0" text="Name:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="127.0" layoutY="125.0" prefHeight="58.0" prefWidth="104.0" text="Tech Level:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="127.0" layoutY="183.0" prefHeight="58.0" prefWidth="154.0" text="Resource Type:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="127.0" layoutY="241.0" prefHeight="58.0" prefWidth="154.0" text="Government Type:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="127.0" layoutY="299.0" prefHeight="58.0" prefWidth="154.0" text="Location:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="curSolarName" alignment="CENTER_RIGHT" layoutX="425.0" layoutY="67.0" prefHeight="58.0" prefWidth="252.0" text="Unknown">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="curSolarTech" alignment="CENTER_RIGHT" layoutX="431.0" layoutY="125.0" prefHeight="58.0" prefWidth="246.0" text="Unknown">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="curSolarResource" alignment="CENTER_RIGHT" layoutX="428.0" layoutY="183.0" prefHeight="58.0" prefWidth="249.0" text="Unknown">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="curSolarGov" alignment="CENTER_RIGHT" layoutX="426.0" layoutY="241.0" prefHeight="58.0" prefWidth="251.0" text="Unknown">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="curSolarLoc" alignment="CENTER_RIGHT" layoutX="431.0" layoutY="299.0" prefHeight="58.0" prefWidth="246.0" text="Unknown">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children></AnchorPane>
             </content>
           </Tab>
             <Tab fx:id="marketPlace" onSelectionChanged="#refreshMarket" text="Market Place">
