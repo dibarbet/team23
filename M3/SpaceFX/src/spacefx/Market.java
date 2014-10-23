@@ -17,6 +17,7 @@ public class Market implements Serializable {
     protected int mwater, mfurs, mfood, more, mgames, mfirearms, mmedicine, mmachines, mnarcotics, mrobots;
     private int money;
     private Ship ship;
+    private Player player;
     private String[] stock;
     private int techLevel;
     /**
@@ -27,29 +28,18 @@ public class Market implements Serializable {
         ship = GameData.getShip();
         this.techLevel = techLevel;
         // Get the number of goods in the cargo space
-        for (int i = 0; i < ship.getCount(); i++) {
-            if (ship.getCargo(i).equals("Water")) {
-                nwater++;
-            } else if (ship.getCargo(i).equals("Fur")) {
-                nfurs++;
-            } else if (ship.getCargo(i).equals("Food")) {
-                nfood++;
-            } else if (ship.getCargo(i).equals("Ore")) {
-                nore++;
-            } else if (ship.getCargo(i).equals("Game")) {
-                ngames++;
-            } else if (ship.getCargo(i).equals("Firearm")) {
-                nfirearms++;
-            } else if (ship.getCargo(i).equals("Medicine")) {
-                nmedicine++;
-            } else if (ship.getCargo(i).equals("Machine")) {
-                nmachines++;
-            } else if (ship.getCargo(i).equals("Narcotic")) {
-                nnarcotics++;
-            } else if (ship.getCargo(i).equals("Robot")) {
-                nrobots++;
-            }            
-        }
+        player = GameData.getPlayer();
+        money = player.credit;
+        nwater = ship.nwater;
+        nfurs = ship.nfur;
+        nfood = ship.nfood;
+        nore = ship.nore;
+        ngames = ship.ngame;
+        nfirearms = ship.nfire;
+        nmedicine = ship.nmed;
+        nmachines = ship.nmach;
+        nnarcotics = ship.nnarc;
+        nrobots = ship.nrob;
         //Creates prices for goods based on a model    
         Random rand = new Random(); 
         pwater = Good.Water.basePrice * (1 + rand.nextInt(Good.Water.var) / 10) + (Good.Water.ipl * (techLevel - Good.Water.mtlp));
@@ -77,9 +67,6 @@ public class Market implements Serializable {
      * Sets the money for the market place
      * @param m the amount of money for the player to have
      */
-    public void setMoney(int m) {
-        money = m;
-    }
     @Override
     public String toString() {
         return Integer.toString(nwater);
@@ -89,7 +76,8 @@ public class Market implements Serializable {
      *@return money left after buying, or -1 if buying would make money
      *drop below 0
     */
-    public int buyWater() {                                         
+    public int buyWater() {
+        updateMarketItems();
         //Update money, number of water in cargo space and market stock when player buys good
         int tempmoney = money;
         if (tempmoney - pwater >= 0 && mwater >0) {
@@ -107,7 +95,8 @@ public class Market implements Serializable {
      *@return money left after buying, or -1 if buying would make money
      *drop below 0
     */
-    public int buyFur() {                                         
+    public int buyFur() { 
+        updateMarketItems();
         //Update money, number of water in cargo space and market stock when player buys good
         int tempmoney = money;
         if (tempmoney - pfurs >= 0 && mfurs >0) {
@@ -125,7 +114,8 @@ public class Market implements Serializable {
      *@return money left after buying, or -1 if buying would make money
      *drop below 0
     */
-    public int buyFood() {                                         
+    public int buyFood() { 
+        updateMarketItems();
         //Update money, number of water in cargo space and market stock when player buys good
         int tempmoney = money;
         if (tempmoney - pfood >= 0 && mfood >0) {
@@ -143,7 +133,8 @@ public class Market implements Serializable {
      *@return money left after buying, or -1 if buying would make money
      *drop below 0
     */
-    public int buyOre() {                                         
+    public int buyOre() {   
+        updateMarketItems();
         //Update money, number of water in cargo space and market stock when player buys good
         int tempmoney = money;
         if (tempmoney - pore >= 0&& more > 0) {
@@ -161,7 +152,8 @@ public class Market implements Serializable {
      *@return money left after buying, or -1 if buying would make money
      *drop below 0
     */
-    public int buyGame() {                                         
+    public int buyGame() { 
+        updateMarketItems();
         //Update money, number of water in cargo space and market stock when player buys good
         int tempmoney = money;
         if (tempmoney - pgames >= 0 && mgames > 0) {
@@ -179,7 +171,8 @@ public class Market implements Serializable {
      *@return money left after buying, or -1 if buying would make money
      *drop below 0
     */
-    public int buyFirearm() {                                         
+    public int buyFirearm() { 
+        updateMarketItems();
         //Update money, number of water in cargo space and market stock when player buys good
         int tempmoney = money;
         if (tempmoney - pfirearms >= 0 && mfirearms > 0) {
@@ -197,7 +190,8 @@ public class Market implements Serializable {
      *@return money left after buying, or -1 if buying would make money
      *drop below 0
     */
-    public int buyMedicine() {                                         
+    public int buyMedicine() {
+        updateMarketItems();
     //Update money, number of water in cargo space and market stock when player buys good        
         int tempmoney = money;
         if (tempmoney - pmedicine >= 0 && mmedicine > 0) {
@@ -215,7 +209,8 @@ public class Market implements Serializable {
      *@return money left after buying, or -1 if buying would make money
      *drop below 0
     */
-    public int buyMachine() {                                         
+    public int buyMachine() {
+        updateMarketItems();
         //Update money, number of water in cargo space and market stock when player buys good
         int tempmoney = money;
         if (tempmoney - pmachines >= 0 && mmachines > 0) {
@@ -233,7 +228,8 @@ public class Market implements Serializable {
      *@return money left after buying, or -1 if buying would make money
      *drop below 0
     */
-    public int buyNarcotic() {                                         
+    public int buyNarcotic() {
+        updateMarketItems();
         //Update money, number of water in cargo space and market stock when player buys good
         int tempmoney = money;
         if (tempmoney - pnarcotics >= 0 && mnarcotics > 0) {
@@ -251,7 +247,8 @@ public class Market implements Serializable {
      *@return money left after buying, or -1 if buying would make money
      *drop below 0
     */
-    public int buyRobot() {                                          
+    public int buyRobot() {     
+        updateMarketItems();
         //Update money, number of water in cargo space and market stock when player buys good
         int tempmoney = money;
         if (tempmoney - probots >= 0 && mrobots > 0) {
@@ -265,11 +262,27 @@ public class Market implements Serializable {
         }
         return money;
     }
+    /**
+     * Update market items
+     */
+    private void updateMarketItems() {
+        nwater = ship.nwater;
+        nfurs = ship.nfur;
+        nfood = ship.nfood;
+        nore = ship.nore;
+        ngames = ship.ngame;
+        nfirearms = ship.nfire;
+        nmedicine = ship.nmed;
+        nmachines = ship.nmach;
+        nnarcotics = ship.nnarc;
+        nrobots = ship.nrob;
+        money = player.credit;
+    }
     /*Returns the amount of money after selling one water
      *@return money left after selling one, or -1 if it cannot be sold
     */
     public int sellWater() {                                          
-        //Update money, number of water in cargo space and market stock when player sells good
+        updateMarketItems();
         int tempmoney = money;
         if (nwater > 0) {
             money = money + pwater;
@@ -285,7 +298,8 @@ public class Market implements Serializable {
     /*Returns the amount of money after selling one fur
      *@return money left after selling one, or -1 if it cannot be sold
     */
-    public int sellFur() {                                          
+    public int sellFur() {
+        updateMarketItems();
         //Update money, number of water in cargo space and market stock when player sells good
         int tempmoney = money;
         if (nfurs > 0) {
@@ -302,7 +316,8 @@ public class Market implements Serializable {
     /*Returns the amount of money after selling one food
      *@return money left after selling one, or -1 if it cannot be sold
     */
-    public int sellFood() {                                          
+    public int sellFood() {
+        updateMarketItems();
         //Update money, number of water in cargo space and market stock when player sells good
         int tempmoney = money;
         if (nfood > 0) {
@@ -319,7 +334,8 @@ public class Market implements Serializable {
     /*Returns the amount of money after selling one ore
      *@return money left after selling one, or -1 if it cannot be sold
     */
-    public int sellOre() {                                          
+    public int sellOre() {  
+        updateMarketItems();
         //Update money, number of water in cargo space and market stock when player sells good
         int tempmoney = money;
         if (nore > 0) {
@@ -336,7 +352,8 @@ public class Market implements Serializable {
     /*Returns the amount of money after selling one game
      *@return money left after selling one, or -1 if it cannot be sold
     */
-    public int sellGame() {                                          
+    public int sellGame() {  
+        updateMarketItems();
         //Update money, number of water in cargo space and market stock when player sells good
         int tempmoney = money;
         if (ngames > 0) {
@@ -353,7 +370,8 @@ public class Market implements Serializable {
     /*Returns the amount of money after selling one firearm
      *@return money left after selling one, or -1 if it cannot be sold
     */
-    public int sellFirearm() {                                          
+    public int sellFirearm() {
+        updateMarketItems();
         //Update money, number of water in cargo space and market stock when player sells good
         int tempmoney = money;
         if (nfirearms > 0) {
@@ -370,7 +388,8 @@ public class Market implements Serializable {
     /*Returns the amount of money after selling one medicine
      *@return money left after selling one, or -1 if it cannot be sold
     */
-    public int sellMedicine() {                                          
+    public int sellMedicine() {
+        updateMarketItems();
         //Update money, number of water in cargo space and market stock when player sells good
         int tempmoney = money;
         if (nmedicine > 0) {
@@ -387,7 +406,8 @@ public class Market implements Serializable {
     /*Returns the amount of money after selling one machine
      *@return money left after selling one, or -1 if it cannot be sold
     */
-    public int sellMachine() {                                          
+    public int sellMachine() { 
+        updateMarketItems();
         //Update money, number of water in cargo space and market stock when player sells good
         int tempmoney = money;
         if (nmachines > 0) {
@@ -404,7 +424,8 @@ public class Market implements Serializable {
     /*Returns the amount of money after selling one narcotic
      *@return money left after selling one, or -1 if it cannot be sold
     */
-    public int sellNarcotic() {                                          
+    public int sellNarcotic() {
+        updateMarketItems();
        //Update money, number of water in cargo space and market stock when player sells good
         int tempmoney = money;
         if (nnarcotics > 0) {
@@ -421,7 +442,8 @@ public class Market implements Serializable {
     /*Returns the amount of money after selling one robot
      *@return money left after selling one, or -1 if it cannot be sold
     */
-    public int sellRobot() {                                          
+    public int sellRobot() {  
+        updateMarketItems();
         //Update money, number of water in cargo space and market stock when player sells good
         int tempmoney = money;
         if (nrobots > 0) {

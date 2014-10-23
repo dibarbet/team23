@@ -37,12 +37,8 @@ public class Ship implements Serializable {
     }
     
     public void addCargo(int amount, String good) {
-        if (count + amount <= limit) {
-            for (int i = 0; i < amount; i++) {
-                cargo[count] = good;
-                count++;
-                //System.out.println(count + "Added");
-            }
+        int total = nwater + nfur + nfood + nore + ngame + nfire + nmed + nmach + nnarc + nrob;
+        if (total <= limit) {
             if (good.equals("Water")) nwater += amount;
             if (good.equals("Fur")) nfur += amount;
             if (good.equals("Food")) nfood += amount;
@@ -57,18 +53,8 @@ public class Ship implements Serializable {
     }
     
     public void sellCargo(int amount, String good) {
-        if (count - amount >= 0) {
-            for (int i = 0; i < limit; i++) {
-                if (good.equals(cargo[i])) {
-                    cargo[i] = "";
-                    count--;
-                    amount--;
-                    //System.out.println(count + "Sell");
-                }
-                if (amount == 0) {
-                    return;
-                }
-            }
+        int total = nwater + nfur + nfood + nore + ngame + nfire + nmed + nmach + nnarc + nrob;
+        if (total > 0) {
             if (good.equals("Water")) nwater -= amount;
             if (good.equals("Fur")) nfur -= amount;
             if (good.equals("Food")) nfood -= amount;
@@ -79,9 +65,6 @@ public class Ship implements Serializable {
             if (good.equals("Machine")) nmach -= amount;
             if (good.equals("Narcotic")) nnarc -= amount;
             if (good.equals("Robot")) nrob -= amount;
-            if (amount > 0) {
-                System.out.print("Not enough of that good in cargo, sold all that was available.");
-            }
         }
     }
     

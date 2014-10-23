@@ -458,7 +458,6 @@ public class FXMLDocumentController implements Initializable {
         player = GameData.getPlayer();
         GameData.setMarket(market);
         Ship ship = GameData.getShip();
-        market.setMoney(player.getCredit());
         marketMoney.setText(Integer.toString(player.getCredit()));
         waterCargo.setText(Integer.toString(ship.nwater));
         furCargo.setText(Integer.toString(ship.nfur));

@@ -385,11 +385,11 @@ public class NewGameWinController implements Initializable {
     private void handleOK() {
         if (isValidName() && checkPoints()) {
             player = new Player(pilotName, numPilot, numFighter, numTrader, numEngineer, numInvestor);
+            GameData.setPlayer(player);
             Ship startShip = new Ship(1);
             GameData.setShip(startShip);
             Universe universe = new Universe();
             GameData.setUniverse(universe);
-            GameData.setPlayer(player);
             theStage.close();
         } else {
             if (!isValidName()) {
