@@ -15,17 +15,20 @@ import java.util.Arrays;
 public class Ship implements Serializable {
     private int count = 0;
     private int limit, fuel, hull, price;
-    private int fuel;
+    //private int fuel;
     private String shipType;
     protected int nwater, nfur, nfood, nore, ngame, nfire, nmed, nmach, nnarc, nrob;
-    private String[] cargo = new String[limit];
+    protected String[] cargo = new String[limit];
     
     public Ship(String shipType) {
         this.fuel = 100;
         this.shipType = shipType;
     }
+    public String getShipName() {
+        return shipType;
+    }
     public String toString() {
-        return "cargo: " + Arrays.toString(cargo);
+        return shipType;
                 
     }
         public void setShipAttributes(String shipType) {
@@ -69,7 +72,9 @@ public class Ship implements Serializable {
     public String getCargo(int i) {
         return cargo[i];
     }
-    
+    public int getPrice() {
+        return price;
+    }
     public void addCargo(int amount, String good) {
         int total = nwater + nfur + nfood + nore + ngame + nfire + nmed + nmach + nnarc + nrob;
         if (total <= limit) {
