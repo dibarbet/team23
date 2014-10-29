@@ -27,6 +27,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
@@ -35,6 +36,7 @@ import spacefx.GameData;
 import spacefx.Player;
 import spacefx.SpaceFX;
 import spacefx.newgame.EmptyNameErrController;
+import spacefx.randomEvent.encounter.EncounterMainController;
 
 /**
  * FXML Controller class
@@ -60,7 +62,7 @@ public class TravellingController implements Initializable {
     public int dist = 30;
     private int encFac;
     private int randOKBState=0;
-    private static boolean running=true;
+    public static boolean running=true;
     final int delay = 500;
     
     private Stage theStage;
@@ -71,6 +73,8 @@ public class TravellingController implements Initializable {
     
     public void setTheStage(Stage theStage, double newDist) {
         this.theStage = theStage;
+        theStage.initStyle(StageStyle.UNDECORATED);
+        theStage.initModality(Modality.APPLICATION_MODAL);
         dist = (int)newDist;
     }
     
@@ -102,6 +106,22 @@ public class TravellingController implements Initializable {
             TravellingController randCreditController = randCreditLoader.getController();
             randCreditController.setRandCreditStage(myRandCreditStage);
             myRandCreditStage.show();
+        } catch (IOException exc) {
+            exc.printStackTrace();
+        }
+    }
+    
+    private void showEncWin() {
+        try {
+            FXMLLoader loader = new FXMLLoader(SpaceFX.class.getResource("randomEvent/encounter/EncounterMain.fxml"));
+            AnchorPane newPage = (AnchorPane) loader.load();
+            Stage newStage = new Stage();
+            newStage.setTitle("Encounter");
+            Scene scene = new Scene(newPage);
+            newStage.setScene(scene);
+            EncounterMainController randCreditController = loader.getController();
+            randCreditController.setTheStage(newStage);
+            newStage.show();
         } catch (IOException exc) {
             exc.printStackTrace();
         }
@@ -144,10 +164,13 @@ public class TravellingController implements Initializable {
             if (dist%3==0) {
                 dotdot.setText("");
             }
-            encFac = rand.nextInt(20);
+            encFac = rand.nextInt(50);
             if (encFac<3) {
                 running=false;
                 showRandCreditWin();  
+            } else if (encFac > 45) {
+                running = false;
+                showEncWin();
             }
             dist--;
             remainDist.setText("" + dist);

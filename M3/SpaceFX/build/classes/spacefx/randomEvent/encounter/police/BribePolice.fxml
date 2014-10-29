@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacefx.randomEvent.encounter.police.PoliceEncController">
+   <children>
+      <Button fx:id="bribeOKB" layoutX="66.0" layoutY="218.0" mnemonicParsing="false" onAction="#bribeOKBAction" prefHeight="30.0" prefWidth="130.0" text="Yes" />
+      <Button fx:id="bribeCancelB" layoutX="319.0" layoutY="218.0" mnemonicParsing="false" onAction="#bribeCancelBAction" prefHeight="30.0" prefWidth="130.0" text="NO" />
+      <Label fx:id="bribeAmount" layoutX="77.0" layoutY="80.0" text="You are going to bribe police. Are you sure?">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

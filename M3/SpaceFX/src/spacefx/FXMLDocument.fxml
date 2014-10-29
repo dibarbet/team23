@@ -19,6 +19,11 @@
                   <MenuItem fx:id="newGame" mnemonicParsing="false" onAction="#handleNewGame" text="New Game" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Debug">
+               <items>
+                  <MenuItem fx:id="debugTravelling" mnemonicParsing="false" onAction="#debugTravellingAction" text="debug travelling" />
+               </items>
+            </Menu>
         </menus>
       </MenuBar>
       <TabPane layoutY="27.0" prefHeight="635.0" prefWidth="900.0" tabClosingPolicy="UNAVAILABLE">

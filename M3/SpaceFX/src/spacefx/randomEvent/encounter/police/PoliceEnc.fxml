@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 
 
-<AnchorPane id="AnchorPane" prefHeight="300.0" prefWidth="500.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane id="AnchorPane" prefHeight="300.0" prefWidth="500.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="spacefx.randomEvent.encounter.police.PoliceEncController">
    <children>
       <Button fx:id="policeFightB" layoutX="60.0" layoutY="221.0" mnemonicParsing="false" onAction="#policeFightBAction" prefHeight="25.0" prefWidth="380.0" text="Fight" />
       <Button fx:id="policeEscapeB" layoutX="60.0" layoutY="246.0" mnemonicParsing="false" onAction="#policeEscapeBAction" prefHeight="25.0" prefWidth="380.0" text="Escape" />
