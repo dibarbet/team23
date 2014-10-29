@@ -14,19 +14,56 @@ import java.util.Arrays;
  */
 public class Ship implements Serializable {
     private int count = 0;
-    private int limit = 30;
-    private int fuel;
-    private int shipType;
+    private int limit, fuel, hull, price;
+    //private int fuel;
+    private String shipType;
     protected int nwater, nfur, nfood, nore, ngame, nfire, nmed, nmach, nnarc, nrob;
-    private String[] cargo = new String[limit];
+    protected String[] cargo = new String[limit];
     
-    public Ship(int shipType) {
+    public Ship(String shipType) {
         this.fuel = 100;
         this.shipType = shipType;
     }
+    public String getShipName() {
+        return shipType;
+    }
     public String toString() {
-        return "cargo: " + Arrays.toString(cargo);
+        return shipType;
                 
+    }
+        public void setShipAttributes(String shipType) {
+        switch (shipType) {
+            case "Flea":
+                limit = 10;
+                fuel = 20;
+                hull = 25;
+                price = 2000;
+                break;
+            case "Gnat":
+                limit = 15;
+                fuel = 13;
+                hull = 100;
+                price = 10000;
+                break;
+            case "Firefly":
+                limit = 20;
+                fuel = 17;
+                hull = 100;
+                price = 25000;
+                break;
+            case "Mosquito":
+                limit = 15;
+                fuel = 13;
+                hull = 100;
+                price = 30000;
+                break;
+            case "Bumblebee":
+                limit = 25;
+                fuel = 16;
+                hull = 100;
+                price = 60000;
+                break;
+        }
     }
     public int getCount() {
         return count;
@@ -35,7 +72,9 @@ public class Ship implements Serializable {
     public String getCargo(int i) {
         return cargo[i];
     }
-    
+    public int getPrice() {
+        return price;
+    }
     public void addCargo(int amount, String good) {
         int total = nwater + nfur + nfood + nore + ngame + nfire + nmed + nmach + nnarc + nrob;
         if (total <= limit) {

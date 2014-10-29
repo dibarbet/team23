@@ -309,6 +309,129 @@
                   </AnchorPane>
                </content>
             </Tab>
+            <Tab fx:id="shipyardTab" onSelectionChanged="#refreshShipyard" text="Shipyard">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label alignment="CENTER" layoutX="368.0" layoutY="14.0" prefHeight="27.0" prefWidth="164.0" text="Ship yard">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="235.0" layoutY="66.0" prefHeight="27.0" prefWidth="133.0" text="Ships for Sale">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="shipTwoName" alignment="CENTER" layoutX="235.0" layoutY="167.0" prefHeight="27.0" prefWidth="133.0" text="Unknown">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="shipThreeName" alignment="CENTER" layoutX="235.0" layoutY="224.0" prefHeight="27.0" prefWidth="133.0" text="Unknown">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="shipOneName" alignment="CENTER" layoutX="235.0" layoutY="110.0" prefHeight="27.0" prefWidth="133.0" text="Unknown">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="shipFourName" alignment="CENTER" layoutX="235.0" layoutY="276.0" prefHeight="27.0" prefWidth="133.0" text="Unknown">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="368.0" layoutY="66.0" prefHeight="27.0" prefWidth="133.0" text="Price">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="buyShipOne" layoutX="511.0" layoutY="109.0" mnemonicParsing="false" onAction="#buyShipOne" text="Buy">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Label alignment="CENTER" layoutX="466.0" layoutY="66.0" prefHeight="27.0" prefWidth="133.0" text="Buy">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="buyShipTwo" layoutX="511.0" layoutY="166.0" mnemonicParsing="false" onAction="#buyShipTwo" text="Buy">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="buyShipThree" layoutX="511.0" layoutY="223.0" mnemonicParsing="false" onAction="#buyShipThree" text="Buy">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="buyShipFour" layoutX="511.0" layoutY="275.0" mnemonicParsing="false" onAction="#buyShipFour" text="Buy">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Label alignment="CENTER" layoutX="14.0" layoutY="18.0" prefHeight="27.0" prefWidth="133.0" text="Current Ship: ">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="currentShipName" alignment="CENTER" layoutX="147.0" layoutY="18.0" prefHeight="27.0" prefWidth="133.0" text="Unknown">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="shipOnePrice" alignment="CENTER" layoutX="390.0" layoutY="110.0" prefHeight="27.0" prefWidth="89.0" text="Unknown">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="shipTwoPrice" alignment="CENTER" layoutX="390.0" layoutY="167.0" prefHeight="27.0" prefWidth="89.0" text="Unknown">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="shipThreePrice" alignment="CENTER" layoutX="390.0" layoutY="224.0" prefHeight="27.0" prefWidth="89.0" text="Unknown">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="shipFourPrice" alignment="CENTER" layoutX="390.0" layoutY="276.0" prefHeight="27.0" prefWidth="89.0" text="Unknown">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="shipFiveName" alignment="CENTER" layoutX="235.0" layoutY="326.0" prefHeight="27.0" prefWidth="133.0" text="Unknown">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="shipFivePrice" alignment="CENTER" layoutX="368.0" layoutY="326.0" prefHeight="27.0" prefWidth="133.0" text="Unknown">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="buyShipFive" layoutX="511.0" layoutY="325.0" mnemonicParsing="false" onAction="#buyShipFive" text="Buy">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Label alignment="CENTER" layoutX="533.0" layoutY="18.0" prefHeight="27.0" prefWidth="133.0" text="Money: ">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="currentShipMoney" alignment="CENTER" layoutX="666.0" layoutY="18.0" prefHeight="27.0" prefWidth="133.0" text="Unknown">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
         </tabs>
       </TabPane>
    </children>

@@ -61,6 +61,7 @@ public class FXMLDocumentController implements Initializable {
     private Circle nextPlanet;
     private String fileSave;
     private File loadFile;
+    private Shipyard shipyard;
     @FXML
     private MenuItem newGame;
     @FXML
@@ -70,9 +71,45 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Tab marketPlace;
     @FXML
+    private Tab shipyardTab;
+    @FXML
     private Tab map;
     @FXML
     private Tab curSolar;
+    @FXML
+    private Label currentShipMoney;
+    @FXML
+    private Label shipOneName;
+    @FXML
+    private Label shipTwoName;
+    @FXML
+    private Label shipThreeName;
+    @FXML
+    private Label shipFourName;
+    @FXML
+    private Label shipFiveName;
+    @FXML
+    private Label shipOnePrice;
+    @FXML
+    private Label shipTwoPrice;
+    @FXML
+    private Label shipThreePrice;
+    @FXML
+    private Label shipFourPrice;
+    @FXML
+    private Label shipFivePrice;
+    @FXML
+    private Label currentShipName;
+    @FXML
+    private Button buyShipOne;
+    @FXML
+    private Button buyShipTwo;
+    @FXML
+    private Button buyShipThree;
+    @FXML
+    private Button buyShipFour;
+    @FXML
+    private Button buyShipFive;
     @FXML
     private Label marketMoney;
     @FXML
@@ -443,6 +480,9 @@ public class FXMLDocumentController implements Initializable {
             curSolar.setDisable(false);
             saveGame.setDisable(false);
             currentPlanet = Planet1;
+            shipyard = new Shipyard();
+            if (shipyard.checkTechLevel()) shipyardTab.setDisable(false);
+            else shipyardTab.setDisable(true);
             initializeMap();
         } catch (IOException e) {
             e.printStackTrace();
@@ -511,6 +551,7 @@ public class FXMLDocumentController implements Initializable {
             map.setDisable(true);
             curSolar.setDisable(true);
             saveGame.setDisable(true);
+            shipyardTab.setDisable(true);
         }
         
     }
@@ -564,6 +605,9 @@ public class FXMLDocumentController implements Initializable {
             curSolar.setDisable(false);
             saveGame.setDisable(false);
             currentPlanet = Planet1;
+            shipyard = new Shipyard();
+            if (shipyard.checkTechLevel()) shipyardTab.setDisable(false);
+            else shipyardTab.setDisable(true);
             initializeMap();
             refreshSolar();
             refreshMarket();
@@ -1814,7 +1858,85 @@ public class FXMLDocumentController implements Initializable {
             showBErr();
         }
     }
-    
+    @FXML
+    private void refreshShipyard() {
+        shipOneName.setText("Flea");
+        shipTwoName.setText("Gnat");
+        shipThreeName.setText("Firefly");
+        shipFourName.setText("Mosquito");
+        shipFiveName.setText("BumbleBee");
+        shipOnePrice.setText(Integer.toString(shipyard.getShipPrice("Flea")));
+        shipTwoPrice.setText(Integer.toString(shipyard.getShipPrice("Gnat")));
+        shipThreePrice.setText(Integer.toString(shipyard.getShipPrice("Firefly")));
+        shipFourPrice.setText(Integer.toString(shipyard.getShipPrice("Mosquito")));
+        shipFivePrice.setText(Integer.toString(shipyard.getShipPrice("Bumblebee")));
+        currentShipMoney.setText(Integer.toString(player.getCredit()));
+        String currShipType = player.getShip().getShipName();
+        currentShipName.setText(currShipType);
+        checkShipType();
+    }
+    private void checkShipType() {
+        String currShipType = player.getShip().getShipName();
+        currentShipName.setText(currShipType);
+        currentShipMoney.setText(Integer.toString(player.getCredit()));
+        if (currShipType.equals("Flea")) buyShipOne.setDisable(true);
+        else buyShipOne.setDisable(false);
+        if (currShipType.equals("Gnat")) buyShipTwo.setDisable(true);
+        else buyShipTwo.setDisable(false);
+        if (currShipType.equals("Firefly")) buyShipThree.setDisable(true);
+        else buyShipThree.setDisable(false);
+        if (currShipType.equals("Mosquito")) buyShipFour.setDisable(true);
+        else buyShipFour.setDisable(false);
+        if (currShipType.equals("Bumblebee")) buyShipFive.setDisable(true);
+        else buyShipFive.setDisable(false);
+    }
+    @FXML
+    private void buyShipOne() {
+        if (shipyard.buyShip("Flea")) {
+            player = GameData.getPlayer();
+            checkShipType();
+        } else {
+            showBErr();
+        }
+    }
+    @FXML
+    private void buyShipTwo() {
+        if (shipyard.buyShip("Gnat")) {
+            
+            player = GameData.getPlayer();
+            checkShipType();
+        } else {
+            showBErr();
+        }
+        
+    }
+    @FXML
+    private void buyShipThree() {
+        if (shipyard.buyShip("Firefly")) {
+            player = GameData.getPlayer();
+            checkShipType();
+        } else {
+            showBErr();
+        }
+    }
+    @FXML
+    private void buyShipFour() {
+        if (shipyard.buyShip("Mosquito")) {
+            player = GameData.getPlayer();
+            checkShipType();
+        } else {
+            showBErr();
+        }
+    }
+    @FXML
+    private void buyShipFive() {
+        if (shipyard.buyShip("Bumblebee")) {
+            player = GameData.getPlayer();
+            checkShipType();
+        } else {
+            showBErr();
+        }
+    }
     private void showTravel(SolarSystem solar) {
         try {
             FXMLLoader loader = new FXMLLoader(SpaceFX.class.getResource("Travel.fxml"));
@@ -1830,6 +1952,9 @@ public class FXMLDocumentController implements Initializable {
                 refreshMap();
                 refreshMarket();
                 refreshSolar();
+                shipyard = new Shipyard();
+                if (shipyard.checkTechLevel()) shipyardTab.setDisable(false);
+                else shipyardTab.setDisable(true);
                 planetChanged = false;
             }
         } catch (IOException e) {
