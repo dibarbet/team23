@@ -78,32 +78,93 @@ public class Ship implements Serializable {
     public void addCargo(int amount, String good) {
         int total = nwater + nfur + nfood + nore + ngame + nfire + nmed + nmach + nnarc + nrob;
         if (total <= limit) {
-            if (good.equals("Water")) nwater += amount;
-            if (good.equals("Fur")) nfur += amount;
-            if (good.equals("Food")) nfood += amount;
-            if (good.equals("Ore")) nore += amount;
-            if (good.equals("Game")) ngame += amount;
-            if (good.equals("Firearm")) nfire += amount;
-            if (good.equals("Medicine")) nmed += amount;
-            if (good.equals("Machine")) nmach += amount;
-            if (good.equals("Narcotic")) nnarc += amount;
-            if (good.equals("Robot")) nrob += amount;
+            if (good.equals("Water")) {
+                nwater += amount;
+                count++;
+            }
+            if (good.equals("Fur")) {
+                nfur += amount;
+                count++;
+            }
+            if (good.equals("Food")) {
+                nfood += amount;
+                count++;
+            }
+            if (good.equals("Ore")) {
+                count++;
+                nore += amount;
+            }
+            if (good.equals("Game")) {
+                count++;
+                ngame += amount;
+            }
+            if (good.equals("Firearm")) {
+                count++;
+                nfire += amount;
+            }
+            if (good.equals("Medicine")) {
+                count++;
+                nmed += amount;
+            }
+            if (good.equals("Machine")) {
+                count++;
+                nmach += amount;
+            }
+            if (good.equals("Narcotic")) {
+                count++;
+                nnarc += amount;
+            }
+            if (good.equals("Robot")) {
+                count++;
+                nrob += amount;
+            }
         }
+        
     }
     
     public void sellCargo(int amount, String good) {
         int total = nwater + nfur + nfood + nore + ngame + nfire + nmed + nmach + nnarc + nrob;
         if (total > 0) {
-            if (good.equals("Water")) nwater -= amount;
-            if (good.equals("Fur")) nfur -= amount;
-            if (good.equals("Food")) nfood -= amount;
-            if (good.equals("Ore")) nore -= amount;
-            if (good.equals("Game")) ngame -= amount;
-            if (good.equals("Firearm")) nfire -= amount;
-            if (good.equals("Medicine")) nmed -= amount;
-            if (good.equals("Machine")) nmach -= amount;
-            if (good.equals("Narcotic")) nnarc -= amount;
-            if (good.equals("Robot")) nrob -= amount;
+            if (good.equals("Water")) {
+                count--;
+                nwater -= amount;
+            }
+            if (good.equals("Fur")) {
+                count--;
+                nfur -= amount;
+            }
+            if (good.equals("Food")) {
+                count--;
+                nfood -= amount;
+            }
+            if (good.equals("Ore")) {
+                count--;
+                nore -= amount;
+            }
+            if (good.equals("Game")) {
+                count--;
+                ngame -= amount;
+            }
+            if (good.equals("Firearm")) {
+                count--;
+                nfire -= amount;
+            }
+            if (good.equals("Medicine")) {
+                count--;
+                nmed -= amount;
+            }
+            if (good.equals("Machine")) {
+                count--;
+                nmach -= amount;
+            }
+            if (good.equals("Narcotic")) {
+                count--;
+                nnarc -= amount;
+            }
+            if (good.equals("Robot")) {
+                count--;
+                nrob -= amount;
+            }
         }
     }
     
@@ -135,5 +196,9 @@ public class Ship implements Serializable {
             fuel = milesToFuel(1, miles);
             return true;
         }
+    }
+    
+    public int getLimit() {
+        return limit;
     }
 }

@@ -494,6 +494,27 @@ public class FXMLDocumentController implements Initializable {
      */
     @FXML
     private void refreshMarket() {
+        bWaterB.setDisable(false);
+        bFursB.setDisable(false);
+        bFoodB.setDisable(false);
+        bOreB.setDisable(false);
+        bGamesB.setDisable(false);
+        bFirearmsB.setDisable(false);
+        bMedicineB.setDisable(false);
+        bMachinesB.setDisable(false);
+        bNarcoticsB.setDisable(false);
+        bRobotsB.setDisable(false);
+        sWaterB.setDisable(false);
+        sFursB.setDisable(false);
+        sFoodB.setDisable(false);
+        sOreB.setDisable(false);
+        sGamesB.setDisable(false);
+        sFirearmsB.setDisable(false);
+        sMedicineB.setDisable(false);
+        sMachinesB.setDisable(false);
+        sNarcotics.setDisable(false);
+        sRobotsB.setDisable(false); 
+        
         market = GameData.getCurrSolarSys().getMarket();
         player = GameData.getPlayer();
         GameData.setMarket(market);
@@ -530,6 +551,77 @@ public class FXMLDocumentController implements Initializable {
         planetNarc.setText(Integer.toString(market.mnarcotics));
         planetRob.setText(Integer.toString(market.mrobots));
         
+        if (currentSolarSystem.getTechLevel() < Good.Water.mtlp) {
+            bWaterB.setDisable(true);
+            planetWater.setText("0");
+        }
+        if (currentSolarSystem.getTechLevel() < Good.Furs.mtlp) {
+            bFursB.setDisable(true);
+            planetFur.setText("0");
+        }
+        if (currentSolarSystem.getTechLevel() < Good.Food.mtlp) {
+            bFoodB.setDisable(true);
+            planetFood.setText("0");
+        }
+        if (currentSolarSystem.getTechLevel() < Good.Ore.mtlp) {
+            bOreB.setDisable(true);
+            planetOre.setText("0");
+        }
+        if (currentSolarSystem.getTechLevel() < Good.Games.mtlp) {
+            bGamesB.setDisable(true);
+            planetGame.setText("0");
+        }
+        if (currentSolarSystem.getTechLevel() < Good.Firearms.mtlp) {
+            bFirearmsB.setDisable(true);
+            planetFire.setText("0");
+        }
+        if (currentSolarSystem.getTechLevel() < Good.Medicine.mtlp) {
+            bMedicineB.setDisable(true);
+            planetMed.setText("0");
+        }
+        if (currentSolarSystem.getTechLevel() < Good.Machines.mtlp) {
+            bMachinesB.setDisable(true);
+            planetMach.setText("0");
+        }
+        if (currentSolarSystem.getTechLevel() < Good.Narcotics.mtlp) {
+            bNarcoticsB.setDisable(true);
+            planetNarc.setText("0");
+        }
+        if (currentSolarSystem.getTechLevel() < Good.Robots.mtlp) {
+            bRobotsB.setDisable(true);
+            planetRob.setText("0");
+        }
+        
+        if (currentSolarSystem.getTechLevel() < Good.Water.mtlu) {
+            sWaterB.setDisable(true);
+        }
+        if (currentSolarSystem.getTechLevel() < Good.Furs.mtlu) {
+            sFursB.setDisable(true);
+        }
+        if (currentSolarSystem.getTechLevel() < Good.Food.mtlu) {
+           sFoodB.setDisable(true); 
+        }
+        if (currentSolarSystem.getTechLevel() < Good.Ore.mtlu) {
+            sOreB.setDisable(true); 
+        }
+        if (currentSolarSystem.getTechLevel() < Good.Games.mtlu) {
+            sGamesB.setDisable(true); 
+        }
+        if (currentSolarSystem.getTechLevel() < Good.Firearms.mtlu) {
+            sFirearmsB.setDisable(true); 
+        }
+        if (currentSolarSystem.getTechLevel() < Good.Medicine.mtlu) {
+            sMedicineB.setDisable(true); 
+        }
+        if (currentSolarSystem.getTechLevel() < Good.Machines.mtlu) {
+            sMachinesB.setDisable(true); 
+        }
+        if (currentSolarSystem.getTechLevel() < Good.Narcotics.mtlu) {
+            sNarcotics.setDisable(true); 
+        }
+        if (currentSolarSystem.getTechLevel() < Good.Robots.mtlu) {
+            sRobotsB.setDisable(true); 
+        }
     }
     /**
      * Refreshes solar system tab when selected.
