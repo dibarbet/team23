@@ -17,7 +17,6 @@ public class Shipyard {
      * @return true if ship is bought, false otherwise
      */
     public boolean buyShip(String shipType) {
-        System.out.println("attempted buy");
         Ship s = new Ship(shipType);
         Player p = GameData.getPlayer();
         int price = getShipPrice(shipType);
@@ -28,7 +27,7 @@ public class Shipyard {
         } else if (!checkTechLevel()) {
             return false;
         } else {
-            Ship oldShip = p.getShip();
+            Ship oldShip = GameData.getShip();
             s.nwater = oldShip.nwater;
             s.nfur = oldShip.nfur;
             s.nfood = oldShip.nfood;

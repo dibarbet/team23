@@ -470,20 +470,25 @@ public class FXMLDocumentController implements Initializable {
             NewGameWinController controller = loader.getController();
             controller.setTheStage(newGameStage);
             newGameStage.showAndWait();
-            player = GameData.getPlayer();
-            universe = GameData.getUniverse();
-            currentSolarSystem = universe.getCurrentSolarSystem();
-            GameData.setCurrSolarSys(currentSolarSystem);
-            gameCreated = true;
-            marketPlace.setDisable(false);
-            map.setDisable(false);
-            curSolar.setDisable(false);
-            saveGame.setDisable(false);
-            currentPlanet = Planet1;
-            shipyard = new Shipyard();
-            if (shipyard.checkTechLevel()) shipyardTab.setDisable(false);
-            else shipyardTab.setDisable(true);
-            initializeMap();
+            if (controller.isGameCreated()) {
+                player = GameData.getPlayer();
+                universe = GameData.getUniverse();
+                currentSolarSystem = universe.getCurrentSolarSystem();
+                GameData.setCurrSolarSys(currentSolarSystem);
+                gameCreated = true;
+                marketPlace.setDisable(false);
+                map.setDisable(false);
+                curSolar.setDisable(false);
+                saveGame.setDisable(false);
+                currentPlanet = Planet1;
+                shipyard = new Shipyard();
+                if (shipyard.checkTechLevel()) shipyardTab.setDisable(false);
+                else shipyardTab.setDisable(true);
+                initializeMap();
+                refreshMarket();
+                refreshSolar();
+            }
+            
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -519,6 +524,7 @@ public class FXMLDocumentController implements Initializable {
         player = GameData.getPlayer();
         GameData.setMarket(market);
         Ship ship = GameData.getShip();
+        market.setMarketShip(ship);
         marketMoney.setText(Integer.toString(player.getCredit()));
         waterCargo.setText(Integer.toString(ship.nwater));
         furCargo.setText(Integer.toString(ship.nfur));
@@ -657,15 +663,18 @@ public class FXMLDocumentController implements Initializable {
         saveFile.setTitle("Save Game");
         Stage stage = new Stage();
         File savedFile = saveFile.showSaveDialog(stage);
-        try {
+        if (savedFile != null) {
+            try {
             OutputStream file = new FileOutputStream(savedFile);
             OutputStream buffer = new BufferedOutputStream(file);
-            ObjectOutput output = new ObjectOutputStream(buffer);
-            output.writeObject(GameData.getClassList());
-            output.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+            try (ObjectOutput output = new ObjectOutputStream(buffer)) {
+                output.writeObject(GameData.getClassList());
+            }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+        
                 
     }
     @FXML
@@ -677,7 +686,8 @@ public class FXMLDocumentController implements Initializable {
         fileChoose.setTitle("Load Game Save");
         Stage stage = new Stage();
         loadFile = fileChoose.showOpenDialog(stage);
-        try {
+        if (loadFile != null) {
+            try {
             InputStream file = new FileInputStream(loadFile);
             InputStream buffer = new BufferedInputStream(file);
             ObjectInput input = new ObjectInputStream(buffer);
@@ -703,28 +713,12 @@ public class FXMLDocumentController implements Initializable {
             initializeMap();
             refreshSolar();
             refreshMarket();
-        } catch (ClassNotFoundException | IOException e) {
-            e.printStackTrace();
+            } catch (ClassNotFoundException | IOException e) {
+                e.printStackTrace();
+            }
         }
+        
     }
-//    private void showSaveWin() {
-//        try {
-//            FXMLLoader loader = new FXMLLoader(SpaceFX.class.getResource("saveWin.fxml"));
-//            AnchorPane newPage = (AnchorPane) loader.load();
-//            Stage newGameStage = new Stage();
-//            newGameStage.setTitle("Save Game");
-//            Scene scene = new Scene(newPage);
-//            newGameStage.setScene(scene);
-//            SaveWinController saveCont = loader.getController();
-//            saveCont.setTheStage(newGameStage);
-//            newGameStage.showAndWait();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        if (GameData.getFileSaveString() != null) {
-//            fileSave = GameData.getFileSaveString();
-//        }
-//    }
     @FXML
     private void planet1Clicked() {
         nextPlanet=Planet1;

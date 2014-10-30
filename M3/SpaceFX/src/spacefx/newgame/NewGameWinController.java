@@ -43,6 +43,7 @@ public class NewGameWinController implements Initializable {
     private String pilotName;
     private Stage theStage;
     private Player player;
+    private boolean gameCreated;
     @FXML
     private TextField name;
     
@@ -390,6 +391,7 @@ public class NewGameWinController implements Initializable {
             GameData.setShip(startShip);
             Universe universe = new Universe();
             GameData.setUniverse(universe);
+            gameCreated = true;
             theStage.close();
         } else {
             if (!isValidName()) {
@@ -403,12 +405,16 @@ public class NewGameWinController implements Initializable {
     private void handleCancel() {
         theStage.close();
     }
+    public boolean isGameCreated() {
+        return gameCreated;
+    }
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        gameCreated = false;
         pilotMin.setDisable(true);
         fighterMin.setDisable(true);
         traderMin.setDisable(true);

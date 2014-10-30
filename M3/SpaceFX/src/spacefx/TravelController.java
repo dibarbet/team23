@@ -73,6 +73,7 @@ public class TravelController implements Initializable {
     
     @FXML
     private void buttonPressed(){
+        ship = GameData.getShip();
         if (ship.travel(solar)) {
             try {
                 dist = Universe.distance(currSolar, solar);

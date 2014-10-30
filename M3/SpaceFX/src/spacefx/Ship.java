@@ -23,46 +23,43 @@ public class Ship implements Serializable {
     public Ship(String shipType) {
         this.fuel = 100;
         this.shipType = shipType;
+        setShipAttributes(shipType);
     }
     public String getShipName() {
         return shipType;
     }
+    @Override
     public String toString() {
         return shipType;
                 
     }
-        public void setShipAttributes(String shipType) {
+    public void setShipAttributes(String shipType) {
         switch (shipType) {
             case "Flea":
                 limit = 10;
                 fuel = 20;
                 hull = 25;
                 price = 2000;
-                break;
             case "Gnat":
                 limit = 15;
                 fuel = 13;
                 hull = 100;
                 price = 10000;
-                break;
             case "Firefly":
                 limit = 20;
                 fuel = 17;
                 hull = 100;
                 price = 25000;
-                break;
             case "Mosquito":
                 limit = 15;
                 fuel = 13;
                 hull = 100;
                 price = 30000;
-                break;
             case "Bumblebee":
                 limit = 25;
                 fuel = 16;
                 hull = 100;
                 price = 60000;
-                break;
         }
     }
     public int getCount() {

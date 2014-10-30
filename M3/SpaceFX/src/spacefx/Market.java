@@ -80,7 +80,7 @@ public class Market implements Serializable {
         updateMarketItems();
         //Update money, number of water in cargo space and market stock when player buys good
         int tempmoney = money;
-        if (tempmoney - pwater >= 0 && mwater >0 && (ship.getCount() < ship.getLimit() + 1)) {
+        if ((tempmoney - pwater >= 0) && (mwater > 0) && ((ship.getCount() + 1) <= ship.getLimit())) {
             money = money - pwater;
             nwater++;
             mwater--;
@@ -89,10 +89,10 @@ public class Market implements Serializable {
         } else {
             return -1;
         }
-        System.out.print("count:");
-        System.out.println(ship.getCount());
-        System.out.print("limit:");
-        System.out.println(ship.getLimit());
+        //System.out.print("count:");
+        //System.out.println(ship.getCount());
+        //System.out.print("limit:");
+        //System.out.println(ship.getLimit());
         return money;
     }
     /*Returns the amount of money after buying One fur
@@ -103,7 +103,7 @@ public class Market implements Serializable {
         updateMarketItems();
         //Update money, number of water in cargo space and market stock when player buys good
         int tempmoney = money;
-        if (tempmoney - pfurs >= 0 && mfurs >0 && (ship.getCount() < ship.getLimit() + 1)) {
+        if ((tempmoney - pfurs >= 0) && (mfurs > 0) && ((ship.getCount() + 1) <= ship.getLimit())) {
             money = money - pfurs;
             nfurs++;
             mfurs--;
@@ -122,7 +122,7 @@ public class Market implements Serializable {
         updateMarketItems();
         //Update money, number of water in cargo space and market stock when player buys good
         int tempmoney = money;
-        if (tempmoney - pfood >= 0 && mfood >0 && (ship.getCount() < ship.getLimit() + 1)) {
+        if ((tempmoney - pfood >= 0) && (mfood > 0) && ((ship.getCount() + 1) <= ship.getLimit())) {
             money = money - pfood;
             nfood++;
             mfood--;
@@ -141,7 +141,7 @@ public class Market implements Serializable {
         updateMarketItems();
         //Update money, number of water in cargo space and market stock when player buys good
         int tempmoney = money;
-        if (tempmoney - pore >= 0&& more > 0 && (ship.getCount() < ship.getLimit() + 1)) {
+        if ((tempmoney - pore >= 0) && (more > 0) && ((ship.getCount() + 1) <= ship.getLimit())) {
             money = money - pore;
             nore++;
             more--;
@@ -160,7 +160,7 @@ public class Market implements Serializable {
         updateMarketItems();
         //Update money, number of water in cargo space and market stock when player buys good
         int tempmoney = money;
-        if (tempmoney - pgames >= 0 && mgames > 0 && (ship.getCount() < ship.getLimit() + 1)) {
+        if ((tempmoney - pgames >= 0) && (mgames > 0) && ((ship.getCount() + 1) <= ship.getLimit())) {
             money = money - pgames;
             ngames++;
             mgames--;
@@ -179,10 +179,10 @@ public class Market implements Serializable {
         updateMarketItems();
         //Update money, number of water in cargo space and market stock when player buys good
         int tempmoney = money;
-        if (tempmoney - pfirearms >= 0 && mfirearms > 0 && (ship.getCount() < ship.getLimit() + 1)) {
+        if ((tempmoney - pfirearms >= 0) && (mfirearms > 0) && ((ship.getCount() + 1) <= ship.getLimit())) {
             money = money - pfirearms;
-            nfurs++;
-            mfurs--;
+            nfirearms++;
+            mfirearms--;
             ship.addCargo(1, "Firearm");
             updateShip();
         } else {
@@ -198,7 +198,7 @@ public class Market implements Serializable {
         updateMarketItems();
     //Update money, number of water in cargo space and market stock when player buys good        
         int tempmoney = money;
-        if (tempmoney - pmedicine >= 0 && mmedicine > 0 && (ship.getCount() < ship.getLimit() + 1)) {
+        if ((tempmoney - pmedicine >= 0) && (mmedicine > 0) && ((ship.getCount() + 1) <= ship.getLimit())) {
             money = money - pmedicine;
             nmedicine++;
             mmedicine--;
@@ -217,7 +217,7 @@ public class Market implements Serializable {
         updateMarketItems();
         //Update money, number of water in cargo space and market stock when player buys good
         int tempmoney = money;
-        if (tempmoney - pmachines >= 0 && mmachines > 0 && (ship.getCount() < ship.getLimit() + 1)) {
+        if ((tempmoney - pmachines >= 0) && (mmachines > 0) && ((ship.getCount() + 1) <= ship.getLimit())) {
             money = money - pmachines;
             nmachines++;
             mmachines--;
@@ -236,7 +236,7 @@ public class Market implements Serializable {
         updateMarketItems();
         //Update money, number of water in cargo space and market stock when player buys good
         int tempmoney = money;
-        if (tempmoney - pnarcotics >= 0 && mnarcotics > 0 && (ship.getCount() < ship.getLimit() + 1)) {
+        if ((tempmoney - pnarcotics >= 0) && (mnarcotics > 0) && ((ship.getCount() + 1) <= ship.getLimit())) {
             money = money - pnarcotics;
             nnarcotics++;
             mnarcotics--;
@@ -255,7 +255,7 @@ public class Market implements Serializable {
         updateMarketItems();
         //Update money, number of water in cargo space and market stock when player buys good
         int tempmoney = money;
-        if (tempmoney - probots >= 0 && mrobots > 0 && (ship.getCount() < ship.getLimit() + 1)) {
+        if ((tempmoney - probots >= 0) && (mrobots > 0) && ((ship.getCount() + 1) <= ship.getLimit())) {
             money = money - probots;
             nrobots++;
             mrobots--;
@@ -466,6 +466,10 @@ public class Market implements Serializable {
      */
     public void updateShip() {
         GameData.setShip(ship);
+        player.setShip(ship);
+    }
+    public void setMarketShip(Ship aShip) {
+        aShip = ship;
     }
     
 }
