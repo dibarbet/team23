@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="300.0" prefWidth="500.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <Button fx:id="policeFightB" layoutX="60.0" layoutY="221.0" mnemonicParsing="false" onAction="#policeFightBAction" prefHeight="25.0" prefWidth="380.0" text="Fight" />
+      <Button fx:id="policeEscapeB" layoutX="60.0" layoutY="246.0" mnemonicParsing="false" onAction="#policeEscapeBAction" prefHeight="25.0" prefWidth="380.0" text="Escape" />
+      <Label fx:id="policeEncInfo" layoutX="62.0" layoutY="53.0" text="Encounter Police">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="policeBribeB" layoutX="60.0" layoutY="196.0" mnemonicParsing="false" onAction="#policeBribeBAction" prefHeight="25.0" prefWidth="380.0" text="Bribe" />
+      <Button fx:id="policeOKB" layoutX="60.0" layoutY="171.0" mnemonicParsing="false" onAction="#policeOKBAction" prefHeight="25.0" prefWidth="380.0" text="OK" />
+   </children>
+</AnchorPane>

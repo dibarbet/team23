@@ -77,6 +77,7 @@ public class Market implements Serializable {
      *drop below 0
     */
     public int buyWater() {
+        ship = GameData.getShip();
         updateMarketItems();
         //Update money, number of water in cargo space and market stock when player buys good
         int tempmoney = money;
@@ -99,7 +100,8 @@ public class Market implements Serializable {
      *@return money left after buying, or -1 if buying would make money
      *drop below 0
     */
-    public int buyFur() { 
+    public int buyFur() {
+        ship = GameData.getShip();
         updateMarketItems();
         //Update money, number of water in cargo space and market stock when player buys good
         int tempmoney = money;
@@ -118,7 +120,8 @@ public class Market implements Serializable {
      *@return money left after buying, or -1 if buying would make money
      *drop below 0
     */
-    public int buyFood() { 
+    public int buyFood() {
+        ship = GameData.getShip();
         updateMarketItems();
         //Update money, number of water in cargo space and market stock when player buys good
         int tempmoney = money;
@@ -137,7 +140,8 @@ public class Market implements Serializable {
      *@return money left after buying, or -1 if buying would make money
      *drop below 0
     */
-    public int buyOre() {   
+    public int buyOre() {
+        ship = GameData.getShip();
         updateMarketItems();
         //Update money, number of water in cargo space and market stock when player buys good
         int tempmoney = money;
@@ -156,7 +160,8 @@ public class Market implements Serializable {
      *@return money left after buying, or -1 if buying would make money
      *drop below 0
     */
-    public int buyGame() { 
+    public int buyGame() {
+        ship = GameData.getShip();
         updateMarketItems();
         //Update money, number of water in cargo space and market stock when player buys good
         int tempmoney = money;
@@ -175,7 +180,8 @@ public class Market implements Serializable {
      *@return money left after buying, or -1 if buying would make money
      *drop below 0
     */
-    public int buyFirearm() { 
+    public int buyFirearm() {
+        ship = GameData.getShip();
         updateMarketItems();
         //Update money, number of water in cargo space and market stock when player buys good
         int tempmoney = money;
@@ -195,6 +201,7 @@ public class Market implements Serializable {
      *drop below 0
     */
     public int buyMedicine() {
+        ship = GameData.getShip();
         updateMarketItems();
     //Update money, number of water in cargo space and market stock when player buys good        
         int tempmoney = money;
@@ -214,6 +221,7 @@ public class Market implements Serializable {
      *drop below 0
     */
     public int buyMachine() {
+        ship = GameData.getShip();
         updateMarketItems();
         //Update money, number of water in cargo space and market stock when player buys good
         int tempmoney = money;
@@ -233,6 +241,7 @@ public class Market implements Serializable {
      *drop below 0
     */
     public int buyNarcotic() {
+        ship = GameData.getShip();
         updateMarketItems();
         //Update money, number of water in cargo space and market stock when player buys good
         int tempmoney = money;
@@ -251,7 +260,8 @@ public class Market implements Serializable {
      *@return money left after buying, or -1 if buying would make money
      *drop below 0
     */
-    public int buyRobot() {     
+    public int buyRobot() {   
+        ship = GameData.getShip();
         updateMarketItems();
         //Update money, number of water in cargo space and market stock when player buys good
         int tempmoney = money;
@@ -285,7 +295,8 @@ public class Market implements Serializable {
     /*Returns the amount of money after selling one water
      *@return money left after selling one, or -1 if it cannot be sold
     */
-    public int sellWater() {                                          
+    public int sellWater() {
+        ship = GameData.getShip();
         updateMarketItems();
         int tempmoney = money;
         if (nwater > 0) {
@@ -303,6 +314,7 @@ public class Market implements Serializable {
      *@return money left after selling one, or -1 if it cannot be sold
     */
     public int sellFur() {
+        ship = GameData.getShip();
         updateMarketItems();
         //Update money, number of water in cargo space and market stock when player sells good
         int tempmoney = money;
@@ -321,6 +333,7 @@ public class Market implements Serializable {
      *@return money left after selling one, or -1 if it cannot be sold
     */
     public int sellFood() {
+        ship = GameData.getShip();
         updateMarketItems();
         //Update money, number of water in cargo space and market stock when player sells good
         int tempmoney = money;
@@ -339,6 +352,7 @@ public class Market implements Serializable {
      *@return money left after selling one, or -1 if it cannot be sold
     */
     public int sellOre() {  
+        ship = GameData.getShip();
         updateMarketItems();
         //Update money, number of water in cargo space and market stock when player sells good
         int tempmoney = money;
@@ -356,7 +370,8 @@ public class Market implements Serializable {
     /*Returns the amount of money after selling one game
      *@return money left after selling one, or -1 if it cannot be sold
     */
-    public int sellGame() {  
+    public int sellGame() {
+        ship = GameData.getShip();
         updateMarketItems();
         //Update money, number of water in cargo space and market stock when player sells good
         int tempmoney = money;
@@ -375,6 +390,7 @@ public class Market implements Serializable {
      *@return money left after selling one, or -1 if it cannot be sold
     */
     public int sellFirearm() {
+        ship = GameData.getShip();
         updateMarketItems();
         //Update money, number of water in cargo space and market stock when player sells good
         int tempmoney = money;
@@ -393,6 +409,7 @@ public class Market implements Serializable {
      *@return money left after selling one, or -1 if it cannot be sold
     */
     public int sellMedicine() {
+        ship = GameData.getShip();
         updateMarketItems();
         //Update money, number of water in cargo space and market stock when player sells good
         int tempmoney = money;
@@ -411,6 +428,7 @@ public class Market implements Serializable {
      *@return money left after selling one, or -1 if it cannot be sold
     */
     public int sellMachine() { 
+        ship = GameData.getShip();
         updateMarketItems();
         //Update money, number of water in cargo space and market stock when player sells good
         int tempmoney = money;
@@ -429,6 +447,7 @@ public class Market implements Serializable {
      *@return money left after selling one, or -1 if it cannot be sold
     */
     public int sellNarcotic() {
+        ship = GameData.getShip();
         updateMarketItems();
        //Update money, number of water in cargo space and market stock when player sells good
         int tempmoney = money;
@@ -446,7 +465,8 @@ public class Market implements Serializable {
     /*Returns the amount of money after selling one robot
      *@return money left after selling one, or -1 if it cannot be sold
     */
-    public int sellRobot() {  
+    public int sellRobot() { 
+        ship = GameData.getShip();
         updateMarketItems();
         //Update money, number of water in cargo space and market stock when player sells good
         int tempmoney = money;
