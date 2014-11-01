@@ -14,12 +14,12 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="myHP" layoutX="105.0" layoutY="203.0" text="2000/2000">
+      <Label fx:id="myHP" layoutX="105.0" layoutY="203.0" text="??/??">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="enemyHP" layoutX="378.0" layoutY="47.0" text="2000/2000">
+      <Label fx:id="enemyHP" layoutX="378.0" layoutY="47.0" text="??/??">
          <font>
             <Font size="14.0" />
          </font>
@@ -29,9 +29,10 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="47.0" layoutY="49.0" text="battleInfo" />
+      <Label fx:id="battleInfo1" layoutX="47.0" layoutY="49.0" text="battleInfo" />
       <Button fx:id="escB" layoutX="303.0" layoutY="241.0" mnemonicParsing="false" onAction="#escBAction" prefHeight="30.0" prefWidth="150.0" text="Escape" />
       <Button fx:id="surB" layoutX="303.0" layoutY="211.0" mnemonicParsing="false" onAction="#surBAction" prefHeight="30.0" prefWidth="150.0" text="Surrender" />
       <Button fx:id="attB" layoutX="303.0" layoutY="181.0" mnemonicParsing="false" onAction="#attBAction" prefHeight="30.0" prefWidth="150.0" text="Attack" />
+      <Label fx:id="battleInfo2" layoutX="47.0" layoutY="67.0" text="battleInfo" />
    </children>
 </AnchorPane>

@@ -7,6 +7,7 @@ package spacefx.randomEvent.encounter.trader;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,7 +20,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import spacefx.GameData;
+import spacefx.Player;
 import spacefx.SpaceFX;
+import spacefx.randomEvent.encounter.pirate.PirateEncController;
 import spacefx.randomEvent.encounter.police.PoliceEncController;
 
 /**
@@ -151,16 +155,30 @@ public class TraderEncController implements Initializable {
     private Label waterPlayer;
     @FXML
     private Button stopTradingB;
+    @FXML
+    private Label battleInfo1;
+    @FXML
+    private Label battleInfo2;
+    @FXML
+    private Label winnerInfo1;
+    @FXML
+    private Label winnerInfo2;
+    @FXML
+    private Button winnerOKB;
     
     // </editor-fold>
-    
+    private Player player = GameData.getPlayer();
     private int playerMaxHP=2000;
     private int playerHP=2000;
+    private boolean hit;
+    private boolean winnerIsPlayer=false;
+    private Random rand = new Random();
     private int traderMaxHP=2000;
     private int traderHP=2000;
     private Stage theStage;
     private Stage tradingStage;
     private Stage fightStage;
+    private Stage winnerStage;
 
     /**
      * Initializes the controller class.
@@ -176,16 +194,33 @@ public class TraderEncController implements Initializable {
         theStage.initModality(Modality.APPLICATION_MODAL);
     }
     
-    public void setFightStage(Stage theStage) {
-        this.fightStage = theStage;
-        theStage.initStyle(StageStyle.UNDECORATED);
-        theStage.initModality(Modality.APPLICATION_MODAL);
+    public void setFightStage(Stage theFightStage) {
+        this.fightStage = theFightStage;
+        playerMaxHP=1000 + 200*player.getEngineer();
+        playerHP=playerMaxHP;
+        winnerIsPlayer=false;
+        enemyHP.setText(Integer.toString(traderHP)+"/"+Integer.toString(traderMaxHP));
+        myHP.setText(Integer.toString(playerHP)+"/"+Integer.toString(playerMaxHP));
+        fightStage.initStyle(StageStyle.UNDECORATED);
+        fightStage.initModality(Modality.APPLICATION_MODAL);
     }
     
     public void setTradingStage(Stage theStage) {
         this.tradingStage = theStage;
         theStage.initStyle(StageStyle.UNDECORATED);
         theStage.initModality(Modality.APPLICATION_MODAL);
+    }
+    
+    public void setWinnerStage(Stage theWinnerStage,boolean playerWin) {
+        this.winnerStage = theWinnerStage;
+        winnerIsPlayer=playerWin;
+        if (playerWin) winnerInfo1.setText("You Win");
+        else {
+            winnerInfo1.setText("Your ship has been destroyed.");
+            winnerInfo2.setText("Game Over");
+        }
+        winnerStage.initStyle(StageStyle.UNDECORATED);
+        winnerStage.initModality(Modality.APPLICATION_MODAL);
     }
     
     @FXML
@@ -224,19 +259,38 @@ public class TraderEncController implements Initializable {
     @FXML
     private void attBAction(ActionEvent event) {
         if (traderHP>0 && playerHP>0) {
-                if (traderHP>=500) traderHP-=500;
-                else traderHP=0;
-                enemyHP.setText(Integer.toString(traderHP)+"/"+Integer.toString(traderMaxHP));
-                myHP.setText(Integer.toString(playerHP)+"/"+Integer.toString(playerMaxHP));
-            } else if (traderHP>0) {
-                System.out.println("Pirate Wins");
-                this.fightStage.close();
-                spacefx.randomEvent.TravellingController.running=true;
+                if (rand.nextInt(10)<player.getFighter()/3) hit=true; 
+                else hit=false;
+                if (hit) {
+                    if (traderHP>=500) traderHP-=500;
+                    else traderHP=0;
+                    enemyHP.setText(Integer.toString(traderHP)+"/"+Integer.toString(traderMaxHP));
+                    battleInfo1.setText("Player hits Police and deals 500 damage.");
+                } else {battleInfo1.setText("Player attacks Police but does not hit.");}
+                hit=rand.nextBoolean();
+                if (hit) {
+                    if (playerHP>=500) playerHP-=500;
+                    else playerHP=0;
+                    myHP.setText(Integer.toString(playerHP)+"/"+Integer.toString(playerMaxHP));
+                    battleInfo2.setText("Trader hits Player and deals 500 damage.");
+                } else {battleInfo2.setText("Trader attacks Plyaer but does not hit.");}
+            } else if (playerHP>0) {
+                winnerIsPlayer=true;
+                fightStage.close();
+                showWinner();
             } else {
-                System.out.println("Player wins");
-                this.fightStage.close();
-                spacefx.randomEvent.TravellingController.running=true;
+                fightStage.close();
+                showWinner();
             }
+    }
+    
+    @FXML
+    private void winnerOKBAction(ActionEvent event) {
+        if(winnerIsPlayer) {
+            winnerStage.close();
+            spacefx.randomEvent.TravellingController.running=true;
+        }
+        else System.exit(0);
     }
     
     // <editor-fold defaultstate="collapsed" desc="trading Part">
@@ -355,6 +409,22 @@ public class TraderEncController implements Initializable {
             TraderEncController traderController = localTradingLoader.getController();
             traderController.setTradingStage(localTradingStage);
             localTradingStage.show();
+        } catch (IOException exc) {
+            exc.printStackTrace();
+        }
+    }
+    
+    private void showWinner() {
+        try {
+            FXMLLoader localWinnerLoader = new FXMLLoader(SpaceFX.class.getResource("randomEvent/encounter/trader/FightWinner.fxml"));
+            AnchorPane localWinnerPage = (AnchorPane) localWinnerLoader.load();
+            Stage localWinnerStage = new Stage();
+            localWinnerStage.setTitle("Pirate Fight");
+            Scene scene = new Scene(localWinnerPage);
+            localWinnerStage.setScene(scene);
+            TraderEncController traderController = localWinnerLoader.getController();
+            traderController.setWinnerStage(localWinnerStage,winnerIsPlayer);
+            localWinnerStage.show();
         } catch (IOException exc) {
             exc.printStackTrace();
         }

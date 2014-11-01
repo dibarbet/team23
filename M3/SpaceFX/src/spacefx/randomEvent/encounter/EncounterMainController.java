@@ -54,8 +54,8 @@ public class EncounterMainController implements Initializable {
     private void encOKBAction(){
         this.theStage.close();
         encFac = rand.nextInt(30);
-        if (encFac<10) showEncPolice();
-        else if (encFac>20) showEncPirate();
+        if (encFac<0) showEncPolice();
+        else if (encFac>31) showEncPirate();
         else showEncTrader();
     }
     

@@ -57,17 +57,30 @@ public class PoliceEncController implements Initializable {
     private Button bribeCancelB;
     @FXML
     private Label bribeAmount;
+    @FXML
+    private Label battleInfo1;
+    @FXML
+    private Label battleInfo2;
+    @FXML
+    private Label winnerInfo1;
+    @FXML
+    private Label winnerInfo2;
+    @FXML
+    private Button winnerOKB;
     
     private Player player = GameData.getPlayer();
     private int playerMaxHP=2000;
     private int playerHP=2000;
-    private int policeMaxHP=2000;
-    private int policeHP=2000;
+    private int policeMaxHP=3000;
+    private int policeHP=3000;
     private int bribeMoney;
+    private boolean hit;
+    private boolean winnerIsPlayer=false;
     private Random rand = new Random();
     private Stage theStage;
     private Stage bribeStage;
     private Stage fightStage;
+    private Stage winnerStage;
 
     /**
      * Initializes the controller class.
@@ -92,16 +105,31 @@ public class PoliceEncController implements Initializable {
     
     public void setFightStage(Stage theStage) {
         this.fightStage = theStage;
-        surB.setDisable(true);
-        escB.setDisable(true);
+        playerMaxHP=1000 + 200*player.getEngineer();
+        playerHP=playerMaxHP;
+        winnerIsPlayer=false;
+        enemyHP.setText(Integer.toString(policeHP)+"/"+Integer.toString(policeMaxHP));
+        myHP.setText(Integer.toString(playerHP)+"/"+Integer.toString(playerMaxHP));
         fightStage.initStyle(StageStyle.UNDECORATED);
         fightStage.initModality(Modality.APPLICATION_MODAL);
+    }
+    
+    public void setWinnerStage(Stage theWinnerStage,boolean playerWin) {
+        this.winnerStage = theWinnerStage;
+        winnerIsPlayer=playerWin;
+        if (playerWin) winnerInfo1.setText("You Win");
+        else {
+            winnerInfo1.setText("Your ship has been destroyed.");
+            winnerInfo2.setText("Game Over");
+        }
+        winnerStage.initStyle(StageStyle.UNDECORATED);
+        winnerStage.initModality(Modality.APPLICATION_MODAL);
     }
     
     @FXML
     private void policeFightBAction(ActionEvent event) {
         this.theStage.close();
-        policeGlobalData.setSitu("fight start");
+        policeGlobalData.setSitu("initial");
         showFight();
     }
 
@@ -125,10 +153,10 @@ public class PoliceEncController implements Initializable {
     @FXML
     private void policeOKBAction(ActionEvent event) {
             if (policeGlobalData.getSitu().equals("bribed")) {
-                policeFightB.setDisable(false);
+                policeEncInfo.setText("Police: I didn't see anything");
+                policeEscapeB.setText("Leave");
                 policeEscapeB.setDisable(false);
             } else if (policeGlobalData.getSitu().equals("bribe cancelled")) {
-                policeBribeB.setDisable(false);
                 policeFightB.setDisable(false);
                 policeEscapeB.setDisable(false);
             }
@@ -147,26 +175,31 @@ public class PoliceEncController implements Initializable {
 
     @FXML
     private void attBAction(ActionEvent event) {
-        if (policeGlobalData.getSitu().equals("fight start")) {
-            surB.setDisable(false);
-            escB.setDisable(false);
-            policeGlobalData.setSitu("fighting");
-        } else {
             if (policeHP>0 && playerHP>0) {
-                if (policeHP>=500) policeHP-=500;
-                else policeHP=0;
-                enemyHP.setText(Integer.toString(policeHP)+"/"+Integer.toString(policeMaxHP));
-                myHP.setText(Integer.toString(playerHP)+"/"+Integer.toString(playerMaxHP));
-            } else if (policeHP>0) {
-                System.out.println("Police Wins");
-                this.fightStage.close();
-                spacefx.randomEvent.TravellingController.running=true;
+                if (rand.nextInt(10)<player.getFighter()/3) hit=true; 
+                else hit=false;
+                if (hit) {
+                    if (policeHP>=500) policeHP-=500;
+                    else policeHP=0;
+                    enemyHP.setText(Integer.toString(policeHP)+"/"+Integer.toString(policeMaxHP));
+                    battleInfo1.setText("Player hits Police and deals 500 damage.");
+                } else {battleInfo1.setText("Player attacks Police but does not hit.");}
+                hit=rand.nextBoolean();
+                if (hit) {
+                    if (playerHP>=500) playerHP-=500;
+                    else playerHP=0;
+                    myHP.setText(Integer.toString(playerHP)+"/"+Integer.toString(playerMaxHP));
+                    battleInfo2.setText("Police hits Player and deals 500 damage.");
+                } else {battleInfo2.setText("Police attacks Plyaer but does not hit.");}
+                
+            } else if (playerHP>0) {
+                winnerIsPlayer=true;
+                fightStage.close();
+                showWinner();
             } else {
-                System.out.println("Player wins");
-                this.fightStage.close();
-                spacefx.randomEvent.TravellingController.running=true;
+                fightStage.close();
+                showWinner();
             }
-        }
     }
     
     @FXML
@@ -186,6 +219,15 @@ public class PoliceEncController implements Initializable {
         }
     }
 
+    @FXML
+    private void winnerOKBAction(ActionEvent event) {
+        if(winnerIsPlayer) {
+            winnerStage.close();
+            spacefx.randomEvent.TravellingController.running=true;
+        }
+        else System.exit(0);
+    }
+    
     @FXML
     private void bribeCancelBAction(ActionEvent event) {
         policeGlobalData.setSitu("bribe cancelled");
@@ -221,6 +263,22 @@ public class PoliceEncController implements Initializable {
             PoliceEncController policeController = localFightLoader.getController();
             policeController.setFightStage(localFightStage);
             localFightStage.show();
+        } catch (IOException exc) {
+            exc.printStackTrace();
+        }
+    }
+    
+    private void showWinner() {
+        try {
+            FXMLLoader localWinnerLoader = new FXMLLoader(SpaceFX.class.getResource("randomEvent/encounter/pirate/FightWinner.fxml"));
+            AnchorPane localWinnerPage = (AnchorPane) localWinnerLoader.load();
+            Stage localWinnerStage = new Stage();
+            localWinnerStage.setTitle("Police Fight");
+            Scene scene = new Scene(localWinnerPage);
+            localWinnerStage.setScene(scene);
+            PirateEncController pirateController = localWinnerLoader.getController();
+            pirateController.setWinnerStage(localWinnerStage,winnerIsPlayer);
+            localWinnerStage.show();
         } catch (IOException exc) {
             exc.printStackTrace();
         }

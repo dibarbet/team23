@@ -77,4 +77,20 @@ public class Player implements Serializable {
     public String toString() {
         return name;
     }
+    
+    public int getPilot() {
+        return pilot;
+    }
+    
+    public int getFighter() {
+        return fighter;
+    }
+    
+    public int getEngineer() {
+        return engineer;
+    }
+    
+    public int getTrader() {
+        return trader;
+    }
 }

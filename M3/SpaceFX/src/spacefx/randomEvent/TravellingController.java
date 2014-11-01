@@ -165,7 +165,7 @@ public class TravellingController implements Initializable {
                 dotdot.setText("");
             }
             encFac = rand.nextInt(50);
-            if (encFac<3) {
+            if (encFac<0) {
                 running=false;
                 showRandCreditWin();  
             } else if (encFac > 45) {
