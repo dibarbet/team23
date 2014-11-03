@@ -11,9 +11,9 @@
    <children>
       <Button fx:id="policeFightB" layoutX="60.0" layoutY="221.0" mnemonicParsing="false" onAction="#policeFightBAction" prefHeight="25.0" prefWidth="380.0" text="Fight" />
       <Button fx:id="policeEscapeB" layoutX="60.0" layoutY="246.0" mnemonicParsing="false" onAction="#policeEscapeBAction" prefHeight="25.0" prefWidth="380.0" text="Escape" />
-      <Label fx:id="policeEncInfo" layoutX="62.0" layoutY="53.0" text="Encounter Police">
+      <Label fx:id="policeEncInfo" layoutX="60.0" layoutY="36.0" prefHeight="122.0" prefWidth="380.0" text="Encounter Police">
          <font>
-            <Font size="24.0" />
+            <Font size="18.0" />
          </font>
       </Label>
       <Button fx:id="policeBribeB" layoutX="60.0" layoutY="196.0" mnemonicParsing="false" onAction="#policeBribeBAction" prefHeight="25.0" prefWidth="380.0" text="Bribe" />

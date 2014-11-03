@@ -21,6 +21,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import spacefx.GameData;
+import spacefx.Good;
 import spacefx.Player;
 import spacefx.SpaceFX;
 import spacefx.randomEvent.encounter.pirate.PirateEncController;
@@ -380,6 +381,9 @@ public class TraderEncController implements Initializable {
         spacefx.randomEvent.TravellingController.running=true;
     }
     
+    private void initTraderCargo() {
+        
+    }
     // </editor-fold>
     
     private void showFight() {

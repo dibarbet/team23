@@ -198,4 +198,20 @@ public class Ship implements Serializable {
     public int getLimit() {
         return limit;
     }
+    
+    public int getFirearms() {
+        return nfire;
+    }
+    
+    public int getNarcotics() {
+        return nnarc;
+    }
+    
+    public void setFirearms(int i) {
+        nfire = i;
+    }
+    
+    public void setNarcotics(int i) {
+        nnarc = i;
+    }
 }

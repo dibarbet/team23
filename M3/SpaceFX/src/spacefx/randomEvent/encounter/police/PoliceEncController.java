@@ -22,6 +22,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import spacefx.GameData;
 import spacefx.Player;
+import spacefx.Ship;
 import spacefx.SpaceFX;
 import spacefx.randomEvent.encounter.pirate.PirateEncController;
 
@@ -92,7 +93,8 @@ public class PoliceEncController implements Initializable {
 
     public void setTheStage(Stage theStage) {
         this.theStage = theStage;
-        policeOKB.setDisable(true);
+        policeEncInfo.setText("Police is checking your cargo.");
+        policeGlobalData.setSitu("checking cargo");
         theStage.initStyle(StageStyle.UNDECORATED);
         theStage.initModality(Modality.APPLICATION_MODAL);
     }
@@ -159,6 +161,10 @@ public class PoliceEncController implements Initializable {
             } else if (policeGlobalData.getSitu().equals("bribe cancelled")) {
                 policeFightB.setDisable(false);
                 policeEscapeB.setDisable(false);
+            } else if ((policeGlobalData.getSitu().equals("checking cargo"))) {
+                policeEncInfo.setText(fineInfo(GameData.getShip()));
+                policeOKB.setDisable(true);
+                policeEscapeB.setText("Leave");
             }
             policeOKB.setDisable(true);
     }
@@ -282,5 +288,34 @@ public class PoliceEncController implements Initializable {
         } catch (IOException exc) {
             exc.printStackTrace();
         }
+    }
+    
+    private String fineInfo(Ship ship) {
+        String result = "";
+        if(ship.getFirearms()>0 && ship.getNarcotics()>0) {
+            result = "Plice found illegal good " + ship.getFirearms() + " firearms \nand " + ship.getNarcotics()  
+                    + " narcotics in your ship \nand took them away. You got a ticket \nand paid " 
+                    + Integer.toString(ship.getFirearms()*300+ship.getNarcotics()*200)
+                    + " for it";
+            ship.setFirearms(0);
+            ship.setNarcotics(0);
+            GameData.setShip(ship);
+        } else if (ship.getFirearms()>0) {
+            result = "Plice found illegal good " + ship.getFirearms() + " firearms " 
+                    + "\nin your ship and took them away. \nYou got a ticket and paid " 
+                    + Integer.toString(ship.getFirearms()*300) + " for it";
+            ship.setFirearms(0);
+            GameData.setShip(ship);
+        } else if (ship.getNarcotics()>0) {
+            result = "Plice found illegal good " + ship.getNarcotics()  
+                    + " narcotics \nin your ship and took them away. \nYou got a ticket and paid " 
+                    + Integer.toString(ship.getNarcotics()*200)
+                    + " for it";
+            ship.setNarcotics(0);
+            GameData.setShip(ship);
+        } else {
+            result = "Police did not find any illegal good \nin your ship, your are good to go.";
+        }
+        return result;
     }
 }

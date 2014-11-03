@@ -94,5 +94,10 @@
       <Button fx:id="sWaterB" layoutX="79.0" layoutY="115.0" mnemonicParsing="false" onAction="#sWaterBAction" prefHeight="25.0" prefWidth="47.0" text="Sell" />
       <Label fx:id="waterPlayer" alignment="CENTER" layoutX="131.0" layoutY="119.0" prefHeight="17.0" prefWidth="32.0" text="0" />
       <Button fx:id="stopTradingB" layoutX="77.0" layoutY="470.0" mnemonicParsing="false" onAction="#stopTradingBAction" prefHeight="25.0" prefWidth="367.0" text="Stop Trading" />
+      <Label layoutX="142.0" layoutY="28.0" text="The Trader is not ready to trade with you">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

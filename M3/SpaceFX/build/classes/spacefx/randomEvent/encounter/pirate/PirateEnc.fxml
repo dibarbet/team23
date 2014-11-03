@@ -7,10 +7,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="300.0" prefWidth="500.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="spacefx.randomEvent.encounter.pirate.PirateEncController">
+<AnchorPane id="AnchorPane" prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacefx.randomEvent.encounter.pirate.PirateEncController">
    <children>
-      <Button fx:id="pirateOKB" layoutX="60.0" layoutY="195.0" mnemonicParsing="false" onAction="#pirateOKBAction" prefHeight="25.0" prefWidth="380.0" text="OK" />
+      <Button fx:id="pirateOKB" layoutX="60.0" layoutY="195.0" mnemonicParsing="false" onAction="#pirateOKBAction" prefHeight="25.0" prefWidth="380.0" text="Next" />
       <Label fx:id="pirateEncInfo" layoutX="62.0" layoutY="52.0" text="Encounter Pirate">
          <font>
             <Font size="24.0" />
