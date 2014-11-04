@@ -68,8 +68,11 @@ public class PoliceEncController implements Initializable {
     private Label winnerInfo2;
     @FXML
     private Button winnerOKB;
+    @FXML
+    private Label errMsg;
     
     private Player player = GameData.getPlayer();
+    private Ship ship = GameData.getShip();
     private int playerMaxHP=2000;
     private int playerHP=2000;
     private int policeMaxHP=3000;
@@ -82,6 +85,7 @@ public class PoliceEncController implements Initializable {
     private Stage bribeStage;
     private Stage fightStage;
     private Stage winnerStage;
+    private Stage errStage;
 
     /**
      * Initializes the controller class.
@@ -126,6 +130,13 @@ public class PoliceEncController implements Initializable {
         }
         winnerStage.initStyle(StageStyle.UNDECORATED);
         winnerStage.initModality(Modality.APPLICATION_MODAL);
+    }
+    
+    public void setErrStage(Stage theErrStage, String str) {
+        this.errStage=theErrStage;
+        errMsg.setText(str);
+        errStage.initStyle(StageStyle.UNDECORATED);
+        errStage.initModality(Modality.APPLICATION_MODAL);
     }
     
     @FXML
@@ -177,6 +188,15 @@ public class PoliceEncController implements Initializable {
 
     @FXML
     private void surBAction(ActionEvent event) {
+        ship.emptyCargo();
+        GameData.setShip(ship);
+        if(player.getCredit()>10000) {
+            player.setCredit(10000);
+            GameData.setPlayer(player);
+        }
+        attB.setDisable(true);
+        surB.setDisable(true);
+        showErr("Police got everything you owned. \nBut left some money for you.");
     }
 
     @FXML
@@ -190,7 +210,8 @@ public class PoliceEncController implements Initializable {
                     enemyHP.setText(Integer.toString(policeHP)+"/"+Integer.toString(policeMaxHP));
                     battleInfo1.setText("Player hits Police and deals 500 damage.");
                 } else {battleInfo1.setText("Player attacks Police but does not hit.");}
-                hit=rand.nextBoolean();
+                if (rand.nextInt(10)>player.getPilot()/3) hit = true;
+                else hit = false;
                 if (hit) {
                     if (playerHP>=500) playerHP-=500;
                     else playerHP=0;
@@ -240,6 +261,10 @@ public class PoliceEncController implements Initializable {
         this.bribeStage.close();
     }
     
+    @FXML
+    private void errOKBAction(ActionEvent event) {
+        errStage.close();
+    }
     
     private void showBribe() {
         try {
@@ -285,6 +310,22 @@ public class PoliceEncController implements Initializable {
             PirateEncController pirateController = localWinnerLoader.getController();
             pirateController.setWinnerStage(localWinnerStage,winnerIsPlayer);
             localWinnerStage.show();
+        } catch (IOException exc) {
+            exc.printStackTrace();
+        }
+    }
+    
+    private void showErr(String str) {
+        try {
+            FXMLLoader localErrLoader = new FXMLLoader(SpaceFX.class.getResource("randomEvent/encounter/police/PoliceEncErr.fxml"));
+            AnchorPane localErrPage = (AnchorPane) localErrLoader.load();
+            Stage localErrStage = new Stage();
+            localErrStage.setTitle("Pirate Fight");
+            Scene scene = new Scene(localErrPage);
+            localErrStage.setScene(scene);
+            PoliceEncController policeController = localErrLoader.getController();
+            policeController.setErrStage(localErrStage,str);
+            localErrStage.show();
         } catch (IOException exc) {
             exc.printStackTrace();
         }

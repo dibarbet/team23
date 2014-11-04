@@ -296,7 +296,8 @@ public class TraderEncController implements Initializable {
                     enemyHP.setText(Integer.toString(traderHP)+"/"+Integer.toString(traderMaxHP));
                     battleInfo1.setText("Player hits Police and deals 500 damage.");
                 } else {battleInfo1.setText("Player attacks Police but does not hit.");}
-                hit=rand.nextBoolean();
+                if (rand.nextInt(10)>player.getPilot()/3) hit = true;
+                else hit = false;
                 if (hit) {
                     if (playerHP>=500) playerHP-=500;
                     else playerHP=0;

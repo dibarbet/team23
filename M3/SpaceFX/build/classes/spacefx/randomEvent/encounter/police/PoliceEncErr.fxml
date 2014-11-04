@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacefx.randomEvent.encounter.police.PoliceEncController">
+   <children>
+      <Label fx:id="errMsg" layoutX="63.0" layoutY="43.0" prefHeight="162.0" prefWidth="374.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="175.0" layoutY="228.0" mnemonicParsing="false" onAction="#errOKBAction" prefHeight="30.0" prefWidth="150.0" text="OK" />
+   </children>
+</AnchorPane>
