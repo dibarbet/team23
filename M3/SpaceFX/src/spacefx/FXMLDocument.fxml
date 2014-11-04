@@ -432,6 +432,194 @@
                   </AnchorPane>
               </content>
             </Tab>
+            <Tab text="Ship Upgrades">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="currentShipName" alignment="CENTER" layoutX="210.0" layoutY="49.0" prefHeight="27.0" prefWidth="133.0" text="Unknown">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="77.0" layoutY="49.0" prefHeight="27.0" prefWidth="133.0" text="Current Ship: ">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="578.0" layoutY="49.0" prefHeight="27.0" prefWidth="133.0" text="Money:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="currentShipMoney" alignment="CENTER" layoutX="691.0" layoutY="49.0" prefHeight="27.0" prefWidth="133.0" text="Unknown">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="392.0" layoutY="49.0" prefHeight="27.0" prefWidth="133.0" text="Upgrades">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="88.0" layoutY="128.0" prefHeight="27.0" prefWidth="164.0" text="Weapons">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="368.0" layoutY="128.0" prefHeight="27.0" prefWidth="164.0" text="Shields">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="657.0" layoutY="128.0" prefHeight="27.0" prefWidth="164.0" text="Gadgets">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="113.0" layoutY="162.0" prefHeight="27.0" prefWidth="57.0" text="Slots:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="weaponSlots" alignment="CENTER" layoutX="170.0" layoutY="162.0" prefHeight="27.0" prefWidth="57.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="402.0" layoutY="162.0" prefHeight="27.0" prefWidth="57.0" text="Slots:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="670.0" layoutY="162.0" prefHeight="27.0" prefWidth="57.0" text="Slots:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="shieldSlots" alignment="CENTER" layoutX="459.0" layoutY="162.0" prefHeight="27.0" prefWidth="57.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="gadgetSlots" alignment="CENTER" layoutX="758.0" layoutY="162.0" prefHeight="27.0" prefWidth="57.0" text="0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="31.0" layoutY="208.0" text="Pulse Lasers">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="30.0" layoutY="251.0" text="Beam Lasers">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="17.0" layoutY="297.0" text="Military Lasers">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="pulsePrice" alignment="CENTER" layoutX="158.0" layoutY="208.0" text="Unknown">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="beamPrice" alignment="CENTER" layoutX="158.0" layoutY="251.0" text="Unknown">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="militaryPrice" alignment="CENTER" layoutX="160.0" layoutY="297.0" text="Unknown">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="buyPulse" layoutX="248.0" layoutY="207.0" mnemonicParsing="false" onAction="#buyPulse" text="Buy" />
+                        <Button fx:id="buyBeam" layoutX="248.0" layoutY="250.0" mnemonicParsing="false" onAction="#buyBeam" text="Buy" />
+                        <Button fx:id="buyMilitary" layoutX="248.0" layoutY="296.0" mnemonicParsing="false" onAction="#buyMilitary" text="Buy" />
+                        <Label layoutX="336.0" layoutY="208.0" text="Energy Shield">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="314.0" layoutY="252.0" text="Reflective Shield">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="energyPrice" alignment="CENTER" layoutX="459.0" layoutY="209.0" text="Unknown">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="reflectivePrice" alignment="CENTER" layoutX="459.0" layoutY="252.0" text="Unknown">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="fiveCargoPrice" alignment="CENTER" layoutX="758.0" layoutY="208.0" text="Unknown">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="navigationPrice" alignment="CENTER" layoutX="762.0" layoutY="252.0" text="Unknown">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="autorepairPrice" alignment="CENTER" layoutX="762.0" layoutY="298.0" text="Unknown">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="pulsePrice6" alignment="CENTER" layoutX="762.0" layoutY="345.0" text="Unknown">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cloakingPrice" alignment="CENTER" layoutX="762.0" layoutY="391.0" text="Unknown">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="626.0" layoutY="209.0" text="+5 Cargo Bay">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="639.0" layoutY="252.0" text="Navigation">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="633.0" layoutY="297.0" text="Auto-Repair">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="guyEnergy" layoutX="546.0" layoutY="207.0" mnemonicParsing="false" onAction="#buyEnergy" text="Buy" />
+                        <Label layoutX="652.0" layoutY="345.0" text="Targeting">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="655.0" layoutY="391.0" text="Cloaking">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="buyReflective" layoutX="546.0" layoutY="251.0" mnemonicParsing="false" onAction="#buyReflective" text="Buy" />
+                        <Button fx:id="buyNavigation" layoutX="844.0" layoutY="208.0" mnemonicParsing="false" onAction="#buyNavigation" text="Buy" />
+                        <Button fx:id="buyFiveCargo1" layoutX="844.0" layoutY="251.0" mnemonicParsing="false" onAction="#buyFiveCargo" text="Buy" />
+                        <Button fx:id="buyAutorepair" layoutX="844.0" layoutY="297.0" mnemonicParsing="false" onAction="#buyAutorepair" text="Buy" />
+                        <Button fx:id="buyTargeting" layoutX="844.0" layoutY="344.0" mnemonicParsing="false" onAction="#buyTargeting" text="Buy" />
+                        <Button fx:id="buyCloaking" layoutX="844.0" layoutY="390.0" mnemonicParsing="false" onAction="#buyCloaking" text="Buy" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
         </tabs>
       </TabPane>
    </children>

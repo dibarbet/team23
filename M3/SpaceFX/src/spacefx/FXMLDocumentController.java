@@ -450,7 +450,52 @@ public class FXMLDocumentController implements Initializable {
     private Circle Planet113;
     @FXML
     private Circle Planet114;
-    
+    @FXML
+    private Label weaponSlots;
+    @FXML
+    private Label shieldSlots;
+    @FXML
+    private Label gadgetSlots;
+    @FXML
+    private Label pulsePrice;
+    @FXML
+    private Label beamPrice;
+    @FXML
+    private Label militaryPrice;
+    @FXML
+    private Label energyPrice;
+    @FXML
+    private Label reflectivePrice;
+    @FXML
+    private Label fiveCargoPrice;
+    @FXML
+    private Label targetingPrice;
+    @FXML
+    private Label navigationPrice;
+    @FXML
+    private Label autorepairPrice;
+    @FXML
+    private Label cloakingPrice;
+    @FXML
+    private Button buyPulse;
+    @FXML
+    private Button buyBeam;
+    @FXML
+    private Button buyMilitary;
+    @FXML
+    private Button buyEnergy;
+    @FXML
+    private Button buyReflective;
+    @FXML
+    private Button buyFiveCargo;
+    @FXML
+    private Button buyNavigation;
+    @FXML
+    private Button buyTargeting;
+    @FXML
+    private Button buyAutorepair;
+    @FXML
+    private Button buyCloaking;
     
     // </editor-fold>
     public static boolean planetChanged = false;
@@ -2112,7 +2157,50 @@ public class FXMLDocumentController implements Initializable {
         GameData.setPlayer(player);
     }
     
+    @FXML
+    private void buyPulse() {
+        
+    }
     
+    @FXML
+    private void buyBeam() {
+        
+    }
+    
+    @FXML
+    private void buyEnergy() {
+        
+    }
+    
+    @FXML
+    private void buyReflective() {
+        
+    }
+    
+    @FXML
+    private void buyFiveCargo() {
+        
+    }
+    
+    @FXML
+    private void buyNavigation() {
+        
+    }
+    
+    @FXML
+    private void buyTargeting() {
+        
+    }
+    
+    @FXML
+    private void buyAutorepair() {
+        
+    }
+    
+    @FXML
+    private void buyCloaking() {
+        
+    }
     
     @FXML
     private MenuItem debugTravelling;
