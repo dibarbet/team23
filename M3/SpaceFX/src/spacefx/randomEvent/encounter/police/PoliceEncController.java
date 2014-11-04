@@ -292,26 +292,26 @@ public class PoliceEncController implements Initializable {
     
     private String fineInfo(Ship ship) {
         String result = "";
-        if(ship.getFirearms()>0 && ship.getNarcotics()>0) {
-            result = "Plice found illegal good " + ship.getFirearms() + " firearms \nand " + ship.getNarcotics()  
+        if(ship.getFirearm()>0 && ship.getNarcotic()>0) {
+            result = "Plice found illegal good " + ship.getFirearm() + " firearms \nand " + ship.getNarcotic()  
                     + " narcotics in your ship \nand took them away. You got a ticket \nand paid " 
-                    + Integer.toString(ship.getFirearms()*300+ship.getNarcotics()*200)
+                    + Integer.toString(ship.getFirearm()*300+ship.getNarcotic()*200)
                     + " for it";
-            ship.setFirearms(0);
-            ship.setNarcotics(0);
+            ship.setFirearm(0);
+            ship.setNarcotic(0);
             GameData.setShip(ship);
-        } else if (ship.getFirearms()>0) {
-            result = "Plice found illegal good " + ship.getFirearms() + " firearms " 
+        } else if (ship.getFirearm()>0) {
+            result = "Plice found illegal good " + ship.getFirearm() + " firearms " 
                     + "\nin your ship and took them away. \nYou got a ticket and paid " 
-                    + Integer.toString(ship.getFirearms()*300) + " for it";
-            ship.setFirearms(0);
+                    + Integer.toString(ship.getFirearm()*300) + " for it";
+            ship.setFirearm(0);
             GameData.setShip(ship);
-        } else if (ship.getNarcotics()>0) {
-            result = "Plice found illegal good " + ship.getNarcotics()  
+        } else if (ship.getNarcotic()>0) {
+            result = "Plice found illegal good " + ship.getNarcotic()  
                     + " narcotics \nin your ship and took them away. \nYou got a ticket and paid " 
-                    + Integer.toString(ship.getNarcotics()*200)
+                    + Integer.toString(ship.getNarcotic()*200)
                     + " for it";
-            ship.setNarcotics(0);
+            ship.setNarcotic(0);
             GameData.setShip(ship);
         } else {
             result = "Police did not find any illegal good \nin your ship, your are good to go.";

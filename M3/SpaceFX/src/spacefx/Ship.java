@@ -198,20 +198,87 @@ public class Ship implements Serializable {
     public int getLimit() {
         return limit;
     }
-    
-    public int getFirearms() {
+    // <editor-fold defaultstate="collapsed" desc="Good get and set methods">
+    public int getWater() {
+        return nwater;
+    }
+    public void setWater(int i) {
+        nwater = i;
+    }
+    public int getFur() {
+        return nfur;
+    }
+    public void setFur(int i) {
+        nfur = i;
+    }
+    public int getFood() {
+        return nfood;
+    }
+    public void setFood(int i) {
+        nfood = i;
+    }
+    public int getOre() {
+        return nore;
+    }
+    public void setOre(int i) {
+        nore = i;
+    }
+    public int getGame() {
+        return ngame;
+    }
+    public void setGame(int i) {
+        ngame = i;
+    }
+    public int getFirearm() {
         return nfire;
     }
-    
-    public int getNarcotics() {
-        return nnarc;
-    }
-    
-    public void setFirearms(int i) {
+    public void setFirearm(int i) {
         nfire = i;
     }
-    
-    public void setNarcotics(int i) {
+    public int getMedicine() {
+        return nmed;
+    }
+    public void setMedicine(int i) {
+        nmed = i;
+    }
+    public int getMachine() {
+        return nmach;
+    }
+    public void setMachine(int i) {
+        nmach = i;
+    }
+    public int getNarcotic() {
+        return nnarc;
+    }
+    public void setNarcotic(int i) {
         nnarc = i;
+    }
+    public int getRobot() {
+        return nrob;
+    }
+    public void setRobot(int i) {
+        nrob = i;
+    }
+    
+    // </editor-fold>
+    
+    public void emptyCargo() {
+        count=0;
+        nwater=0;
+        nfur=0;
+        nfood=0;
+        nore=0;
+        ngame=0;
+        nfire=0;
+        nmed=0;
+        nmach=0;
+        nnarc=0;
+        nrob=0;
+    }
+    public void incCount() {
+        count++;
+    }
+    public void decCount() {
+        count--;
     }
 }

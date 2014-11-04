@@ -2121,8 +2121,8 @@ public class FXMLDocumentController implements Initializable {
     private void debugTravellingAction(){
         GameData.setPlayer(new Player("Tester",15,15,15,15,3));
         Ship newship = new Ship("Bumblebee");
-        newship.setFirearms(10);
-        newship.setNarcotics(10);
+        newship.setFirearm(10);
+        newship.setNarcotic(10);
         GameData.setShip(newship);
         try {
                 FXMLLoader loader = new FXMLLoader(SpaceFX.class.getResource("randomEvent/Travelling.fxml"));

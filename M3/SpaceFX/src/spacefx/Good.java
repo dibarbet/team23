@@ -34,9 +34,9 @@ public class Good {
         final static int mtlp = 0; // Minimum Tech Level to Produce Water
         final static int mtlu = 0; // Minimum Tech Level to Use Water
         final static int ttp = 2; // Tech Level which produces the most of Water
-        final static int basePrice = 30; // Base price of Water
+        final public static int basePrice = 30; // Base price of Water
         final static int ipl = 3; // The Price of Water increase per tech level
-        final static int var = 4; // the maximum percentage that 
+        final public static int var = 4; // the maximum percentage that 
                                     // the price of Water can vary above or below the base
         final static String ie = "DROUGHT"; // when event drought happens on a planet, 
                                             // the price of Water may increase astronomically
@@ -54,9 +54,9 @@ public class Good {
         final static int mtlp = 0; // Minimum Tech Level to Produce Furs
         final static int mtlu = 0; // Minimum Tech Level to Use Furs
         final static int ttp = 0;  // Tech Level which produces the most of Furs
-        final static int basePrice = 250; // Base price of Furs
+        final public static int basePrice = 250; // Base price of Furs
         final static int ipl = 10; // The Price of Furs increase per tech level
-        final static int var = 10; // the maximum percentage that 
+        final public static int var = 10; // the maximum percentage that 
                                     // the price of Furs can vary above or below the base
         final static String ie = "COLD"; // when event cold happens on a planet, 
                                          // the price of Furs may increase astronomically
@@ -74,9 +74,9 @@ public class Good {
         final static int mtlp = 1;  // Minimum Tech Level to Produce Food
         final static int mtlu = 0; // Minimum Tech Level to Use Food
         final static int ttp = 1; // Tech Level which produces the most of Food
-        final static int basePrice = 100;  // Base price of Food
+        final public static int basePrice = 100;  // Base price of Food
         final static int ipl = 5; // The Price of Food increase per tech level
-        final static int var = 5;  // the maximum percentage that 
+        final public static int var = 5;  // the maximum percentage that 
                                     // the price of Food can vary above or below the base
         final static String ie = "CROPFAIL";  // when event cold happens on a planet, 
                                          // the price of Food may increase astronomically
@@ -94,9 +94,9 @@ public class Good {
         final static int mtlp = 2; // Minimum Tech level to produce Ore
         final static int mtlu = 2; // Minimum tech level to use Ore
         final static int ttp = 3; // Tech level which produces the most of Ore
-        final static int basePrice = 350; // the base price of Ore
+        final public static int basePrice = 350; // the base price of Ore
         final static int ipl = 20; // Price of Ore increase per tech level
-        final static int var = 10; // The max perentage that the price can vary
+        final public static int var = 10; // The max perentage that the price can vary
                                     // above or below the base
         final static String ie = "WAR"; // When the event war happens on a planet
                                         // the price of Ore may increase astronomically
@@ -114,9 +114,9 @@ public class Good {
         final static int mtlp = 3; // min tech level to produce Games
         final static int mtlu = 1; // min tech level to use Games
         final static int ttp = 6; // tech level which produce most of Games
-        final static int basePrice = 250; // base price of Games
+        final public static int basePrice = 250; // base price of Games
         final static int ipl = -10; // price of Games increase per tech level
-        final static int var = 5; // The max perentage that the price can vary
+        final public static int var = 5; // The max perentage that the price can vary
                                     // above or below the base
         final static String ie = "BOREDOM"; // When the event boredom happens on a planet
                                         // the price of Games may increase astronomically
@@ -133,9 +133,9 @@ public class Good {
         final static int mtlp = 3; // min tech level to produce Firearms
         final static int mtlu = 1; // min tech level to use Firearms
         final static int ttp = 5; // tech level which produce most of Firearms
-        final static int basePrice = 1250; // base price of Firearms
+        final public static int basePrice = 1250; // base price of Firearms
         final static int ipl = -75; // price of Firearms increase per tech level
-        final static int var = 100; // The max perentage that the price can vary
+        final public static int var = 100; // The max perentage that the price can vary
                                     // above or below the base
         final static String ie = "WAR"; // When the event boredom happens on a planet
                                         // the price of Firearms may increase astronomically
@@ -152,9 +152,9 @@ public class Good {
         final static int mtlp = 4; // min tech level to produce Medicine
         final static int mtlu = 1; // min tech level to use Medicine
         final static int ttp = 6; // tech level which produce most of Medicine
-        final static int basePrice = 650; // base price of Medicine
+        final public static int basePrice = 650; // base price of Medicine
         final static int ipl = -20; // price of Medicine increase per tech level
-        final static int var = 10; // The max perentage that the price can vary
+        final public static int var = 10; // The max perentage that the price can vary
                                     // above or below the base
         final static String ie = "PLAGUE"; // When the event boredom happens on a planet
                                         // the price of Medicine may increase astronomically
@@ -171,9 +171,9 @@ public class Good {
         final static int mtlp = 4; // min tech level to produce Machines
         final static int mtlu = 3; // min tech level to use Machines
         final static int ttp = 5; // tech level which produce most of Machines
-        final static int basePrice = 900; // base price of Machines
+        final public static int basePrice = 900; // base price of Machines
         final static int ipl = -30; // price of Machines increase per tech level
-        final static int var = 5; // The max perentage that the price can vary
+        final public static int var = 5; // The max perentage that the price can vary
                                     // above or below the base
         final static String ie = "LACKOFWORKERS"; // When the event boredom happens on a planet
                                         // the price of Machines may increase astronomically
@@ -189,9 +189,9 @@ public class Good {
         final static int mtlp = 5; // min tech level to produce Narcotics
         final static int mtlu = 0; // min tech level to use Narcotics
         final static int ttp = 5; // tech level which produce most of Narcotics
-        final static int basePrice = 3500; // base price of Narcotics
+        final public static int basePrice = 3500; // base price of Narcotics
         final static int ipl = -125; // price of Narcotics increase per tech level
-        final static int var = 150; // The max perentage that the price can vary
+        final public static int var = 150; // The max perentage that the price can vary
                                     // above or below the base
         final static String ie = "BOREDOM"; // When the event boredom happens on a planet
                                         // the price of Narcotics may increase astronomically
@@ -208,9 +208,9 @@ public class Good {
         final static int mtlp = 6; // min tech level to produce Robots
         final static int mtlu = 4; // min tech level to use Robots
         final static int ttp = 7; // tech level which produce most of Robots
-        final static int basePrice = 5000; // base price of Robots
+        final public static int basePrice = 5000; // base price of Robots
         final static int ipl = -150; // price of Robots increase per tech level
-        final static int var = 100; // The max perentage that the price can vary
+        final public static int var = 100; // The max perentage that the price can vary
                                     // above or below the base
         final static String ie = "LACKOFWORKERS"; // When the event boredom happens on a planet
                                         // the price of Robots may increase astronomically

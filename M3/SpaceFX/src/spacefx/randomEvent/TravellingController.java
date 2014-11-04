@@ -161,14 +161,15 @@ public class TravellingController implements Initializable {
     
     private void checkRand(){
         if (running) {
+            //System.out.println(dist);
             if (dist%3==0) {
                 dotdot.setText("");
             }
             encFac = rand.nextInt(50);
-            if (encFac<3) {
+            if (encFac<0) {
                 running=false;
                 showRandCreditWin();  
-            } else if (encFac > 47) {
+            } else if (encFac > 40) {
                 running = false;
                 showEncWin();
             }
