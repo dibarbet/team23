@@ -77,6 +77,8 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Tab curSolar;
     @FXML
+    private Tab upgradesTab;
+    @FXML
     private Label currentShipMoney;
     @FXML
     private Label shipOneName;
@@ -525,6 +527,7 @@ public class FXMLDocumentController implements Initializable {
                 map.setDisable(false);
                 curSolar.setDisable(false);
                 saveGame.setDisable(false);
+                upgradesTab.setDisable(false);
                 currentPlanet = Planet1;
                 shipyard = new Shipyard();
                 if (shipyard.checkTechLevel()) shipyardTab.setDisable(false);
@@ -695,6 +698,7 @@ public class FXMLDocumentController implements Initializable {
             curSolar.setDisable(true);
             saveGame.setDisable(true);
             shipyardTab.setDisable(true);
+            upgradesTab.setDisable(true);
         }
         
     }
@@ -751,6 +755,7 @@ public class FXMLDocumentController implements Initializable {
             map.setDisable(false);
             curSolar.setDisable(false);
             saveGame.setDisable(false);
+            upgradesTab.setDisable(false);
             currentPlanet = Planet1;
             shipyard = new Shipyard();
             if (shipyard.checkTechLevel()) shipyardTab.setDisable(false);
@@ -2164,6 +2169,11 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private void buyBeam() {
+        
+    }
+    
+    @FXML
+    private void buyMilitary() {
         
     }
     
