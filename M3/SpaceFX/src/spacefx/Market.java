@@ -90,10 +90,6 @@ public class Market implements Serializable {
         } else {
             return -1;
         }
-        //System.out.print("count:");
-        //System.out.println(ship.getCount());
-        //System.out.print("limit:");
-        //System.out.println(ship.getLimit());
         return money;
     }
     /*Returns the amount of money after buying One fur
@@ -489,7 +485,7 @@ public class Market implements Serializable {
         player.setShip(ship);
     }
     public void setMarketShip(Ship aShip) {
-        aShip = ship;
+        ship = aShip;
     }
     
 }
