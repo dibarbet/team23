@@ -2,7 +2,7 @@ package spacefx;
 
 /**
  *
- * @author Pete
+ * @author Dillon
  */
 public class Flea extends Ship {
     
