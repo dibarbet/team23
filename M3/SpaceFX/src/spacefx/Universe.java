@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package spacefx;
 
 import java.io.Serializable;
@@ -136,6 +131,7 @@ public class Universe implements Serializable {
         "Zalkon",
         "Zuul"		
     };
+    
     public Universe() {
         for (int i = 0; i < 114; i++) {
             int j = rand.nextInt(114);
@@ -169,8 +165,8 @@ public class Universe implements Serializable {
         return current;
     }
     
-    public void setCurrentSolarSystem(SolarSystem s) {
-        current = s;
+    public void setCurrentSolarSystem(SolarSystem solarSystem) {
+        current = solarSystem;
     }
     
     /**
