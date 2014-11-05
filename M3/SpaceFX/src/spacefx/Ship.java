@@ -11,7 +11,7 @@ import java.io.Serializable;
  *
  * @author Dillon
  */
-public class Ship implements Serializable {
+public abstract class Ship implements Serializable {
     private int count = 0;
     private int limit, fuel, hull, price, weapons, shields, gadgets, crew;
     protected int nwater, nfur, nfood, nore, ngame, nfire, nmed, nmach, nnarc, nrob;
@@ -27,9 +27,14 @@ public class Ship implements Serializable {
         this.gadgets = gadgets;
         this.crew = crew;
     }
-    public String getShipName() {
-        return shipType;
+    
+    public abstract String getShipName();
+    
+    public String getShipType() {
+        Ship ship = GameData.getShip();
+        return ship.getShipName();
     }
+    
     @Override
     public String toString() {
         return shipType;
