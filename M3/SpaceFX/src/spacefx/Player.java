@@ -42,7 +42,7 @@ public class Player implements Serializable {
         engineer = newEngineer; // set player's engineer skill point
         investor = newInvestor; // set player's investor skill point
         credit = 100000; // initialize the amount of money that play owns to 1000
-        currShip = new Ship("Flea"); // initialize the ship of player
+        currShip = new Gnat(); // initialize the ship of player
     } // end constructor
     
     public Ship getShip() {
