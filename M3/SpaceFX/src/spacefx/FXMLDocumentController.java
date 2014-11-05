@@ -2007,12 +2007,12 @@ public class FXMLDocumentController implements Initializable {
         shipFourPrice.setText(Integer.toString(shipyard.getShipPrice("Mosquito")));
         shipFivePrice.setText(Integer.toString(shipyard.getShipPrice("Bumblebee")));
         currentShipMoney.setText(Integer.toString(player.getCredit()));
-        String currShipType = player.getShip().getShipName();
+        String currShipType = player.getShip().getShipType();
         currentShipName.setText(currShipType);
         checkShipType();
     }
     private void checkShipType() {
-        String currShipType = player.getShip().getShipName();
+        String currShipType = player.getShip().getShipType();
         currentShipName.setText(currShipType);
         currentShipMoney.setText(Integer.toString(player.getCredit()));
         if (currShipType.equals("Flea")) buyShipOne.setDisable(true);
@@ -2218,7 +2218,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void debugTravellingAction(){
         GameData.setPlayer(new Player("Tester",15,15,15,15,3));
-        Ship newship = new Ship("Bumblebee");
+        Ship newship = new Bumblebee();
         newship.setFirearm(10);
         newship.setNarcotic(10);
         GameData.setShip(newship);
