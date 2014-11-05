@@ -10,7 +10,8 @@ public class Firefly extends Ship {
         super(20, 17, 100, 25000, 1, 1, 1, 1);
     }
     
-    public String getShipType() {
+    @Override
+    public String getShipName() {
         return "Firefly";
     }
 }
