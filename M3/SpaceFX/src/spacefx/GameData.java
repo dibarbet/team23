@@ -101,7 +101,7 @@ public final class GameData {
      * @return the list
      */
     public static ArrayList<Object> getClassList() {
-        ArrayList<Object> theList = new ArrayList<Object>();
+        ArrayList<Object> theList = new ArrayList<>();
         theList.add(player);
         theList.add(ship);
         theList.add(universe);
