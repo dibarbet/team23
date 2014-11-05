@@ -8,23 +8,19 @@ package spacefx.newgame;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import spacefx.FXMLDocumentController;
 import spacefx.GameData;
 import spacefx.Player;
 import spacefx.Ship;
+import spacefx.Gnat;
 import spacefx.SpaceFX;
 import spacefx.Universe;
 
@@ -319,21 +315,15 @@ public class NewGameWinController implements Initializable {
     @FXML
     private boolean isValidName() {
         pilotName = name.getText();
-        if (pilotName.equals("")) {
-            return false;
-        } else {
-            return true;
-        }
+        return !pilotName.equals("");
     }
+    
     private boolean checkPoints() {
         int totalPoints = numPilot + numTrader + numFighter + numInvestor
                    + numEngineer;
-        if (totalPoints == 15) {
-            return true;
-        } else {
-            return false;
-        }
+        return totalPoints == 15;
     }
+    
     private void handleBadName() {
         /*
         Stage dialogBox = new Stage();
@@ -387,7 +377,7 @@ public class NewGameWinController implements Initializable {
         if (isValidName() && checkPoints()) {
             player = new Player(pilotName, numPilot, numFighter, numTrader, numEngineer, numInvestor);
             GameData.setPlayer(player);
-            Ship startShip = new Ship("Flea");
+            Ship startShip = new Gnat();
             GameData.setShip(startShip);
             Universe universe = new Universe();
             GameData.setUniverse(universe);
