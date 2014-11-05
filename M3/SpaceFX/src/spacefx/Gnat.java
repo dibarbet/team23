@@ -9,8 +9,9 @@ public class Gnat extends Ship {
     public Gnat() {
         super(15, 13, 100, 10000, 1, 0, 1, 1);
     }
-    
-    public String getShipType() {
+
+    @Override
+    public String getShipName() {
         return "Gnat";
     }
 }
