@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package spacefx;
 
 import java.io.Serializable;
@@ -12,20 +7,24 @@ import java.io.Serializable;
  * @author Dillon
  */
 public abstract class Ship implements Serializable {
-    private int count = 0;
-    private int limit, fuel, hull, price, weapons, shields, gadgets, crew;
+    private int count = 0, weaponCount = 0, shieldCount = 0, gadgetCount = 0, crewCount = 0;
+    private final int price;
+    private int limit, fuel, hull, weaponSlots, shieldSlots, gadgetSlots, crewSlots;
     protected int nwater, nfur, nfood, nore, ngame, nfire, nmed, nmach, nnarc, nrob;
-    protected String[] cargo = new String[limit];
+    protected String[] weapons = new String[weaponSlots];
+    protected String[] shields = new String[shieldSlots];
+    protected String[] gadgets = new String[gadgetSlots];
+    protected String[] crew = new String[crewSlots];
     
-    public Ship(int limit, int fuel, int hull, int price, int weapons, int shields, int gadgets, int crew) {
+    public Ship(int limit, int fuel, int hull, int price, int weaponSlots, int shieldSlots, int gadgetSlots, int crewSlots) {
         this.limit = limit;
         this.fuel = fuel;
         this.hull = hull;
         this.price = price;
-        this.weapons = weapons;
-        this.shields = shields;
-        this.gadgets = gadgets;
-        this.crew = crew;
+        this.weaponSlots = weaponSlots;
+        this.shieldSlots = shieldSlots;
+        this.gadgetSlots = gadgetSlots;
+        this.crewSlots = crewSlots;
     }
     
     public abstract String getShipName();
@@ -37,7 +36,8 @@ public abstract class Ship implements Serializable {
     
     @Override
     public String toString() {
-        return shipType;
+        Ship ship = GameData.getShip();
+        return ship.getShipName();
                 
     }
     public Ship setShip(String shipType) {
@@ -60,9 +60,6 @@ public abstract class Ship implements Serializable {
         return count;
     }
     
-    public String getCargo(int i) {
-        return cargo[i];
-    }
     public int getPrice() {
         return price;
     }
@@ -274,5 +271,125 @@ public abstract class Ship implements Serializable {
     }
     public void decCount() {
         count--;
+    }
+    
+    public int getSlots(String upgradeType) {
+        switch(upgradeType) {
+            case "weapon":
+                return weaponSlots;
+            case "shield":
+                return shieldSlots;
+            case "gadget":
+                return gadgetSlots;
+            case "crew":
+                return crewSlots;
+            default:
+                return -1;
+        }
+    }
+    
+    public int getUpgradeCount(String upgradeType) {
+        switch(upgradeType) {
+            case "weapon":
+                return weaponCount;
+            case "shield":
+                return shieldCount;
+            case "gadget":
+                return gadgetCount;
+            case "crew":
+                return crewCount;
+            default:
+                return -1;
+        }
+    }
+    
+        public String[] getUpgradeList(String type) {
+            switch(type) {
+                case "weapon":
+                    return weapons;
+                case "shield":
+                    return shields;
+                case "gadget":
+                    return gadgets;
+                case "crew":
+                    return crew;
+                default:
+                    return null;
+            }
+        }
+    
+    public void addUpgrade(String type, String name) {
+        switch(type) {
+            case "weapon":
+                weapons[weaponCount] = name;
+                weaponCount++;
+                break;
+            case "shield":
+                shields[shieldCount] = name;
+                shieldCount++;
+                break;
+            case "gadget":
+                gadgets[gadgetCount] = name;
+                gadgetCount++;
+                break;
+            case "crew":
+                crew[crewCount] = name;
+                crewCount++;
+                break;
+            default:
+                break;
+        }
+    }
+    
+    public void sellUpgrade(String type, String name, int index) {
+        int pointer = index;
+        switch(type) {
+            case "weapon":
+                weapons[index] = null;
+                for (int i = index + 1; i < weaponSlots; i++) {
+                    if (weapons[i] != null) {
+                        weapons[pointer] = weapons[i];
+                        weapons[i] = null;
+                        pointer++;
+                    }
+                }
+                weaponCount--;
+                break;
+            case "shield":
+                shields[index] = null;
+                for (int i = index + 1; i < shieldSlots; i++) {
+                    if (shields[i] != null) {
+                        shields[pointer] = shields[i];
+                        shields[i] = null;
+                        pointer++;
+                    }
+                }
+                shieldCount--;
+                break;
+            case "gadget":
+                gadgets[index] = null;
+                for (int i = index + 1; i <gadgetSlots; i++) {
+                    if (gadgets[i] != null) {
+                        gadgets[pointer] = gadgets[i];
+                        gadgets[i] = null;
+                        pointer++;
+                    }
+                }
+                gadgetCount--;
+                break;
+            case "crew":
+                crew[index] = null;
+                for (int i = index + 1; i < crewSlots; i++) {
+                    if (crew[i] != null) {
+                        crew[pointer] = crew[i];
+                        crew[i] = null;
+                        pointer++;
+                    }
+                }
+                crewCount--;
+                break;
+            default:
+                break;
+        }
     }
 }
