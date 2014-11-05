@@ -10,7 +10,8 @@ public class Flea extends Ship {
         super(10, 20, 25, 2000, 0, 0, 0, 1);
     }
     
-    public String getShipType() {
+    @Override
+    public String getShipName() {
         return "Flea";
     }
 }
