@@ -10,7 +10,8 @@ public class Mosquito extends Ship {
         super(15, 13, 100, 30000, 2, 1, 1, 1);
     }
     
-    public String getShipType() {
+    @Override
+    public String getShipName() {
         return "Mosquito";
     }
 }
