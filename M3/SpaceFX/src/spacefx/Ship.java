@@ -6,7 +6,6 @@
 package spacefx;
 
 import java.io.Serializable;
-import java.util.Arrays;
 
 /**
  *
@@ -14,16 +13,19 @@ import java.util.Arrays;
  */
 public class Ship implements Serializable {
     private int count = 0;
-    private int limit, fuel, hull, price;
-    //private int fuel;
-    private String shipType;
+    private int limit, fuel, hull, price, weapons, shields, gadgets, crew;
     protected int nwater, nfur, nfood, nore, ngame, nfire, nmed, nmach, nnarc, nrob;
     protected String[] cargo = new String[limit];
     
-    public Ship(String shipType) {
-        this.fuel = 100;
-        this.shipType = shipType;
-        setShipAttributes(shipType);
+    public Ship(int limit, int fuel, int hull, int price, int weapons, int shields, int gadgets, int crew) {
+        this.limit = limit;
+        this.fuel = fuel;
+        this.hull = hull;
+        this.price = price;
+        this.weapons = weapons;
+        this.shields = shields;
+        this.gadgets = gadgets;
+        this.crew = crew;
     }
     public String getShipName() {
         return shipType;
@@ -33,33 +35,20 @@ public class Ship implements Serializable {
         return shipType;
                 
     }
-    public void setShipAttributes(String shipType) {
+    public Ship setShip(String shipType) {
         switch (shipType) {
             case "Flea":
-                limit = 10;
-                fuel = 20;
-                hull = 25;
-                price = 2000;
+                return new Flea();
             case "Gnat":
-                limit = 15;
-                fuel = 13;
-                hull = 100;
-                price = 10000;
+                return new Gnat();
             case "Firefly":
-                limit = 20;
-                fuel = 17;
-                hull = 100;
-                price = 25000;
+                return new Firefly();
             case "Mosquito":
-                limit = 15;
-                fuel = 13;
-                hull = 100;
-                price = 30000;
+                return new Mosquito();
             case "Bumblebee":
-                limit = 25;
-                fuel = 16;
-                hull = 100;
-                price = 60000;
+                return new Bumblebee();
+            default:
+                return null;
         }
     }
     public int getCount() {
