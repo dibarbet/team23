@@ -1,9 +1,5 @@
 package spacefx;
 
-import spacefx.GameData;
-import spacefx.Player;
-import spacefx.Ship;
-
 /**
  *
  * @author Dillon
@@ -45,6 +41,12 @@ public class Shipyard {
             return true;
         }
     }
+    
+    public int getShipPrice(String shipType) {
+        Ship s = GameData.getShip().setShip(shipType);
+        return s.getPrice();
+    }
+    
     /**
      * Checks the tech level of the current solar system
      * @return true if tech level is greater than 4, false otherwise
