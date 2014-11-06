@@ -11,10 +11,10 @@ public abstract class Ship implements Serializable {
     private final int price;
     private int limit, fuel, hull, weaponSlots, shieldSlots, gadgetSlots, crewSlots;
     protected int nwater, nfur, nfood, nore, ngame, nfire, nmed, nmach, nnarc, nrob;
-    protected String[] weapons = new String[weaponSlots];
-    protected String[] shields = new String[shieldSlots];
-    protected String[] gadgets = new String[gadgetSlots];
-    protected String[] crew = new String[crewSlots];
+    protected String[] weapons;
+    protected String[] shields;
+    protected String[] gadgets;
+    protected String[] crew;
     
     public Ship(int limit, int fuel, int hull, int price, int weaponSlots, int shieldSlots, int gadgetSlots, int crewSlots) {
         this.limit = limit;
@@ -25,15 +25,49 @@ public abstract class Ship implements Serializable {
         this.shieldSlots = shieldSlots;
         this.gadgetSlots = gadgetSlots;
         this.crewSlots = crewSlots;
+        weapons = new String[weaponSlots];
+        shields = new String[shieldSlots];
+        gadgets = new String[gadgetSlots];
+        crew = new String[crewSlots];
     }
     
     public abstract String getShipName();
-    
+    /**
+     * Returns the name of the ship type
+     * @return the current ships name
+     */
     public String getShipType() {
         Ship ship = GameData.getShip();
         return ship.getShipName();
     }
-    
+    /**
+     * Returns the number of available weapon slots
+     * @return weaponSlots, the number for each ship
+     */
+    public int getWeaponSlots() {
+        return weaponSlots;
+    }
+    /**
+     * Returns the number of available shield slots
+     * @return shieldSlots
+     */
+    public int getShieldSlots() {
+        return shieldSlots;
+    }
+    /**
+     * Returns the number of available gadget slots
+     * @return gadgetSlots 
+     */
+    public int getGadgetSlots() {
+        return gadgetSlots;
+    }
+    /**
+     * Returns number of available crew slots
+     * @return crewSlots
+     */
+    public int getCrewSlots() {
+        return crewSlots;
+    }
     @Override
     public String toString() {
         Ship ship = GameData.getShip();
@@ -58,6 +92,10 @@ public abstract class Ship implements Serializable {
     }
     public int getCount() {
         return count;
+    }
+    
+    public void setCount(int num) {
+        count = num;
     }
     
     public int getPrice() {
@@ -323,18 +361,25 @@ public abstract class Ship implements Serializable {
             case "weapon":
                 weapons[weaponCount] = name;
                 weaponCount++;
+                weaponSlots--;
                 break;
             case "shield":
                 shields[shieldCount] = name;
                 shieldCount++;
+                shieldSlots--;
                 break;
             case "gadget":
                 gadgets[gadgetCount] = name;
                 gadgetCount++;
+                gadgetSlots--;
+                if (name.equals("5cargo")) {
+                    limit += 5;
+                }
                 break;
             case "crew":
                 crew[crewCount] = name;
                 crewCount++;
+                crewSlots--;
                 break;
             default:
                 break;

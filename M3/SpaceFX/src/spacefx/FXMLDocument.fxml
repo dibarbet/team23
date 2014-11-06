@@ -432,11 +432,11 @@
                   </AnchorPane>
               </content>
             </Tab>
-            <Tab fx:id="upgradesTab" closable="false" text="Ship Upgrades">
+            <Tab fx:id="upgradesTab" closable="false" onSelectionChanged="#refreshUpgrades" text="Ship Upgrades">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Label fx:id="currentShipName" alignment="CENTER" layoutX="210.0" layoutY="49.0" prefHeight="27.0" prefWidth="133.0" text="Unknown">
+                        <Label fx:id="shipyardShipName" alignment="CENTER" layoutX="210.0" layoutY="49.0" prefHeight="27.0" prefWidth="133.0" text="Unknown">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -451,7 +451,7 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label fx:id="currentShipMoney" alignment="CENTER" layoutX="691.0" layoutY="49.0" prefHeight="27.0" prefWidth="133.0" text="Unknown">
+                        <Label fx:id="shipyardMoney" alignment="CENTER" layoutX="691.0" layoutY="49.0" prefHeight="27.0" prefWidth="133.0" text="Unknown">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -574,7 +574,7 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label fx:id="pulsePrice6" alignment="CENTER" layoutX="762.0" layoutY="345.0" text="Unknown">
+                        <Label fx:id="targetingPrice" alignment="CENTER" layoutX="762.0" layoutY="345.0" text="Unknown">
                            <font>
                               <Font size="18.0" />
                            </font>

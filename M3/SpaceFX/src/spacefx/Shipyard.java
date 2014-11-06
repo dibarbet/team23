@@ -33,7 +33,7 @@ public class Shipyard {
             newShip.nmach = oldShip.nmach;
             newShip.nrob = oldShip.nrob;
             newShip.nnarc = oldShip.nnarc;
-            newShip.cargo = oldShip.cargo;
+            newShip.setCount(oldShip.getCount());
             player.loseCredit(price);
             player.setShip(newShip);
             GameData.setPlayer(player);

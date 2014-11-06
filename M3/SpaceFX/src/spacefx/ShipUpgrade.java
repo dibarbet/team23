@@ -21,14 +21,22 @@ public class ShipUpgrade {
                 return 1000;
             case "beamLaser":
                 return 2000;
+            case "militaryLaser":
+                return 2500;
             case "smallShield":
                 return 1000;
             case "bigShield":
                 return 2000;
             case "navigation":
                 return 5000;
-            case "escapePod":
+            case "5cargo":
                 return 2000;
+            case "autoRepair":
+                return 2200;
+            case "targeting":
+                return 2200;
+            case "cloaking":
+                return 10000;
             case "badCrew":
                 return 10000;
             case "goodCrew":

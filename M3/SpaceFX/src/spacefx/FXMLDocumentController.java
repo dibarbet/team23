@@ -41,7 +41,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import spacefx.marketerr.BuyErrController;
-import spacefx.marketerr.SellErrController;
+import spacefx.shipyarderr.SellErrController;
 import spacefx.newgame.EmptyNameErrController;
 import spacefx.newgame.NewGameWinController;
 import spacefx.randomEvent.TravellingController;
@@ -225,6 +225,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Label curSolarLoc;
     @FXML
+// <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
     private Circle Planet1;
     @FXML
     private Circle Planet2;
@@ -452,12 +453,18 @@ public class FXMLDocumentController implements Initializable {
     private Circle Planet113;
     @FXML
     private Circle Planet114;
+
+// </editor-fold>
     @FXML
     private Label weaponSlots;
     @FXML
     private Label shieldSlots;
     @FXML
     private Label gadgetSlots;
+    @FXML
+    private Label shipyardShipName;
+    @FXML
+    private Label shipyardMoney;
     @FXML
     private Label pulsePrice;
     @FXML
@@ -500,10 +507,12 @@ public class FXMLDocumentController implements Initializable {
     private Button buyCloaking;
     
     // </editor-fold>
+// <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
     public static boolean planetChanged = false;
+
     /**
-     * Method to handle new game menu option being pressed
-     * Creates new window to allow user to create a new game
+     * Method to handle new game menu option being pressed Creates new window to
+     * allow user to create a new game
      */
     @FXML
     private void handleNewGame() {
@@ -530,8 +539,13 @@ public class FXMLDocumentController implements Initializable {
                 upgradesTab.setDisable(false);
                 currentPlanet = Planet1;
                 shipyard = new Shipyard();
-                if (shipyard.checkTechLevel()) shipyardTab.setDisable(false);
-                else shipyardTab.setDisable(true);
+                if (shipyard.checkTechLevel()) {
+                    shipyardTab.setDisable(false);
+                    upgradesTab.setDisable(false);
+                } else {
+                    shipyardTab.setDisable(true);
+                    upgradesTab.setDisable(true);
+                }
                 initializeMap();
                 refreshMarket();
                 refreshSolar();
@@ -542,6 +556,7 @@ public class FXMLDocumentController implements Initializable {
         }
         
     }
+
     /**
      * Refreshes market when the market tab is selected
      */
@@ -566,7 +581,7 @@ public class FXMLDocumentController implements Initializable {
         sMedicineB.setDisable(false);
         sMachinesB.setDisable(false);
         sNarcotics.setDisable(false);
-        sRobotsB.setDisable(false); 
+        sRobotsB.setDisable(false);        
         
         market = GameData.getCurrSolarSys().getMarket();
         player = GameData.getPlayer();
@@ -653,30 +668,31 @@ public class FXMLDocumentController implements Initializable {
             sFursB.setDisable(true);
         }
         if (currentSolarSystem.getTechLevel() < Good.Food.mtlu) {
-           sFoodB.setDisable(true); 
+            sFoodB.setDisable(true);            
         }
         if (currentSolarSystem.getTechLevel() < Good.Ore.mtlu) {
-            sOreB.setDisable(true); 
+            sOreB.setDisable(true);            
         }
         if (currentSolarSystem.getTechLevel() < Good.Games.mtlu) {
-            sGamesB.setDisable(true); 
+            sGamesB.setDisable(true);            
         }
         if (currentSolarSystem.getTechLevel() < Good.Firearms.mtlu) {
-            sFirearmsB.setDisable(true); 
+            sFirearmsB.setDisable(true);            
         }
         if (currentSolarSystem.getTechLevel() < Good.Medicine.mtlu) {
-            sMedicineB.setDisable(true); 
+            sMedicineB.setDisable(true);            
         }
         if (currentSolarSystem.getTechLevel() < Good.Machines.mtlu) {
-            sMachinesB.setDisable(true); 
+            sMachinesB.setDisable(true);            
         }
         if (currentSolarSystem.getTechLevel() < Good.Narcotics.mtlu) {
-            sNarcotics.setDisable(true); 
+            sNarcotics.setDisable(true);            
         }
         if (currentSolarSystem.getTechLevel() < Good.Robots.mtlu) {
-            sRobotsB.setDisable(true); 
+            sRobotsB.setDisable(true);            
         }
     }
+
     /**
      * Refreshes solar system tab when selected.
      */
@@ -690,6 +706,7 @@ public class FXMLDocumentController implements Initializable {
         curSolarLoc.setText(Integer.toString(currentSolarSystem.getX()) + ", "
                 + Integer.toString(currentSolarSystem.getY()));
     }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         if (!gameCreated) {
@@ -714,22 +731,23 @@ public class FXMLDocumentController implements Initializable {
         File savedFile = saveFile.showSaveDialog(stage);
         if (savedFile != null) {
             try {
-            OutputStream file = new FileOutputStream(savedFile);
-            OutputStream buffer = new BufferedOutputStream(file);
-            try (ObjectOutput output = new ObjectOutputStream(buffer)) {
-                output.writeObject(GameData.getClassList());
-            }
+                OutputStream file = new FileOutputStream(savedFile);
+                OutputStream buffer = new BufferedOutputStream(file);
+                try (ObjectOutput output = new ObjectOutputStream(buffer)) {
+                    output.writeObject(GameData.getClassList());
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
         
-                
     }
+
     @FXML
     private void loadGame() {
         showLoadWin();
     }
+
     private void showLoadWin() {
         FileChooser fileChoose = new FileChooser();
         fileChoose.setTitle("Load Game Save");
@@ -737,614 +755,735 @@ public class FXMLDocumentController implements Initializable {
         loadFile = fileChoose.showOpenDialog(stage);
         if (loadFile != null) {
             try {
-            InputStream file = new FileInputStream(loadFile);
-            InputStream buffer = new BufferedInputStream(file);
-            ObjectInput input = new ObjectInputStream(buffer);
-            ArrayList<Object> aList = (ArrayList<Object>) input.readObject();
-            input.close();
-            GameData.setPlayer((Player) aList.get(0));
-            GameData.setShip((Ship) aList.get(1));
-            GameData.setSolarSystem((SolarSystem) aList.get(4));
-            GameData.setUniverse((Universe) aList.get(2));
-            GameData.setMarket((Market) aList.get(3));
-            player = GameData.getPlayer();
-            universe = GameData.getUniverse();
-            currentSolarSystem = universe.getCurrentSolarSystem();
-            gameCreated = true;
-            marketPlace.setDisable(false);
-            map.setDisable(false);
-            curSolar.setDisable(false);
-            saveGame.setDisable(false);
-            upgradesTab.setDisable(false);
-            currentPlanet = Planet1;
-            shipyard = new Shipyard();
-            if (shipyard.checkTechLevel()) shipyardTab.setDisable(false);
-            else shipyardTab.setDisable(true);
-            initializeMap();
-            refreshSolar();
-            refreshMarket();
+                InputStream file = new FileInputStream(loadFile);
+                InputStream buffer = new BufferedInputStream(file);
+                ObjectInput input = new ObjectInputStream(buffer);
+                ArrayList<Object> aList = (ArrayList<Object>) input.readObject();
+                input.close();
+                GameData.setPlayer((Player) aList.get(0));
+                GameData.setShip((Ship) aList.get(1));
+                GameData.setSolarSystem((SolarSystem) aList.get(4));
+                GameData.setUniverse((Universe) aList.get(2));
+                GameData.setMarket((Market) aList.get(3));
+                player = GameData.getPlayer();
+                universe = GameData.getUniverse();
+                currentSolarSystem = universe.getCurrentSolarSystem();
+                gameCreated = true;
+                marketPlace.setDisable(false);
+                map.setDisable(false);
+                curSolar.setDisable(false);
+                saveGame.setDisable(false);
+                upgradesTab.setDisable(false);
+                currentPlanet = Planet1;
+                shipyard = new Shipyard();
+                if (shipyard.checkTechLevel()) {
+                    shipyardTab.setDisable(false);
+                    upgradesTab.setDisable(false);
+                } else {
+                    shipyardTab.setDisable(true);
+                    upgradesTab.setDisable(true);
+                }
+                initializeMap();
+                refreshSolar();
+                refreshMarket();
             } catch (ClassNotFoundException | IOException e) {
                 e.printStackTrace();
             }
         }
         
     }
+
     @FXML
     private void planet1Clicked() {
-        nextPlanet=Planet1;
+        nextPlanet = Planet1;
         showTravel(universe.gameUniverse[0]);
     }    
+
     @FXML
     private void planet2Clicked() {
-        nextPlanet=Planet2;
+        nextPlanet = Planet2;
         showTravel(universe.gameUniverse[1]);
     }    
+
     @FXML
     private void planet3Clicked() {
-        nextPlanet=Planet3;
+        nextPlanet = Planet3;
         showTravel(universe.gameUniverse[2]);
-    }   
+    }    
+
     @FXML
     private void planet4Clicked() {
-        nextPlanet=Planet4;
+        nextPlanet = Planet4;
         showTravel(universe.gameUniverse[3]);
-    }  
+    }    
+
     @FXML
     private void planet5Clicked() {
-        nextPlanet=Planet5;
+        nextPlanet = Planet5;
         showTravel(universe.gameUniverse[4]);
     }
+
     @FXML
     private void planet6Clicked() {
-        nextPlanet=Planet6;
+        nextPlanet = Planet6;
         showTravel(universe.gameUniverse[5]);
     }
+
     @FXML
     private void planet7Clicked() {
-        nextPlanet=Planet7;
+        nextPlanet = Planet7;
         showTravel(universe.gameUniverse[6]);
     }
+
     @FXML
+// <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
     private void planet8Clicked() {
-        nextPlanet=Planet8;
+        nextPlanet = Planet8;
         showTravel(universe.gameUniverse[7]);
     }
+    
     @FXML
     private void planet9Clicked() {
-        nextPlanet=Planet9;
+        nextPlanet = Planet9;
         showTravel(universe.gameUniverse[8]);
-    }   
+    }    
+    
     @FXML
     private void planet10Clicked() {
-        nextPlanet=Planet10;
+        nextPlanet = Planet10;
         showTravel(universe.gameUniverse[9]);
     }
+    
     @FXML
     private void planet11Clicked() {
-        nextPlanet=Planet11;
+        nextPlanet = Planet11;
         showTravel(universe.gameUniverse[10]);
     }    
+    
     @FXML
     private void planet12Clicked() {
-        nextPlanet=Planet12;
+        nextPlanet = Planet12;
         showTravel(universe.gameUniverse[11]);
     }    
+    
     @FXML
     private void planet13Clicked() {
-        nextPlanet=Planet13;
+        nextPlanet = Planet13;
         showTravel(universe.gameUniverse[12]);
-    }   
+    }    
+    
     @FXML
     private void planet14Clicked() {
-        nextPlanet=Planet14;
+        nextPlanet = Planet14;
         showTravel(universe.gameUniverse[13]);
-    }  
+    }    
+    
     @FXML
     private void planet15Clicked() {
-        nextPlanet=Planet15;
+        nextPlanet = Planet15;
         showTravel(universe.gameUniverse[14]);
     }
+    
     @FXML
     private void planet16Clicked() {
-        nextPlanet=Planet16;
+        nextPlanet = Planet16;
         showTravel(universe.gameUniverse[15]);
     }
+    
     @FXML
     private void planet17Clicked() {
-        nextPlanet=Planet17;
+        nextPlanet = Planet17;
         showTravel(universe.gameUniverse[16]);
     }
+    
     @FXML
     private void planet18Clicked() {
-        nextPlanet=Planet18;
+        nextPlanet = Planet18;
         showTravel(universe.gameUniverse[17]);
     }
+    
     @FXML
     private void planet19Clicked() {
-        nextPlanet=Planet19;
+        nextPlanet = Planet19;
         showTravel(universe.gameUniverse[18]);
-    }   
+    }    
+    
     @FXML
     private void planet20Clicked() {
-        nextPlanet=Planet20;
+        nextPlanet = Planet20;
         showTravel(universe.gameUniverse[19]);
     }
+    
     @FXML
     private void planet21Clicked() {
-        nextPlanet=Planet21;
+        nextPlanet = Planet21;
         showTravel(universe.gameUniverse[20]);
     }    
+    
     @FXML
     private void planet22Clicked() {
-        nextPlanet=Planet22;
+        nextPlanet = Planet22;
         showTravel(universe.gameUniverse[21]);
     }    
+    
     @FXML
     private void planet23Clicked() {
-        nextPlanet=Planet23;
+        nextPlanet = Planet23;
         showTravel(universe.gameUniverse[22]);
-    }   
+    }    
+    
     @FXML
     private void planet24Clicked() {
-        nextPlanet=Planet24;
+        nextPlanet = Planet24;
         showTravel(universe.gameUniverse[23]);
-    }  
+    }    
+    
     @FXML
     private void planet25Clicked() {
-        nextPlanet=Planet25;
+        nextPlanet = Planet25;
         showTravel(universe.gameUniverse[24]);
     }
+    
     @FXML
     private void planet26Clicked() {
-        nextPlanet=Planet26;
+        nextPlanet = Planet26;
         showTravel(universe.gameUniverse[25]);
     }
+    
     @FXML
     private void planet27Clicked() {
-        nextPlanet=Planet27;
+        nextPlanet = Planet27;
         showTravel(universe.gameUniverse[26]);
     }
+    
     @FXML
     private void planet28Clicked() {
-        nextPlanet=Planet28;
+        nextPlanet = Planet28;
         showTravel(universe.gameUniverse[27]);
     }
+    
     @FXML
     private void planet29Clicked() {
-        nextPlanet=Planet29;
+        nextPlanet = Planet29;
         showTravel(universe.gameUniverse[28]);
-    }   
+    }    
+    
     @FXML
     private void planet30Clicked() {
-        nextPlanet=Planet30;
+        nextPlanet = Planet30;
         showTravel(universe.gameUniverse[29]);
     }
+    
     @FXML
     private void planet31Clicked() {
-        nextPlanet=Planet31;
+        nextPlanet = Planet31;
         showTravel(universe.gameUniverse[30]);
     }    
+    
     @FXML
     private void planet32Clicked() {
-        nextPlanet=Planet32;
+        nextPlanet = Planet32;
         showTravel(universe.gameUniverse[31]);
     }    
+    
     @FXML
     private void planet33Clicked() {
-        nextPlanet=Planet33;
+        nextPlanet = Planet33;
         showTravel(universe.gameUniverse[32]);
-    }   
+    }    
+    
     @FXML
     private void planet34Clicked() {
-        nextPlanet=Planet34;
+        nextPlanet = Planet34;
         showTravel(universe.gameUniverse[33]);
-    }  
+    }    
+    
     @FXML
     private void planet35Clicked() {
-        nextPlanet=Planet35;
+        nextPlanet = Planet35;
         showTravel(universe.gameUniverse[34]);
     }
+    
     @FXML
     private void planet36Clicked() {
-        nextPlanet=Planet36;
+        nextPlanet = Planet36;
         showTravel(universe.gameUniverse[35]);
     }
+    
     @FXML
     private void planet37Clicked() {
-        nextPlanet=Planet37;
+        nextPlanet = Planet37;
         showTravel(universe.gameUniverse[36]);
     }
+    
     @FXML
     private void planet38Clicked() {
-        nextPlanet=Planet38;
+        nextPlanet = Planet38;
         showTravel(universe.gameUniverse[37]);
     }
+    
     @FXML
     private void planet39Clicked() {
-        nextPlanet=Planet39;
+        nextPlanet = Planet39;
         showTravel(universe.gameUniverse[38]);
-    }   
+    }    
+    
     @FXML
     private void planet40Clicked() {
-        nextPlanet=Planet40;
+        nextPlanet = Planet40;
         showTravel(universe.gameUniverse[39]);
     }
+    
     @FXML
     private void planet41Clicked() {
-        nextPlanet=Planet41;
+        nextPlanet = Planet41;
         showTravel(universe.gameUniverse[40]);
     }    
+    
     @FXML
     private void planet42Clicked() {
-        nextPlanet=Planet42;
+        nextPlanet = Planet42;
         showTravel(universe.gameUniverse[41]);
     }    
+    
     @FXML
     private void planet43Clicked() {
-        nextPlanet=Planet43;
+        nextPlanet = Planet43;
         showTravel(universe.gameUniverse[42]);
-    }   
+    }    
+    
     @FXML
     private void planet44Clicked() {
-        nextPlanet=Planet44;
+        nextPlanet = Planet44;
         showTravel(universe.gameUniverse[43]);
-    }  
+    }    
+    
     @FXML
     private void planet45Clicked() {
-        nextPlanet=Planet45;
+        nextPlanet = Planet45;
         showTravel(universe.gameUniverse[44]);
     }
+    
     @FXML
     private void planet46Clicked() {
-        nextPlanet=Planet46;
+        nextPlanet = Planet46;
         showTravel(universe.gameUniverse[45]);
     }
+    
     @FXML
     private void planet47Clicked() {
-        nextPlanet=Planet47;
+        nextPlanet = Planet47;
         showTravel(universe.gameUniverse[46]);
     }
+    
     @FXML
     private void planet48Clicked() {
-        nextPlanet=Planet48;
+        nextPlanet = Planet48;
         showTravel(universe.gameUniverse[47]);
     }
+    
     @FXML
     private void planet49Clicked() {
-        nextPlanet=Planet49;
+        nextPlanet = Planet49;
         showTravel(universe.gameUniverse[48]);
-    }   
+    }    
+    
     @FXML
     private void planet50Clicked() {
-        nextPlanet=Planet50;
+        nextPlanet = Planet50;
         showTravel(universe.gameUniverse[49]);
     }
+    
     @FXML
     private void planet51Clicked() {
-        nextPlanet=Planet51;
+        nextPlanet = Planet51;
         showTravel(universe.gameUniverse[50]);
     }    
+    
     @FXML
     private void planet52Clicked() {
-        nextPlanet=Planet52;
+        nextPlanet = Planet52;
         showTravel(universe.gameUniverse[51]);
     }    
+    
     @FXML
     private void planet53Clicked() {
-        nextPlanet=Planet53;
+        nextPlanet = Planet53;
         showTravel(universe.gameUniverse[52]);
-    }   
+    }    
+    
     @FXML
     private void planet54Clicked() {
-        nextPlanet=Planet54;
+        nextPlanet = Planet54;
         showTravel(universe.gameUniverse[53]);
-    }  
+    }    
+    
     @FXML
     private void planet55Clicked() {
-        nextPlanet=Planet55;
+        nextPlanet = Planet55;
         showTravel(universe.gameUniverse[54]);
     }
+    
     @FXML
     private void planet56Clicked() {
-        nextPlanet=Planet56;
+        nextPlanet = Planet56;
         showTravel(universe.gameUniverse[55]);
     }
+    
     @FXML
     private void planet57Clicked() {
-        nextPlanet=Planet57;
+        nextPlanet = Planet57;
         showTravel(universe.gameUniverse[56]);
     }
+    
     @FXML
     private void planet58Clicked() {
-        nextPlanet=Planet58;
+        nextPlanet = Planet58;
         showTravel(universe.gameUniverse[57]);
     }
+    
     @FXML
     private void planet59Clicked() {
-        nextPlanet=Planet59;
+        nextPlanet = Planet59;
         showTravel(universe.gameUniverse[58]);
-    }   
+    }    
+    
     @FXML
     private void planet60Clicked() {
-        nextPlanet=Planet60;
+        nextPlanet = Planet60;
         showTravel(universe.gameUniverse[59]);
     }
+    
     @FXML
     private void planet61Clicked() {
-        nextPlanet=Planet61;
+        nextPlanet = Planet61;
         showTravel(universe.gameUniverse[60]);
     }    
+    
     @FXML
     private void planet62Clicked() {
-        nextPlanet=Planet62;
+        nextPlanet = Planet62;
         showTravel(universe.gameUniverse[61]);
     }    
+    
     @FXML
     private void planet63Clicked() {
-        nextPlanet=Planet63;
+        nextPlanet = Planet63;
         showTravel(universe.gameUniverse[62]);
-    }   
+    }    
+    
     @FXML
     private void planet64Clicked() {
-        nextPlanet=Planet64;
+        nextPlanet = Planet64;
         showTravel(universe.gameUniverse[63]);
-    }  
+    }    
+    
     @FXML
     private void planet65Clicked() {
-        nextPlanet=Planet65;
+        nextPlanet = Planet65;
         showTravel(universe.gameUniverse[64]);
     }
+    
     @FXML
     private void planet66Clicked() {
-        nextPlanet=Planet66;
+        nextPlanet = Planet66;
         showTravel(universe.gameUniverse[65]);
     }
+    
     @FXML
     private void planet67Clicked() {
-        nextPlanet=Planet67;
+        nextPlanet = Planet67;
         showTravel(universe.gameUniverse[66]);
     }
+    
     @FXML
     private void planet68Clicked() {
-        nextPlanet=Planet68;
+        nextPlanet = Planet68;
         showTravel(universe.gameUniverse[67]);
     }
+    
     @FXML
     private void planet69Clicked() {
-        nextPlanet=Planet69;
+        nextPlanet = Planet69;
         showTravel(universe.gameUniverse[68]);
-    }   
+    }    
+    
     @FXML
     private void planet70Clicked() {
-        nextPlanet=Planet70;
+        nextPlanet = Planet70;
         showTravel(universe.gameUniverse[69]);
     }
+    
     @FXML
     private void planet71Clicked() {
-        nextPlanet=Planet71;
+        nextPlanet = Planet71;
         showTravel(universe.gameUniverse[70]);
     }    
+    
     @FXML
     private void planet72Clicked() {
-        nextPlanet=Planet72;
+        nextPlanet = Planet72;
         showTravel(universe.gameUniverse[71]);
     }    
+    
     @FXML
     private void planet73Clicked() {
-        nextPlanet=Planet73;
+        nextPlanet = Planet73;
         showTravel(universe.gameUniverse[72]);
-    }   
+    }    
+    
     @FXML
     private void planet74Clicked() {
-        nextPlanet=Planet74;
+        nextPlanet = Planet74;
         showTravel(universe.gameUniverse[73]);
-    }  
+    }    
+    
     @FXML
     private void planet75Clicked() {
-        nextPlanet=Planet75;
+        nextPlanet = Planet75;
         showTravel(universe.gameUniverse[74]);
     }
+    
     @FXML
     private void planet76Clicked() {
-        nextPlanet=Planet76;
+        nextPlanet = Planet76;
         showTravel(universe.gameUniverse[75]);
     }
+    
     @FXML
     private void planet77Clicked() {
-        nextPlanet=Planet77;
+        nextPlanet = Planet77;
         showTravel(universe.gameUniverse[76]);
     }
+    
     @FXML
     private void planet78Clicked() {
-        nextPlanet=Planet78;
+        nextPlanet = Planet78;
         showTravel(universe.gameUniverse[77]);
     }
+    
     @FXML
     private void planet79Clicked() {
-        nextPlanet=Planet79;
+        nextPlanet = Planet79;
         showTravel(universe.gameUniverse[78]);
-    }   
+    }    
+    
     @FXML
     private void planet80Clicked() {
-        nextPlanet=Planet80;
+        nextPlanet = Planet80;
         showTravel(universe.gameUniverse[79]);
     }
+    
     @FXML
     private void planet81Clicked() {
-        nextPlanet=Planet81;
+        nextPlanet = Planet81;
         showTravel(universe.gameUniverse[80]);
     }    
+    
     @FXML
     private void planet82Clicked() {
-        nextPlanet=Planet82;
+        nextPlanet = Planet82;
         showTravel(universe.gameUniverse[81]);
     }    
+    
     @FXML
     private void planet83Clicked() {
-        nextPlanet=Planet83;
+        nextPlanet = Planet83;
         showTravel(universe.gameUniverse[82]);
-    }   
+    }    
+    
     @FXML
     private void planet84Clicked() {
-        nextPlanet=Planet84;
+        nextPlanet = Planet84;
         showTravel(universe.gameUniverse[83]);
-    }  
+    }    
+    
     @FXML
     private void planet85Clicked() {
-        nextPlanet=Planet85;
+        nextPlanet = Planet85;
         showTravel(universe.gameUniverse[84]);
     }
+    
     @FXML
     private void planet86Clicked() {
-        nextPlanet=Planet86;
+        nextPlanet = Planet86;
         showTravel(universe.gameUniverse[85]);
     }
+    
     @FXML
     private void planet87Clicked() {
-        nextPlanet=Planet87;
+        nextPlanet = Planet87;
         showTravel(universe.gameUniverse[86]);
     }
+    
     @FXML
     private void planet88Clicked() {
-        nextPlanet=Planet88;
+        nextPlanet = Planet88;
         showTravel(universe.gameUniverse[87]);
     }
+    
     @FXML
     private void planet89Clicked() {
-        nextPlanet=Planet89;
+        nextPlanet = Planet89;
         showTravel(universe.gameUniverse[88]);
-    }   
+    }    
+    
     @FXML
     private void planet90Clicked() {
-        nextPlanet=Planet90;
+        nextPlanet = Planet90;
         showTravel(universe.gameUniverse[89]);
     }
+    
     @FXML
     private void planet91Clicked() {
-        nextPlanet=Planet91;
+        nextPlanet = Planet91;
         showTravel(universe.gameUniverse[90]);
     }    
+    
     @FXML
     private void planet92Clicked() {
-        nextPlanet=Planet92;
+        nextPlanet = Planet92;
         showTravel(universe.gameUniverse[91]);
     }    
+    
     @FXML
     private void planet93Clicked() {
-        nextPlanet=Planet93;
+        nextPlanet = Planet93;
         showTravel(universe.gameUniverse[92]);
-    }   
+    }    
+    
     @FXML
     private void planet94Clicked() {
-        nextPlanet=Planet94;
+        nextPlanet = Planet94;
         showTravel(universe.gameUniverse[93]);
-    }  
+    }    
+    
     @FXML
     private void planet95Clicked() {
-        nextPlanet=Planet95;
+        nextPlanet = Planet95;
         showTravel(universe.gameUniverse[94]);
     }
+    
     @FXML
     private void planet96Clicked() {
-        nextPlanet=Planet96;
+        nextPlanet = Planet96;
         showTravel(universe.gameUniverse[95]);
     }
+    
     @FXML
     private void planet97Clicked() {
-        nextPlanet=Planet97;
+        nextPlanet = Planet97;
         showTravel(universe.gameUniverse[96]);
     }
+    
     @FXML
     private void planet98Clicked() {
-        nextPlanet=Planet98;
+        nextPlanet = Planet98;
         showTravel(universe.gameUniverse[97]);
     }
+    
     @FXML
     private void planet99Clicked() {
-        nextPlanet=Planet99;
+        nextPlanet = Planet99;
         showTravel(universe.gameUniverse[98]);
-    }   
+    }    
+    
     @FXML
     private void planet100Clicked() {
-        nextPlanet=Planet100;
+        nextPlanet = Planet100;
         showTravel(universe.gameUniverse[99]);
     }
+    
     @FXML
     private void planet101Clicked() {
-        nextPlanet=Planet101;
+        nextPlanet = Planet101;
         showTravel(universe.gameUniverse[100]);
     }    
+    
     @FXML
     private void planet102Clicked() {
-        nextPlanet=Planet102;
+        nextPlanet = Planet102;
         showTravel(universe.gameUniverse[101]);
     }    
+    
     @FXML
     private void planet103Clicked() {
-        nextPlanet=Planet103;
+        nextPlanet = Planet103;
         showTravel(universe.gameUniverse[102]);
-    }   
+    }    
+    
     @FXML
     private void planet104Clicked() {
-        nextPlanet=Planet104;
+        nextPlanet = Planet104;
         showTravel(universe.gameUniverse[103]);
-    }  
+    }    
+    
     @FXML
     private void planet105Clicked() {
-        nextPlanet=Planet105;
+        nextPlanet = Planet105;
         showTravel(universe.gameUniverse[104]);
     }
+    
     @FXML
     private void planet106Clicked() {
-        nextPlanet=Planet106;
+        nextPlanet = Planet106;
         showTravel(universe.gameUniverse[105]);
     }
+    
     @FXML
     private void planet107Clicked() {
-        nextPlanet=Planet107;
+        nextPlanet = Planet107;
         showTravel(universe.gameUniverse[106]);
     }
+    
     @FXML
     private void planet108Clicked() {
-        nextPlanet=Planet108;
+        nextPlanet = Planet108;
         showTravel(universe.gameUniverse[107]);
     }
+    
     @FXML
     private void planet109Clicked() {
-        nextPlanet=Planet109;
+        nextPlanet = Planet109;
         showTravel(universe.gameUniverse[108]);
-    }   
+    }    
+    
     @FXML
     private void planet110Clicked() {
-        nextPlanet=Planet110;
+        nextPlanet = Planet110;
         showTravel(universe.gameUniverse[109]);
     }
+    
     @FXML
     private void planet111Clicked() {
-        nextPlanet=Planet111;
+        nextPlanet = Planet111;
         showTravel(universe.gameUniverse[110]);
     }    
+    
     @FXML
     private void planet112Clicked() {
-        nextPlanet=Planet112;
+        nextPlanet = Planet112;
         showTravel(universe.gameUniverse[111]);
     }    
+    
     @FXML
     private void planet113Clicked() {
-        nextPlanet=Planet113;
+        nextPlanet = Planet113;
         showTravel(universe.gameUniverse[112]);
-    }   
+    }    
+    
     @FXML
     private void planet114Clicked() {
-        nextPlanet=Planet114;
+        nextPlanet = Planet114;
         showTravel(universe.gameUniverse[113]);
-    }  
-    
+    }
+
+// </editor-fold>
     @FXML
     public void refreshMap() {
         currentPlanet.setFill(Color.DODGERBLUE);
         nextPlanet.setFill(Color.DARKORANGE);
-        currentPlanet=nextPlanet;
+        currentPlanet = nextPlanet;
     }
     
     private void initializeMap() {
@@ -1693,12 +1832,12 @@ public class FXMLDocumentController implements Initializable {
         Planet114.setVisible(true);
         
     }
-
+    
     @FXML
     private void sWaterBAction(ActionEvent event) {
         
         int money = market.sellWater();
-        if (money>=0) {
+        if (money >= 0) {
             waterCargo.setText(Integer.toString(market.nwater));
             planetWater.setText(Integer.toString(market.mwater));
             player.credit = money;
@@ -1713,7 +1852,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void bWaterBAction(ActionEvent event) {
         int money = market.buyWater();
-        if (money>=0) {
+        if (money >= 0) {
             waterCargo.setText(Integer.toString(market.nwater));
             planetWater.setText(Integer.toString(market.mwater));
             player.credit = money;
@@ -1728,7 +1867,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void sFursBAction(ActionEvent event) {
         int money = market.sellFur();
-        if (money>=0) {
+        if (money >= 0) {
             furCargo.setText(Integer.toString(market.nfurs));
             planetFur.setText(Integer.toString(market.mfurs));
             player.credit = money;
@@ -1743,7 +1882,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void bFursBAction(ActionEvent event) {
         int money = market.buyFur();
-        if (money>=0) {
+        if (money >= 0) {
             furCargo.setText(Integer.toString(market.nfurs));
             planetFur.setText(Integer.toString(market.mfurs));
             player.credit = money;
@@ -1758,7 +1897,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void sFoodBAction(ActionEvent event) {
         int money = market.sellFood();
-        if (money>=0) {
+        if (money >= 0) {
             foodCargo.setText(Integer.toString(market.nfood));
             planetFood.setText(Integer.toString(market.mfood));
             player.credit = money;
@@ -1773,7 +1912,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void bFoodBAction(ActionEvent event) {
         int money = market.buyFood();
-        if (money>=0) {
+        if (money >= 0) {
             foodCargo.setText(Integer.toString(market.nfood));
             planetFood.setText(Integer.toString(market.mfood));
             player.credit = money;
@@ -1788,7 +1927,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void sOreBAction(ActionEvent event) {
         int money = market.sellOre();
-        if (money>=0) {
+        if (money >= 0) {
             oreCargo.setText(Integer.toString(market.nore));
             planetOre.setText(Integer.toString(market.more));
             player.credit = money;
@@ -1803,7 +1942,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void bOreBAction(ActionEvent event) {
         int money = market.buyOre();
-        if (money>=0) {
+        if (money >= 0) {
             oreCargo.setText(Integer.toString(market.nore));
             planetOre.setText(Integer.toString(market.more));
             player.credit = money;
@@ -1818,7 +1957,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void sGamesBAction(ActionEvent event) {
         int money = market.sellGame();
-        if (money>=0) {
+        if (money >= 0) {
             gameCargo.setText(Integer.toString(market.ngames));
             planetGame.setText(Integer.toString(market.mgames));
             player.credit = money;
@@ -1833,7 +1972,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void bGamesBAction(ActionEvent event) {
         int money = market.buyGame();
-        if (money>=0) {
+        if (money >= 0) {
             gameCargo.setText(Integer.toString(market.ngames));
             planetGame.setText(Integer.toString(market.mgames));
             player.credit = money;
@@ -1848,7 +1987,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void sFirearmsBAction(ActionEvent event) {
         int money = market.sellFirearm();
-        if (money>=0) {
+        if (money >= 0) {
             fireCargo.setText(Integer.toString(market.nfirearms));
             planetFire.setText(Integer.toString(market.mfirearms));
             player.credit = money;
@@ -1863,7 +2002,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void bFirearmsBAction(ActionEvent event) {
         int money = market.buyFirearm();
-        if (money>=0) {
+        if (money >= 0) {
             fireCargo.setText(Integer.toString(market.nfirearms));
             planetFire.setText(Integer.toString(market.mfirearms));
             player.credit = money;
@@ -1878,7 +2017,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void sMedicineBAction(ActionEvent event) {
         int money = market.sellMedicine();
-        if (money>=0) {
+        if (money >= 0) {
             medCargo.setText(Integer.toString(market.nmedicine));
             planetMed.setText(Integer.toString(market.mmedicine));
             player.credit = money;
@@ -1893,7 +2032,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void bMedicineBAction(ActionEvent event) {
         int money = market.buyMedicine();
-        if (money>=0) {
+        if (money >= 0) {
             medCargo.setText(Integer.toString(market.nmedicine));
             planetMed.setText(Integer.toString(market.mmedicine));
             player.credit = money;
@@ -1908,7 +2047,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void sMachinesBAction(ActionEvent event) {
         int money = market.sellMachine();
-        if (money>=0) {
+        if (money >= 0) {
             machCargo.setText(Integer.toString(market.nmachines));
             planetMach.setText(Integer.toString(market.mmachines));
             player.credit = money;
@@ -1923,7 +2062,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void bMachinesBAction(ActionEvent event) {
         int money = market.buyMachine();
-        if (money>=0) {
+        if (money >= 0) {
             machCargo.setText(Integer.toString(market.nmachines));
             planetMach.setText(Integer.toString(market.mmachines));
             player.credit = money;
@@ -1938,7 +2077,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void sNarcoticsBAction(ActionEvent event) {
         int money = market.sellNarcotic();
-        if (money>=0) {
+        if (money >= 0) {
             narcCargo.setText(Integer.toString(market.nnarcotics));
             planetNarc.setText(Integer.toString(market.mnarcotics));
             player.credit = money;
@@ -1953,7 +2092,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void bNarcoticsBAction(ActionEvent event) {
         int money = market.buyNarcotic();
-        if (money>=0) {
+        if (money >= 0) {
             narcCargo.setText(Integer.toString(market.nnarcotics));
             planetNarc.setText(Integer.toString(market.mnarcotics));
             player.credit = money;
@@ -1968,7 +2107,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void sRobotsBAction(ActionEvent event) {
         int money = market.sellRobot();
-        if (money>=0) {
+        if (money >= 0) {
             robCargo.setText(Integer.toString(market.nrobots));
             planetRob.setText(Integer.toString(market.mrobots));
             player.credit = money;
@@ -1983,7 +2122,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void bRobotsBAction(ActionEvent event) {
         int money = market.buyRobot();
-        if (money>=0) {
+        if (money >= 0) {
             robCargo.setText(Integer.toString(market.nrobots));
             planetRob.setText(Integer.toString(market.mrobots));
             player.credit = money;
@@ -1994,6 +2133,7 @@ public class FXMLDocumentController implements Initializable {
             showBErr();
         }
     }
+
     @FXML
     private void refreshShipyard() {
         shipOneName.setText("Flea");
@@ -2011,21 +2151,38 @@ public class FXMLDocumentController implements Initializable {
         currentShipName.setText(currShipType);
         checkShipType();
     }
+
     private void checkShipType() {
         String currShipType = player.getShip().getShipType();
         currentShipName.setText(currShipType);
         currentShipMoney.setText(Integer.toString(player.getCredit()));
-        if (currShipType.equals("Flea")) buyShipOne.setDisable(true);
-        else buyShipOne.setDisable(false);
-        if (currShipType.equals("Gnat")) buyShipTwo.setDisable(true);
-        else buyShipTwo.setDisable(false);
-        if (currShipType.equals("Firefly")) buyShipThree.setDisable(true);
-        else buyShipThree.setDisable(false);
-        if (currShipType.equals("Mosquito")) buyShipFour.setDisable(true);
-        else buyShipFour.setDisable(false);
-        if (currShipType.equals("Bumblebee")) buyShipFive.setDisable(true);
-        else buyShipFive.setDisable(false);
+        if (currShipType.equals("Flea")) {
+            buyShipOne.setDisable(true);
+        } else {
+            buyShipOne.setDisable(false);
+        }
+        if (currShipType.equals("Gnat")) {
+            buyShipTwo.setDisable(true);
+        } else {
+            buyShipTwo.setDisable(false);
+        }
+        if (currShipType.equals("Firefly")) {
+            buyShipThree.setDisable(true);
+        } else {
+            buyShipThree.setDisable(false);
+        }
+        if (currShipType.equals("Mosquito")) {
+            buyShipFour.setDisable(true);
+        } else {
+            buyShipFour.setDisable(false);
+        }
+        if (currShipType.equals("Bumblebee")) {
+            buyShipFive.setDisable(true);
+        } else {
+            buyShipFive.setDisable(false);
+        }
     }
+
     @FXML
     private void buyShipOne() {
         if (shipyard.buyShip("Flea")) {
@@ -2035,6 +2192,7 @@ public class FXMLDocumentController implements Initializable {
             showBErr();
         }
     }
+
     @FXML
     private void buyShipTwo() {
         if (shipyard.buyShip("Gnat")) {
@@ -2046,6 +2204,7 @@ public class FXMLDocumentController implements Initializable {
         }
         
     }
+
     @FXML
     private void buyShipThree() {
         if (shipyard.buyShip("Firefly")) {
@@ -2055,6 +2214,7 @@ public class FXMLDocumentController implements Initializable {
             showBErr();
         }
     }
+
     @FXML
     private void buyShipFour() {
         if (shipyard.buyShip("Mosquito")) {
@@ -2064,6 +2224,7 @@ public class FXMLDocumentController implements Initializable {
             showBErr();
         }
     }
+
     @FXML
     private void buyShipFive() {
         if (shipyard.buyShip("Bumblebee")) {
@@ -2073,6 +2234,7 @@ public class FXMLDocumentController implements Initializable {
             showBErr();
         }
     }
+
     private void showTravel(SolarSystem solar) {
         try {
             FXMLLoader loader = new FXMLLoader(SpaceFX.class.getResource("Travel.fxml"));
@@ -2089,22 +2251,27 @@ public class FXMLDocumentController implements Initializable {
                 refreshMarket();
                 refreshSolar();
                 shipyard = new Shipyard();
-                if (shipyard.checkTechLevel()) shipyardTab.setDisable(false);
-                else shipyardTab.setDisable(true);
+                if (shipyard.checkTechLevel()) {
+                    shipyardTab.setDisable(false);
+                    upgradesTab.setDisable(false);
+                } else {
+                    shipyardTab.setDisable(true);
+                    upgradesTab.setDisable(true);
+                }
                 planetChanged = false;
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
         /*
-        Stage dialogBox = new Stage();
-        dialogBox.initStyle(StageStyle.UTILITY);
-        Scene aScene = new Scene(new Group(new Text(25, 25, "Not enough good tobuy")));
-        dialogBox.setHeight(80);
-        dialogBox.setWidth(200);
-        dialogBox.setScene(aScene);
-        dialogBox.show();
-        */
+         Stage dialogBox = new Stage();
+         dialogBox.initStyle(StageStyle.UTILITY);
+         Scene aScene = new Scene(new Group(new Text(25, 25, "Not enough good tobuy")));
+         dialogBox.setHeight(80);
+         dialogBox.setWidth(200);
+         dialogBox.setScene(aScene);
+         dialogBox.show();
+         */
     }
     
     private void showBErr() {
@@ -2122,14 +2289,14 @@ public class FXMLDocumentController implements Initializable {
             e.printStackTrace();
         }
         /*
-        Stage dialogBox = new Stage();
-        dialogBox.initStyle(StageStyle.UTILITY);
-        Scene aScene = new Scene(new Group(new Text(25, 25, "Not enough good tobuy")));
-        dialogBox.setHeight(80);
-        dialogBox.setWidth(200);
-        dialogBox.setScene(aScene);
-        dialogBox.show();
-        */
+         Stage dialogBox = new Stage();
+         dialogBox.initStyle(StageStyle.UTILITY);
+         Scene aScene = new Scene(new Group(new Text(25, 25, "Not enough good tobuy")));
+         dialogBox.setHeight(80);
+         dialogBox.setWidth(200);
+         dialogBox.setScene(aScene);
+         dialogBox.show();
+         */
     }
     
     private void showSErr() {
@@ -2147,24 +2314,80 @@ public class FXMLDocumentController implements Initializable {
             e.printStackTrace();
         }
         /*
-        Stage dialogBox = new Stage();
-        dialogBox.initStyle(StageStyle.UTILITY);
-        Scene aScene = new Scene(new Group(new Text(25, 25, "Not enough good for sell")));
-        dialogBox.setHeight(80);
-        dialogBox.setWidth(200);
-        dialogBox.setScene(aScene);
-        dialogBox.show();
-        */
+         Stage dialogBox = new Stage();
+         dialogBox.initStyle(StageStyle.UTILITY);
+         Scene aScene = new Scene(new Group(new Text(25, 25, "Not enough good for sell")));
+         dialogBox.setHeight(80);
+         dialogBox.setWidth(200);
+         dialogBox.setScene(aScene);
+         dialogBox.show();
+         */
     }
     
     @FXML
     private void updatePlayer() {
         GameData.setPlayer(player);
     }
-    
+
+// </editor-fold>
+    @FXML
+    private void refreshUpgrades() {
+        Ship curShip = GameData.getShip();
+        player = GameData.getPlayer();
+        Shipyard shipyard = new Shipyard();
+        ShipUpgrade pulse = new ShipUpgrade("weapon", "pulseLaser");
+        ShipUpgrade beam = new ShipUpgrade("weapon", "beamLaser");
+        ShipUpgrade military = new ShipUpgrade("weapon", "militaryLaser");
+        ShipUpgrade energy = new ShipUpgrade("shield", "smallShield");
+        ShipUpgrade reflective = new ShipUpgrade("shield", "bigShield");
+        ShipUpgrade navigation = new ShipUpgrade("gadget", "navigation");
+        ShipUpgrade addCargo = new ShipUpgrade("gadget", "5cargo");
+        ShipUpgrade targeting = new ShipUpgrade("gadget", "targeting");
+        ShipUpgrade cloaking = new ShipUpgrade("gadget", "cloaking");
+        ShipUpgrade autoRep = new ShipUpgrade("gadget", "autoRepair");
+        shipyardMoney.setText(Integer.toString(player.getCredit()));
+        shipyardShipName.setText(curShip.getShipName());
+        weaponSlots.setText(Integer.toString(curShip.getWeaponSlots()));
+        shieldSlots.setText(Integer.toString(curShip.getShieldSlots()));
+        gadgetSlots.setText(Integer.toString(curShip.getGadgetSlots()));
+        pulsePrice.setText(Integer.toString(pulse.getPrice()));
+        beamPrice.setText(Integer.toString(beam.getPrice()));
+        militaryPrice.setText(Integer.toString(military.getPrice()));
+        energyPrice.setText(Integer.toString(energy.getPrice()));
+        reflectivePrice.setText(Integer.toString(reflective.getPrice()));
+        navigationPrice.setText(Integer.toString(navigation.getPrice()));
+        fiveCargoPrice.setText(Integer.toString(addCargo.getPrice()));
+        targetingPrice.setText(Integer.toString(targeting.getPrice()));
+        cloakingPrice.setText(Integer.toString(cloaking.getPrice()));
+        autorepairPrice.setText(Integer.toString(autoRep.getPrice()));
+    }
+    @FXML
+    private void showShipYardErr() {
+        try {
+            FXMLLoader loader = new FXMLLoader(SpaceFX.class.getResource("shipyarderr/buyErr.fxml"));
+            AnchorPane newPage = (AnchorPane) loader.load();
+            Stage newGameStage = new Stage();
+            newGameStage.setTitle("Error");
+            Scene scene = new Scene(newPage);
+            newGameStage.setScene(scene);
+            BuyErrController errController = loader.getController();
+            errController.setTheStage(newGameStage);
+            newGameStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     @FXML
     private void buyPulse() {
-        
+        ShipUpgrade pulse = new ShipUpgrade("weapon", "pulseLaser");
+        if (pulse.buyUpgrade("weapon", "pulseLaser")) {
+            Ship curShip = GameData.getShip();
+            player = GameData.getPlayer();
+            weaponSlots.setText(Integer.toString(curShip.getWeaponSlots()));
+            shipyardMoney.setText(Integer.toString(player.getCredit()));
+        } else {
+            showShipYardErr();
+        }
     }
     
     @FXML
