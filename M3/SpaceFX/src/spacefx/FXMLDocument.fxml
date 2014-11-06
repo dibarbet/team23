@@ -611,8 +611,8 @@
                            </font>
                         </Label>
                         <Button fx:id="buyReflective" layoutX="546.0" layoutY="251.0" mnemonicParsing="false" onAction="#buyReflective" text="Buy" />
-                        <Button fx:id="buyNavigation" layoutX="844.0" layoutY="208.0" mnemonicParsing="false" onAction="#buyNavigation" text="Buy" />
-                        <Button fx:id="buyFiveCargo1" layoutX="844.0" layoutY="251.0" mnemonicParsing="false" onAction="#buyFiveCargo" text="Buy" />
+                        <Button fx:id="buyFiveCargo" layoutX="844.0" layoutY="208.0" mnemonicParsing="false" onAction="#buyFiveCargo" text="Buy" />
+                        <Button fx:id="buyNavigation" layoutX="844.0" layoutY="251.0" mnemonicParsing="false" onAction="#buyNavigation" text="Buy" />
                         <Button fx:id="buyAutorepair" layoutX="844.0" layoutY="297.0" mnemonicParsing="false" onAction="#buyAutorepair" text="Buy" />
                         <Button fx:id="buyTargeting" layoutX="844.0" layoutY="344.0" mnemonicParsing="false" onAction="#buyTargeting" text="Buy" />
                         <Button fx:id="buyCloaking" layoutX="844.0" layoutY="390.0" mnemonicParsing="false" onAction="#buyCloaking" text="Buy" />

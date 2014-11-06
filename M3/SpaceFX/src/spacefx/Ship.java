@@ -4,10 +4,10 @@ import java.io.Serializable;
 
 /**
  *
- * @author Dillon
+ * @author Dillon, David Barbet
  */
 public abstract class Ship implements Serializable {
-    private int count = 0, weaponCount = 0, shieldCount = 0, gadgetCount = 0, crewCount = 0;
+    int count, weaponCount, shieldCount, gadgetCount, crewCount;
     private final int price;
     private int limit, fuel, hull, weaponSlots, shieldSlots, gadgetSlots, crewSlots;
     protected int nwater, nfur, nfood, nore, ngame, nfire, nmed, nmach, nnarc, nrob;
@@ -17,6 +17,11 @@ public abstract class Ship implements Serializable {
     protected String[] crew;
     
     public Ship(int limit, int fuel, int hull, int price, int weaponSlots, int shieldSlots, int gadgetSlots, int crewSlots) {
+        count = 0;
+        weaponCount = 0;
+        shieldCount = 0;
+        gadgetCount = 0;
+        crewCount = 0;
         this.limit = limit;
         this.fuel = fuel;
         this.hull = hull;
@@ -30,7 +35,10 @@ public abstract class Ship implements Serializable {
         gadgets = new String[gadgetSlots];
         crew = new String[crewSlots];
     }
-    
+    /**
+     * Abstract method to determine the subclasses ship name
+     * @return the ship name
+     */
     public abstract String getShipName();
     /**
      * Returns the name of the ship type
@@ -74,6 +82,11 @@ public abstract class Ship implements Serializable {
         return ship.getShipName();
                 
     }
+    /**
+     * Sets the current ship type
+     * @param shipType the type of the ship
+     * @return a ship of the type
+     */
     public Ship setShip(String shipType) {
         switch (shipType) {
             case "Flea":
@@ -90,17 +103,33 @@ public abstract class Ship implements Serializable {
                 return null;
         }
     }
+    /**
+     * Count of goods in cargo
+     * @return the count
+     */
     public int getCount() {
         return count;
     }
-    
+    /**
+     * Sets number of goods in cargo
+     * @param num number of goods
+     */
     public void setCount(int num) {
         count = num;
     }
-    
+    /**
+     * Gets price of current ship
+     * @return the price
+     */
     public int getPrice() {
         return price;
     }
+    /**
+     * Adds an amount of cargo to the ship, updates the count and number
+     * of that cargo.
+     * @param amount amount of good to add
+     * @param good type of good to add
+     */
     public void addCargo(int amount, String good) {
         int total = nwater + nfur + nfood + nore + ngame + nfire + nmed + nmach + nnarc + nrob;
         if (total <= limit) {
@@ -147,7 +176,12 @@ public abstract class Ship implements Serializable {
         }
         
     }
-    
+    /**
+     * Sells an amount of a good from the cargo by decrementing that cargo
+     * and count
+     * @param amount the amount to sell
+     * @param good the type to sell
+     */
     public void sellCargo(int amount, String good) {
         int total = nwater + nfur + nfood + nore + ngame + nfire + nmed + nmach + nnarc + nrob;
         if (total > 0) {
@@ -193,11 +227,13 @@ public abstract class Ship implements Serializable {
             }
         }
     }
-    
+    /**
+     * Returns amount of fuel in ship.
+     * @return amount of fuel
+     */
     public int getFuel() {
         return fuel;
     }
-    
     public int fuelToMiles(int shipType, int fuel) {
         return fuel * shipType;
     }
@@ -223,7 +259,10 @@ public abstract class Ship implements Serializable {
             return true;
         }
     }
-    
+    /**
+     * Returns the limit of the cargo on current ship
+     * @return the limit
+     */
     public int getLimit() {
         return limit;
     }
@@ -372,9 +411,6 @@ public abstract class Ship implements Serializable {
                 gadgets[gadgetCount] = name;
                 gadgetCount++;
                 gadgetSlots--;
-                if (name.equals("5cargo")) {
-                    limit += 5;
-                }
                 break;
             case "crew":
                 crew[crewCount] = name;
@@ -382,6 +418,7 @@ public abstract class Ship implements Serializable {
                 crewSlots--;
                 break;
             default:
+                System.out.println("fail");
                 break;
         }
     }

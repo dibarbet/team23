@@ -2,7 +2,7 @@ package spacefx;
 
 /**
  *
- * @author Dillon
+ * @author Dillon, David Barbet
  */
 public class Gnat extends Ship {
     

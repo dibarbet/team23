@@ -4,7 +4,7 @@ package spacefx;
  *
  * @author Dillon
  */
-public class Shipyard {
+public class Shipyard implements CommandBuy{
     
     /**
      * Allows the player to buy a ship if they have enough money and the 
@@ -12,11 +12,42 @@ public class Shipyard {
      * @param shipType the type of ship that is being bought
      * @return true if ship is bought, false otherwise
      */
+    int price;
+    /**
+     * Buys an item with interface
+     * @param item the item to buy
+     * @return 1 if bought, -1 otherwise
+     */
+    @Override
+    public int buy(String item) {
+        
+        Player player = GameData.getPlayer();
+        if (buyShip(item)) return 1;
+        return -1;
+    }
+    /**
+     * Buys an item with interface
+     * @param item the item to buy
+     * @return 1 if bought, -1 otherwise
+     */
+    @Override
+    public int sell(String item) {
+        //Buying is same as selling in this case, you must always have 1 ship
+        Player player = GameData.getPlayer();
+        if (buyShip(item)) return player.getCredit() - price;
+        return -1;
+    }
+    /**
+     * Buys a ship, sets all GameData attributes, and transfers cargo to new
+     * ship.
+     * @param shipType the type to buy
+     * @return true if bought, false otherwise.
+     */ 
     public boolean buyShip(String shipType) {
         Ship oldShip = GameData.getShip();
         Ship newShip = oldShip.setShip(shipType);
         Player player = GameData.getPlayer();
-        int price = newShip.getPrice();
+        price = newShip.getPrice();
         if ((player.getCredit() - price) < 0) {
             System.out.println("Failed buy");
             return false;
@@ -41,7 +72,11 @@ public class Shipyard {
             return true;
         }
     }
-    
+    /**
+     * The price of a ship type
+     * @param shipType the type of ship
+     * @return the price of the ship
+     */
     public int getShipPrice(String shipType) {
         Ship s = GameData.getShip().setShip(shipType);
         return s.getPrice();

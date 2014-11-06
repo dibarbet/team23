@@ -11,7 +11,7 @@ import java.util.Random;
  *
  * @author David Barbet, Guy, Seung Lee
  */
-public class Market implements Serializable {
+public class Market implements Serializable, CommandBuy{
     protected int nwater, nfurs, nfood, nore, ngames, nfirearms, nmedicine, nmachines, nnarcotics, nrobots;
     protected int pwater, pfurs, pfood, pore, pgames, pfirearms, pmedicine, pmachines, pnarcotics, probots;
     protected int mwater, mfurs, mfood, more, mgames, mfirearms, mmedicine, mmachines, mnarcotics, mrobots;
@@ -62,6 +62,84 @@ public class Market implements Serializable {
         mmachines = (1+ rand.nextInt(10)) * techLevel + 10 + rand.nextInt(20);
         mnarcotics = (1+ rand.nextInt(10)) * techLevel + 10 + rand.nextInt(20);
         mrobots = (1+ rand.nextInt(10)) * techLevel + 10 + rand.nextInt(20);
+    }
+    /**
+     * Buy method to buy a market item from interface
+     * @param item string item to buy
+     * @return the amount of money left
+     */
+    @Override
+    public int buy(String item) {
+        if (item.equals("water")) {
+            return buyWater();
+        }
+        if (item.equals("fur")) {
+            return buyFur();
+        }
+        if (item.equals("ore")) {
+            return buyOre();
+        }
+        if (item.equals("games")) {
+            return buyGame();
+        }
+        if (item.equals("machines")) {
+            return buyMachine();
+        }
+        if (item.equals("narcotics")) {
+            return buyNarcotic();
+        }
+        if (item.equals("food")) {
+            return buyFood();
+        }
+        if (item.equals("firearm")) {
+            return buyFirearm();
+        }
+        if (item.equals("medicine")) {
+            return buyMedicine();
+        }
+        if (item.equals("robot")) {
+            return buyRobot();
+        }
+        return -1;
+    }
+    /**
+     * Method to sell an item on the marketplace
+     * @param item the item to sell
+     * @return amount of money in player
+     */
+    @Override
+    public int sell(String item) {
+        if (item.equals("water")) {
+            return sellWater();
+        }
+        if (item.equals("fur")) {
+            return sellFur();
+        }
+        if (item.equals("ore")) {
+            return sellOre();
+        }
+        if (item.equals("games")) {
+            return sellGame();
+        }
+        if (item.equals("machines")) {
+            return sellMachine();
+        }
+        if (item.equals("narcotics")) {
+            return sellNarcotic();
+        }
+        if (item.equals("food")) {
+            return sellFood();
+        }
+        if (item.equals("firearm")) {
+            return sellFirearm();
+        }
+        if (item.equals("medicine")) {
+            return sellMedicine();
+        }
+        if (item.equals("robot")) {
+            return sellRobot();
+        }
+        return -1;
     }
     /**
      * Sets the money for the market place
@@ -484,6 +562,10 @@ public class Market implements Serializable {
         GameData.setShip(ship);
         player.setShip(ship);
     }
+    /**
+     * Set current market ship
+     * @param aShip the new market ship
+     */
     public void setMarketShip(Ship aShip) {
         ship = aShip;
     }

@@ -41,7 +41,8 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import spacefx.marketerr.BuyErrController;
-import spacefx.shipyarderr.SellErrController;
+import spacefx.marketerr.SellErrController;
+import spacefx.shipyarderr.BuyUpgradeErrController;
 import spacefx.newgame.EmptyNameErrController;
 import spacefx.newgame.NewGameWinController;
 import spacefx.randomEvent.TravellingController;
@@ -706,7 +707,11 @@ public class FXMLDocumentController implements Initializable {
         curSolarLoc.setText(Integer.toString(currentSolarSystem.getX()) + ", "
                 + Integer.toString(currentSolarSystem.getY()));
     }
-
+    /**
+     * Initializes the fxml window with tabs disabled.
+     * @param url
+     * @param rb 
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         if (!gameCreated) {
@@ -719,7 +724,10 @@ public class FXMLDocumentController implements Initializable {
         }
         
     }
-    
+    /**
+     * Saves the current game into a file using serialization
+     * of the gamedata list from the gamedata class.
+     */
     @FXML
     private void saveGame() {
         //showSaveWin();
@@ -742,12 +750,16 @@ public class FXMLDocumentController implements Initializable {
         }
         
     }
-
+    /**
+     * Begins load game process by showing the window.
+     */
     @FXML
     private void loadGame() {
         showLoadWin();
     }
-
+    /**
+     * Shows file chooser to load a game save, then loads it.
+     */
     private void showLoadWin() {
         FileChooser fileChoose = new FileChooser();
         fileChoose.setTitle("Load Game Save");
@@ -792,7 +804,10 @@ public class FXMLDocumentController implements Initializable {
         }
         
     }
-
+    /**
+     * The following planetXClicked methods determine which planet
+     * the user wants to travel towards.
+     */
     @FXML
     private void planet1Clicked() {
         nextPlanet = Planet1;
@@ -1479,13 +1494,18 @@ public class FXMLDocumentController implements Initializable {
     }
 
 // </editor-fold>
+    /**
+     * Refreshes map tab on click by resetting attributes
+     */
     @FXML
     public void refreshMap() {
         currentPlanet.setFill(Color.DODGERBLUE);
         nextPlanet.setFill(Color.DARKORANGE);
         currentPlanet = nextPlanet;
     }
-    
+    /**
+     * Initializes the map by filling the tab with circles.
+     */
     private void initializeMap() {
         Planet1.setLayoutX(universe.gameUniverse[0].getX() * 6 + 3);
         Planet1.setLayoutY(universe.gameUniverse[0].getY() * 6 + 3);
@@ -1832,11 +1852,13 @@ public class FXMLDocumentController implements Initializable {
         Planet114.setVisible(true);
         
     }
-    
+    /**
+     * Sells water on button press
+     * @param event 
+     */
     @FXML
     private void sWaterBAction(ActionEvent event) {
-        
-        int money = market.sellWater();
+        int money = market.sell("water");
         if (money >= 0) {
             waterCargo.setText(Integer.toString(market.nwater));
             planetWater.setText(Integer.toString(market.mwater));
@@ -1848,10 +1870,13 @@ public class FXMLDocumentController implements Initializable {
             showSErr();
         }
     }
-    
+    /**
+     * Buys water on button press
+     * @param event 
+     */
     @FXML
     private void bWaterBAction(ActionEvent event) {
-        int money = market.buyWater();
+        int money = market.buy("water");
         if (money >= 0) {
             waterCargo.setText(Integer.toString(market.nwater));
             planetWater.setText(Integer.toString(market.mwater));
@@ -1863,10 +1888,13 @@ public class FXMLDocumentController implements Initializable {
             showBErr();
         }
     }
-    
+    /**
+     * Sells furs on button press.
+     * @param event 
+     */
     @FXML
     private void sFursBAction(ActionEvent event) {
-        int money = market.sellFur();
+        int money = market.sell("fur");
         if (money >= 0) {
             furCargo.setText(Integer.toString(market.nfurs));
             planetFur.setText(Integer.toString(market.mfurs));
@@ -1878,10 +1906,13 @@ public class FXMLDocumentController implements Initializable {
             showSErr();
         }
     }
-    
+    /**
+     * Buys furs on button press.
+     * @param event 
+     */
     @FXML
     private void bFursBAction(ActionEvent event) {
-        int money = market.buyFur();
+        int money = market.buy("fur");
         if (money >= 0) {
             furCargo.setText(Integer.toString(market.nfurs));
             planetFur.setText(Integer.toString(market.mfurs));
@@ -1893,10 +1924,13 @@ public class FXMLDocumentController implements Initializable {
             showBErr();
         }
     }
-    
+    /**
+     * Sells food on button press
+     * @param event 
+     */
     @FXML
     private void sFoodBAction(ActionEvent event) {
-        int money = market.sellFood();
+        int money = market.sell("food");
         if (money >= 0) {
             foodCargo.setText(Integer.toString(market.nfood));
             planetFood.setText(Integer.toString(market.mfood));
@@ -1908,10 +1942,13 @@ public class FXMLDocumentController implements Initializable {
             showSErr();
         }
     }
-    
+    /**
+     * Buys food on button press
+     * @param event 
+     */
     @FXML
     private void bFoodBAction(ActionEvent event) {
-        int money = market.buyFood();
+        int money = market.buy("food");
         if (money >= 0) {
             foodCargo.setText(Integer.toString(market.nfood));
             planetFood.setText(Integer.toString(market.mfood));
@@ -1923,10 +1960,13 @@ public class FXMLDocumentController implements Initializable {
             showBErr();
         }
     }
-    
+    /**
+     * Sells ore on button press
+     * @param event 
+     */
     @FXML
     private void sOreBAction(ActionEvent event) {
-        int money = market.sellOre();
+        int money = market.sell("ore");
         if (money >= 0) {
             oreCargo.setText(Integer.toString(market.nore));
             planetOre.setText(Integer.toString(market.more));
@@ -1938,10 +1978,13 @@ public class FXMLDocumentController implements Initializable {
             showSErr();
         }
     }
-    
+    /**
+     * Buys ore on button press
+     * @param event 
+     */
     @FXML
     private void bOreBAction(ActionEvent event) {
-        int money = market.buyOre();
+        int money = market.buy("ore");
         if (money >= 0) {
             oreCargo.setText(Integer.toString(market.nore));
             planetOre.setText(Integer.toString(market.more));
@@ -1953,10 +1996,13 @@ public class FXMLDocumentController implements Initializable {
             showBErr();
         }
     }
-    
+    /**
+     * Sells game on button press
+     * @param event 
+     */
     @FXML
     private void sGamesBAction(ActionEvent event) {
-        int money = market.sellGame();
+        int money = market.sell("games");
         if (money >= 0) {
             gameCargo.setText(Integer.toString(market.ngames));
             planetGame.setText(Integer.toString(market.mgames));
@@ -1968,10 +2014,13 @@ public class FXMLDocumentController implements Initializable {
             showSErr();
         }
     }
-    
+    /**
+     * Buys game on button press
+     * @param event 
+     */
     @FXML
     private void bGamesBAction(ActionEvent event) {
-        int money = market.buyGame();
+        int money = market.buy("games");
         if (money >= 0) {
             gameCargo.setText(Integer.toString(market.ngames));
             planetGame.setText(Integer.toString(market.mgames));
@@ -1983,10 +2032,13 @@ public class FXMLDocumentController implements Initializable {
             showBErr();
         }
     }
-    
+    /**
+     * Sells firearm on button press
+     * @param event 
+     */
     @FXML
     private void sFirearmsBAction(ActionEvent event) {
-        int money = market.sellFirearm();
+        int money = market.sell("firearm");
         if (money >= 0) {
             fireCargo.setText(Integer.toString(market.nfirearms));
             planetFire.setText(Integer.toString(market.mfirearms));
@@ -1998,10 +2050,13 @@ public class FXMLDocumentController implements Initializable {
             showSErr();
         }
     }
-    
+    /**
+     * Buys firearm on button press
+     * @param event 
+     */
     @FXML
     private void bFirearmsBAction(ActionEvent event) {
-        int money = market.buyFirearm();
+        int money = market.buy("firearm");
         if (money >= 0) {
             fireCargo.setText(Integer.toString(market.nfirearms));
             planetFire.setText(Integer.toString(market.mfirearms));
@@ -2013,10 +2068,13 @@ public class FXMLDocumentController implements Initializable {
             showBErr();
         }
     }
-    
+    /**
+     * Sells medicine on button press
+     * @param event 
+     */
     @FXML
     private void sMedicineBAction(ActionEvent event) {
-        int money = market.sellMedicine();
+        int money = market.sell("medicine");
         if (money >= 0) {
             medCargo.setText(Integer.toString(market.nmedicine));
             planetMed.setText(Integer.toString(market.mmedicine));
@@ -2028,10 +2086,13 @@ public class FXMLDocumentController implements Initializable {
             showSErr();
         }
     }
-    
+    /**
+     * Buys medicine on button press
+     * @param event 
+     */
     @FXML
     private void bMedicineBAction(ActionEvent event) {
-        int money = market.buyMedicine();
+        int money = market.buy("medicine");
         if (money >= 0) {
             medCargo.setText(Integer.toString(market.nmedicine));
             planetMed.setText(Integer.toString(market.mmedicine));
@@ -2043,10 +2104,13 @@ public class FXMLDocumentController implements Initializable {
             showBErr();
         }
     }
-    
+    /**
+     * Sells machine on button press
+     * @param event 
+     */
     @FXML
     private void sMachinesBAction(ActionEvent event) {
-        int money = market.sellMachine();
+        int money = market.sell("machines");
         if (money >= 0) {
             machCargo.setText(Integer.toString(market.nmachines));
             planetMach.setText(Integer.toString(market.mmachines));
@@ -2058,10 +2122,13 @@ public class FXMLDocumentController implements Initializable {
             showSErr();
         }
     }
-    
+    /**
+     * Buys machine on button press
+     * @param event 
+     */
     @FXML
     private void bMachinesBAction(ActionEvent event) {
-        int money = market.buyMachine();
+        int money = market.buy("machines");
         if (money >= 0) {
             machCargo.setText(Integer.toString(market.nmachines));
             planetMach.setText(Integer.toString(market.mmachines));
@@ -2073,10 +2140,13 @@ public class FXMLDocumentController implements Initializable {
             showBErr();
         }
     }
-    
+    /**
+     * Sells narcotic on button press
+     * @param event 
+     */
     @FXML
     private void sNarcoticsBAction(ActionEvent event) {
-        int money = market.sellNarcotic();
+        int money = market.sell("narcotics");
         if (money >= 0) {
             narcCargo.setText(Integer.toString(market.nnarcotics));
             planetNarc.setText(Integer.toString(market.mnarcotics));
@@ -2088,10 +2158,13 @@ public class FXMLDocumentController implements Initializable {
             showSErr();
         }
     }
-    
+    /**
+     * Buys game on button press
+     * @param event 
+     */
     @FXML
     private void bNarcoticsBAction(ActionEvent event) {
-        int money = market.buyNarcotic();
+        int money = market.buy("narcotics");
         if (money >= 0) {
             narcCargo.setText(Integer.toString(market.nnarcotics));
             planetNarc.setText(Integer.toString(market.mnarcotics));
@@ -2103,10 +2176,13 @@ public class FXMLDocumentController implements Initializable {
             showBErr();
         }
     }
-    
+    /**
+     * Sells robot on button press
+     * @param event 
+     */
     @FXML
     private void sRobotsBAction(ActionEvent event) {
-        int money = market.sellRobot();
+        int money = market.sell("robot");
         if (money >= 0) {
             robCargo.setText(Integer.toString(market.nrobots));
             planetRob.setText(Integer.toString(market.mrobots));
@@ -2118,10 +2194,13 @@ public class FXMLDocumentController implements Initializable {
             showSErr();
         }
     }
-    
+    /**
+     * Buys robot on button press
+     * @param event 
+     */
     @FXML
     private void bRobotsBAction(ActionEvent event) {
-        int money = market.buyRobot();
+        int money = market.buy("robot");
         if (money >= 0) {
             robCargo.setText(Integer.toString(market.nrobots));
             planetRob.setText(Integer.toString(market.mrobots));
@@ -2133,7 +2212,9 @@ public class FXMLDocumentController implements Initializable {
             showBErr();
         }
     }
-
+    /**
+     * Refreshes shipyard on tab click to make data is current
+     */
     @FXML
     private void refreshShipyard() {
         shipOneName.setText("Flea");
@@ -2151,7 +2232,9 @@ public class FXMLDocumentController implements Initializable {
         currentShipName.setText(currShipType);
         checkShipType();
     }
-
+    /**
+     * Determine which buttons on the shipyard to enable/disable
+     */
     private void checkShipType() {
         String currShipType = player.getShip().getShipType();
         currentShipName.setText(currShipType);
@@ -2182,20 +2265,24 @@ public class FXMLDocumentController implements Initializable {
             buyShipFive.setDisable(false);
         }
     }
-
+    /**
+     * Buy a flea ship
+     */
     @FXML
     private void buyShipOne() {
-        if (shipyard.buyShip("Flea")) {
+        if (shipyard.buy("Flea")!= -1) {
             player = GameData.getPlayer();
             checkShipType();
         } else {
             showBErr();
         }
     }
-
+    /**
+     * Buy a gnat ship.
+     */
     @FXML
     private void buyShipTwo() {
-        if (shipyard.buyShip("Gnat")) {
+        if (shipyard.buy("Gnat") != -1) {
             
             player = GameData.getPlayer();
             checkShipType();
@@ -2204,37 +2291,47 @@ public class FXMLDocumentController implements Initializable {
         }
         
     }
-
+    /**
+     * Buy a firefly ship.
+     */
     @FXML
     private void buyShipThree() {
-        if (shipyard.buyShip("Firefly")) {
+        if (shipyard.buy("Firefly") != -1) {
             player = GameData.getPlayer();
             checkShipType();
         } else {
             showBErr();
         }
     }
-
+    /**
+     * Buy a mosquito ship
+     */
     @FXML
     private void buyShipFour() {
-        if (shipyard.buyShip("Mosquito")) {
+        if (shipyard.buy("Mosquito") != -1) {
             player = GameData.getPlayer();
             checkShipType();
         } else {
             showBErr();
         }
     }
-
+    /**
+     * Buy a bumblebee ship.
+     */
     @FXML
     private void buyShipFive() {
-        if (shipyard.buyShip("Bumblebee")) {
+        if (shipyard.buy("Bumblebee") != -1) {
             player = GameData.getPlayer();
             checkShipType();
         } else {
             showBErr();
         }
     }
-
+    /**
+     * Method to show the travel dialog system and update data if
+     * travel occurs
+     * @param solar the solar system to travel to
+     */
     private void showTravel(SolarSystem solar) {
         try {
             FXMLLoader loader = new FXMLLoader(SpaceFX.class.getResource("Travel.fxml"));
@@ -2263,17 +2360,10 @@ public class FXMLDocumentController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        /*
-         Stage dialogBox = new Stage();
-         dialogBox.initStyle(StageStyle.UTILITY);
-         Scene aScene = new Scene(new Group(new Text(25, 25, "Not enough good tobuy")));
-         dialogBox.setHeight(80);
-         dialogBox.setWidth(200);
-         dialogBox.setScene(aScene);
-         dialogBox.show();
-         */
     }
-    
+    /**
+     * Show a buy error window.
+     */
     private void showBErr() {
         try {
             FXMLLoader loader = new FXMLLoader(SpaceFX.class.getResource("marketerr/buyErr.fxml"));
@@ -2288,17 +2378,10 @@ public class FXMLDocumentController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        /*
-         Stage dialogBox = new Stage();
-         dialogBox.initStyle(StageStyle.UTILITY);
-         Scene aScene = new Scene(new Group(new Text(25, 25, "Not enough good tobuy")));
-         dialogBox.setHeight(80);
-         dialogBox.setWidth(200);
-         dialogBox.setScene(aScene);
-         dialogBox.show();
-         */
     }
-    
+    /**
+     * Show a sell error window
+     */
     private void showSErr() {
         try {
             FXMLLoader loader = new FXMLLoader(SpaceFX.class.getResource("marketerr/sellErr.fxml"));
@@ -2313,33 +2396,43 @@ public class FXMLDocumentController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        /*
-         Stage dialogBox = new Stage();
-         dialogBox.initStyle(StageStyle.UTILITY);
-         Scene aScene = new Scene(new Group(new Text(25, 25, "Not enough good for sell")));
-         dialogBox.setHeight(80);
-         dialogBox.setWidth(200);
-         dialogBox.setScene(aScene);
-         dialogBox.show();
-         */
     }
-    
-    @FXML
+    /**
+     * Update player in game data
+     */
     private void updatePlayer() {
         GameData.setPlayer(player);
     }
 
 // </editor-fold>
+    /**
+     * Refresh upgrade tab attributes.
+     */
     @FXML
     private void refreshUpgrades() {
         Ship curShip = GameData.getShip();
         player = GameData.getPlayer();
         Shipyard shipyard = new Shipyard();
         ShipUpgrade pulse = new ShipUpgrade("weapon", "pulseLaser");
+        if (pulse.checkTechLevel()) {
+            buyPulse.setDisable(false);
+        } else {
+            buyPulse.setDisable(true);
+        }
         ShipUpgrade beam = new ShipUpgrade("weapon", "beamLaser");
+        if (beam.checkTechLevel()) {
+            buyBeam.setDisable(false);
+        } else {
+            buyBeam.setDisable(true);
+        }
         ShipUpgrade military = new ShipUpgrade("weapon", "militaryLaser");
         ShipUpgrade energy = new ShipUpgrade("shield", "smallShield");
         ShipUpgrade reflective = new ShipUpgrade("shield", "bigShield");
+        if (reflective.checkTechLevel()) {
+            buyReflective.setDisable(false);
+        } else {
+            buyReflective.setDisable(true);
+        }
         ShipUpgrade navigation = new ShipUpgrade("gadget", "navigation");
         ShipUpgrade addCargo = new ShipUpgrade("gadget", "5cargo");
         ShipUpgrade targeting = new ShipUpgrade("gadget", "targeting");
@@ -2361,6 +2454,9 @@ public class FXMLDocumentController implements Initializable {
         cloakingPrice.setText(Integer.toString(cloaking.getPrice()));
         autorepairPrice.setText(Integer.toString(autoRep.getPrice()));
     }
+    /**
+     * Show an error window when buying in shipyard.
+     */
     @FXML
     private void showShipYardErr() {
         try {
@@ -2377,8 +2473,13 @@ public class FXMLDocumentController implements Initializable {
             e.printStackTrace();
         }
     }
+    /**
+     * The following buyX methods buy that item on the shipyard, or display
+     * an error if it cannot be bought.
+     */
     @FXML
     private void buyPulse() {
+
         ShipUpgrade pulse = new ShipUpgrade("weapon", "pulseLaser");
         if (pulse.buyUpgrade("weapon", "pulseLaser")) {
             Ship curShip = GameData.getShip();
@@ -2392,52 +2493,128 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private void buyBeam() {
-        
+        ShipUpgrade beam = new ShipUpgrade("weapon", "beamLaser");
+        if (beam.buyUpgrade("weapon", "beamLaser")) {
+            Ship curShip = GameData.getShip();
+            player = GameData.getPlayer();
+            weaponSlots.setText(Integer.toString(curShip.getWeaponSlots()));
+            shipyardMoney.setText(Integer.toString(player.getCredit()));
+        } else {
+            showShipYardErr();
+        }
     }
     
     @FXML
     private void buyMilitary() {
-        
+        ShipUpgrade military = new ShipUpgrade("weapon", "militaryLaser");
+        if (military.buyUpgrade("weapon", "militaryLaser")) {
+            Ship curShip = GameData.getShip();
+            player = GameData.getPlayer();
+            weaponSlots.setText(Integer.toString(curShip.getWeaponSlots()));
+            shipyardMoney.setText(Integer.toString(player.getCredit()));
+        } else {
+            showShipYardErr();
+        }
     }
     
     @FXML
     private void buyEnergy() {
-        
+        ShipUpgrade energy = new ShipUpgrade("shield", "smallShield");
+        if (energy.buyUpgrade("shield", "smallShield")) {
+            Ship curShip = GameData.getShip();
+            player = GameData.getPlayer();
+            shieldSlots.setText(Integer.toString(curShip.getShieldSlots()));
+            shipyardMoney.setText(Integer.toString(player.getCredit()));
+        } else {
+            showShipYardErr();
+        }
     }
     
     @FXML
     private void buyReflective() {
-        
+        ShipUpgrade reflective = new ShipUpgrade("shield", "bigShield");
+        if (reflective.buyUpgrade("shield", "bigShield")) {
+            Ship curShip = GameData.getShip();
+            player = GameData.getPlayer();
+            shieldSlots.setText(Integer.toString(curShip.getShieldSlots()));
+            shipyardMoney.setText(Integer.toString(player.getCredit()));
+        } else {
+            showShipYardErr();
+        }
     }
     
     @FXML
     private void buyFiveCargo() {
-        
+        ShipUpgrade addCargo = new ShipUpgrade("gadget", "5cargo");
+        if (addCargo.buyUpgrade("gadget", "5cargo")) {
+            Ship curShip = GameData.getShip();
+            player = GameData.getPlayer();
+            gadgetSlots.setText(Integer.toString(curShip.getGadgetSlots()));
+            shipyardMoney.setText(Integer.toString(player.getCredit()));
+        } else {
+            showShipYardErr();
+        }
     }
     
     @FXML
     private void buyNavigation() {
-        
+        ShipUpgrade navigation = new ShipUpgrade("gadget", "navigation");
+        if (navigation.buyUpgrade("gadget", "navigation")) {
+            Ship curShip = GameData.getShip();
+            player = GameData.getPlayer();
+            gadgetSlots.setText(Integer.toString(curShip.getGadgetSlots()));
+            shipyardMoney.setText(Integer.toString(player.getCredit()));
+        } else {
+            showShipYardErr();
+        }
     }
     
     @FXML
     private void buyTargeting() {
+        ShipUpgrade targeting = new ShipUpgrade("gadget", "targeting");
+        if (targeting.buyUpgrade("gadget", "targeting")) {
+            Ship curShip = GameData.getShip();
+            player = GameData.getPlayer();
+            gadgetSlots.setText(Integer.toString(curShip.getGadgetSlots()));
+            shipyardMoney.setText(Integer.toString(player.getCredit()));
+        } else {
+            showShipYardErr();
+        }
         
     }
     
     @FXML
     private void buyAutorepair() {
-        
+        ShipUpgrade autoRep = new ShipUpgrade("gadget", "autoRepair");
+        if (autoRep.buyUpgrade("gadget", "autoRepair")) {
+            Ship curShip = GameData.getShip();
+            player = GameData.getPlayer();
+            gadgetSlots.setText(Integer.toString(curShip.getGadgetSlots()));
+            shipyardMoney.setText(Integer.toString(player.getCredit()));
+        } else {
+            showShipYardErr();
+        }
     }
     
     @FXML
     private void buyCloaking() {
+        ShipUpgrade cloaking = new ShipUpgrade("gadget", "cloaking");
+        if (cloaking.buyUpgrade("gadget", "cloaking")) {
+            Ship curShip = GameData.getShip();
+            player = GameData.getPlayer();
+            gadgetSlots.setText(Integer.toString(curShip.getGadgetSlots()));
+            shipyardMoney.setText(Integer.toString(player.getCredit()));
+        } else {
+            showShipYardErr();
+        }
         
     }
     
     @FXML
     private MenuItem debugTravelling;
-    
+    /**
+     * Debug window for travel testing.
+     */
     @FXML
     private void debugTravellingAction(){
         GameData.setPlayer(new Player("Tester",15,15,15,15,3));
