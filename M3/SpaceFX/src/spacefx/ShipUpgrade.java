@@ -75,28 +75,24 @@ public class ShipUpgrade {
      */
     public boolean buyUpgrade(String type, String name) {
         Ship ship = GameData.getShip();
+        System.out.println("gadget slots initial: " + ship.getSlots("weapon"));
         Shipyard shipyard = new Shipyard();
         Player player = GameData.getPlayer();
-        ShipUpgrade upgrade = new ShipUpgrade(type, name);
-        if ((player.getCredit() - upgrade.price) < 0) {
+        if ((player.getCredit() - price) < 0) {
             System.out.println("price");
             return false;
         } else if (!shipyard.checkTechLevel()) {
             return false;
-        } else if (upgrade.name.equals("beamLaser") | upgrade.name.equals("bigShield") |
-                upgrade.name.equals("navigation")) {
+        } else if (name.equals("beamLaser") | name.equals("bigShield")
+                | name.equals("navigation")) {
             if(!checkTechLevel()) {
                 return false;
             }
-        } else if (ship.getUpgradeCount(upgrade.type) >= ship.getSlots(upgrade.type)) {
-            System.out.println("Already full");
-            System.out.println(ship.getUpgradeCount(upgrade.type));
-            System.out.println(ship.getSlots(upgrade.type));
-            System.out.println(upgrade.type);
+        } else if (ship.getSlots(type) <= 0) {
             return false;
         }
         player.loseCredit(price);
-        ship.addUpgrade(upgrade.type, upgrade.name);
+        ship.addUpgrade(type, name);
         GameData.setPlayer(player);
         GameData.setShip(ship);
         return true;
