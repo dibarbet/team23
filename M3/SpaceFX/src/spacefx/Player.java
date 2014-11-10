@@ -64,15 +64,16 @@ public class Player implements Serializable {
     }
     
     public int loseCredit(int lostCredit) {
+        int retcredit;
         if (credit > lostCredit) {
             credit = credit - lostCredit;
-            return lostCredit;
+            retcredit = lostCredit;
         } else {
             int tempCredit = credit;
             credit = 0;
-            return tempCredit;
+            retcredit = tempCredit;
         }
-        
+        return retcredit;
     }
     public String toString() {
         return name;
@@ -92,5 +93,8 @@ public class Player implements Serializable {
     
     public int getTrader() {
         return trader;
+    }
+    public int getInvestor() {
+        return investor;
     }
 }
