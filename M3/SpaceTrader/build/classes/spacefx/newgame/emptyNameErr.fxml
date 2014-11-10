@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacefx.newgame.EmptyNameErrController">
+   <children>
+      <Label layoutX="66.0" layoutY="51.0" text="Player's Name cannot be empty">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="emptyNameOKButton" layoutX="122.0" layoutY="128.0" mnemonicParsing="false" onAction="#handleEmptyNameOKButtonAction" prefHeight="33.0" prefWidth="157.0" text="OK" />
+   </children>
+</AnchorPane>

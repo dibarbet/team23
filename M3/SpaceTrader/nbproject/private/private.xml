@@ -3,16 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/Guybo/NetBeansProjects/team23/M3/SpaceTrader/src/spacetrader/SpaceTrader.java</file>
-            <file>file:/Users/Guybo/NetBeansProjects/team23/M3/SpaceTrader/src/spacetrader/SolarSystem.java</file>
-            <file>file:/Users/Guybo/NetBeansProjects/team23/M3/SpaceTrader/src/spacetrader/Universe.java</file>
-            <file>file:/Users/Guybo/NetBeansProjects/team23/M3/SpaceTrader/src/spacetrader/MarketWindow.java</file>
-            <file>file:/Users/Guybo/NetBeansProjects/team23/M3/SpaceTrader/src/spacetrader/WelcomeWin.java</file>
-            <file>file:/Users/Guybo/NetBeansProjects/team23/M3/SpaceTrader/src/spacetrader/NewGame.java</file>
-            <file>file:/Users/Guybo/NetBeansProjects/team23/M3/SpaceTrader/src/spacetrader/Good.java</file>
-            <file>file:/Users/Guybo/NetBeansProjects/team23/M3/SpaceTrader/src/spacetrader/GameWindow.java</file>
-            <file>file:/Users/Guybo/NetBeansProjects/team23/M3/SpaceTrader/src/spacetrader/Player.java</file>
-            <file>file:/Users/Guybo/NetBeansProjects/team23/M3/SpaceTrader/src/spacetrader/Ship.java</file>
+            <file>file:/D:/Documents/GaTech/CS%202340/2340GroupProject/GitHub/team23/M3/SpaceFX/src/spacefx/Firefly.java</file>
+            <file>file:/D:/Documents/GaTech/CS%202340/2340GroupProject/GitHub/team23/M3/SpaceFX/src/spacefx/randomEvent/encounter/police/PoliceEncController.java</file>
+            <file>file:/D:/Documents/GaTech/CS%202340/2340GroupProject/GitHub/team23/M3/SpaceFX/src/spacefx/randomEvent/TravellingController.java</file>
+            <file>file:/D:/Documents/GaTech/CS%202340/2340GroupProject/GitHub/team23/M3/SpaceFX/src/spacefx/Gnat.java</file>
+            <file>file:/D:/Documents/GaTech/CS%202340/2340GroupProject/GitHub/team23/M3/SpaceFX/src/spacefx/randomEvent/encounter/trader/TraderEncController.java</file>
+            <file>file:/D:/Documents/GaTech/CS%202340/2340GroupProject/GitHub/team23/M3/SpaceFX/src/spacefx/Flea.java</file>
+            <file>file:/D:/Documents/GaTech/CS%202340/2340GroupProject/GitHub/team23/M3/SpaceFX/src/spacefx/Ship.java</file>
+            <file>file:/D:/Documents/GaTech/CS%202340/2340GroupProject/GitHub/team23/M3/SpaceFX/src/spacefx/randomEvent/encounter/pirate/PirateEncController.java</file>
+            <file>file:/D:/Documents/GaTech/CS%202340/2340GroupProject/GitHub/team23/M3/SpaceFX/src/spacefx/Mosquito.java</file>
         </group>
     </open-files>
 </project-private>

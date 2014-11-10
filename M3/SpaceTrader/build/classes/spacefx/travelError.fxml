@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="281.0" prefWidth="405.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="spacefx.TravelErrorController">
+   <children>
+      <Button fx:id="buttonOK" layoutX="166.0" layoutY="168.0" mnemonicParsing="false" onAction="#travelError" prefHeight="49.0" prefWidth="74.0" text="OK" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="9.0" layoutY="49.0" prefHeight="60.0" prefWidth="389.0" text="Not enough fuel to travel that far.">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

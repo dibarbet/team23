@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="spacefx.randomEvent.encounter.trader.TraderEncController">
+   <children>
+      <Label layoutX="62.0" layoutY="204.0" text="HP:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="myHP" layoutX="105.0" layoutY="204.0" text="2000/2000">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="enemyHP" layoutX="378.0" layoutY="48.0" text="2000/2000">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="335.0" layoutY="48.0" text="HP:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="battleInfo1" layoutX="47.0" layoutY="50.0" text="battleInfo" />
+      <Button fx:id="escB" layoutX="303.0" layoutY="242.0" mnemonicParsing="false" onAction="#escBAction" prefHeight="30.0" prefWidth="150.0" text="Escape" />
+      <Button fx:id="surB" layoutX="303.0" layoutY="212.0" mnemonicParsing="false" onAction="#surBAction" prefHeight="30.0" prefWidth="150.0" text="Surrender" />
+      <Button fx:id="attB" layoutX="303.0" layoutY="182.0" mnemonicParsing="false" onAction="#attBAction" prefHeight="30.0" prefWidth="150.0" text="Attack" />
+      <Label fx:id="battleInfo2" layoutX="47.0" layoutY="68.0" text="battleInfo" />
+   </children>
+</AnchorPane>
