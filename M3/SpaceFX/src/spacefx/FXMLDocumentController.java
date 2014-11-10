@@ -7,6 +7,7 @@ package spacefx;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -26,8 +27,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Group;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -35,15 +34,11 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.Tab;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
 import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import spacefx.marketerr.BuyErrController;
 import spacefx.marketerr.SellErrController;
-import spacefx.shipyarderr.BuyUpgradeErrController;
-import spacefx.newgame.EmptyNameErrController;
 import spacefx.newgame.NewGameWinController;
 import spacefx.randomEvent.TravellingController;
 
@@ -60,7 +55,6 @@ public class FXMLDocumentController implements Initializable {
     private boolean gameCreated;
     private Circle currentPlanet;
     private Circle nextPlanet;
-    private String fileSave;
     private File loadFile;
     private Shipyard shipyard;
     @FXML
@@ -206,7 +200,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button bGamesB;
     @FXML
-    private Button bFirearmsB; 
+    private Button bFirearmsB;
     @FXML
     private Button bMedicineB;
     @FXML
@@ -227,233 +221,233 @@ public class FXMLDocumentController implements Initializable {
     private Label curSolarLoc;
     @FXML
 // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
-    private Circle Planet1;
+    private Circle planet1;
     @FXML
-    private Circle Planet2;
+    private Circle planet2;
     @FXML
-    private Circle Planet3;
+    private Circle planet3;
     @FXML
-    private Circle Planet4;
+    private Circle planet4;
     @FXML
-    private Circle Planet5;
+    private Circle planet5;
     @FXML
-    private Circle Planet6;
+    private Circle planet6;
     @FXML
-    private Circle Planet7;
+    private Circle planet7;
     @FXML
-    private Circle Planet8;
+    private Circle planet8;
     @FXML
-    private Circle Planet9;
+    private Circle planet9;
     @FXML
-    private Circle Planet10;
+    private Circle planet10;
     @FXML
-    private Circle Planet11;
+    private Circle planet11;
     @FXML
-    private Circle Planet12;
+    private Circle planet12;
     @FXML
-    private Circle Planet13;
+    private Circle planet13;
     @FXML
-    private Circle Planet14;
+    private Circle planet14;
     @FXML
-    private Circle Planet15;
+    private Circle planet15;
     @FXML
-    private Circle Planet16;
+    private Circle planet16;
     @FXML
-    private Circle Planet17;
+    private Circle planet17;
     @FXML
-    private Circle Planet18;
+    private Circle planet18;
     @FXML
-    private Circle Planet19;
+    private Circle planet19;
     @FXML
-    private Circle Planet20;
+    private Circle planet20;
     @FXML
-    private Circle Planet21;
+    private Circle planet21;
     @FXML
-    private Circle Planet22;
+    private Circle planet22;
     @FXML
-    private Circle Planet23;
+    private Circle planet23;
     @FXML
-    private Circle Planet24;
+    private Circle planet24;
     @FXML
-    private Circle Planet25;
+    private Circle planet25;
     @FXML
-    private Circle Planet26;
+    private Circle planet26;
     @FXML
-    private Circle Planet27;
+    private Circle planet27;
     @FXML
-    private Circle Planet28;
+    private Circle planet28;
     @FXML
-    private Circle Planet29;
+    private Circle planet29;
     @FXML
-    private Circle Planet30;
+    private Circle planet30;
     @FXML
-    private Circle Planet31;
+    private Circle planet31;
     @FXML
-    private Circle Planet32;
+    private Circle planet32;
     @FXML
-    private Circle Planet33;
+    private Circle planet33;
     @FXML
-    private Circle Planet34;
+    private Circle planet34;
     @FXML
-    private Circle Planet35;
+    private Circle planet35;
     @FXML
-    private Circle Planet36;
+    private Circle planet36;
     @FXML
-    private Circle Planet37;
+    private Circle planet37;
     @FXML
-    private Circle Planet38;
+    private Circle planet38;
     @FXML
-    private Circle Planet39;
+    private Circle planet39;
     @FXML
-    private Circle Planet40;
+    private Circle planet40;
     @FXML
-    private Circle Planet41;
+    private Circle planet41;
     @FXML
-    private Circle Planet42;
+    private Circle planet42;
     @FXML
-    private Circle Planet43;
+    private Circle planet43;
     @FXML
-    private Circle Planet44;
+    private Circle planet44;
     @FXML
-    private Circle Planet45;
+    private Circle planet45;
     @FXML
-    private Circle Planet46;
+    private Circle planet46;
     @FXML
-    private Circle Planet47;
+    private Circle planet47;
     @FXML
-    private Circle Planet48;
+    private Circle planet48;
     @FXML
-    private Circle Planet49;
+    private Circle planet49;
     @FXML
-    private Circle Planet50;
+    private Circle planet50;
     @FXML
-    private Circle Planet51;
+    private Circle planet51;
     @FXML
-    private Circle Planet52;
+    private Circle planet52;
     @FXML
-    private Circle Planet53;
+    private Circle planet53;
     @FXML
-    private Circle Planet54;
+    private Circle planet54;
     @FXML
-    private Circle Planet55;
+    private Circle planet55;
     @FXML
-    private Circle Planet56;
+    private Circle planet56;
     @FXML
-    private Circle Planet57;
+    private Circle planet57;
     @FXML
-    private Circle Planet58;
+    private Circle planet58;
     @FXML
-    private Circle Planet59;
+    private Circle planet59;
     @FXML
-    private Circle Planet60;
+    private Circle planet60;
     @FXML
-    private Circle Planet61;
+    private Circle planet61;
     @FXML
-    private Circle Planet62;
+    private Circle planet62;
     @FXML
-    private Circle Planet63;
+    private Circle planet63;
     @FXML
-    private Circle Planet64;
+    private Circle planet64;
     @FXML
-    private Circle Planet65;
+    private Circle planet65;
     @FXML
-    private Circle Planet66;
+    private Circle planet66;
     @FXML
-    private Circle Planet67;
+    private Circle planet67;
     @FXML
-    private Circle Planet68;
+    private Circle planet68;
     @FXML
-    private Circle Planet69;
+    private Circle planet69;
     @FXML
-    private Circle Planet70;
+    private Circle planet70;
     @FXML
-    private Circle Planet71;
+    private Circle planet71;
     @FXML
-    private Circle Planet72;
+    private Circle planet72;
     @FXML
-    private Circle Planet73;
+    private Circle planet73;
     @FXML
-    private Circle Planet74;
+    private Circle planet74;
     @FXML
-    private Circle Planet75;
+    private Circle planet75;
     @FXML
-    private Circle Planet76;
+    private Circle planet76;
     @FXML
-    private Circle Planet77;
+    private Circle planet77;
     @FXML
-    private Circle Planet78;
+    private Circle planet78;
     @FXML
-    private Circle Planet79;
+    private Circle planet79;
     @FXML
-    private Circle Planet80;
+    private Circle planet80;
     @FXML
-    private Circle Planet81;
+    private Circle planet81;
     @FXML
-    private Circle Planet82;
+    private Circle planet82;
     @FXML
-    private Circle Planet83;
+    private Circle planet83;
     @FXML
-    private Circle Planet84;
+    private Circle planet84;
     @FXML
-    private Circle Planet85;
+    private Circle planet85;
     @FXML
-    private Circle Planet86;
+    private Circle planet86;
     @FXML
-    private Circle Planet87;
+    private Circle planet87;
     @FXML
-    private Circle Planet88;
+    private Circle planet88;
     @FXML
-    private Circle Planet89;
+    private Circle planet89;
     @FXML
-    private Circle Planet90;
+    private Circle planet90;
     @FXML
-    private Circle Planet91;
+    private Circle planet91;
     @FXML
-    private Circle Planet92;
+    private Circle planet92;
     @FXML
-    private Circle Planet93;
+    private Circle planet93;
     @FXML
-    private Circle Planet94;
+    private Circle planet94;
     @FXML
-    private Circle Planet95;
+    private Circle planet95;
     @FXML
-    private Circle Planet96;
+    private Circle planet96;
     @FXML
-    private Circle Planet97;
+    private Circle planet97;
     @FXML
-    private Circle Planet98;
+    private Circle planet98;
     @FXML
-    private Circle Planet99;
+    private Circle planet99;
     @FXML
-    private Circle Planet100;
+    private Circle planet100;
     @FXML
-    private Circle Planet101;
+    private Circle planet101;
     @FXML
-    private Circle Planet102;
+    private Circle planet102;
     @FXML
-    private Circle Planet103;
+    private Circle planet103;
     @FXML
-    private Circle Planet104;
+    private Circle planet104;
     @FXML
-    private Circle Planet105;
+    private Circle planet105;
     @FXML
-    private Circle Planet106;
+    private Circle planet106;
     @FXML
-    private Circle Planet107;
+    private Circle planet107;
     @FXML
-    private Circle Planet108;
+    private Circle planet108;
     @FXML
-    private Circle Planet109;
+    private Circle planet109;
     @FXML
-    private Circle Planet110;
+    private Circle planet110;
     @FXML
-    private Circle Planet111;
+    private Circle planet111;
     @FXML
-    private Circle Planet112;
+    private Circle planet112;
     @FXML
-    private Circle Planet113;
+    private Circle planet113;
     @FXML
-    private Circle Planet114;
+    private Circle planet114;
 
 // </editor-fold>
     @FXML
@@ -506,10 +500,12 @@ public class FXMLDocumentController implements Initializable {
     private Button buyAutorepair;
     @FXML
     private Button buyCloaking;
-    
     // </editor-fold>
 // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
-    public static boolean planetChanged = false;
+    /**
+     * Creates planetchanged boolean to false.
+     */
+    protected static boolean planetChanged = false;
 
     /**
      * Method to handle new game menu option being pressed Creates new window to
@@ -538,7 +534,7 @@ public class FXMLDocumentController implements Initializable {
                 curSolar.setDisable(false);
                 saveGame.setDisable(false);
                 upgradesTab.setDisable(false);
-                currentPlanet = Planet1;
+                currentPlanet = planet1;
                 shipyard = new Shipyard();
                 if (shipyard.checkTechLevel()) {
                     shipyardTab.setDisable(false);
@@ -551,13 +547,10 @@ public class FXMLDocumentController implements Initializable {
                 refreshMarket();
                 refreshSolar();
             }
-            
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Handle new game failed");
         }
-        
     }
-
     /**
      * Refreshes market when the market tab is selected
      */
@@ -582,8 +575,7 @@ public class FXMLDocumentController implements Initializable {
         sMedicineB.setDisable(false);
         sMachinesB.setDisable(false);
         sNarcotics.setDisable(false);
-        sRobotsB.setDisable(false);        
-        
+        sRobotsB.setDisable(false);
         market = GameData.getCurrSolarSys().getMarket();
         player = GameData.getPlayer();
         GameData.setMarket(market);
@@ -620,7 +612,6 @@ public class FXMLDocumentController implements Initializable {
         planetMach.setText(Integer.toString(market.mmachines));
         planetNarc.setText(Integer.toString(market.mnarcotics));
         planetRob.setText(Integer.toString(market.mrobots));
-        
         if (currentSolarSystem.getTechLevel() < Good.Water.mtlp) {
             bWaterB.setDisable(true);
             planetWater.setText("0");
@@ -661,7 +652,6 @@ public class FXMLDocumentController implements Initializable {
             bRobotsB.setDisable(true);
             planetRob.setText("0");
         }
-        
         if (currentSolarSystem.getTechLevel() < Good.Water.mtlu) {
             sWaterB.setDisable(true);
         }
@@ -669,28 +659,28 @@ public class FXMLDocumentController implements Initializable {
             sFursB.setDisable(true);
         }
         if (currentSolarSystem.getTechLevel() < Good.Food.mtlu) {
-            sFoodB.setDisable(true);            
+            sFoodB.setDisable(true);
         }
         if (currentSolarSystem.getTechLevel() < Good.Ore.mtlu) {
-            sOreB.setDisable(true);            
+            sOreB.setDisable(true);
         }
         if (currentSolarSystem.getTechLevel() < Good.Games.mtlu) {
-            sGamesB.setDisable(true);            
+            sGamesB.setDisable(true);
         }
         if (currentSolarSystem.getTechLevel() < Good.Firearms.mtlu) {
-            sFirearmsB.setDisable(true);            
+            sFirearmsB.setDisable(true);
         }
         if (currentSolarSystem.getTechLevel() < Good.Medicine.mtlu) {
-            sMedicineB.setDisable(true);            
+            sMedicineB.setDisable(true);
         }
         if (currentSolarSystem.getTechLevel() < Good.Machines.mtlu) {
-            sMachinesB.setDisable(true);            
+            sMachinesB.setDisable(true);
         }
         if (currentSolarSystem.getTechLevel() < Good.Narcotics.mtlu) {
-            sNarcotics.setDisable(true);            
+            sNarcotics.setDisable(true);
         }
         if (currentSolarSystem.getTechLevel() < Good.Robots.mtlu) {
-            sRobotsB.setDisable(true);            
+            sRobotsB.setDisable(true);
         }
     }
 
@@ -710,7 +700,7 @@ public class FXMLDocumentController implements Initializable {
     /**
      * Initializes the fxml window with tabs disabled.
      * @param url
-     * @param rb 
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -722,7 +712,6 @@ public class FXMLDocumentController implements Initializable {
             shipyardTab.setDisable(true);
             upgradesTab.setDisable(true);
         }
-        
     }
     /**
      * Saves the current game into a file using serialization
@@ -741,14 +730,16 @@ public class FXMLDocumentController implements Initializable {
             try {
                 OutputStream file = new FileOutputStream(savedFile);
                 OutputStream buffer = new BufferedOutputStream(file);
-                try (ObjectOutput output = new ObjectOutputStream(buffer)) {
+                try {
+                    ObjectOutput output = new ObjectOutputStream(buffer);
                     output.writeObject(GameData.getClassList());
+                } catch (EOFException eo) {
+                    System.out.println("Failed writing");
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                System.out.println("Failed writing");
             }
         }
-        
     }
     /**
      * Begins load game process by showing the window.
@@ -769,9 +760,10 @@ public class FXMLDocumentController implements Initializable {
             try {
                 InputStream file = new FileInputStream(loadFile);
                 InputStream buffer = new BufferedInputStream(file);
-                ObjectInput input = new ObjectInputStream(buffer);
-                ArrayList<Object> aList = (ArrayList<Object>) input.readObject();
-                input.close();
+                ArrayList<Object> aList;
+                try (ObjectInput input = new ObjectInputStream(buffer)) {
+                    aList = (ArrayList<Object>) input.readObject();
+                }
                 GameData.setPlayer((Player) aList.get(0));
                 GameData.setShip((Ship) aList.get(1));
                 GameData.setSolarSystem((SolarSystem) aList.get(4));
@@ -786,7 +778,7 @@ public class FXMLDocumentController implements Initializable {
                 curSolar.setDisable(false);
                 saveGame.setDisable(false);
                 upgradesTab.setDisable(false);
-                currentPlanet = Planet1;
+                currentPlanet = planet1;
                 shipyard = new Shipyard();
                 if (shipyard.checkTechLevel()) {
                     shipyardTab.setDisable(false);
@@ -799,10 +791,9 @@ public class FXMLDocumentController implements Initializable {
                 refreshSolar();
                 refreshMarket();
             } catch (ClassNotFoundException | IOException e) {
-                e.printStackTrace();
+                System.out.println("Load failed");
             }
         }
-        
     }
     /**
      * The following planetXClicked methods determine which planet
@@ -810,689 +801,582 @@ public class FXMLDocumentController implements Initializable {
      */
     @FXML
     private void planet1Clicked() {
-        nextPlanet = Planet1;
+        nextPlanet = planet1;
         showTravel(universe.gameUniverse[0]);
-    }    
+    }
 
     @FXML
     private void planet2Clicked() {
-        nextPlanet = Planet2;
+        nextPlanet = planet2;
         showTravel(universe.gameUniverse[1]);
-    }    
+    }
 
     @FXML
     private void planet3Clicked() {
-        nextPlanet = Planet3;
+        nextPlanet = planet3;
         showTravel(universe.gameUniverse[2]);
-    }    
+    }
 
     @FXML
     private void planet4Clicked() {
-        nextPlanet = Planet4;
+        nextPlanet = planet4;
         showTravel(universe.gameUniverse[3]);
-    }    
+    }
 
     @FXML
     private void planet5Clicked() {
-        nextPlanet = Planet5;
+        nextPlanet = planet5;
         showTravel(universe.gameUniverse[4]);
     }
 
     @FXML
     private void planet6Clicked() {
-        nextPlanet = Planet6;
+        nextPlanet = planet6;
         showTravel(universe.gameUniverse[5]);
     }
 
     @FXML
     private void planet7Clicked() {
-        nextPlanet = Planet7;
+        nextPlanet = planet7;
         showTravel(universe.gameUniverse[6]);
     }
 
     @FXML
 // <editor-fold defaultstate="collapsed" desc=" DESCRIPTION ">
     private void planet8Clicked() {
-        nextPlanet = Planet8;
+        nextPlanet = planet8;
         showTravel(universe.gameUniverse[7]);
     }
-    
     @FXML
     private void planet9Clicked() {
-        nextPlanet = Planet9;
+        nextPlanet = planet9;
         showTravel(universe.gameUniverse[8]);
-    }    
-    
+    }
     @FXML
     private void planet10Clicked() {
-        nextPlanet = Planet10;
+        nextPlanet = planet10;
         showTravel(universe.gameUniverse[9]);
     }
-    
     @FXML
     private void planet11Clicked() {
-        nextPlanet = Planet11;
+        nextPlanet = planet11;
         showTravel(universe.gameUniverse[10]);
-    }    
-    
+    }
     @FXML
     private void planet12Clicked() {
-        nextPlanet = Planet12;
+        nextPlanet = planet12;
         showTravel(universe.gameUniverse[11]);
-    }    
-    
+    }
     @FXML
     private void planet13Clicked() {
-        nextPlanet = Planet13;
+        nextPlanet = planet13;
         showTravel(universe.gameUniverse[12]);
-    }    
-    
+    }
     @FXML
     private void planet14Clicked() {
-        nextPlanet = Planet14;
+        nextPlanet = planet14;
         showTravel(universe.gameUniverse[13]);
-    }    
-    
+    }
     @FXML
     private void planet15Clicked() {
-        nextPlanet = Planet15;
+        nextPlanet = planet15;
         showTravel(universe.gameUniverse[14]);
     }
-    
     @FXML
     private void planet16Clicked() {
-        nextPlanet = Planet16;
+        nextPlanet = planet16;
         showTravel(universe.gameUniverse[15]);
     }
-    
     @FXML
     private void planet17Clicked() {
-        nextPlanet = Planet17;
+        nextPlanet = planet17;
         showTravel(universe.gameUniverse[16]);
     }
-    
     @FXML
     private void planet18Clicked() {
-        nextPlanet = Planet18;
+        nextPlanet = planet18;
         showTravel(universe.gameUniverse[17]);
     }
-    
     @FXML
     private void planet19Clicked() {
-        nextPlanet = Planet19;
+        nextPlanet = planet19;
         showTravel(universe.gameUniverse[18]);
-    }    
-    
+    }
     @FXML
     private void planet20Clicked() {
-        nextPlanet = Planet20;
+        nextPlanet = planet20;
         showTravel(universe.gameUniverse[19]);
     }
-    
     @FXML
     private void planet21Clicked() {
-        nextPlanet = Planet21;
+        nextPlanet = planet21;
         showTravel(universe.gameUniverse[20]);
-    }    
-    
+    }
     @FXML
     private void planet22Clicked() {
-        nextPlanet = Planet22;
+        nextPlanet = planet22;
         showTravel(universe.gameUniverse[21]);
-    }    
-    
+    }
     @FXML
     private void planet23Clicked() {
-        nextPlanet = Planet23;
+        nextPlanet = planet23;
         showTravel(universe.gameUniverse[22]);
-    }    
-    
+    }
     @FXML
     private void planet24Clicked() {
-        nextPlanet = Planet24;
+        nextPlanet = planet24;
         showTravel(universe.gameUniverse[23]);
-    }    
-    
+    }
     @FXML
     private void planet25Clicked() {
-        nextPlanet = Planet25;
+        nextPlanet = planet25;
         showTravel(universe.gameUniverse[24]);
     }
-    
     @FXML
     private void planet26Clicked() {
-        nextPlanet = Planet26;
+        nextPlanet = planet26;
         showTravel(universe.gameUniverse[25]);
     }
-    
     @FXML
     private void planet27Clicked() {
-        nextPlanet = Planet27;
+        nextPlanet = planet27;
         showTravel(universe.gameUniverse[26]);
     }
-    
     @FXML
     private void planet28Clicked() {
-        nextPlanet = Planet28;
+        nextPlanet = planet28;
         showTravel(universe.gameUniverse[27]);
     }
-    
     @FXML
     private void planet29Clicked() {
-        nextPlanet = Planet29;
+        nextPlanet = planet29;
         showTravel(universe.gameUniverse[28]);
-    }    
-    
+    }
     @FXML
     private void planet30Clicked() {
-        nextPlanet = Planet30;
+        nextPlanet = planet30;
         showTravel(universe.gameUniverse[29]);
     }
-    
     @FXML
     private void planet31Clicked() {
-        nextPlanet = Planet31;
+        nextPlanet = planet31;
         showTravel(universe.gameUniverse[30]);
-    }    
-    
+    }
     @FXML
     private void planet32Clicked() {
-        nextPlanet = Planet32;
+        nextPlanet = planet32;
         showTravel(universe.gameUniverse[31]);
-    }    
-    
+    }
     @FXML
     private void planet33Clicked() {
-        nextPlanet = Planet33;
+        nextPlanet = planet33;
         showTravel(universe.gameUniverse[32]);
-    }    
-    
+    }
     @FXML
     private void planet34Clicked() {
-        nextPlanet = Planet34;
+        nextPlanet = planet34;
         showTravel(universe.gameUniverse[33]);
-    }    
-    
+    }
     @FXML
     private void planet35Clicked() {
-        nextPlanet = Planet35;
+        nextPlanet = planet35;
         showTravel(universe.gameUniverse[34]);
     }
-    
     @FXML
     private void planet36Clicked() {
-        nextPlanet = Planet36;
+        nextPlanet = planet36;
         showTravel(universe.gameUniverse[35]);
     }
-    
     @FXML
     private void planet37Clicked() {
-        nextPlanet = Planet37;
+        nextPlanet = planet37;
         showTravel(universe.gameUniverse[36]);
     }
-    
     @FXML
     private void planet38Clicked() {
-        nextPlanet = Planet38;
+        nextPlanet = planet38;
         showTravel(universe.gameUniverse[37]);
     }
-    
     @FXML
     private void planet39Clicked() {
-        nextPlanet = Planet39;
+        nextPlanet = planet39;
         showTravel(universe.gameUniverse[38]);
-    }    
-    
+    }
     @FXML
     private void planet40Clicked() {
-        nextPlanet = Planet40;
+        nextPlanet = planet40;
         showTravel(universe.gameUniverse[39]);
     }
-    
     @FXML
     private void planet41Clicked() {
-        nextPlanet = Planet41;
+        nextPlanet = planet41;
         showTravel(universe.gameUniverse[40]);
-    }    
-    
+    }
     @FXML
     private void planet42Clicked() {
-        nextPlanet = Planet42;
+        nextPlanet = planet42;
         showTravel(universe.gameUniverse[41]);
-    }    
-    
+    }
     @FXML
     private void planet43Clicked() {
-        nextPlanet = Planet43;
+        nextPlanet = planet43;
         showTravel(universe.gameUniverse[42]);
-    }    
-    
+    }
     @FXML
     private void planet44Clicked() {
-        nextPlanet = Planet44;
+        nextPlanet = planet44;
         showTravel(universe.gameUniverse[43]);
-    }    
-    
+    }
     @FXML
     private void planet45Clicked() {
-        nextPlanet = Planet45;
+        nextPlanet = planet45;
         showTravel(universe.gameUniverse[44]);
     }
-    
     @FXML
     private void planet46Clicked() {
-        nextPlanet = Planet46;
+        nextPlanet = planet46;
         showTravel(universe.gameUniverse[45]);
     }
-    
     @FXML
     private void planet47Clicked() {
-        nextPlanet = Planet47;
+        nextPlanet = planet47;
         showTravel(universe.gameUniverse[46]);
     }
-    
     @FXML
     private void planet48Clicked() {
-        nextPlanet = Planet48;
+        nextPlanet = planet48;
         showTravel(universe.gameUniverse[47]);
     }
-    
     @FXML
     private void planet49Clicked() {
-        nextPlanet = Planet49;
+        nextPlanet = planet49;
         showTravel(universe.gameUniverse[48]);
-    }    
-    
+    }
     @FXML
     private void planet50Clicked() {
-        nextPlanet = Planet50;
+        nextPlanet = planet50;
         showTravel(universe.gameUniverse[49]);
     }
-    
     @FXML
     private void planet51Clicked() {
-        nextPlanet = Planet51;
+        nextPlanet = planet51;
         showTravel(universe.gameUniverse[50]);
-    }    
-    
+    }
     @FXML
     private void planet52Clicked() {
-        nextPlanet = Planet52;
+        nextPlanet = planet52;
         showTravel(universe.gameUniverse[51]);
-    }    
-    
+    }
     @FXML
     private void planet53Clicked() {
-        nextPlanet = Planet53;
+        nextPlanet = planet53;
         showTravel(universe.gameUniverse[52]);
-    }    
-    
+    }
     @FXML
     private void planet54Clicked() {
-        nextPlanet = Planet54;
+        nextPlanet = planet54;
         showTravel(universe.gameUniverse[53]);
-    }    
-    
+    }
     @FXML
     private void planet55Clicked() {
-        nextPlanet = Planet55;
+        nextPlanet = planet55;
         showTravel(universe.gameUniverse[54]);
     }
-    
     @FXML
     private void planet56Clicked() {
-        nextPlanet = Planet56;
+        nextPlanet = planet56;
         showTravel(universe.gameUniverse[55]);
     }
-    
     @FXML
     private void planet57Clicked() {
-        nextPlanet = Planet57;
+        nextPlanet = planet57;
         showTravel(universe.gameUniverse[56]);
     }
-    
     @FXML
     private void planet58Clicked() {
-        nextPlanet = Planet58;
+        nextPlanet = planet58;
         showTravel(universe.gameUniverse[57]);
     }
-    
     @FXML
     private void planet59Clicked() {
-        nextPlanet = Planet59;
+        nextPlanet = planet59;
         showTravel(universe.gameUniverse[58]);
-    }    
-    
+    }
     @FXML
     private void planet60Clicked() {
-        nextPlanet = Planet60;
+        nextPlanet = planet60;
         showTravel(universe.gameUniverse[59]);
     }
-    
     @FXML
     private void planet61Clicked() {
-        nextPlanet = Planet61;
+        nextPlanet = planet61;
         showTravel(universe.gameUniverse[60]);
-    }    
-    
+    }
     @FXML
     private void planet62Clicked() {
-        nextPlanet = Planet62;
+        nextPlanet = planet62;
         showTravel(universe.gameUniverse[61]);
-    }    
-    
+    }
     @FXML
     private void planet63Clicked() {
-        nextPlanet = Planet63;
+        nextPlanet = planet63;
         showTravel(universe.gameUniverse[62]);
-    }    
-    
+    }
     @FXML
     private void planet64Clicked() {
-        nextPlanet = Planet64;
+        nextPlanet = planet64;
         showTravel(universe.gameUniverse[63]);
-    }    
-    
+    }
     @FXML
     private void planet65Clicked() {
-        nextPlanet = Planet65;
+        nextPlanet = planet65;
         showTravel(universe.gameUniverse[64]);
     }
-    
     @FXML
     private void planet66Clicked() {
-        nextPlanet = Planet66;
+        nextPlanet = planet66;
         showTravel(universe.gameUniverse[65]);
     }
-    
     @FXML
     private void planet67Clicked() {
-        nextPlanet = Planet67;
+        nextPlanet = planet67;
         showTravel(universe.gameUniverse[66]);
     }
-    
     @FXML
     private void planet68Clicked() {
-        nextPlanet = Planet68;
+        nextPlanet = planet68;
         showTravel(universe.gameUniverse[67]);
     }
-    
     @FXML
     private void planet69Clicked() {
-        nextPlanet = Planet69;
+        nextPlanet = planet69;
         showTravel(universe.gameUniverse[68]);
-    }    
-    
+    }
     @FXML
     private void planet70Clicked() {
-        nextPlanet = Planet70;
+        nextPlanet = planet70;
         showTravel(universe.gameUniverse[69]);
     }
-    
     @FXML
     private void planet71Clicked() {
-        nextPlanet = Planet71;
+        nextPlanet = planet71;
         showTravel(universe.gameUniverse[70]);
-    }    
-    
+    }
     @FXML
     private void planet72Clicked() {
-        nextPlanet = Planet72;
+        nextPlanet = planet72;
         showTravel(universe.gameUniverse[71]);
-    }    
-    
+    }
     @FXML
     private void planet73Clicked() {
-        nextPlanet = Planet73;
+        nextPlanet = planet73;
         showTravel(universe.gameUniverse[72]);
-    }    
-    
+    }
     @FXML
     private void planet74Clicked() {
-        nextPlanet = Planet74;
+        nextPlanet = planet74;
         showTravel(universe.gameUniverse[73]);
-    }    
-    
+    }
     @FXML
     private void planet75Clicked() {
-        nextPlanet = Planet75;
+        nextPlanet = planet75;
         showTravel(universe.gameUniverse[74]);
     }
-    
     @FXML
     private void planet76Clicked() {
-        nextPlanet = Planet76;
+        nextPlanet = planet76;
         showTravel(universe.gameUniverse[75]);
     }
-    
     @FXML
     private void planet77Clicked() {
-        nextPlanet = Planet77;
+        nextPlanet = planet77;
         showTravel(universe.gameUniverse[76]);
     }
-    
     @FXML
     private void planet78Clicked() {
-        nextPlanet = Planet78;
+        nextPlanet = planet78;
         showTravel(universe.gameUniverse[77]);
     }
-    
     @FXML
     private void planet79Clicked() {
-        nextPlanet = Planet79;
+        nextPlanet = planet79;
         showTravel(universe.gameUniverse[78]);
-    }    
-    
+    }
     @FXML
     private void planet80Clicked() {
-        nextPlanet = Planet80;
+        nextPlanet = planet80;
         showTravel(universe.gameUniverse[79]);
     }
-    
     @FXML
     private void planet81Clicked() {
-        nextPlanet = Planet81;
+        nextPlanet = planet81;
         showTravel(universe.gameUniverse[80]);
-    }    
-    
+    }
     @FXML
     private void planet82Clicked() {
-        nextPlanet = Planet82;
+        nextPlanet = planet82;
         showTravel(universe.gameUniverse[81]);
-    }    
-    
+    }
     @FXML
     private void planet83Clicked() {
-        nextPlanet = Planet83;
+        nextPlanet = planet83;
         showTravel(universe.gameUniverse[82]);
-    }    
-    
+    }
     @FXML
     private void planet84Clicked() {
-        nextPlanet = Planet84;
+        nextPlanet = planet84;
         showTravel(universe.gameUniverse[83]);
-    }    
-    
+    }
     @FXML
     private void planet85Clicked() {
-        nextPlanet = Planet85;
+        nextPlanet = planet85;
         showTravel(universe.gameUniverse[84]);
     }
-    
     @FXML
     private void planet86Clicked() {
-        nextPlanet = Planet86;
+        nextPlanet = planet86;
         showTravel(universe.gameUniverse[85]);
     }
-    
     @FXML
     private void planet87Clicked() {
-        nextPlanet = Planet87;
+        nextPlanet = planet87;
         showTravel(universe.gameUniverse[86]);
     }
-    
     @FXML
     private void planet88Clicked() {
-        nextPlanet = Planet88;
+        nextPlanet = planet88;
         showTravel(universe.gameUniverse[87]);
     }
-    
     @FXML
     private void planet89Clicked() {
-        nextPlanet = Planet89;
+        nextPlanet = planet89;
         showTravel(universe.gameUniverse[88]);
-    }    
-    
+    }
     @FXML
     private void planet90Clicked() {
-        nextPlanet = Planet90;
+        nextPlanet = planet90;
         showTravel(universe.gameUniverse[89]);
     }
-    
     @FXML
     private void planet91Clicked() {
-        nextPlanet = Planet91;
+        nextPlanet = planet91;
         showTravel(universe.gameUniverse[90]);
-    }    
-    
+    }
     @FXML
     private void planet92Clicked() {
-        nextPlanet = Planet92;
+        nextPlanet = planet92;
         showTravel(universe.gameUniverse[91]);
-    }    
-    
+    }
     @FXML
     private void planet93Clicked() {
-        nextPlanet = Planet93;
+        nextPlanet = planet93;
         showTravel(universe.gameUniverse[92]);
-    }    
-    
+    }
     @FXML
     private void planet94Clicked() {
-        nextPlanet = Planet94;
+        nextPlanet = planet94;
         showTravel(universe.gameUniverse[93]);
-    }    
-    
+    }
     @FXML
     private void planet95Clicked() {
-        nextPlanet = Planet95;
+        nextPlanet = planet95;
         showTravel(universe.gameUniverse[94]);
     }
-    
     @FXML
     private void planet96Clicked() {
-        nextPlanet = Planet96;
+        nextPlanet = planet96;
         showTravel(universe.gameUniverse[95]);
     }
-    
     @FXML
     private void planet97Clicked() {
-        nextPlanet = Planet97;
+        nextPlanet = planet97;
         showTravel(universe.gameUniverse[96]);
     }
-    
     @FXML
     private void planet98Clicked() {
-        nextPlanet = Planet98;
+        nextPlanet = planet98;
         showTravel(universe.gameUniverse[97]);
     }
-    
     @FXML
     private void planet99Clicked() {
-        nextPlanet = Planet99;
+        nextPlanet = planet99;
         showTravel(universe.gameUniverse[98]);
-    }    
-    
+    }
     @FXML
     private void planet100Clicked() {
-        nextPlanet = Planet100;
+        nextPlanet = planet100;
         showTravel(universe.gameUniverse[99]);
     }
-    
     @FXML
     private void planet101Clicked() {
-        nextPlanet = Planet101;
+        nextPlanet = planet101;
         showTravel(universe.gameUniverse[100]);
-    }    
-    
+    }
     @FXML
     private void planet102Clicked() {
-        nextPlanet = Planet102;
+        nextPlanet = planet102;
         showTravel(universe.gameUniverse[101]);
-    }    
-    
+    }
     @FXML
     private void planet103Clicked() {
-        nextPlanet = Planet103;
+        nextPlanet = planet103;
         showTravel(universe.gameUniverse[102]);
-    }    
-    
+    }
     @FXML
     private void planet104Clicked() {
-        nextPlanet = Planet104;
+        nextPlanet = planet104;
         showTravel(universe.gameUniverse[103]);
-    }    
-    
+    }
     @FXML
     private void planet105Clicked() {
-        nextPlanet = Planet105;
+        nextPlanet = planet105;
         showTravel(universe.gameUniverse[104]);
     }
-    
     @FXML
     private void planet106Clicked() {
-        nextPlanet = Planet106;
+        nextPlanet = planet106;
         showTravel(universe.gameUniverse[105]);
     }
-    
     @FXML
     private void planet107Clicked() {
-        nextPlanet = Planet107;
+        nextPlanet = planet107;
         showTravel(universe.gameUniverse[106]);
     }
-    
     @FXML
     private void planet108Clicked() {
-        nextPlanet = Planet108;
+        nextPlanet = planet108;
         showTravel(universe.gameUniverse[107]);
     }
-    
     @FXML
     private void planet109Clicked() {
-        nextPlanet = Planet109;
+        nextPlanet = planet109;
         showTravel(universe.gameUniverse[108]);
-    }    
-    
+    }
     @FXML
     private void planet110Clicked() {
-        nextPlanet = Planet110;
+        nextPlanet = planet110;
         showTravel(universe.gameUniverse[109]);
     }
-    
     @FXML
     private void planet111Clicked() {
-        nextPlanet = Planet111;
+        nextPlanet = planet111;
         showTravel(universe.gameUniverse[110]);
-    }    
-    
+    }
     @FXML
     private void planet112Clicked() {
-        nextPlanet = Planet112;
+        nextPlanet = planet112;
         showTravel(universe.gameUniverse[111]);
-    }    
-    
+    }
     @FXML
     private void planet113Clicked() {
-        nextPlanet = Planet113;
+        nextPlanet = planet113;
         showTravel(universe.gameUniverse[112]);
-    }    
-    
+    }
     @FXML
     private void planet114Clicked() {
-        nextPlanet = Planet114;
+        nextPlanet = planet114;
         showTravel(universe.gameUniverse[113]);
     }
-
 // </editor-fold>
     /**
      * Refreshes map tab on click by resetting attributes
@@ -1507,354 +1391,353 @@ public class FXMLDocumentController implements Initializable {
      * Initializes the map by filling the tab with circles.
      */
     private void initializeMap() {
-        Planet1.setLayoutX(universe.gameUniverse[0].getX() * 6 + 3);
-        Planet1.setLayoutY(universe.gameUniverse[0].getY() * 6 + 3);
-        Planet1.setVisible(true);
-        Planet1.setFill(Color.DARKORANGE);
-        Planet2.setLayoutX(universe.gameUniverse[1].getX() * 6 + 3);
-        Planet2.setLayoutY(universe.gameUniverse[1].getY() * 6 + 3);
-        Planet2.setVisible(true);
-        Planet3.setLayoutX(universe.gameUniverse[2].getX() * 6 + 3);
-        Planet3.setLayoutY(universe.gameUniverse[2].getY() * 6 + 3);
-        Planet3.setVisible(true);
-        Planet4.setLayoutX(universe.gameUniverse[3].getX() * 6 + 3);
-        Planet4.setLayoutY(universe.gameUniverse[3].getY() * 6 + 3);
-        Planet4.setVisible(true);
-        Planet5.setLayoutX(universe.gameUniverse[4].getX() * 6 + 3);
-        Planet5.setLayoutY(universe.gameUniverse[4].getY() * 6 + 3);
-        Planet5.setVisible(true);
-        Planet6.setLayoutX(universe.gameUniverse[5].getX() * 6 + 3);
-        Planet6.setLayoutY(universe.gameUniverse[5].getY() * 6 + 3);
-        Planet6.setVisible(true);
-        Planet7.setLayoutX(universe.gameUniverse[6].getX() * 6 + 3);
-        Planet7.setLayoutY(universe.gameUniverse[6].getY() * 6 + 3);
-        Planet7.setVisible(true);
-        Planet8.setLayoutX(universe.gameUniverse[7].getX() * 6 + 3);
-        Planet8.setLayoutY(universe.gameUniverse[7].getY() * 6 + 3);
-        Planet8.setVisible(true);
-        Planet9.setLayoutX(universe.gameUniverse[8].getX() * 6 + 3);
-        Planet9.setLayoutY(universe.gameUniverse[8].getY() * 6 + 3);
-        Planet9.setVisible(true);
-        Planet10.setLayoutX(universe.gameUniverse[9].getX() * 6 + 3);
-        Planet10.setLayoutY(universe.gameUniverse[9].getY() * 6 + 3);
-        Planet10.setVisible(true);
-        Planet11.setLayoutX(universe.gameUniverse[10].getX() * 6 + 3);
-        Planet11.setLayoutY(universe.gameUniverse[10].getY() * 6 + 3);
-        Planet11.setVisible(true);
-        Planet12.setLayoutX(universe.gameUniverse[11].getX() * 6 + 3);
-        Planet12.setLayoutY(universe.gameUniverse[11].getY() * 6 + 3);
-        Planet12.setVisible(true);
-        Planet13.setLayoutX(universe.gameUniverse[12].getX() * 6 + 3);
-        Planet13.setLayoutY(universe.gameUniverse[12].getY() * 6 + 3);
-        Planet13.setVisible(true);
-        Planet14.setLayoutX(universe.gameUniverse[13].getX() * 6 + 3);
-        Planet14.setLayoutY(universe.gameUniverse[13].getY() * 6 + 3);
-        Planet14.setVisible(true);
-        Planet15.setLayoutX(universe.gameUniverse[14].getX() * 6 + 3);
-        Planet15.setLayoutY(universe.gameUniverse[14].getY() * 6 + 3);
-        Planet15.setVisible(true);
-        Planet16.setLayoutX(universe.gameUniverse[15].getX() * 6 + 3);
-        Planet16.setLayoutY(universe.gameUniverse[15].getY() * 6 + 3);
-        Planet16.setVisible(true);
-        Planet17.setLayoutX(universe.gameUniverse[16].getX() * 6 + 3);
-        Planet17.setLayoutY(universe.gameUniverse[16].getY() * 6 + 3);
-        Planet17.setVisible(true);
-        Planet18.setLayoutX(universe.gameUniverse[17].getX() * 6 + 3);
-        Planet18.setLayoutY(universe.gameUniverse[17].getY() * 6 + 3);
-        Planet18.setVisible(true);
-        Planet19.setLayoutX(universe.gameUniverse[18].getX() * 6 + 3);
-        Planet19.setLayoutY(universe.gameUniverse[18].getY() * 6 + 3);
-        Planet19.setVisible(true);
-        Planet20.setLayoutX(universe.gameUniverse[19].getX() * 6 + 3);
-        Planet20.setLayoutY(universe.gameUniverse[19].getY() * 6 + 3);
-        Planet20.setVisible(true);
-        Planet21.setLayoutX(universe.gameUniverse[20].getX() * 6 + 3);
-        Planet21.setLayoutY(universe.gameUniverse[20].getY() * 6 + 3);
-        Planet21.setVisible(true);
-        Planet22.setLayoutX(universe.gameUniverse[21].getX() * 6 + 3);
-        Planet22.setLayoutY(universe.gameUniverse[21].getY() * 6 + 3);
-        Planet22.setVisible(true);
-        Planet23.setLayoutX(universe.gameUniverse[22].getX() * 6 + 3);
-        Planet23.setLayoutY(universe.gameUniverse[22].getY() * 6 + 3);
-        Planet23.setVisible(true);
-        Planet24.setLayoutX(universe.gameUniverse[23].getX() * 6 + 3);
-        Planet24.setLayoutY(universe.gameUniverse[23].getY() * 6 + 3);
-        Planet24.setVisible(true);
-        Planet25.setLayoutX(universe.gameUniverse[24].getX() * 6 + 3);
-        Planet25.setLayoutY(universe.gameUniverse[24].getY() * 6 + 3);
-        Planet25.setVisible(true);
-        Planet26.setLayoutX(universe.gameUniverse[25].getX() * 6 + 3);
-        Planet26.setLayoutY(universe.gameUniverse[25].getY() * 6 + 3);
-        Planet26.setVisible(true);
-        Planet27.setLayoutX(universe.gameUniverse[26].getX() * 6 + 3);
-        Planet27.setLayoutY(universe.gameUniverse[26].getY() * 6 + 3);
-        Planet27.setVisible(true);
-        Planet28.setLayoutX(universe.gameUniverse[27].getX() * 6 + 3);
-        Planet28.setLayoutY(universe.gameUniverse[27].getY() * 6 + 3);
-        Planet28.setVisible(true);
-        Planet29.setLayoutX(universe.gameUniverse[28].getX() * 6 + 3);
-        Planet29.setLayoutY(universe.gameUniverse[28].getY() * 6 + 3);
-        Planet29.setVisible(true);
-        Planet30.setLayoutX(universe.gameUniverse[29].getX() * 6 + 3);
-        Planet30.setLayoutY(universe.gameUniverse[29].getY() * 6 + 3);
-        Planet30.setVisible(true);
-        Planet31.setLayoutX(universe.gameUniverse[30].getX() * 6 + 3);
-        Planet31.setLayoutY(universe.gameUniverse[30].getY() * 6 + 3);
-        Planet31.setVisible(true);
-        Planet32.setLayoutX(universe.gameUniverse[31].getX() * 6 + 3);
-        Planet32.setLayoutY(universe.gameUniverse[31].getY() * 6 + 3);
-        Planet32.setVisible(true);
-        Planet33.setLayoutX(universe.gameUniverse[32].getX() * 6 + 3);
-        Planet33.setLayoutY(universe.gameUniverse[32].getY() * 6 + 3);
-        Planet33.setVisible(true);
-        Planet34.setLayoutX(universe.gameUniverse[33].getX() * 6 + 3);
-        Planet34.setLayoutY(universe.gameUniverse[33].getY() * 6 + 3);
-        Planet34.setVisible(true);
-        Planet35.setLayoutX(universe.gameUniverse[34].getX() * 6 + 3);
-        Planet35.setLayoutY(universe.gameUniverse[34].getY() * 6 + 3);
-        Planet35.setVisible(true);
-        Planet36.setLayoutX(universe.gameUniverse[35].getX() * 6 + 3);
-        Planet36.setLayoutY(universe.gameUniverse[35].getY() * 6 + 3);
-        Planet36.setVisible(true);
-        Planet37.setLayoutX(universe.gameUniverse[36].getX() * 6 + 3);
-        Planet37.setLayoutY(universe.gameUniverse[36].getY() * 6 + 3);
-        Planet37.setVisible(true);
-        Planet38.setLayoutX(universe.gameUniverse[37].getX() * 6 + 3);
-        Planet38.setLayoutY(universe.gameUniverse[37].getY() * 6 + 3);
-        Planet38.setVisible(true);
-        Planet39.setLayoutX(universe.gameUniverse[38].getX() * 6 + 3);
-        Planet39.setLayoutY(universe.gameUniverse[38].getY() * 6 + 3);
-        Planet39.setVisible(true);
-        Planet40.setLayoutX(universe.gameUniverse[39].getX() * 6 + 3);
-        Planet40.setLayoutY(universe.gameUniverse[39].getY() * 6 + 3);
-        Planet40.setVisible(true);
-        Planet41.setLayoutX(universe.gameUniverse[40].getX() * 6 + 3);
-        Planet41.setLayoutY(universe.gameUniverse[40].getY() * 6 + 3);
-        Planet41.setVisible(true);
-        Planet42.setLayoutX(universe.gameUniverse[41].getX() * 6 + 3);
-        Planet42.setLayoutY(universe.gameUniverse[41].getY() * 6 + 3);
-        Planet42.setVisible(true);
-        Planet43.setLayoutX(universe.gameUniverse[42].getX() * 6 + 3);
-        Planet43.setLayoutY(universe.gameUniverse[42].getY() * 6 + 3);
-        Planet43.setVisible(true);
-        Planet44.setLayoutX(universe.gameUniverse[43].getX() * 6 + 3);
-        Planet44.setLayoutY(universe.gameUniverse[43].getY() * 6 + 3);
-        Planet44.setVisible(true);
-        Planet45.setLayoutX(universe.gameUniverse[44].getX() * 6 + 3);
-        Planet45.setLayoutY(universe.gameUniverse[44].getY() * 6 + 3);
-        Planet45.setVisible(true);
-        Planet46.setLayoutX(universe.gameUniverse[45].getX() * 6 + 3);
-        Planet46.setLayoutY(universe.gameUniverse[45].getY() * 6 + 3);
-        Planet46.setVisible(true);
-        Planet47.setLayoutX(universe.gameUniverse[46].getX() * 6 + 3);
-        Planet47.setLayoutY(universe.gameUniverse[46].getY() * 6 + 3);
-        Planet47.setVisible(true);
-        Planet48.setLayoutX(universe.gameUniverse[47].getX() * 6 + 3);
-        Planet48.setLayoutY(universe.gameUniverse[47].getY() * 6 + 3);
-        Planet48.setVisible(true);
-        Planet49.setLayoutX(universe.gameUniverse[48].getX() * 6 + 3);
-        Planet49.setLayoutY(universe.gameUniverse[48].getY() * 6 + 3);
-        Planet49.setVisible(true);
-        Planet50.setLayoutX(universe.gameUniverse[49].getX() * 6 + 3);
-        Planet50.setLayoutY(universe.gameUniverse[49].getY() * 6 + 3);
-        Planet50.setVisible(true);
-        Planet51.setLayoutX(universe.gameUniverse[50].getX() * 6 + 3);
-        Planet51.setLayoutY(universe.gameUniverse[50].getY() * 6 + 3);
-        Planet51.setVisible(true);
-        Planet52.setLayoutX(universe.gameUniverse[51].getX() * 6 + 3);
-        Planet52.setLayoutY(universe.gameUniverse[51].getY() * 6 + 3);
-        Planet52.setVisible(true);
-        Planet53.setLayoutX(universe.gameUniverse[52].getX() * 6 + 3);
-        Planet53.setLayoutY(universe.gameUniverse[52].getY() * 6 + 3);
-        Planet53.setVisible(true);
-        Planet54.setLayoutX(universe.gameUniverse[53].getX() * 6 + 3);
-        Planet54.setLayoutY(universe.gameUniverse[53].getY() * 6 + 3);
-        Planet54.setVisible(true);
-        Planet55.setLayoutX(universe.gameUniverse[54].getX() * 6 + 3);
-        Planet55.setLayoutY(universe.gameUniverse[54].getY() * 6 + 3);
-        Planet55.setVisible(true);
-        Planet56.setLayoutX(universe.gameUniverse[55].getX() * 6 + 3);
-        Planet56.setLayoutY(universe.gameUniverse[55].getY() * 6 + 3);
-        Planet56.setVisible(true);
-        Planet57.setLayoutX(universe.gameUniverse[56].getX() * 6 + 3);
-        Planet57.setLayoutY(universe.gameUniverse[56].getY() * 6 + 3);
-        Planet57.setVisible(true);
-        Planet58.setLayoutX(universe.gameUniverse[57].getX() * 6 + 3);
-        Planet58.setLayoutY(universe.gameUniverse[57].getY() * 6 + 3);
-        Planet58.setVisible(true);
-        Planet59.setLayoutX(universe.gameUniverse[58].getX() * 6 + 3);
-        Planet59.setLayoutY(universe.gameUniverse[58].getY() * 6 + 3);
-        Planet59.setVisible(true);
-        Planet60.setLayoutX(universe.gameUniverse[59].getX() * 6 + 3);
-        Planet60.setLayoutY(universe.gameUniverse[59].getY() * 6 + 3);
-        Planet60.setVisible(true);
-        Planet61.setLayoutX(universe.gameUniverse[60].getX() * 6 + 3);
-        Planet61.setLayoutY(universe.gameUniverse[60].getY() * 6 + 3);
-        Planet61.setVisible(true);
-        Planet62.setLayoutX(universe.gameUniverse[61].getX() * 6 + 3);
-        Planet62.setLayoutY(universe.gameUniverse[61].getY() * 6 + 3);
-        Planet62.setVisible(true);
-        Planet63.setLayoutX(universe.gameUniverse[62].getX() * 6 + 3);
-        Planet63.setLayoutY(universe.gameUniverse[62].getY() * 6 + 3);
-        Planet63.setVisible(true);
-        Planet64.setLayoutX(universe.gameUniverse[63].getX() * 6 + 3);
-        Planet64.setLayoutY(universe.gameUniverse[63].getY() * 6 + 3);
-        Planet64.setVisible(true);
-        Planet65.setLayoutX(universe.gameUniverse[64].getX() * 6 + 3);
-        Planet65.setLayoutY(universe.gameUniverse[64].getY() * 6 + 3);
-        Planet65.setVisible(true);
-        Planet66.setLayoutX(universe.gameUniverse[65].getX() * 6 + 3);
-        Planet66.setLayoutY(universe.gameUniverse[65].getY() * 6 + 3);
-        Planet66.setVisible(true);
-        Planet67.setLayoutX(universe.gameUniverse[66].getX() * 6 + 3);
-        Planet67.setLayoutY(universe.gameUniverse[66].getY() * 6 + 3);
-        Planet67.setVisible(true);
-        Planet68.setLayoutX(universe.gameUniverse[67].getX() * 6 + 3);
-        Planet68.setLayoutY(universe.gameUniverse[67].getY() * 6 + 3);
-        Planet68.setVisible(true);
-        Planet69.setLayoutX(universe.gameUniverse[68].getX() * 6 + 3);
-        Planet69.setLayoutY(universe.gameUniverse[68].getY() * 6 + 3);
-        Planet69.setVisible(true);
-        Planet70.setLayoutX(universe.gameUniverse[69].getX() * 6 + 3);
-        Planet70.setLayoutY(universe.gameUniverse[69].getY() * 6 + 3);
-        Planet70.setVisible(true);
-        Planet71.setLayoutX(universe.gameUniverse[70].getX() * 6 + 3);
-        Planet71.setLayoutY(universe.gameUniverse[70].getY() * 6 + 3);
-        Planet71.setVisible(true);
-        Planet72.setLayoutX(universe.gameUniverse[71].getX() * 6 + 3);
-        Planet72.setLayoutY(universe.gameUniverse[71].getY() * 6 + 3);
-        Planet72.setVisible(true);
-        Planet73.setLayoutX(universe.gameUniverse[72].getX() * 6 + 3);
-        Planet73.setLayoutY(universe.gameUniverse[72].getY() * 6 + 3);
-        Planet73.setVisible(true);
-        Planet74.setLayoutX(universe.gameUniverse[73].getX() * 6 + 3);
-        Planet74.setLayoutY(universe.gameUniverse[73].getY() * 6 + 3);
-        Planet74.setVisible(true);
-        Planet75.setLayoutX(universe.gameUniverse[74].getX() * 6 + 3);
-        Planet75.setLayoutY(universe.gameUniverse[74].getY() * 6 + 3);
-        Planet75.setVisible(true);
-        Planet76.setLayoutX(universe.gameUniverse[75].getX() * 6 + 3);
-        Planet76.setLayoutY(universe.gameUniverse[75].getY() * 6 + 3);
-        Planet76.setVisible(true);
-        Planet77.setLayoutX(universe.gameUniverse[76].getX() * 6 + 3);
-        Planet77.setLayoutY(universe.gameUniverse[76].getY() * 6 + 3);
-        Planet77.setVisible(true);
-        Planet78.setLayoutX(universe.gameUniverse[77].getX() * 6 + 3);
-        Planet78.setLayoutY(universe.gameUniverse[77].getY() * 6 + 3);
-        Planet78.setVisible(true);
-        Planet79.setLayoutX(universe.gameUniverse[78].getX() * 6 + 3);
-        Planet79.setLayoutY(universe.gameUniverse[78].getY() * 6 + 3);
-        Planet79.setVisible(true);
-        Planet80.setLayoutX(universe.gameUniverse[79].getX() * 6 + 3);
-        Planet80.setLayoutY(universe.gameUniverse[79].getY() * 6 + 3);
-        Planet80.setVisible(true);
-        Planet81.setLayoutX(universe.gameUniverse[80].getX() * 6 + 3);
-        Planet81.setLayoutY(universe.gameUniverse[80].getY() * 6 + 3);
-        Planet81.setVisible(true);
-        Planet82.setLayoutX(universe.gameUniverse[81].getX() * 6 + 3);
-        Planet82.setLayoutY(universe.gameUniverse[81].getY() * 6 + 3);
-        Planet82.setVisible(true);
-        Planet83.setLayoutX(universe.gameUniverse[82].getX() * 6 + 3);
-        Planet83.setLayoutY(universe.gameUniverse[82].getY() * 6 + 3);
-        Planet83.setVisible(true);
-        Planet84.setLayoutX(universe.gameUniverse[83].getX() * 6 + 3);
-        Planet84.setLayoutY(universe.gameUniverse[83].getY() * 6 + 3);
-        Planet84.setVisible(true);
-        Planet85.setLayoutX(universe.gameUniverse[84].getX() * 6 + 3);
-        Planet85.setLayoutY(universe.gameUniverse[84].getY() * 6 + 3);
-        Planet85.setVisible(true);
-        Planet86.setLayoutX(universe.gameUniverse[85].getX() * 6 + 3);
-        Planet86.setLayoutY(universe.gameUniverse[85].getY() * 6 + 3);
-        Planet86.setVisible(true);
-        Planet87.setLayoutX(universe.gameUniverse[86].getX() * 6 + 3);
-        Planet87.setLayoutY(universe.gameUniverse[86].getY() * 6 + 3);
-        Planet87.setVisible(true);
-        Planet88.setLayoutX(universe.gameUniverse[87].getX() * 6 + 3);
-        Planet88.setLayoutY(universe.gameUniverse[87].getY() * 6 + 3);
-        Planet88.setVisible(true);
-        Planet89.setLayoutX(universe.gameUniverse[88].getX() * 6 + 3);
-        Planet89.setLayoutY(universe.gameUniverse[88].getY() * 6 + 3);
-        Planet89.setVisible(true);
-        Planet90.setLayoutX(universe.gameUniverse[89].getX() * 6 + 3);
-        Planet90.setLayoutY(universe.gameUniverse[89].getY() * 6 + 3);
-        Planet90.setVisible(true);
-        Planet91.setLayoutX(universe.gameUniverse[90].getX() * 6 + 3);
-        Planet91.setLayoutY(universe.gameUniverse[90].getY() * 6 + 3);
-        Planet91.setVisible(true);
-        Planet92.setLayoutX(universe.gameUniverse[91].getX() * 6 + 3);
-        Planet92.setLayoutY(universe.gameUniverse[91].getY() * 6 + 3);
-        Planet92.setVisible(true);
-        Planet93.setLayoutX(universe.gameUniverse[92].getX() * 6 + 3);
-        Planet93.setLayoutY(universe.gameUniverse[92].getY() * 6 + 3);
-        Planet93.setVisible(true);
-        Planet94.setLayoutX(universe.gameUniverse[93].getX() * 6 + 3);
-        Planet94.setLayoutY(universe.gameUniverse[93].getY() * 6 + 3);
-        Planet94.setVisible(true);
-        Planet95.setLayoutX(universe.gameUniverse[94].getX() * 6 + 3);
-        Planet95.setLayoutY(universe.gameUniverse[94].getY() * 6 + 3);
-        Planet95.setVisible(true);
-        Planet96.setLayoutX(universe.gameUniverse[95].getX() * 6 + 3);
-        Planet96.setLayoutY(universe.gameUniverse[95].getY() * 6 + 3);
-        Planet96.setVisible(true);
-        Planet97.setLayoutX(universe.gameUniverse[96].getX() * 6 + 3);
-        Planet97.setLayoutY(universe.gameUniverse[96].getY() * 6 + 3);
-        Planet97.setVisible(true);
-        Planet98.setLayoutX(universe.gameUniverse[97].getX() * 6 + 3);
-        Planet98.setLayoutY(universe.gameUniverse[97].getY() * 6 + 3);
-        Planet98.setVisible(true);
-        Planet99.setLayoutX(universe.gameUniverse[98].getX() * 6 + 3);
-        Planet99.setLayoutY(universe.gameUniverse[98].getY() * 6 + 3);
-        Planet99.setVisible(true);
-        Planet100.setLayoutX(universe.gameUniverse[99].getX() * 6 + 3);
-        Planet100.setLayoutY(universe.gameUniverse[99].getY() * 6 + 3);
-        Planet100.setVisible(true);
-        Planet101.setLayoutX(universe.gameUniverse[100].getX() * 6 + 3);
-        Planet101.setLayoutY(universe.gameUniverse[100].getY() * 6 + 3);
-        Planet101.setVisible(true);
-        Planet102.setLayoutX(universe.gameUniverse[101].getX() * 6 + 3);
-        Planet102.setLayoutY(universe.gameUniverse[101].getY() * 6 + 3);
-        Planet102.setVisible(true);
-        Planet103.setLayoutX(universe.gameUniverse[102].getX() * 6 + 3);
-        Planet103.setLayoutY(universe.gameUniverse[102].getY() * 6 + 3);
-        Planet103.setVisible(true);
-        Planet104.setLayoutX(universe.gameUniverse[103].getX() * 6 + 3);
-        Planet104.setLayoutY(universe.gameUniverse[103].getY() * 6 + 3);
-        Planet104.setVisible(true);
-        Planet105.setLayoutX(universe.gameUniverse[104].getX() * 6 + 3);
-        Planet105.setLayoutY(universe.gameUniverse[104].getY() * 6 + 3);
-        Planet105.setVisible(true);
-        Planet106.setLayoutX(universe.gameUniverse[105].getX() * 6 + 3);
-        Planet106.setLayoutY(universe.gameUniverse[105].getY() * 6 + 3);
-        Planet106.setVisible(true);
-        Planet107.setLayoutX(universe.gameUniverse[106].getX() * 6 + 3);
-        Planet107.setLayoutY(universe.gameUniverse[106].getY() * 6 + 3);
-        Planet107.setVisible(true);
-        Planet108.setLayoutX(universe.gameUniverse[107].getX() * 6 + 3);
-        Planet108.setLayoutY(universe.gameUniverse[107].getY() * 6 + 3);
-        Planet108.setVisible(true);
-        Planet109.setLayoutX(universe.gameUniverse[108].getX() * 6 + 3);
-        Planet109.setLayoutY(universe.gameUniverse[108].getY() * 6 + 3);
-        Planet109.setVisible(true);
-        Planet110.setLayoutX(universe.gameUniverse[109].getX() * 6 + 3);
-        Planet110.setLayoutY(universe.gameUniverse[109].getY() * 6 + 3);
-        Planet110.setVisible(true);
-        Planet111.setLayoutX(universe.gameUniverse[110].getX() * 6 + 3);
-        Planet111.setLayoutY(universe.gameUniverse[110].getY() * 6 + 3);
-        Planet111.setVisible(true);
-        Planet112.setLayoutX(universe.gameUniverse[111].getX() * 6 + 3);
-        Planet112.setLayoutY(universe.gameUniverse[111].getY() * 6 + 3);
-        Planet112.setVisible(true);
-        Planet113.setLayoutX(universe.gameUniverse[112].getX() * 6 + 3);
-        Planet113.setLayoutY(universe.gameUniverse[112].getY() * 6 + 3);
-        Planet113.setVisible(true);
-        Planet114.setLayoutX(universe.gameUniverse[113].getX() * 6 + 3);
-        Planet114.setLayoutY(universe.gameUniverse[113].getY() * 6 + 3);
-        Planet114.setVisible(true);
-        
+        planet1.setLayoutX(universe.gameUniverse[0].getX() * 6 + 3);
+        planet1.setLayoutY(universe.gameUniverse[0].getY() * 6 + 3);
+        planet1.setVisible(true);
+        planet1.setFill(Color.DARKORANGE);
+        planet2.setLayoutX(universe.gameUniverse[1].getX() * 6 + 3);
+        planet2.setLayoutY(universe.gameUniverse[1].getY() * 6 + 3);
+        planet2.setVisible(true);
+        planet3.setLayoutX(universe.gameUniverse[2].getX() * 6 + 3);
+        planet3.setLayoutY(universe.gameUniverse[2].getY() * 6 + 3);
+        planet3.setVisible(true);
+        planet4.setLayoutX(universe.gameUniverse[3].getX() * 6 + 3);
+        planet4.setLayoutY(universe.gameUniverse[3].getY() * 6 + 3);
+        planet4.setVisible(true);
+        planet5.setLayoutX(universe.gameUniverse[4].getX() * 6 + 3);
+        planet5.setLayoutY(universe.gameUniverse[4].getY() * 6 + 3);
+        planet5.setVisible(true);
+        planet6.setLayoutX(universe.gameUniverse[5].getX() * 6 + 3);
+        planet6.setLayoutY(universe.gameUniverse[5].getY() * 6 + 3);
+        planet6.setVisible(true);
+        planet7.setLayoutX(universe.gameUniverse[6].getX() * 6 + 3);
+        planet7.setLayoutY(universe.gameUniverse[6].getY() * 6 + 3);
+        planet7.setVisible(true);
+        planet8.setLayoutX(universe.gameUniverse[7].getX() * 6 + 3);
+        planet8.setLayoutY(universe.gameUniverse[7].getY() * 6 + 3);
+        planet8.setVisible(true);
+        planet9.setLayoutX(universe.gameUniverse[8].getX() * 6 + 3);
+        planet9.setLayoutY(universe.gameUniverse[8].getY() * 6 + 3);
+        planet9.setVisible(true);
+        planet10.setLayoutX(universe.gameUniverse[9].getX() * 6 + 3);
+        planet10.setLayoutY(universe.gameUniverse[9].getY() * 6 + 3);
+        planet10.setVisible(true);
+        planet11.setLayoutX(universe.gameUniverse[10].getX() * 6 + 3);
+        planet11.setLayoutY(universe.gameUniverse[10].getY() * 6 + 3);
+        planet11.setVisible(true);
+        planet12.setLayoutX(universe.gameUniverse[11].getX() * 6 + 3);
+        planet12.setLayoutY(universe.gameUniverse[11].getY() * 6 + 3);
+        planet12.setVisible(true);
+        planet13.setLayoutX(universe.gameUniverse[12].getX() * 6 + 3);
+        planet13.setLayoutY(universe.gameUniverse[12].getY() * 6 + 3);
+        planet13.setVisible(true);
+        planet14.setLayoutX(universe.gameUniverse[13].getX() * 6 + 3);
+        planet14.setLayoutY(universe.gameUniverse[13].getY() * 6 + 3);
+        planet14.setVisible(true);
+        planet15.setLayoutX(universe.gameUniverse[14].getX() * 6 + 3);
+        planet15.setLayoutY(universe.gameUniverse[14].getY() * 6 + 3);
+        planet15.setVisible(true);
+        planet16.setLayoutX(universe.gameUniverse[15].getX() * 6 + 3);
+        planet16.setLayoutY(universe.gameUniverse[15].getY() * 6 + 3);
+        planet16.setVisible(true);
+        planet17.setLayoutX(universe.gameUniverse[16].getX() * 6 + 3);
+        planet17.setLayoutY(universe.gameUniverse[16].getY() * 6 + 3);
+        planet17.setVisible(true);
+        planet18.setLayoutX(universe.gameUniverse[17].getX() * 6 + 3);
+        planet18.setLayoutY(universe.gameUniverse[17].getY() * 6 + 3);
+        planet18.setVisible(true);
+        planet19.setLayoutX(universe.gameUniverse[18].getX() * 6 + 3);
+        planet19.setLayoutY(universe.gameUniverse[18].getY() * 6 + 3);
+        planet19.setVisible(true);
+        planet20.setLayoutX(universe.gameUniverse[19].getX() * 6 + 3);
+        planet20.setLayoutY(universe.gameUniverse[19].getY() * 6 + 3);
+        planet20.setVisible(true);
+        planet21.setLayoutX(universe.gameUniverse[20].getX() * 6 + 3);
+        planet21.setLayoutY(universe.gameUniverse[20].getY() * 6 + 3);
+        planet21.setVisible(true);
+        planet22.setLayoutX(universe.gameUniverse[21].getX() * 6 + 3);
+        planet22.setLayoutY(universe.gameUniverse[21].getY() * 6 + 3);
+        planet22.setVisible(true);
+        planet23.setLayoutX(universe.gameUniverse[22].getX() * 6 + 3);
+        planet23.setLayoutY(universe.gameUniverse[22].getY() * 6 + 3);
+        planet23.setVisible(true);
+        planet24.setLayoutX(universe.gameUniverse[23].getX() * 6 + 3);
+        planet24.setLayoutY(universe.gameUniverse[23].getY() * 6 + 3);
+        planet24.setVisible(true);
+        planet25.setLayoutX(universe.gameUniverse[24].getX() * 6 + 3);
+        planet25.setLayoutY(universe.gameUniverse[24].getY() * 6 + 3);
+        planet25.setVisible(true);
+        planet26.setLayoutX(universe.gameUniverse[25].getX() * 6 + 3);
+        planet26.setLayoutY(universe.gameUniverse[25].getY() * 6 + 3);
+        planet26.setVisible(true);
+        planet27.setLayoutX(universe.gameUniverse[26].getX() * 6 + 3);
+        planet27.setLayoutY(universe.gameUniverse[26].getY() * 6 + 3);
+        planet27.setVisible(true);
+        planet28.setLayoutX(universe.gameUniverse[27].getX() * 6 + 3);
+        planet28.setLayoutY(universe.gameUniverse[27].getY() * 6 + 3);
+        planet28.setVisible(true);
+        planet29.setLayoutX(universe.gameUniverse[28].getX() * 6 + 3);
+        planet29.setLayoutY(universe.gameUniverse[28].getY() * 6 + 3);
+        planet29.setVisible(true);
+        planet30.setLayoutX(universe.gameUniverse[29].getX() * 6 + 3);
+        planet30.setLayoutY(universe.gameUniverse[29].getY() * 6 + 3);
+        planet30.setVisible(true);
+        planet31.setLayoutX(universe.gameUniverse[30].getX() * 6 + 3);
+        planet31.setLayoutY(universe.gameUniverse[30].getY() * 6 + 3);
+        planet31.setVisible(true);
+        planet32.setLayoutX(universe.gameUniverse[31].getX() * 6 + 3);
+        planet32.setLayoutY(universe.gameUniverse[31].getY() * 6 + 3);
+        planet32.setVisible(true);
+        planet33.setLayoutX(universe.gameUniverse[32].getX() * 6 + 3);
+        planet33.setLayoutY(universe.gameUniverse[32].getY() * 6 + 3);
+        planet33.setVisible(true);
+        planet34.setLayoutX(universe.gameUniverse[33].getX() * 6 + 3);
+        planet34.setLayoutY(universe.gameUniverse[33].getY() * 6 + 3);
+        planet34.setVisible(true);
+        planet35.setLayoutX(universe.gameUniverse[34].getX() * 6 + 3);
+        planet35.setLayoutY(universe.gameUniverse[34].getY() * 6 + 3);
+        planet35.setVisible(true);
+        planet36.setLayoutX(universe.gameUniverse[35].getX() * 6 + 3);
+        planet36.setLayoutY(universe.gameUniverse[35].getY() * 6 + 3);
+        planet36.setVisible(true);
+        planet37.setLayoutX(universe.gameUniverse[36].getX() * 6 + 3);
+        planet37.setLayoutY(universe.gameUniverse[36].getY() * 6 + 3);
+        planet37.setVisible(true);
+        planet38.setLayoutX(universe.gameUniverse[37].getX() * 6 + 3);
+        planet38.setLayoutY(universe.gameUniverse[37].getY() * 6 + 3);
+        planet38.setVisible(true);
+        planet39.setLayoutX(universe.gameUniverse[38].getX() * 6 + 3);
+        planet39.setLayoutY(universe.gameUniverse[38].getY() * 6 + 3);
+        planet39.setVisible(true);
+        planet40.setLayoutX(universe.gameUniverse[39].getX() * 6 + 3);
+        planet40.setLayoutY(universe.gameUniverse[39].getY() * 6 + 3);
+        planet40.setVisible(true);
+        planet41.setLayoutX(universe.gameUniverse[40].getX() * 6 + 3);
+        planet41.setLayoutY(universe.gameUniverse[40].getY() * 6 + 3);
+        planet41.setVisible(true);
+        planet42.setLayoutX(universe.gameUniverse[41].getX() * 6 + 3);
+        planet42.setLayoutY(universe.gameUniverse[41].getY() * 6 + 3);
+        planet42.setVisible(true);
+        planet43.setLayoutX(universe.gameUniverse[42].getX() * 6 + 3);
+        planet43.setLayoutY(universe.gameUniverse[42].getY() * 6 + 3);
+        planet43.setVisible(true);
+        planet44.setLayoutX(universe.gameUniverse[43].getX() * 6 + 3);
+        planet44.setLayoutY(universe.gameUniverse[43].getY() * 6 + 3);
+        planet44.setVisible(true);
+        planet45.setLayoutX(universe.gameUniverse[44].getX() * 6 + 3);
+        planet45.setLayoutY(universe.gameUniverse[44].getY() * 6 + 3);
+        planet45.setVisible(true);
+        planet46.setLayoutX(universe.gameUniverse[45].getX() * 6 + 3);
+        planet46.setLayoutY(universe.gameUniverse[45].getY() * 6 + 3);
+        planet46.setVisible(true);
+        planet47.setLayoutX(universe.gameUniverse[46].getX() * 6 + 3);
+        planet47.setLayoutY(universe.gameUniverse[46].getY() * 6 + 3);
+        planet47.setVisible(true);
+        planet48.setLayoutX(universe.gameUniverse[47].getX() * 6 + 3);
+        planet48.setLayoutY(universe.gameUniverse[47].getY() * 6 + 3);
+        planet48.setVisible(true);
+        planet49.setLayoutX(universe.gameUniverse[48].getX() * 6 + 3);
+        planet49.setLayoutY(universe.gameUniverse[48].getY() * 6 + 3);
+        planet49.setVisible(true);
+        planet50.setLayoutX(universe.gameUniverse[49].getX() * 6 + 3);
+        planet50.setLayoutY(universe.gameUniverse[49].getY() * 6 + 3);
+        planet50.setVisible(true);
+        planet51.setLayoutX(universe.gameUniverse[50].getX() * 6 + 3);
+        planet51.setLayoutY(universe.gameUniverse[50].getY() * 6 + 3);
+        planet51.setVisible(true);
+        planet52.setLayoutX(universe.gameUniverse[51].getX() * 6 + 3);
+        planet52.setLayoutY(universe.gameUniverse[51].getY() * 6 + 3);
+        planet52.setVisible(true);
+        planet53.setLayoutX(universe.gameUniverse[52].getX() * 6 + 3);
+        planet53.setLayoutY(universe.gameUniverse[52].getY() * 6 + 3);
+        planet53.setVisible(true);
+        planet54.setLayoutX(universe.gameUniverse[53].getX() * 6 + 3);
+        planet54.setLayoutY(universe.gameUniverse[53].getY() * 6 + 3);
+        planet54.setVisible(true);
+        planet55.setLayoutX(universe.gameUniverse[54].getX() * 6 + 3);
+        planet55.setLayoutY(universe.gameUniverse[54].getY() * 6 + 3);
+        planet55.setVisible(true);
+        planet56.setLayoutX(universe.gameUniverse[55].getX() * 6 + 3);
+        planet56.setLayoutY(universe.gameUniverse[55].getY() * 6 + 3);
+        planet56.setVisible(true);
+        planet57.setLayoutX(universe.gameUniverse[56].getX() * 6 + 3);
+        planet57.setLayoutY(universe.gameUniverse[56].getY() * 6 + 3);
+        planet57.setVisible(true);
+        planet58.setLayoutX(universe.gameUniverse[57].getX() * 6 + 3);
+        planet58.setLayoutY(universe.gameUniverse[57].getY() * 6 + 3);
+        planet58.setVisible(true);
+        planet59.setLayoutX(universe.gameUniverse[58].getX() * 6 + 3);
+        planet59.setLayoutY(universe.gameUniverse[58].getY() * 6 + 3);
+        planet59.setVisible(true);
+        planet60.setLayoutX(universe.gameUniverse[59].getX() * 6 + 3);
+        planet60.setLayoutY(universe.gameUniverse[59].getY() * 6 + 3);
+        planet60.setVisible(true);
+        planet61.setLayoutX(universe.gameUniverse[60].getX() * 6 + 3);
+        planet61.setLayoutY(universe.gameUniverse[60].getY() * 6 + 3);
+        planet61.setVisible(true);
+        planet62.setLayoutX(universe.gameUniverse[61].getX() * 6 + 3);
+        planet62.setLayoutY(universe.gameUniverse[61].getY() * 6 + 3);
+        planet62.setVisible(true);
+        planet63.setLayoutX(universe.gameUniverse[62].getX() * 6 + 3);
+        planet63.setLayoutY(universe.gameUniverse[62].getY() * 6 + 3);
+        planet63.setVisible(true);
+        planet64.setLayoutX(universe.gameUniverse[63].getX() * 6 + 3);
+        planet64.setLayoutY(universe.gameUniverse[63].getY() * 6 + 3);
+        planet64.setVisible(true);
+        planet65.setLayoutX(universe.gameUniverse[64].getX() * 6 + 3);
+        planet65.setLayoutY(universe.gameUniverse[64].getY() * 6 + 3);
+        planet65.setVisible(true);
+        planet66.setLayoutX(universe.gameUniverse[65].getX() * 6 + 3);
+        planet66.setLayoutY(universe.gameUniverse[65].getY() * 6 + 3);
+        planet66.setVisible(true);
+        planet67.setLayoutX(universe.gameUniverse[66].getX() * 6 + 3);
+        planet67.setLayoutY(universe.gameUniverse[66].getY() * 6 + 3);
+        planet67.setVisible(true);
+        planet68.setLayoutX(universe.gameUniverse[67].getX() * 6 + 3);
+        planet68.setLayoutY(universe.gameUniverse[67].getY() * 6 + 3);
+        planet68.setVisible(true);
+        planet69.setLayoutX(universe.gameUniverse[68].getX() * 6 + 3);
+        planet69.setLayoutY(universe.gameUniverse[68].getY() * 6 + 3);
+        planet69.setVisible(true);
+        planet70.setLayoutX(universe.gameUniverse[69].getX() * 6 + 3);
+        planet70.setLayoutY(universe.gameUniverse[69].getY() * 6 + 3);
+        planet70.setVisible(true);
+        planet71.setLayoutX(universe.gameUniverse[70].getX() * 6 + 3);
+        planet71.setLayoutY(universe.gameUniverse[70].getY() * 6 + 3);
+        planet71.setVisible(true);
+        planet72.setLayoutX(universe.gameUniverse[71].getX() * 6 + 3);
+        planet72.setLayoutY(universe.gameUniverse[71].getY() * 6 + 3);
+        planet72.setVisible(true);
+        planet73.setLayoutX(universe.gameUniverse[72].getX() * 6 + 3);
+        planet73.setLayoutY(universe.gameUniverse[72].getY() * 6 + 3);
+        planet73.setVisible(true);
+        planet74.setLayoutX(universe.gameUniverse[73].getX() * 6 + 3);
+        planet74.setLayoutY(universe.gameUniverse[73].getY() * 6 + 3);
+        planet74.setVisible(true);
+        planet75.setLayoutX(universe.gameUniverse[74].getX() * 6 + 3);
+        planet75.setLayoutY(universe.gameUniverse[74].getY() * 6 + 3);
+        planet75.setVisible(true);
+        planet76.setLayoutX(universe.gameUniverse[75].getX() * 6 + 3);
+        planet76.setLayoutY(universe.gameUniverse[75].getY() * 6 + 3);
+        planet76.setVisible(true);
+        planet77.setLayoutX(universe.gameUniverse[76].getX() * 6 + 3);
+        planet77.setLayoutY(universe.gameUniverse[76].getY() * 6 + 3);
+        planet77.setVisible(true);
+        planet78.setLayoutX(universe.gameUniverse[77].getX() * 6 + 3);
+        planet78.setLayoutY(universe.gameUniverse[77].getY() * 6 + 3);
+        planet78.setVisible(true);
+        planet79.setLayoutX(universe.gameUniverse[78].getX() * 6 + 3);
+        planet79.setLayoutY(universe.gameUniverse[78].getY() * 6 + 3);
+        planet79.setVisible(true);
+        planet80.setLayoutX(universe.gameUniverse[79].getX() * 6 + 3);
+        planet80.setLayoutY(universe.gameUniverse[79].getY() * 6 + 3);
+        planet80.setVisible(true);
+        planet81.setLayoutX(universe.gameUniverse[80].getX() * 6 + 3);
+        planet81.setLayoutY(universe.gameUniverse[80].getY() * 6 + 3);
+        planet81.setVisible(true);
+        planet82.setLayoutX(universe.gameUniverse[81].getX() * 6 + 3);
+        planet82.setLayoutY(universe.gameUniverse[81].getY() * 6 + 3);
+        planet82.setVisible(true);
+        planet83.setLayoutX(universe.gameUniverse[82].getX() * 6 + 3);
+        planet83.setLayoutY(universe.gameUniverse[82].getY() * 6 + 3);
+        planet83.setVisible(true);
+        planet84.setLayoutX(universe.gameUniverse[83].getX() * 6 + 3);
+        planet84.setLayoutY(universe.gameUniverse[83].getY() * 6 + 3);
+        planet84.setVisible(true);
+        planet85.setLayoutX(universe.gameUniverse[84].getX() * 6 + 3);
+        planet85.setLayoutY(universe.gameUniverse[84].getY() * 6 + 3);
+        planet85.setVisible(true);
+        planet86.setLayoutX(universe.gameUniverse[85].getX() * 6 + 3);
+        planet86.setLayoutY(universe.gameUniverse[85].getY() * 6 + 3);
+        planet86.setVisible(true);
+        planet87.setLayoutX(universe.gameUniverse[86].getX() * 6 + 3);
+        planet87.setLayoutY(universe.gameUniverse[86].getY() * 6 + 3);
+        planet87.setVisible(true);
+        planet88.setLayoutX(universe.gameUniverse[87].getX() * 6 + 3);
+        planet88.setLayoutY(universe.gameUniverse[87].getY() * 6 + 3);
+        planet88.setVisible(true);
+        planet89.setLayoutX(universe.gameUniverse[88].getX() * 6 + 3);
+        planet89.setLayoutY(universe.gameUniverse[88].getY() * 6 + 3);
+        planet89.setVisible(true);
+        planet90.setLayoutX(universe.gameUniverse[89].getX() * 6 + 3);
+        planet90.setLayoutY(universe.gameUniverse[89].getY() * 6 + 3);
+        planet90.setVisible(true);
+        planet91.setLayoutX(universe.gameUniverse[90].getX() * 6 + 3);
+        planet91.setLayoutY(universe.gameUniverse[90].getY() * 6 + 3);
+        planet91.setVisible(true);
+        planet92.setLayoutX(universe.gameUniverse[91].getX() * 6 + 3);
+        planet92.setLayoutY(universe.gameUniverse[91].getY() * 6 + 3);
+        planet92.setVisible(true);
+        planet93.setLayoutX(universe.gameUniverse[92].getX() * 6 + 3);
+        planet93.setLayoutY(universe.gameUniverse[92].getY() * 6 + 3);
+        planet93.setVisible(true);
+        planet94.setLayoutX(universe.gameUniverse[93].getX() * 6 + 3);
+        planet94.setLayoutY(universe.gameUniverse[93].getY() * 6 + 3);
+        planet94.setVisible(true);
+        planet95.setLayoutX(universe.gameUniverse[94].getX() * 6 + 3);
+        planet95.setLayoutY(universe.gameUniverse[94].getY() * 6 + 3);
+        planet95.setVisible(true);
+        planet96.setLayoutX(universe.gameUniverse[95].getX() * 6 + 3);
+        planet96.setLayoutY(universe.gameUniverse[95].getY() * 6 + 3);
+        planet96.setVisible(true);
+        planet97.setLayoutX(universe.gameUniverse[96].getX() * 6 + 3);
+        planet97.setLayoutY(universe.gameUniverse[96].getY() * 6 + 3);
+        planet97.setVisible(true);
+        planet98.setLayoutX(universe.gameUniverse[97].getX() * 6 + 3);
+        planet98.setLayoutY(universe.gameUniverse[97].getY() * 6 + 3);
+        planet98.setVisible(true);
+        planet99.setLayoutX(universe.gameUniverse[98].getX() * 6 + 3);
+        planet99.setLayoutY(universe.gameUniverse[98].getY() * 6 + 3);
+        planet99.setVisible(true);
+        planet100.setLayoutX(universe.gameUniverse[99].getX() * 6 + 3);
+        planet100.setLayoutY(universe.gameUniverse[99].getY() * 6 + 3);
+        planet100.setVisible(true);
+        planet101.setLayoutX(universe.gameUniverse[100].getX() * 6 + 3);
+        planet101.setLayoutY(universe.gameUniverse[100].getY() * 6 + 3);
+        planet101.setVisible(true);
+        planet102.setLayoutX(universe.gameUniverse[101].getX() * 6 + 3);
+        planet102.setLayoutY(universe.gameUniverse[101].getY() * 6 + 3);
+        planet102.setVisible(true);
+        planet103.setLayoutX(universe.gameUniverse[102].getX() * 6 + 3);
+        planet103.setLayoutY(universe.gameUniverse[102].getY() * 6 + 3);
+        planet103.setVisible(true);
+        planet104.setLayoutX(universe.gameUniverse[103].getX() * 6 + 3);
+        planet104.setLayoutY(universe.gameUniverse[103].getY() * 6 + 3);
+        planet104.setVisible(true);
+        planet105.setLayoutX(universe.gameUniverse[104].getX() * 6 + 3);
+        planet105.setLayoutY(universe.gameUniverse[104].getY() * 6 + 3);
+        planet105.setVisible(true);
+        planet106.setLayoutX(universe.gameUniverse[105].getX() * 6 + 3);
+        planet106.setLayoutY(universe.gameUniverse[105].getY() * 6 + 3);
+        planet106.setVisible(true);
+        planet107.setLayoutX(universe.gameUniverse[106].getX() * 6 + 3);
+        planet107.setLayoutY(universe.gameUniverse[106].getY() * 6 + 3);
+        planet107.setVisible(true);
+        planet108.setLayoutX(universe.gameUniverse[107].getX() * 6 + 3);
+        planet108.setLayoutY(universe.gameUniverse[107].getY() * 6 + 3);
+        planet108.setVisible(true);
+        planet109.setLayoutX(universe.gameUniverse[108].getX() * 6 + 3);
+        planet109.setLayoutY(universe.gameUniverse[108].getY() * 6 + 3);
+        planet109.setVisible(true);
+        planet110.setLayoutX(universe.gameUniverse[109].getX() * 6 + 3);
+        planet110.setLayoutY(universe.gameUniverse[109].getY() * 6 + 3);
+        planet110.setVisible(true);
+        planet111.setLayoutX(universe.gameUniverse[110].getX() * 6 + 3);
+        planet111.setLayoutY(universe.gameUniverse[110].getY() * 6 + 3);
+        planet111.setVisible(true);
+        planet112.setLayoutX(universe.gameUniverse[111].getX() * 6 + 3);
+        planet112.setLayoutY(universe.gameUniverse[111].getY() * 6 + 3);
+        planet112.setVisible(true);
+        planet113.setLayoutX(universe.gameUniverse[112].getX() * 6 + 3);
+        planet113.setLayoutY(universe.gameUniverse[112].getY() * 6 + 3);
+        planet113.setVisible(true);
+        planet114.setLayoutX(universe.gameUniverse[113].getX() * 6 + 3);
+        planet114.setLayoutY(universe.gameUniverse[113].getY() * 6 + 3);
+        planet114.setVisible(true);
     }
     /**
      * Sells water on button press
-     * @param event 
+     * @param event
      */
     @FXML
     private void sWaterBAction(ActionEvent event) {
@@ -1872,7 +1755,7 @@ public class FXMLDocumentController implements Initializable {
     }
     /**
      * Buys water on button press
-     * @param event 
+     * @param event
      */
     @FXML
     private void bWaterBAction(ActionEvent event) {
@@ -1890,7 +1773,7 @@ public class FXMLDocumentController implements Initializable {
     }
     /**
      * Sells furs on button press.
-     * @param event 
+     * @param event
      */
     @FXML
     private void sFursBAction(ActionEvent event) {
@@ -1908,7 +1791,7 @@ public class FXMLDocumentController implements Initializable {
     }
     /**
      * Buys furs on button press.
-     * @param event 
+     * @param event
      */
     @FXML
     private void bFursBAction(ActionEvent event) {
@@ -1926,7 +1809,7 @@ public class FXMLDocumentController implements Initializable {
     }
     /**
      * Sells food on button press
-     * @param event 
+     * @param event
      */
     @FXML
     private void sFoodBAction(ActionEvent event) {
@@ -1944,7 +1827,7 @@ public class FXMLDocumentController implements Initializable {
     }
     /**
      * Buys food on button press
-     * @param event 
+     * @param event
      */
     @FXML
     private void bFoodBAction(ActionEvent event) {
@@ -1962,7 +1845,7 @@ public class FXMLDocumentController implements Initializable {
     }
     /**
      * Sells ore on button press
-     * @param event 
+     * @param event
      */
     @FXML
     private void sOreBAction(ActionEvent event) {
@@ -1980,7 +1863,7 @@ public class FXMLDocumentController implements Initializable {
     }
     /**
      * Buys ore on button press
-     * @param event 
+     * @param event
      */
     @FXML
     private void bOreBAction(ActionEvent event) {
@@ -1998,7 +1881,7 @@ public class FXMLDocumentController implements Initializable {
     }
     /**
      * Sells game on button press
-     * @param event 
+     * @param event
      */
     @FXML
     private void sGamesBAction(ActionEvent event) {
@@ -2016,7 +1899,7 @@ public class FXMLDocumentController implements Initializable {
     }
     /**
      * Buys game on button press
-     * @param event 
+     * @param event
      */
     @FXML
     private void bGamesBAction(ActionEvent event) {
@@ -2034,7 +1917,7 @@ public class FXMLDocumentController implements Initializable {
     }
     /**
      * Sells firearm on button press
-     * @param event 
+     * @param event
      */
     @FXML
     private void sFirearmsBAction(ActionEvent event) {
@@ -2052,7 +1935,7 @@ public class FXMLDocumentController implements Initializable {
     }
     /**
      * Buys firearm on button press
-     * @param event 
+     * @param event
      */
     @FXML
     private void bFirearmsBAction(ActionEvent event) {
@@ -2070,7 +1953,7 @@ public class FXMLDocumentController implements Initializable {
     }
     /**
      * Sells medicine on button press
-     * @param event 
+     * @param event
      */
     @FXML
     private void sMedicineBAction(ActionEvent event) {
@@ -2088,7 +1971,7 @@ public class FXMLDocumentController implements Initializable {
     }
     /**
      * Buys medicine on button press
-     * @param event 
+     * @param event
      */
     @FXML
     private void bMedicineBAction(ActionEvent event) {
@@ -2106,7 +1989,7 @@ public class FXMLDocumentController implements Initializable {
     }
     /**
      * Sells machine on button press
-     * @param event 
+     * @param event
      */
     @FXML
     private void sMachinesBAction(ActionEvent event) {
@@ -2124,7 +2007,7 @@ public class FXMLDocumentController implements Initializable {
     }
     /**
      * Buys machine on button press
-     * @param event 
+     * @param event
      */
     @FXML
     private void bMachinesBAction(ActionEvent event) {
@@ -2142,7 +2025,7 @@ public class FXMLDocumentController implements Initializable {
     }
     /**
      * Sells narcotic on button press
-     * @param event 
+     * @param event
      */
     @FXML
     private void sNarcoticsBAction(ActionEvent event) {
@@ -2160,7 +2043,7 @@ public class FXMLDocumentController implements Initializable {
     }
     /**
      * Buys game on button press
-     * @param event 
+     * @param event
      */
     @FXML
     private void bNarcoticsBAction(ActionEvent event) {
@@ -2178,7 +2061,7 @@ public class FXMLDocumentController implements Initializable {
     }
     /**
      * Sells robot on button press
-     * @param event 
+     * @param event
      */
     @FXML
     private void sRobotsBAction(ActionEvent event) {
@@ -2196,7 +2079,7 @@ public class FXMLDocumentController implements Initializable {
     }
     /**
      * Buys robot on button press
-     * @param event 
+     * @param event
      */
     @FXML
     private void bRobotsBAction(ActionEvent event) {
@@ -2283,13 +2166,11 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void buyShipTwo() {
         if (shipyard.buy("Gnat") != -1) {
-            
             player = GameData.getPlayer();
             checkShipType();
         } else {
             showBErr();
         }
-        
     }
     /**
      * Buy a firefly ship.
@@ -2358,7 +2239,7 @@ public class FXMLDocumentController implements Initializable {
                 planetChanged = false;
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Show travel failed");
         }
     }
     /**
@@ -2376,7 +2257,7 @@ public class FXMLDocumentController implements Initializable {
             errController.setTheStage(newGameStage);
             newGameStage.showAndWait();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Show buy error failed");
         }
     }
     /**
@@ -2394,7 +2275,7 @@ public class FXMLDocumentController implements Initializable {
             errController.setTheStage(newGameStage);
             newGameStage.showAndWait();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Show sell error failed");
         }
     }
     /**
@@ -2412,7 +2293,7 @@ public class FXMLDocumentController implements Initializable {
     private void refreshUpgrades() {
         Ship curShip = GameData.getShip();
         player = GameData.getPlayer();
-        Shipyard shipyard = new Shipyard();
+        Shipyard curShipyard = new Shipyard();
         ShipUpgrade pulse = new ShipUpgrade("weapon", "pulseLaser");
         if (pulse.checkTechLevel()) {
             buyPulse.setDisable(false);
@@ -2470,7 +2351,7 @@ public class FXMLDocumentController implements Initializable {
             errController.setTheStage(newGameStage);
             newGameStage.showAndWait();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Show shipyard error failed");
         }
     }
     /**
@@ -2490,7 +2371,6 @@ public class FXMLDocumentController implements Initializable {
             showShipYardErr();
         }
     }
-    
     @FXML
     private void buyBeam() {
         ShipUpgrade beam = new ShipUpgrade("weapon", "beamLaser");
@@ -2503,7 +2383,6 @@ public class FXMLDocumentController implements Initializable {
             showShipYardErr();
         }
     }
-    
     @FXML
     private void buyMilitary() {
         ShipUpgrade military = new ShipUpgrade("weapon", "militaryLaser");
@@ -2516,7 +2395,6 @@ public class FXMLDocumentController implements Initializable {
             showShipYardErr();
         }
     }
-    
     @FXML
     private void buyEnergy() {
         ShipUpgrade energy = new ShipUpgrade("shield", "smallShield");
@@ -2529,7 +2407,6 @@ public class FXMLDocumentController implements Initializable {
             showShipYardErr();
         }
     }
-    
     @FXML
     private void buyReflective() {
         ShipUpgrade reflective = new ShipUpgrade("shield", "bigShield");
@@ -2542,7 +2419,6 @@ public class FXMLDocumentController implements Initializable {
             showShipYardErr();
         }
     }
-    
     @FXML
     private void buyFiveCargo() {
         ShipUpgrade addCargo = new ShipUpgrade("gadget", "5cargo");
@@ -2555,7 +2431,6 @@ public class FXMLDocumentController implements Initializable {
             showShipYardErr();
         }
     }
-    
     @FXML
     private void buyNavigation() {
         ShipUpgrade navigation = new ShipUpgrade("gadget", "navigation");
@@ -2568,7 +2443,6 @@ public class FXMLDocumentController implements Initializable {
             showShipYardErr();
         }
     }
-    
     @FXML
     private void buyTargeting() {
         ShipUpgrade targeting = new ShipUpgrade("gadget", "targeting");
@@ -2580,9 +2454,7 @@ public class FXMLDocumentController implements Initializable {
         } else {
             showShipYardErr();
         }
-        
     }
-    
     @FXML
     private void buyAutorepair() {
         ShipUpgrade autoRep = new ShipUpgrade("gadget", "autoRepair");
@@ -2595,7 +2467,6 @@ public class FXMLDocumentController implements Initializable {
             showShipYardErr();
         }
     }
-    
     @FXML
     private void buyCloaking() {
         ShipUpgrade cloaking = new ShipUpgrade("gadget", "cloaking");
@@ -2607,9 +2478,7 @@ public class FXMLDocumentController implements Initializable {
         } else {
             showShipYardErr();
         }
-        
     }
-    
     @FXML
     private MenuItem debugTravelling;
     /**
@@ -2630,10 +2499,10 @@ public class FXMLDocumentController implements Initializable {
                 Scene scene = new Scene(newPage);
                 newGameStage.setScene(scene);
                 TravellingController controller = loader.getController();
-                controller.setTheStage(newGameStage,30); 
+                controller.setTheStage(newGameStage,30);
                 newGameStage.showAndWait();
             } catch (IOException ex) {
                 Logger.getLogger(TravelController.class.getName()).log(Level.SEVERE, null, ex);
             }
-    } 
+    }
 }
