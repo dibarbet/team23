@@ -7,7 +7,7 @@ package spacefx;
 public class Gnat extends Ship {
     
     public Gnat() {
-        super(15, 13, 100, 10000, 1, 0, 1, 1);
+        super(15, 130, 100, 10000, 1, 0, 1, 1);
     }
 
     @Override

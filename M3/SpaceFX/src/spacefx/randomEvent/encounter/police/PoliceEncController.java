@@ -111,7 +111,7 @@ public class PoliceEncController implements Initializable {
     
     public void setFightStage(Stage theStage) {
         this.fightStage = theStage;
-        playerMaxHP=1000 + 200*player.getEngineer();
+        playerMaxHP=3500 + 800*player.getEngineer();
         playerHP=playerMaxHP;
         winnerIsPlayer=false;
         enemyHP.setText(Integer.toString(policeHP)+"/"+Integer.toString(policeMaxHP));
@@ -202,7 +202,7 @@ public class PoliceEncController implements Initializable {
     @FXML
     private void attBAction(ActionEvent event) {
             if (policeHP>0 && playerHP>0) {
-                if (rand.nextInt(10)<player.getFighter()/3) hit=true; 
+                if (rand.nextInt(10)<player.getFighter()+4) hit=true; 
                 else hit=false;
                 if (hit) {
                     if (policeHP>=500) policeHP-=500;

@@ -7,7 +7,7 @@ package spacefx;
 public class Firefly extends Ship {
     
     public Firefly() {
-        super(20, 17, 100, 25000, 1, 1, 1, 1);
+        super(20, 170, 100, 25000, 1, 1, 1, 1);
     }
     
     @Override

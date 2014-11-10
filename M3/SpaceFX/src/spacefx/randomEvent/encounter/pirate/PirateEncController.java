@@ -95,7 +95,7 @@ public class PirateEncController implements Initializable {
     
     public void setFightStage(Stage theFightStage) {
         this.fightStage = theFightStage;
-        playerMaxHP=1000 + 200*player.getEngineer();
+        playerMaxHP=3500+ 800*player.getEngineer();
         playerHP=playerMaxHP;
         winnerIsPlayer=false;
         enemyHP.setText(Integer.toString(pirateHP)+"/"+Integer.toString(pirateMaxHP));
@@ -163,7 +163,7 @@ public class PirateEncController implements Initializable {
     @FXML
     private void attBAction(ActionEvent event) {
             if (pirateHP>0 && playerHP>0) {
-                if (rand.nextInt(10)<player.getFighter()/3) hit=true; 
+                if (rand.nextInt(10)<player.getFighter()+4) hit=true; 
                 else hit=false;
                 if (hit) {
                     if (pirateHP>=500) pirateHP-=500;

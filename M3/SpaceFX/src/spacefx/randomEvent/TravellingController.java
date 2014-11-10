@@ -80,6 +80,8 @@ public class TravellingController implements Initializable {
     
     public void setRandCreditStage(Stage theStage) {
         this.randCreditStage = theStage;
+        randCreditStage.initStyle(StageStyle.UNDECORATED);
+        randCreditStage.initModality(Modality.APPLICATION_MODAL);
     }
     
     

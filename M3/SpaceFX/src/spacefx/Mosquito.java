@@ -7,7 +7,7 @@ package spacefx;
 public class Mosquito extends Ship {
     
     public Mosquito() {
-        super(15, 13, 100, 30000, 2, 1, 1, 1);
+        super(15, 130, 100, 30000, 2, 1, 1, 1);
     }
     
     @Override
