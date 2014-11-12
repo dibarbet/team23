@@ -303,6 +303,38 @@ public class TraderEncController implements Initializable {
      */
     private transient Stage errStage;
     /**
+     * number 3500.
+     */
+    private static final transient int NUM3K5 = 3500;
+    /**
+     * number 800.
+     */
+    private static final transient int NUM800 = 800;
+    /**
+     * number 2500.
+     */
+    private static final transient int NUM2K5 = 2500;
+    /**
+     * number 10000.
+     */
+    private static final transient int NUM10K = 10000;
+    /**
+     * number 3.
+     */
+    private static final transient int NUM3 = 3;
+    /**
+     * number 10.
+     */
+    private static final transient int NUM10 = 10;
+    /**
+     * number 4.
+     */
+    private static final transient int NUM4 = 4;
+    /**
+     * number 500.
+     */
+    private static final transient int NUM500 = 500;
+    /**
      * Initialization.
      * @param url URL
      * @param longrb RB
@@ -326,9 +358,9 @@ public class TraderEncController implements Initializable {
      */
     public final void setFightStage(final Stage theFightStage) {
         this.fightStage = theFightStage;
-        playerMaxHP = 3500 + 800 * player.getEngineer();
+        playerMaxHP = NUM3K5 + NUM800 * player.getEngineer();
         playerHP = playerMaxHP;
-        traderMaxHP = 2500;
+        traderMaxHP = NUM2K5;
         traderHP = traderMaxHP;
         winnerIsPlayer = false;
         enemyHP.setText(Integer.toString(traderHP)
@@ -420,8 +452,8 @@ public class TraderEncController implements Initializable {
     private void surBAction() throws IOException {
         ship.emptyCargo();
         GameData.setShip(ship);
-        if (player.getCredit() > 10000) {
-            player.setCredit(10000);
+        if (player.getCredit() > NUM10K) {
+            player.setCredit(NUM10K);
             GameData.setPlayer(player);
         }
         attB.setDisable(true);
@@ -436,14 +468,14 @@ public class TraderEncController implements Initializable {
     @FXML
     private void attBAction() throws IOException {
         if (traderHP > 0 && playerHP > 0) {
-                if (rand.nextInt(10) < player.getFighter() + 4) {
+                if (rand.nextInt(NUM10) < player.getFighter() + NUM4) {
                     hit = true;
                 } else {
                     hit = false;
                 }
                 if (hit) {
-                    if (traderHP >= 500) {
-                        traderHP -= 500;
+                    if (traderHP >= NUM500) {
+                        traderHP -= NUM500;
                     } else {
                         traderHP = 0;
                     }
@@ -455,14 +487,14 @@ public class TraderEncController implements Initializable {
                     battleInfo1.setText("Player attacks Police "
                             + "but does not hit.");
                 }
-                if (rand.nextInt(10) > player.getPilot() / 3) {
+                if (rand.nextInt(NUM10) > player.getPilot() / NUM3) {
                     hit = true;
                 } else {
                     hit = false;
                 }
                 if (hit) {
-                    if (playerHP >= 500) {
-                        playerHP -= 500;
+                    if (playerHP >= NUM500) {
+                        playerHP -= NUM500;
                     } else {
                         playerHP = 0;
                     }

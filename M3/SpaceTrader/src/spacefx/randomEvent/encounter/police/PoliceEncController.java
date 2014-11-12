@@ -185,6 +185,38 @@ public class PoliceEncController implements Initializable {
      */
     private static final transient int FIRP = 300;
     /**
+     * number 3500.
+     */
+    private static final transient int NUM3K5 = 3500;
+    /**
+     * number 800.
+     */
+    private static final transient int NUM800 = 800;
+    /**
+     * number 2500.
+     */
+    private static final transient int NUM2K5 = 2500;
+    /**
+     * number 10000.
+     */
+    private static final transient int NUM10K = 10000;
+    /**
+     * number 3.
+     */
+    private static final transient int NUM3 = 3;
+    /**
+     * number 10.
+     */
+    private static final transient int NUM10 = 10;
+    /**
+     * number 4.
+     */
+    private static final transient int NUM4 = 4;
+    /**
+     * number 500.
+     */
+    private static final transient int NUM500 = 500;
+    /**
      * Initializes the controller class.
      * @param url URL
      * @param longrb RB
@@ -219,9 +251,9 @@ public class PoliceEncController implements Initializable {
      */
     public final void setFightStage(final Stage theStage) {
         fightStage = theStage;
-        playerMaxHP = 3500 + 800 * player.getEngineer();
+        playerMaxHP = NUM3K5 + NUM800 * player.getEngineer();
         playerHP = playerMaxHP;
-        policeMaxHP = 2500;
+        policeMaxHP = NUM2K5;
         policeHP = policeMaxHP;
         winnerIsPlayer = false;
         enemyHP.setText(Integer.toString(policeHP)
@@ -328,8 +360,8 @@ public class PoliceEncController implements Initializable {
     private void surBAction(ActionEvent event) throws IOException {
         ship.emptyCargo();
         GameData.setShip(ship);
-        if (player.getCredit() > 10000) {
-            player.setCredit(10000);
+        if (player.getCredit() > NUM10K) {
+            player.setCredit(NUM10K);
             GameData.setPlayer(player);
         }
         attB.setDisable(true);
@@ -344,14 +376,14 @@ public class PoliceEncController implements Initializable {
     @FXML
     private void attBAction() throws IOException {
             if (policeHP > 0 && playerHP > 0) {
-                if (rand.nextInt(10) < player.getFighter() + 4) {
+                if (rand.nextInt(NUM10) < player.getFighter() + NUM4) {
                     hit = true;
                 } else {
                     hit = false;
                 }
                 if (hit) {
-                    if (policeHP >= 500) {
-                        policeHP -= 500;
+                    if (policeHP >= NUM500) {
+                        policeHP -= NUM500;
                     } else {
                         policeHP = 0;
                     }
@@ -363,14 +395,14 @@ public class PoliceEncController implements Initializable {
                     battleInfo1.setText("Player attacks Police "
                             + "but does not hit.");
                 }
-                if (rand.nextInt(10) > player.getPilot() / 3) {
+                if (rand.nextInt(NUM10) > player.getPilot() / NUM3) {
                     hit = true;
                 } else {
                     hit = false;
                 }
                 if (hit) {
-                    if (playerHP >= 500) {
-                        playerHP -= 500;
+                    if (playerHP >= NUM500) {
+                        playerHP -= NUM500;
                     } else {
                         playerHP = 0;
                     }
@@ -397,7 +429,7 @@ public class PoliceEncController implements Initializable {
     @FXML
     private void bribeOKBAction() {
         if (PoliceGlobalData.getSitu().equals("bribing")) {
-            bribeMoney = 500 + rand.nextInt(500);
+            bribeMoney = NUM500 + rand.nextInt(NUM500);
             bribeAmount.setText("You are going to bribe police $"
                     + Integer.toString(bribeMoney));
             bribeOKB.setText("OK");

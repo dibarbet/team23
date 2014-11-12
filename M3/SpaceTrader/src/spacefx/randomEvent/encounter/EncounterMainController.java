@@ -23,7 +23,7 @@ import spacefx.randomEvent.encounter.police.PoliceEncController;
 import spacefx.randomEvent.encounter.trader.TraderEncController;
 
 /**
- *
+ * Encounter main Controller.
  * @author YaxiongLiu
  */
 public class EncounterMainController implements Initializable {
@@ -35,6 +35,18 @@ public class EncounterMainController implements Initializable {
      * Random.
      */
     private final transient Random rand = new Random();
+    /**
+     * Number 10.
+     */
+    private static final transient int NUM10 = 10;
+    /**
+     * Number 20.
+     */
+    private static final transient int NUM20 = 20;
+    /**
+     * Number 30.
+     */
+    private static final transient int NUM30 = 30;
     /**
      * Initialization.
      * @param url URL
@@ -61,10 +73,10 @@ public class EncounterMainController implements Initializable {
     private void encOKBAction() throws IOException {
         int encFac;
         mainStage.close();
-        encFac = rand.nextInt(30);
-        if (encFac < 10) {
+        encFac = rand.nextInt(NUM30);
+        if (encFac < NUM10) {
             showEncPolice();
-        } else if (encFac > 20) {
+        } else if (encFac > NUM20) {
             showEncPirate();
         } else {
             showEncTrader();

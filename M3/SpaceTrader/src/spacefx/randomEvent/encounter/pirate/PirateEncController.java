@@ -131,7 +131,34 @@ public class PirateEncController implements Initializable {
      * Variable declaration.
      */
     private transient Stage errStage;
-
+    /**
+     * number 3500.
+     */
+    private static final transient int NUM3K5 = 3500;
+    /**
+     * number 800.
+     */
+    private static final transient int NUM800 = 800;
+    /**
+     * number 2500.
+     */
+    private static final transient int NUM2K5 = 2500;
+    /**
+     * number 10000.
+     */
+    private static final transient int NUM10K = 10000;
+    /**
+     * number 10.
+     */
+    private static final transient int NUM10 = 10;
+    /**
+     * number 4.
+     */
+    private static final transient int NUM4 = 4;
+    /**
+     * number 500.
+     */
+    private static final transient int NUM500 = 500;
     /**
      * Initializes the controller class.
      * @param url URL
@@ -157,10 +184,10 @@ public class PirateEncController implements Initializable {
      */
     public final void setFightStage(final Stage theFightStage) {
         this.fightStage = theFightStage;
-        playerMaxHP = 3500 + 800 * player.getEngineer();
+        playerMaxHP = NUM3K5 + NUM800 * player.getEngineer();
         playerHP = playerMaxHP;
-        pirateMaxHP = 2500;
-        pirateHP=pirateMaxHP;
+        pirateMaxHP = NUM2K5;
+        pirateHP = pirateMaxHP;
         winnerIsPlayer = false;
         enemyHP.setText(Integer.toString(pirateHP)
                 + "/" + Integer.toString(pirateMaxHP));
@@ -240,8 +267,8 @@ public class PirateEncController implements Initializable {
     private void surBAction() throws IOException {
         ship.emptyCargo();
         GameData.setShip(ship);
-        if(player.getCredit() > 10000) {
-            player.setCredit(10000);
+        if (player.getCredit() > NUM10K) {
+            player.setCredit(NUM10K);
             GameData.setPlayer(player);
         }
         attB.setDisable(true);
@@ -256,14 +283,14 @@ public class PirateEncController implements Initializable {
     @FXML
     private void attBAction() throws IOException {
             if (pirateHP > 0 && playerHP > 0) {
-                if (rand.nextInt(10) < player.getFighter() + 4) {
+                if (rand.nextInt(NUM10) < player.getFighter() + NUM4) {
                     hit = true;
                 } else {
                     hit = false;
                 }
                 if (hit) {
-                    if (pirateHP >= 500) {
-                        pirateHP -= 500;
+                    if (pirateHP >= NUM500) {
+                        pirateHP -= NUM500;
                     } else {
                         pirateHP = 0;
                     }
@@ -275,14 +302,14 @@ public class PirateEncController implements Initializable {
                     battleInfo1.setText("Player attacks Police "
                             + "but does not hit.");
                 }
-                if (rand.nextInt(10) > player.getPilot() / 3) {
+                if (rand.nextInt(NUM10) > player.getPilot() / (NUM4 - 1)) {
                     hit = true;
                 } else {
                     hit = false;
                 }
                 if (hit) {
-                    if (playerHP >= 500) {
-                        playerHP -= 500;
+                    if (playerHP >= NUM500) {
+                        playerHP -= NUM500;
                     } else {
                         playerHP = 0;
                     }

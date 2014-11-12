@@ -59,7 +59,7 @@ public class TravellingController implements Initializable {
         Duration.millis(500),
         ae -> checkRand()));
     public void setTheStage(Stage theStage, double newDist) {
-        this.mainStage = theStage;
+        mainStage = theStage;
         mainStage.initStyle(StageStyle.UNDECORATED);
         mainStage.initModality(Modality.APPLICATION_MODAL);
         dist = (int)newDist;
