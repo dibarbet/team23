@@ -25,287 +25,457 @@ import spacefx.Good;
 import spacefx.Player;
 import spacefx.Ship;
 import spacefx.SpaceFX;
-import spacefx.randomEvent.encounter.pirate.PirateEncController;
-import spacefx.randomEvent.encounter.police.PoliceEncController;
-
 /**
- * FXML Controller class
  *
  * @author YaxiongLiu
  */
 public class TraderEncController implements Initializable {
     // <editor-fold defaultstate="collapsed" desc="Variables Declariation">
-    @FXML
-    private Button traderAttB;
-    @FXML
-    private Label traderEncInfo;
-    @FXML
-    private Button traderLeaveB;
-    @FXML
-    private Button traderTraB;
-    @FXML
-    private Label myHP;
-    @FXML
-    private Label enemyHP;
-    @FXML
-    private Button escB;
-    @FXML
-    private Button surB;
-    @FXML
-    private Button attB;
-    @FXML
-    private Label narcoticPlayer;
-    @FXML
-    private Button sNarcoticsB;
-    @FXML
-    private Label narcoticPrice;
-    @FXML
-    private Label narcoticTrader;
-    @FXML
-    private Button bNarcoticsB;
-    @FXML
-    private Button bRobotsB;
-    @FXML
-    private Label robotTrader;
-    @FXML
-    private Label robotPrice;
-    @FXML
-    private Button sRobotsB;
-    @FXML
-    private Label robotPlayer;
-    @FXML
-    private Label gamePlayer;
-    @FXML
-    private Button sGamesB;
-    @FXML
-    private Label gamePrice;
-    @FXML
-    private Label gameTrader;
-    @FXML
-    private Button bGamesB;
-    @FXML
-    private Button bFirearmsB;
-    @FXML
-    private Label firearmTrader;
-    @FXML
-    private Label firePrice;
-    @FXML
-    private Button sFirearmsB;
-    @FXML
-    private Label firearmPlayer;
-    @FXML
-    private Label machinePlayer;
-    @FXML
-    private Button sMachinesB;
-    @FXML
-    private Label machinePrice;
-    @FXML
-    private Label machineTrader;
-    @FXML
-    private Button bMachinesB;
-    @FXML
-    private Button bMedicineB;
-    @FXML
-    private Label medicineTrader;
-    @FXML
-    private Label medicinePrice;
-    @FXML
-    private Button sMedicineB;
-    @FXML
-    private Label medicinePlayer;
-    @FXML
-    private Label foodPlayer;
-    @FXML
-    private Button sFoodB;
-    @FXML
-    private Label foodPrice;
-    @FXML
-    private Label foodTrader;
-    @FXML
-    private Button bFoodB;
-    @FXML
-    private Button bOreB;
-    @FXML
-    private Label oreTrader;
-    @FXML
-    private Label orePrice;
-    @FXML
-    private Button sOreB;
-    @FXML
-    private Label orePlayer;
-    @FXML
-    private Label furPlayer;
-    @FXML
-    private Button sFursB;
-    @FXML
-    private Label furPrice;
-    @FXML
-    private Label furTrader;
-    @FXML
-    private Button bFursB;
-    @FXML
-    private Label playerMoney;
-    @FXML
-    private Button bWaterB;
-    @FXML
-    private Label waterTrader;
-    @FXML
-    private Label waterPrice;
-    @FXML
-    private Button sWaterB;
-    @FXML
-    private Label waterPlayer;
-    @FXML
-    private Button stopTradingB;
-    @FXML
-    private Label battleInfo1;
-    @FXML
-    private Label battleInfo2;
-    @FXML
-    private Label winnerInfo1;
-    @FXML
-    private Label winnerInfo2;
-    @FXML
-    private Button winnerOKB;
-    @FXML
-    private Label errMsg;
-
-    
-    private int money,amount,pWater,pFur,pFood,pOre,pGame,pFirearm,pMedicine,pMachine,pNarcotics,pRobot,
-            tWater,tFur,tFood,tOre,tGame,tFirearm,tMedicine,tMachine,tNarcotics,tRobot,
-            waterP,furP,foodP,oreP,gameP,firearmP,medicineP,machineP,narcoticsP,robotP;
-    // </editor-fold>
-    private Player player = GameData.getPlayer();
-    private Ship ship = GameData.getShip();
-    private int playerMaxHP=2000;
-    private int playerHP=2000;
-    private boolean hit;
-    private boolean winnerIsPlayer=false;
-    private Random rand = new Random();
-    private int traderMaxHP=2000;
-    private int traderHP=2000;
-    private Stage theStage;
-    private Stage tradingStage;
-    private Stage fightStage;
-    private Stage winnerStage;
-    private Stage errStage;
-    private boolean isTrading=false;
-
     /**
-     * Initializes the controller class.
+     * Variable declaration.
+     */
+    @FXML
+    private transient Button traderTraB;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label myHP;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label enemyHP;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Button surB;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Button attB;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label narcoticPlayer;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label narcoticPrice;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label narcoticTrader;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label robotTrader;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label robotPrice;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label robotPlayer;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label gamePlayer;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label gamePrice;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label gameTrader;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label firearmTrader;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label firePrice;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label firearmPlayer;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label machinePlayer;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label machinePrice;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label machineTrader;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label medicineTrader;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label medicinePrice;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label medicinePlayer;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label foodPlayer;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label foodPrice;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label foodTrader;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label oreTrader;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label orePrice;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label orePlayer;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label furPlayer;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label furPrice;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label furTrader;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label playerMoney;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label waterTrader;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label waterPrice;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label waterPlayer;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label battleInfo1;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label battleInfo2;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label winnerInfo1;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label winnerInfo2;
+    /**
+     * Variable declaration.
+     */
+    @FXML
+    private transient Label errMsg;
+    /**
+     * Variable declaration.
+     */
+    private transient int money, pWater, pFur, pFood, pOre,
+            pGame, pFirearm, pMedicine, pMachine, pNarcotics, pRobot,
+            tWater, tFur, tFood, tOre, tGame, tFirearm,
+            tMedicine, tMachine, tNarcotics, tRobot,
+            waterP, furP, foodP, oreP, gameP, firearmP,
+            medicineP, machineP, narcoticsP, robotP;
+    // </editor-fold>
+    /**
+     * Variable declaration.
+     */
+    private final transient Player player = GameData.getPlayer();
+    /**
+     * Variable declaration.
+     */
+    private final transient Ship ship = GameData.getShip();
+    /**
+     * Variable declaration.
+     */
+    private transient int playerMaxHP;
+    /**
+     * Variable declaration.
+     */
+    private transient int playerHP;
+    /**
+     * Variable declaration.
+     */
+    private transient boolean hit;
+    /**
+     * Variable declaration.
+     */
+    private transient boolean winnerIsPlayer = false;
+    /**
+     * Variable declaration.
+     */
+    private final transient Random rand = new Random();
+    /**
+     * Variable declaration.
+     */
+    private transient int traderMaxHP;
+    /**
+     * Variable declaration.
+     */
+    private transient int traderHP;
+    /**
+     * Variable declaration.
+     */
+    private transient Stage mainStage;
+    /**
+     * Variable declaration.
+     */
+    private transient Stage tradingStage;
+    /**
+     * Variable declaration.
+     */
+    private transient Stage fightStage;
+    /**
+     * Variable declaration.
+     */
+    private transient Stage winnerStage;
+    /**
+     * Variable declaration.
+     */
+    private transient Stage errStage;
+    /**
+     * Initialization.
+     * @param url URL
+     * @param longrb RB
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(final URL url, final ResourceBundle longrb) {
         // TODO
-    }    
-
-    public void setTheStage(Stage theStage) {
-        this.theStage = theStage;
-        theStage.initStyle(StageStyle.UNDECORATED);
-        theStage.initModality(Modality.APPLICATION_MODAL);
     }
-    
-    public void setFightStage(Stage theFightStage) {
+    /**
+     * set main stage.
+     * @param theStage main stage
+     */
+    public final void setTheStage(final Stage theStage) {
+        mainStage = theStage;
+        mainStage.initStyle(StageStyle.UNDECORATED);
+        mainStage.initModality(Modality.APPLICATION_MODAL);
+    }
+    /**
+     * set fight stage.
+     * @param theFightStage fight stage
+     */
+    public final void setFightStage(final Stage theFightStage) {
         this.fightStage = theFightStage;
-        playerMaxHP=3500 + 800*player.getEngineer();
-        playerHP=playerMaxHP;
-        winnerIsPlayer=false;
-        enemyHP.setText(Integer.toString(traderHP)+"/"+Integer.toString(traderMaxHP));
-        myHP.setText(Integer.toString(playerHP)+"/"+Integer.toString(playerMaxHP));
+        playerMaxHP = 3500 + 800 * player.getEngineer();
+        playerHP = playerMaxHP;
+        traderMaxHP = 2500;
+        traderHP = traderMaxHP;
+        winnerIsPlayer = false;
+        enemyHP.setText(Integer.toString(traderHP)
+                + "/" + Integer.toString(traderMaxHP));
+        myHP.setText(Integer.toString(playerHP)
+                + "/" + Integer.toString(playerMaxHP));
         fightStage.initStyle(StageStyle.UNDECORATED);
         fightStage.initModality(Modality.APPLICATION_MODAL);
     }
-    
-    public void setTradingStage(Stage theStage) {
-        this.tradingStage = theStage;
+    /**
+     * set trading stage.
+     * @param theStage trading stage
+     */
+    public final void setTradingStage(final Stage theStage) {
+        tradingStage = theStage;
         initTrading();
-        theStage.initStyle(StageStyle.UNDECORATED);
-        theStage.initModality(Modality.APPLICATION_MODAL);
+        tradingStage.initStyle(StageStyle.UNDECORATED);
+        tradingStage.initModality(Modality.APPLICATION_MODAL);
     }
-    
-    public void setWinnerStage(Stage theWinnerStage,boolean playerWin) {
+    /**
+     * set winner stage.
+     * @param theWinnerStage winner stage
+     * @param playerWin whether or not player is winner
+     */
+    public final void setWinnerStage(final Stage theWinnerStage,
+            final boolean playerWin) {
         this.winnerStage = theWinnerStage;
-        winnerIsPlayer=playerWin;
-        if (playerWin) winnerInfo1.setText("You Win");
-        else {
+        winnerIsPlayer = playerWin;
+        if (playerWin) {
+            winnerInfo1.setText("You Win");
+        } else {
             winnerInfo1.setText("Your ship has been destroyed.");
             winnerInfo2.setText("Game Over");
         }
         winnerStage.initStyle(StageStyle.UNDECORATED);
         winnerStage.initModality(Modality.APPLICATION_MODAL);
     }
-    
-    public void setErrStage(Stage theErrStage, String str) {
-        this.errStage=theErrStage;
+    /**
+     * set error stage.
+     * @param theErrStage error stage
+     * @param str error message
+     */
+    public final void setErrStage(final Stage theErrStage,
+            final String str) {
+        errStage = theErrStage;
         errMsg.setText(str);
         errStage.initStyle(StageStyle.UNDECORATED);
         errStage.initModality(Modality.APPLICATION_MODAL);
     }
-    
+    /**
+     * enter trader fight.
+     * @throws IOException IOExcaption
+     */
     @FXML
-    private void traderAttBAction(ActionEvent event) {
-        this.theStage.close();
+    private void traderAttBAction() throws IOException {
+        mainStage.close();
         showFight();
     }
-
+    /**
+     * leave trader action.
+     */
     @FXML
-    private void traderLeaveBAction(ActionEvent event) {
-        this.theStage.close();
-        spacefx.randomEvent.TravellingController.running=true;
+    private void traderLeaveBAction() {
+        mainStage.close();
+        spacefx.randomEvent.TravellingController.running = true;
     }
-    
+    /**
+     * show trading action.
+     * @throws IOException IOException
+     */
     @FXML
-    private void leaveTrading(ActionEvent event) {
-        System.out.println("This is where it is being used");
-    }
-
-    @FXML
-    private void traderTraBAction(ActionEvent event) {
+    private void traderTraBAction() throws IOException {
         traderTraB.setDisable(true);
         showTrading();
     }
-    
+    /**
+     * Fight escape action.
+     */
     @FXML
-    private void escBAction(ActionEvent event) {
+    private void escBAction() {
         this.fightStage.close();
-        spacefx.randomEvent.TravellingController.running=true;
-        
+        spacefx.randomEvent.TravellingController.running = true;
     }
-
+    /**
+     * Fight stage surrender action.
+     * @throws IOException IOException
+     */
     @FXML
-    private void surBAction(ActionEvent event) {
+    private void surBAction() throws IOException {
         ship.emptyCargo();
         GameData.setShip(ship);
-        if(player.getCredit()>10000) {
+        if (player.getCredit() > 10000) {
             player.setCredit(10000);
             GameData.setPlayer(player);
         }
         attB.setDisable(true);
         surB.setDisable(true);
-        showErr("Trader got everything you owned. \nBut left some money for you.");
+        showErr("Trader got everything you owned. "
+                + "\nBut left some money for you.");
     }
-
+    /**
+     * Fight stage attack action.
+     * @throws IOException IOException
+     */
     @FXML
-    private void attBAction(ActionEvent event) {
-        if (traderHP>0 && playerHP>0) {
-                if (rand.nextInt(10)<player.getFighter()+4) hit=true; 
-                else hit=false;
+    private void attBAction() throws IOException {
+        if (traderHP > 0 && playerHP > 0) {
+                if (rand.nextInt(10) < player.getFighter() + 4) {
+                    hit = true;
+                } else {
+                    hit = false;
+                }
                 if (hit) {
-                    if (traderHP>=500) traderHP-=500;
-                    else traderHP=0;
-                    enemyHP.setText(Integer.toString(traderHP)+"/"+Integer.toString(traderMaxHP));
-                    battleInfo1.setText("Player hits Police and deals 500 damage.");
-                } else {battleInfo1.setText("Player attacks Police but does not hit.");}
-                if (rand.nextInt(10)>player.getPilot()/3) hit = true;
-                else hit = false;
+                    if (traderHP >= 500) {
+                        traderHP -= 500;
+                    } else {
+                        traderHP = 0;
+                    }
+                    enemyHP.setText(Integer.toString(traderHP)
+                            + "/" + Integer.toString(traderMaxHP));
+                    battleInfo1.setText("Player hits Police "
+                            + "and deals 500 damage.");
+                } else {
+                    battleInfo1.setText("Player attacks Police "
+                            + "but does not hit.");
+                }
+                if (rand.nextInt(10) > player.getPilot() / 3) {
+                    hit = true;
+                } else {
+                    hit = false;
+                }
                 if (hit) {
-                    if (playerHP>=500) playerHP-=500;
-                    else playerHP=0;
-                    myHP.setText(Integer.toString(playerHP)+"/"+Integer.toString(playerMaxHP));
-                    battleInfo2.setText("Trader hits Player and deals 500 damage.");
-                } else {battleInfo2.setText("Trader attacks Plyaer but does not hit.");}
-            } else if (playerHP>0) {
-                winnerIsPlayer=true;
+                    if (playerHP >= 500) {
+                        playerHP -= 500;
+                    } else {
+                        playerHP = 0;
+                    }
+                    myHP.setText(Integer.toString(playerHP)
+                            + "/" + Integer.toString(playerMaxHP));
+                    battleInfo2.setText("Trader hits Player"
+                            + " and deals 500 damage.");
+                } else {
+                    battleInfo2.setText("Trader attacks "
+                            + "Plyaer but does not hit.");
+                }
+            } else if (playerHP > 0) {
+                winnerIsPlayer = true;
                 fightStage.close();
                 showWinner();
             } else {
@@ -313,454 +483,556 @@ public class TraderEncController implements Initializable {
                 showWinner();
             }
     }
-    
+    /**
+     * winner stage OK action.
+     */
     @FXML
-    private void winnerOKBAction(ActionEvent event) {
-        if(winnerIsPlayer) {
+    private void winnerOKBAction() {
+        if (winnerIsPlayer) {
             winnerStage.close();
-            spacefx.randomEvent.TravellingController.running=true;
+            spacefx.randomEvent.TravellingController.running = true;
+        } else {
+            System.exit(0);
         }
-        else System.exit(0);
     }
-    
+    /**
+     * Error stage OK action.
+     */
     @FXML
-    private void errOKBAction(ActionEvent event) {
+    private void errOKBAction() {
         errStage.close();
     }
     // <editor-fold defaultstate="collapsed" desc="trading Part">
+    /**
+     * Sell Narcotics.
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    private void sNarcoticsBAction(ActionEvent event) {
-        if(pNarcotics>0) {
+    private void sNarcoticsBAction(ActionEvent event) throws IOException {
+        if (pNarcotics > 0) {
             tNarcotics++;
             pNarcotics--;
             ship.decCount();
             narcoticTrader.setText(Integer.toString(tNarcotics));
             narcoticPlayer.setText(Integer.toString(pNarcotics));
-            money+=narcoticsP;
+            money += narcoticsP;
             playerMoney.setText(Integer.toString(money));
         } else {
             showErr("Not enough narcotic to sell.");
         }
     }
-
+    /**
+     * Buy Narcotics.
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    private void bNarcoticsBAction(ActionEvent event) {
-        if(tNarcotics>0 && ship.getCount()<ship.getLimit() && money>narcoticsP) {
+    private void bNarcoticsBAction(ActionEvent event) throws IOException {
+        if (tNarcotics > 0
+                && ship.getCount() < ship.getLimit()
+                && money > narcoticsP) {
             tNarcotics--;
             pNarcotics++;
             ship.incCount();
             narcoticTrader.setText(Integer.toString(tNarcotics));
             narcoticPlayer.setText(Integer.toString(pNarcotics));
-            money-=narcoticsP;
+            money -= narcoticsP;
             playerMoney.setText(Integer.toString(money));
         } else {
-            if (tNarcotics<=0) {
+            if (tNarcotics <= 0) {
                 showErr("Trader does not have enough \nnarcotic.");
-            } else if (ship.getCount()>=ship.getLimit()) {
+            } else if (ship.getCount() >= ship.getLimit()) {
                 showErr("Cargo is full.");
             } else {
                 showErr("Not enough money.");
             }
-        } 
+        }
     }
-
+    /**
+     * Buy Robots.
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    private void bRobotsBAction(ActionEvent event) {
-        if(tRobot>0 && ship.getCount()<ship.getLimit() && money>robotP) {
+    private void bRobotsBAction(ActionEvent event) throws IOException {
+        if (tRobot > 0 && ship.getCount() < ship.getLimit() && money > robotP) {
             tRobot--;
             pRobot++;
             ship.incCount();
             robotTrader.setText(Integer.toString(tRobot));
             robotPlayer.setText(Integer.toString(pRobot));
-            money-=robotP;
+            money -= robotP;
             playerMoney.setText(Integer.toString(money));
         } else {
-            if (tRobot<=0) {
+            if (tRobot <= 0) {
                 showErr("Trader does not have enough \nrobot.");
-            } else if (ship.getCount()>=ship.getLimit()) {
+            } else if (ship.getCount() >= ship.getLimit()) {
                 showErr("Cargo is full.");
             } else {
                 showErr("Not enough money.");
             }
         }
     }
-
+    /**
+     * Sell Robot.
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    private void sRobotsBAction(ActionEvent event) {
-        if(pRobot>0) {
+    private void sRobotsBAction(ActionEvent event) throws IOException {
+        if (pRobot > 0) {
             tRobot++;
             pRobot--;
             ship.decCount();
             robotTrader.setText(Integer.toString(tRobot));
             robotPlayer.setText(Integer.toString(pRobot));
-            money+=robotP;
+            money += robotP;
             playerMoney.setText(Integer.toString(money));
         } else {
             showErr("Not enough robot to sell.");
         }
     }
-
+    /**
+     * Sell Games.
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    private void sGamesBAction(ActionEvent event) {
-        if(pGame>0) {
+    private void sGamesBAction(ActionEvent event) throws IOException {
+        if (pGame > 0) {
             tGame++;
             pGame--;
             ship.decCount();
             gameTrader.setText(Integer.toString(tGame));
             gamePlayer.setText(Integer.toString(pGame));
-            money+=gameP;
+            money += gameP;
             playerMoney.setText(Integer.toString(money));
         } else {
             showErr("Not enough game to sell.");
         }
     }
-
+    /**
+     * Buy Games.
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    private void bGamesBAction(ActionEvent event) {
-        if(tGame>0 && ship.getCount()<ship.getLimit() && money>gameP) {
+    private void bGamesBAction(ActionEvent event) throws IOException {
+        if (tGame > 0 && ship.getCount() < ship.getLimit() && money > gameP) {
             tGame--;
             pGame++;
             ship.incCount();
             gameTrader.setText(Integer.toString(tGame));
             gamePlayer.setText(Integer.toString(pGame));
-            money-=gameP;
+            money -= gameP;
             playerMoney.setText(Integer.toString(money));
         } else {
-            if (tGame<=0) {
+            if (tGame <= 0) {
                 showErr("Trader does not have enough \ngame.");
-            } else if (ship.getCount()>=ship.getLimit()) {
+            } else if (ship.getCount() >= ship.getLimit()) {
                 showErr("Cargo is full.");
             } else {
                 showErr("Not enough money.");
             }
         }
     }
-
+    /**
+     * Buy Firearms.
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    private void bFirearmsBAction(ActionEvent event) {
-        if(tFirearm>0 && ship.getCount()<ship.getLimit() && money>firearmP) {
+    private void bFirearmsBAction(ActionEvent event) throws IOException {
+        if (tFirearm > 0
+                && ship.getCount() < ship.getLimit()
+                && money > firearmP) {
             tFirearm--;
             pFirearm++;
             ship.incCount();
             firearmTrader.setText(Integer.toString(tFirearm));
             firearmPlayer.setText(Integer.toString(pFirearm));
-            money-=firearmP;
+            money -= firearmP;
             playerMoney.setText(Integer.toString(money));
         } else {
-            if (tFirearm<=0) {
+            if (tFirearm <= 0) {
                 showErr("Trader does not have enough \nfirearm.");
-            } else if (ship.getCount()>=ship.getLimit()) {
+            } else if (ship.getCount() >= ship.getLimit()) {
                 showErr("Cargo is full.");
             } else {
                 showErr("Not enough money.");
             }
         }
     }
-
+    /**
+     * Sell Firearms.
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    private void sFirearmsBAction(ActionEvent event) {
-        if(pFirearm>0) {
+    private void sFirearmsBAction(ActionEvent event) throws IOException {
+        if (pFirearm > 0) {
             tFirearm++;
             pFirearm--;
             ship.decCount();
             firearmTrader.setText(Integer.toString(tFirearm));
             firearmPlayer.setText(Integer.toString(pFirearm));
-            money+=firearmP;
+            money += firearmP;
             playerMoney.setText(Integer.toString(money));
         } else {
             showErr("Not enough firearms to sell.");
         }
     }
-
+    /**
+     * Sell Machines.
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    private void sMachinesBAction(ActionEvent event) {
-        if(pMachine>0) {
+    private void sMachinesBAction(ActionEvent event) throws IOException {
+        if (pMachine > 0) {
             tMachine++;
             pMachine--;
             ship.decCount();
             machineTrader.setText(Integer.toString(tMachine));
             machinePlayer.setText(Integer.toString(pMachine));
-            money+=machineP;
+            money += machineP;
             playerMoney.setText(Integer.toString(money));
         } else {
             showErr("Not enough machine to sell.");
         }
     }
-
+    /**
+     * Buy Machines.
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    private void bMachinesBAction(ActionEvent event) {
-        if(tMachine>0 && ship.getCount()<ship.getLimit() && money>machineP) {
+    private void bMachinesBAction(ActionEvent event) throws IOException {
+        if (tMachine > 0
+                && ship.getCount() < ship.getLimit()
+                && money > machineP) {
             tMachine--;
             pMachine++;
             ship.incCount();
             machineTrader.setText(Integer.toString(tMachine));
             machinePlayer.setText(Integer.toString(pMachine));
-            money-=machineP;
+            money -= machineP;
             playerMoney.setText(Integer.toString(money));
         } else {
-            if (tMachine<=0) {
+            if (tMachine <= 0) {
                 showErr("Trader does not have enough \nmachine.");
-            } else if (ship.getCount()>=ship.getLimit()) {
+            } else if (ship.getCount() >= ship.getLimit()) {
                 showErr("Cargo is full.");
             } else {
                 showErr("Not enough money.");
             }
         }
     }
-
+    /**
+     * Buy Medicine.
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    private void bMedicineBAction(ActionEvent event) {
-        if(tMedicine>0 && ship.getCount()<ship.getLimit() && money>medicineP) {
+    private void bMedicineBAction(ActionEvent event) throws IOException {
+        if (tMedicine > 0
+                && ship.getCount() < ship.getLimit()
+                && money > medicineP) {
             tMedicine--;
             pMedicine++;
             ship.incCount();
             medicineTrader.setText(Integer.toString(tMedicine));
             medicinePlayer.setText(Integer.toString(pMedicine));
-            money-=medicineP;
+            money -= medicineP;
             playerMoney.setText(Integer.toString(money));
         } else {
-            if (tMedicine<=0) {
+            if (tMedicine <= 0) {
                 showErr("Trader does not have enough \nmedicine.");
-            } else if (ship.getCount()>=ship.getLimit()) {
+            } else if (ship.getCount() >= ship.getLimit()) {
                 showErr("Cargo is full.");
             } else {
                 showErr("Not enough money.");
             }
         }
     }
-
+    /**
+     * Sell Medicine.
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    private void sMedicineBAction(ActionEvent event) {
-        if(pMedicine>0) {
+    private void sMedicineBAction(ActionEvent event) throws IOException {
+        if (pMedicine > 0) {
             tMedicine++;
             pMedicine--;
             ship.decCount();
             medicineTrader.setText(Integer.toString(tMedicine));
             medicinePlayer.setText(Integer.toString(pMedicine));
-            money+=medicineP;
+            money += medicineP;
             playerMoney.setText(Integer.toString(money));
         } else {
             showErr("Not enough medicine to sell.");
         }
     }
-
+    /**
+     * Sell Food.
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    private void sFoodBAction(ActionEvent event) {
-        if(pFood>0) {
+    private void sFoodBAction(ActionEvent event) throws IOException {
+        if (pFood > 0) {
             tFood++;
             pFood--;
             ship.decCount();
             foodTrader.setText(Integer.toString(tFood));
             foodPlayer.setText(Integer.toString(pFood));
-            money+=foodP;
+            money += foodP;
             playerMoney.setText(Integer.toString(money));
         } else {
             showErr("Not enough food to sell.");
         }
     }
-
+    /**
+     * Buy Food.
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    private void bFoodBAction(ActionEvent event) {
-        if(tFood>0 && ship.getCount()<ship.getLimit() && money>foodP) {
+    private void bFoodBAction(ActionEvent event) throws IOException {
+        if (tFood > 0
+                && ship.getCount() < ship.getLimit()
+                && money > foodP) {
             tFood--;
             pFood++;
             ship.incCount();
             foodTrader.setText(Integer.toString(tFood));
             foodPlayer.setText(Integer.toString(pFood));
-            money-=foodP;
+            money -= foodP;
             playerMoney.setText(Integer.toString(money));
         } else {
-            if (tFood<=0) {
+            if (tFood <= 0) {
                 showErr("Trader does not have enough \nfood.");
-            } else if (ship.getCount()>=ship.getLimit()) {
+            } else if (ship.getCount() >= ship.getLimit()) {
                 showErr("Cargo is full.");
             } else {
                 showErr("Not enough money.");
             }
         }
     }
-
+    /**
+     * Bur Ore.
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    private void bOreBAction(ActionEvent event) {
-        if(tOre>0 && ship.getCount()<ship.getLimit() && money>oreP) {
+    private void bOreBAction(ActionEvent event) throws IOException {
+        if (tOre > 0 && ship.getCount() < ship.getLimit() && money > oreP) {
             tOre--;
             pOre++;
             ship.incCount();
             oreTrader.setText(Integer.toString(tOre));
             orePlayer.setText(Integer.toString(pOre));
-            money-=oreP;
+            money -= oreP;
             playerMoney.setText(Integer.toString(money));
         } else {
-            if (tOre<=0) {
+            if (tOre <= 0) {
                 showErr("Trader does not have enough \nore.");
-            } else if (ship.getCount()>=ship.getLimit()) {
+            } else if (ship.getCount() >= ship.getLimit()) {
                 showErr("Cargo is full.");
             } else {
                 showErr("Not enough money.");
             }
         }
     }
-
+    /**
+     * Sell Ore.
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    private void sOreBAction(ActionEvent event) {
-        if(pOre>0) {
+    private void sOreBAction(ActionEvent event) throws IOException {
+        if (pOre > 0) {
             tOre++;
             pOre--;
             ship.decCount();
             oreTrader.setText(Integer.toString(tOre));
             orePlayer.setText(Integer.toString(pOre));
-            money+=oreP;
+            money += oreP;
             playerMoney.setText(Integer.toString(money));
         } else {
             showErr("Not enough ore to sell.");
         }
     }
-
+    /**
+     * Sell Furs.
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    private void sFursBAction(ActionEvent event) {
-        if(pFur>0) {
+    private void sFursBAction(ActionEvent event) throws IOException {
+        if (pFur > 0) {
             tFur++;
             pFur--;
             ship.decCount();
             furTrader.setText(Integer.toString(tFur));
             furPlayer.setText(Integer.toString(pFur));
-            money+=furP;
+            money += furP;
             playerMoney.setText(Integer.toString(money));
         } else {
             showErr("Not enough fur to sell.");
         }
     }
-
+    /**
+     * Buy Furs.
+     * @param event
+     */
     @FXML
-    private void bFursBAction(ActionEvent event) {
-        if(tFur>0 && ship.getCount()<ship.getLimit() && money>furP) {
+    private void bFursBAction(ActionEvent event) throws IOException {
+        if (tFur > 0 && ship.getCount() < ship.getLimit() && money > furP) {
             tFur--;
             pFur++;
             ship.incCount();
             furTrader.setText(Integer.toString(tFur));
             furPlayer.setText(Integer.toString(pFur));
-            money-=furP;
+            money -= furP;
             playerMoney.setText(Integer.toString(money));
         } else {
-            if (tFur<=0) {
+            if (tFur <= 0) {
                 showErr("Trader does not have enough \nfur.");
-            } else if (ship.getCount()>=ship.getLimit()) {
+            } else if (ship.getCount() >= ship.getLimit()) {
                 showErr("Cargo is full.");
             } else {
                 showErr("Not enough money.");
             }
         }
     }
-
+    /**
+     * Buy Water.
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    private void bWaterBAction(ActionEvent event) {
-        if(tWater>0 && ship.getCount()<ship.getLimit() && money>waterP) {
+    private void bWaterBAction(ActionEvent event) throws IOException {
+        if (tWater > 0 && ship.getCount() < ship.getLimit() && money > waterP) {
             tWater--;
             pWater++;
             ship.incCount();
             waterTrader.setText(Integer.toString(tWater));
             waterPlayer.setText(Integer.toString(pWater));
-            money-=waterP;
+            money -= waterP;
             playerMoney.setText(Integer.toString(money));
         } else {
-            if (tWater<=0) {
+            if (tWater <= 0) {
                 showErr("Trader does not have enough \nwater.");
-            } else if (ship.getCount()>=ship.getLimit()) {
+            } else if (ship.getCount() >= ship.getLimit()) {
                 showErr("Cargo is full.");
             } else {
                 showErr("Not enough money.");
             }
         }
     }
-
+    /**
+     * Sell Water.
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    private void sWaterBAction(ActionEvent event) {
-        if(pWater>0) {
+    private void sWaterBAction(ActionEvent event) throws IOException {
+        if (pWater > 0) {
             tWater++;
             pWater--;
             ship.decCount();
             waterTrader.setText(Integer.toString(tWater));
             waterPlayer.setText(Integer.toString(pWater));
-            money+=waterP;
+            money += waterP;
             playerMoney.setText(Integer.toString(money));
         } else {
             showErr("Not enough water to sell.");
         }
     }
-    
+    /**
+     * Stop trading.
+     * @param event
+     */
     @FXML
     private void stopTradingBAction(ActionEvent event) {
         update();
         tradingStage.close();
     }
-    
+    /**
+    * Initialize trading.
+    **/
     private void initTrading() {
-        money=player.getCredit();
+        money = player.getCredit();
         playerMoney.setText(Integer.toString(money));
-        pWater=ship.getWater();
+        pWater = ship.getWater();
         waterPlayer.setText(Integer.toString(pWater));
-        pFur=ship.getFur();
+        pFur = ship.getFur();
         furPlayer.setText(Integer.toString(pFur));
-        pFood=ship.getFood();
+        pFood = ship.getFood();
         foodPlayer.setText(Integer.toString(pFood));
-        pOre=ship.getFood();
+        pOre = ship.getFood();
         orePlayer.setText(Integer.toString(pOre));
-        pGame=ship.getGame();
+        pGame = ship.getGame();
         gamePlayer.setText(Integer.toString(pGame));
-        pFirearm=ship.getFirearm();
+        pFirearm = ship.getFirearm();
         firearmPlayer.setText(Integer.toString(pFirearm));
-        pMedicine=ship.getMedicine();
+        pMedicine = ship.getMedicine();
         medicinePlayer.setText(Integer.toString(pMedicine));
-        pMachine=ship.getMachine();
+        pMachine = ship.getMachine();
         machinePlayer.setText(Integer.toString(pMachine));
-        pNarcotics=ship.getNarcotic();
+        pNarcotics = ship.getNarcotic();
         narcoticPlayer.setText(Integer.toString(pNarcotics));
-        pRobot=ship.getRobot();
+        pRobot = ship.getRobot();
         robotPlayer.setText(Integer.toString(pRobot));
-        waterP=(int) ((Good.Water.basePrice * (1 + rand.nextInt(Good.Water.var) / 7))*(1-0.01*player.getTrader()));
+        waterP = (int) ((Good.Water.basePrice * (1 + rand.nextInt(Good.Water.var) / 7)) * (1 - 0.01 * player.getTrader()));
         waterPrice.setText(Integer.toString(waterP));
-        furP=(int) ((Good.Furs.basePrice * (1 + rand.nextInt(Good.Furs.var) / 7))*(1-0.01*player.getTrader()));
+        furP = (int) ((Good.Furs.basePrice * (1 + rand.nextInt(Good.Furs.var) / 7)) * (1 - 0.01 * player.getTrader()));
         furPrice.setText(Integer.toString(furP));
-        foodP=(int) ((Good.Food.basePrice * (1 + rand.nextInt(Good.Food.var) / 7))*(1-0.01*player.getTrader()));
+        foodP = (int) ((Good.Food.basePrice * (1 + rand.nextInt(Good.Food.var) / 7)) * (1 - 0.01 * player.getTrader()));
         foodPrice.setText(Integer.toString(foodP));
-        oreP=(int) ((Good.Ore.basePrice * (1 + rand.nextInt(Good.Ore.var) / 7))*(1-0.01*player.getTrader()));
+        oreP = (int) ((Good.Ore.basePrice * (1 + rand.nextInt(Good.Ore.var) / 7)) * (1 - 0.01 * player.getTrader()));
         orePrice.setText(Integer.toString(oreP));
-        gameP=(int) ((Good.Games.basePrice * (1 + rand.nextInt(Good.Games.var) / 7))*(1-0.01*player.getTrader()));
+        gameP = (int) ((Good.Games.basePrice * (1 + rand.nextInt(Good.Games.var) / 7)) * (1 - 0.01 * player.getTrader()));
         gamePrice.setText(Integer.toString(gameP));
-        firearmP=(int) ((Good.Firearms.basePrice * (1 + rand.nextInt(Good.Firearms.var) / 7))*(1-0.01*player.getTrader()));
+        firearmP = (int) ((Good.Firearms.basePrice * (1 + rand.nextInt(Good.Firearms.var) / 7)) * (1 - 0.01 * player.getTrader()));
         firePrice.setText(Integer.toString(firearmP));
-        medicineP=(int) ((Good.Medicine.basePrice * (1 + rand.nextInt(Good.Medicine.var) / 7))*(1-0.01*player.getTrader()));
+        medicineP = (int) ((Good.Medicine.basePrice * (1 + rand.nextInt(Good.Medicine.var) / 7))*(1 - 0.01 * player.getTrader()));
         medicinePrice.setText(Integer.toString(medicineP));
-        machineP=(int) ((Good.Machines.basePrice * (1 + rand.nextInt(Good.Machines.var) / 7))*(1-0.01*player.getTrader()));
+        machineP = (int) ((Good.Machines.basePrice * (1 + rand.nextInt(Good.Machines.var) / 7)) * (1 - 0.01 * player.getTrader()));
         machinePrice.setText(Integer.toString(machineP));
-        narcoticsP=(int) ((Good.Narcotics.basePrice * (1 + rand.nextInt(Good.Narcotics.var) / 7))*(1-0.01*player.getTrader()));
+        narcoticsP = (int) ((Good.Narcotics.basePrice * (1 + rand.nextInt(Good.Narcotics.var) / 7)) * (1 - 0.01*player.getTrader()));
         narcoticPrice.setText(Integer.toString(narcoticsP));
-        robotP=(int) ((Good.Robots.basePrice * (1 + rand.nextInt(Good.Robots.var) / 7))*(1-0.01*player.getTrader()));
+        robotP = (int) ((Good.Robots.basePrice * (1 + rand.nextInt(Good.Robots.var) / 7)) * (1 - 0.01*player.getTrader()));
         robotPrice.setText(Integer.toString(robotP));
-        tWater=rand.nextInt(30)+20;
+        tWater = rand.nextInt(30) + 20;
         waterTrader.setText(Integer.toString(tWater));
-        tFur=rand.nextInt(20)+10;
+        tFur = rand.nextInt(20) + 10;
         furTrader.setText(Integer.toString(tFur));
-        tFood=rand.nextInt(35)+15;
+        tFood = rand.nextInt(35) + 15;
         foodTrader.setText(Integer.toString(tFood));
-        tOre=rand.nextInt(15)+10;
+        tOre = rand.nextInt(15) + 10;
         oreTrader.setText(Integer.toString(tOre));
-        tGame=rand.nextInt(20)+10;
+        tGame = rand.nextInt(20) + 10;
         gameTrader.setText(Integer.toString(tGame));
-        tFirearm=rand.nextInt(5)+10;
+        tFirearm = rand.nextInt(5) + 10;
         firearmTrader.setText(Integer.toString(tFirearm));
-        tMedicine=rand.nextInt(10)+10;
+        tMedicine = rand.nextInt(10) + 10;
         medicineTrader.setText(Integer.toString(tMedicine));
-        tMachine=rand.nextInt(5)+10;
+        tMachine = rand.nextInt(5) + 10;
         machineTrader.setText(Integer.toString(tMachine));
-        tNarcotics=rand.nextInt(5);
+        tNarcotics = rand.nextInt(5);
         narcoticTrader.setText(Integer.toString(tNarcotics));
-        tRobot=rand.nextInt(3);
+        tRobot = rand.nextInt(3);
         robotTrader.setText(Integer.toString(tRobot));
     }
     // </editor-fold>
-    
-    private void update(){
+    /**
+     * Update ship and player.
+     */
+    private void update() {
         ship.setWater(pWater);
         ship.setFur(pFur);
         ship.setFood(pFood);
@@ -775,68 +1047,81 @@ public class TraderEncController implements Initializable {
         GameData.setShip(ship);
         GameData.setPlayer(player);
     }
-    
-    private void showFight() {
-        try {
-            FXMLLoader localFightLoader = new FXMLLoader(SpaceFX.class.getResource("randomEvent/encounter/trader/traderFight.fxml"));
-            AnchorPane localFightPage = (AnchorPane) localFightLoader.load();
-            Stage localFightStage = new Stage();
+    /**
+     * Show fight stage.
+     * @throws IOException IOException
+     */
+    private void showFight() throws IOException {
+            final FXMLLoader localFightLoader = new FXMLLoader(
+                    SpaceFX.class.getResource("randomEvent/"
+                            + "encounter/trader/traderFight.fxml"));
+            final AnchorPane localFightPage
+                    = (AnchorPane) localFightLoader.load();
+            final Stage localFightStage = new Stage();
             localFightStage.setTitle("Trader Fight");
-            Scene scene = new Scene(localFightPage);
+            final Scene scene = new Scene(localFightPage);
             localFightStage.setScene(scene);
-            TraderEncController traderController = localFightLoader.getController();
+            final TraderEncController traderController
+                    = localFightLoader.getController();
             traderController.setFightStage(localFightStage);
             localFightStage.show();
-        } catch (IOException exc) {
-            exc.printStackTrace();
-        }
     }
-    
-    private void showTrading() {
-        try {
-            FXMLLoader localTradingLoader = new FXMLLoader(SpaceFX.class.getResource("randomEvent/encounter/trader/TradingWithTrader.fxml"));
-            AnchorPane localTradingPage = (AnchorPane) localTradingLoader.load();
-            Stage localTradingStage = new Stage();
+    /**
+     * Show trading stage.
+     * @throws IOException IOException
+     */
+    private void showTrading() throws IOException {
+            final FXMLLoader localTraLoader = new FXMLLoader(
+                    SpaceFX.class.getResource("randomEvent"
+                            + "/encounter/trader/TradingWithTrader.fxml"));
+            final AnchorPane localTradingPage
+                    = (AnchorPane) localTraLoader.load();
+            final Stage localTradingStage = new Stage();
             localTradingStage.setTitle("Trader Fight");
-            Scene scene = new Scene(localTradingPage);
+            final Scene scene = new Scene(localTradingPage);
             localTradingStage.setScene(scene);
-            TraderEncController traderController = localTradingLoader.getController();
+            final TraderEncController traderController
+                    = localTraLoader.getController();
             traderController.setTradingStage(localTradingStage);
             localTradingStage.show();
-        } catch (IOException exc) {
-            exc.printStackTrace();
-        }
     }
-    
-    private void showWinner() {
-        try {
-            FXMLLoader localWinnerLoader = new FXMLLoader(SpaceFX.class.getResource("randomEvent/encounter/trader/FightWinner.fxml"));
-            AnchorPane localWinnerPage = (AnchorPane) localWinnerLoader.load();
-            Stage localWinnerStage = new Stage();
+    /**
+     * Show winner stage.
+     * @throws IOException IOException
+     */
+    private void showWinner() throws IOException {
+            final FXMLLoader localWinnerLoader = new FXMLLoader(
+                    SpaceFX.class.getResource("randomEvent"
+                            + "/encounter/trader/FightWinner.fxml"));
+            final AnchorPane localWinnerPage =
+                    (AnchorPane) localWinnerLoader.load();
+            final Stage localWinnerStage = new Stage();
             localWinnerStage.setTitle("Pirate Fight");
-            Scene scene = new Scene(localWinnerPage);
+            final Scene scene = new Scene(localWinnerPage);
             localWinnerStage.setScene(scene);
-            TraderEncController traderController = localWinnerLoader.getController();
-            traderController.setWinnerStage(localWinnerStage,winnerIsPlayer);
+            final TraderEncController traderController
+                    = localWinnerLoader.getController();
+            traderController.setWinnerStage(localWinnerStage, winnerIsPlayer);
             localWinnerStage.show();
-        } catch (IOException exc) {
-            exc.printStackTrace();
-        }
     }
-    
-    private void showErr(String str) {
-        try {
-            FXMLLoader localErrLoader = new FXMLLoader(SpaceFX.class.getResource("randomEvent/encounter/trader/TraderEncErr.fxml"));
-            AnchorPane localErrPage = (AnchorPane) localErrLoader.load();
-            Stage localErrStage = new Stage();
+    /**
+     * Show error stage.
+     * @param str error message
+     * @throws IOException IOException
+     */
+    private void showErr(final String str) throws IOException {
+            final FXMLLoader localErrLoader = new FXMLLoader(
+                    SpaceFX.class.getResource("randomEvent"
+                            + "/encounter/trader/TraderEncErr.fxml"));
+            final AnchorPane localErrPage
+                    = (AnchorPane) localErrLoader.load();
+            final Stage localErrStage = new Stage();
             localErrStage.setTitle("Pirate Fight");
-            Scene scene = new Scene(localErrPage);
+            final Scene scene = new Scene(localErrPage);
             localErrStage.setScene(scene);
-            TraderEncController traderController = localErrLoader.getController();
-            traderController.setErrStage(localErrStage,str);
+            final TraderEncController traderController
+                    = localErrLoader.getController();
+            traderController.setErrStage(localErrStage, str);
             localErrStage.show();
-        } catch (IOException exc) {
-            exc.printStackTrace();
-        }
     }
 }

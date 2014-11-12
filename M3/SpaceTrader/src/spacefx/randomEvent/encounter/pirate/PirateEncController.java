@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -24,163 +23,279 @@ import spacefx.GameData;
 import spacefx.Player;
 import spacefx.Ship;
 import spacefx.SpaceFX;
-import spacefx.randomEvent.encounter.police.PoliceEncController;
-import spacefx.randomEvent.encounter.police.policeGlobalData;
-
 /**
- * FXML Controller class
+ * FXML Controller class.
  *
  * @author YaxiongLiu
  */
 public class PirateEncController implements Initializable {
+    /**
+     * Variable declaration.
+     */
     @FXML
-    private Button pirateOKB;
+    private transient Button pirateOKB;
+    /**
+     * Variable declaration.
+     */
     @FXML
-    private Label pirateEncInfo;
+    private transient Label myHP;
+    /**
+     * Variable declaration.
+     */
     @FXML
-    private Button pirateEscapeB;
+    private transient Label enemyHP;
+    /**
+     * Variable declaration.
+     */
     @FXML
-    private Button pirateFightB;
+    private transient Button surB;
+    /**
+     * Variable declaration.
+     */
     @FXML
-    private Label myHP;
+    private transient Button attB;
+    /**
+     * Variable declaration.
+     */
     @FXML
-    private Label enemyHP;
+    private transient Label battleInfo1;
+    /**
+     * Variable declaration.
+     */
     @FXML
-    private Button escB;
+    private transient Label battleInfo2;
+    /**
+     * Variable declaration.
+     */
     @FXML
-    private Button surB;
+    private transient Label winnerInfo1;
+    /**
+     * Variable declaration.
+     */
     @FXML
-    private Button attB;
+    private transient Label winnerInfo2;
+    /**
+     * Variable declaration.
+     */
     @FXML
-    private Label battleInfo1;
-    @FXML
-    private Label battleInfo2;
-    @FXML
-    private Label winnerInfo1;
-    @FXML
-    private Label winnerInfo2;
-    @FXML
-    private Button winnerOKB;
-    @FXML
-    private Label errMsg;
-    
-    private Player player = GameData.getPlayer();
-    private Ship ship = GameData.getShip();
-    private int playerMaxHP=2000;
-    private int playerHP=2000;
-    private int pirateMaxHP=2000;
-    private int pirateHP=2000;
-    private boolean hit;
-    private boolean winnerIsPlayer=false;
-    private Random rand = new Random();
-    private Stage theStage;
-    private Stage fightStage;
-    private Stage winnerStage;
-    private Stage errStage;
+    private transient Label errMsg;
+    /**
+     * Variable declaration.
+     */
+    private final transient Player player = GameData.getPlayer();
+    /**
+     * Variable declaration.
+     */
+    private final transient Ship ship = GameData.getShip();
+    /**
+     * Variable declaration.
+     */
+    private transient int playerMaxHP;
+    /**
+     * Variable declaration.
+     */
+    private transient int playerHP;
+    /**
+     * Variable declaration.
+     */
+    private transient int pirateMaxHP;
+    /**
+     * Variable declaration.
+     */
+    private transient int pirateHP;
+    /**
+     * Variable declaration.
+     */
+    private transient boolean hit;
+    /**
+     * Variable declaration.
+     */
+    private transient boolean winnerIsPlayer = false;
+    /**
+     * Variable declaration.
+     */
+    private final transient Random rand = new Random();
+    /**
+     * Variable declaration.
+     */
+    private transient Stage mainStage;
+    /**
+     * Variable declaration.
+     */
+    private transient Stage fightStage;
+    /**
+     * Variable declaration.
+     */
+    private transient Stage winnerStage;
+    /**
+     * Variable declaration.
+     */
+    private transient Stage errStage;
 
     /**
      * Initializes the controller class.
+     * @param url URL
+     * @param longrb RB
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(final URL url, final ResourceBundle longrb) {
         // TODO
-    }    
-    
-    public void setTheStage(Stage theStage) {
-        this.theStage = theStage;
-        pirateOKB.setDisable(true);
-        theStage.initStyle(StageStyle.UNDECORATED);
-        theStage.initModality(Modality.APPLICATION_MODAL);
     }
-    
-    public void setFightStage(Stage theFightStage) {
+    /**
+     * Set main stage.
+     * @param theStage the stage
+     */
+    public final void setTheStage(final Stage theStage) {
+        this.mainStage = theStage;
+        pirateOKB.setDisable(true);
+        mainStage.initStyle(StageStyle.UNDECORATED);
+        mainStage.initModality(Modality.APPLICATION_MODAL);
+    }
+    /**
+     * Set fight stage.
+     * @param theFightStage the fight stage
+     */
+    public final void setFightStage(final Stage theFightStage) {
         this.fightStage = theFightStage;
-        playerMaxHP=3500+ 800*player.getEngineer();
-        playerHP=playerMaxHP;
-        winnerIsPlayer=false;
-        enemyHP.setText(Integer.toString(pirateHP)+"/"+Integer.toString(pirateMaxHP));
-        myHP.setText(Integer.toString(playerHP)+"/"+Integer.toString(playerMaxHP));
+        playerMaxHP = 3500 + 800 * player.getEngineer();
+        playerHP = playerMaxHP;
+        pirateMaxHP = 2500;
+        pirateHP=pirateMaxHP;
+        winnerIsPlayer = false;
+        enemyHP.setText(Integer.toString(pirateHP)
+                + "/" + Integer.toString(pirateMaxHP));
+        myHP.setText(Integer.toString(playerHP)
+                + "/" + Integer.toString(playerMaxHP));
         fightStage.initStyle(StageStyle.UNDECORATED);
         fightStage.initModality(Modality.APPLICATION_MODAL);
     }
-    
-    public void setWinnerStage(Stage theWinnerStage,boolean playerWin) {
+    /**
+     * Set winner stage.
+     * @param theWinnerStage THEWINNERSRTAGE
+     * @param playerWin PLAYERWIN
+     */
+    public final void setWinnerStage(final Stage theWinnerStage,
+            final boolean playerWin) {
         this.winnerStage = theWinnerStage;
-        winnerIsPlayer=playerWin;
-        if (playerWin) winnerInfo1.setText("You Win");
-        else {
+        winnerIsPlayer = playerWin;
+        if (playerWin) {
+            winnerInfo1.setText("You Win");
+        } else {
             winnerInfo1.setText("Your ship has been destroyed.");
             winnerInfo2.setText("Game Over");
         }
         winnerStage.initStyle(StageStyle.UNDECORATED);
         winnerStage.initModality(Modality.APPLICATION_MODAL);
     }
-    
-    public void setErrStage(Stage theErrStage, String str) {
-        this.errStage=theErrStage;
+    /**
+     * Set error stage.
+     * @param theErrStage ERR
+     * @param str STR
+     */
+    public final void setErrStage(final Stage theErrStage,
+            final String str) {
+        this.errStage = theErrStage;
         errMsg.setText(str);
         errStage.initStyle(StageStyle.UNDECORATED);
         errStage.initModality(Modality.APPLICATION_MODAL);
     }
-
+    /**
+     * Pirate OK Action.
+     */
     @FXML
-    private void pirateOKBAction(ActionEvent event) {
-        this.theStage.close();
-        spacefx.randomEvent.TravellingController.running=true;
+    private void pirateOKBAction() {
+        mainStage.close();
+        spacefx.randomEvent.TravellingController.running = true;
     }
-
+    /**
+     * pirate escape action.
+     */
     @FXML
-    private void pirateEscapeBAction(ActionEvent event) {
-        this.theStage.close();
-        spacefx.randomEvent.TravellingController.running=true;
+    private void pirateEscapeBAction() {
+        mainStage.close();
+        spacefx.randomEvent.TravellingController.running = true;
     }
-
+    /**
+     * pirate fight action.
+     * @throws IOException E
+     */
     @FXML
-    private void pirateFightBAction(ActionEvent event) {
-        theStage.close();
+    private void pirateFightBAction() throws IOException {
+        mainStage.close();
         showFight();
     }
-    
+    /**
+     * Escape action.
+     */
     @FXML
-    private void escBAction(ActionEvent event) {
+    private void escBAction() {
         fightStage.close();
-        spacefx.randomEvent.TravellingController.running=true;
+        spacefx.randomEvent.TravellingController.running = true;
     }
-
+    /**
+     * Surrender action.
+     * @throws IOException E
+     */
     @FXML
-    private void surBAction(ActionEvent event) {
+    private void surBAction() throws IOException {
         ship.emptyCargo();
         GameData.setShip(ship);
-        if(player.getCredit()>10000) {
+        if(player.getCredit() > 10000) {
             player.setCredit(10000);
             GameData.setPlayer(player);
         }
         attB.setDisable(true);
         surB.setDisable(true);
-        showErr("Police got everything you owned. \nBut left some money for you.");
+        showErr("Police got everything you owned. "
+                + "\nBut left some money for you.");
     }
-
+    /**
+     * Attack action.
+     * @throws IOException E
+     */
     @FXML
-    private void attBAction(ActionEvent event) {
-            if (pirateHP>0 && playerHP>0) {
-                if (rand.nextInt(10)<player.getFighter()+4) hit=true; 
-                else hit=false;
+    private void attBAction() throws IOException {
+            if (pirateHP > 0 && playerHP > 0) {
+                if (rand.nextInt(10) < player.getFighter() + 4) {
+                    hit = true;
+                } else {
+                    hit = false;
+                }
                 if (hit) {
-                    if (pirateHP>=500) pirateHP-=500;
-                    else pirateHP=0;
-                    enemyHP.setText(Integer.toString(pirateHP)+"/"+Integer.toString(pirateMaxHP));
-                    battleInfo1.setText("Player hits Police and deals 500 damage.");
-                } else {battleInfo1.setText("Player attacks Police but does not hit.");}
-                if (rand.nextInt(10)>player.getPilot()/3) hit = true;
-                else hit = false;
+                    if (pirateHP >= 500) {
+                        pirateHP -= 500;
+                    } else {
+                        pirateHP = 0;
+                    }
+                    enemyHP.setText(Integer.toString(pirateHP)
+                            + "/" + Integer.toString(pirateMaxHP));
+                    battleInfo1.setText("Player hits Police "
+                            + "and deals 500 damage.");
+                } else {
+                    battleInfo1.setText("Player attacks Police "
+                            + "but does not hit.");
+                }
+                if (rand.nextInt(10) > player.getPilot() / 3) {
+                    hit = true;
+                } else {
+                    hit = false;
+                }
                 if (hit) {
-                    if (playerHP>=500) playerHP-=500;
-                    else playerHP=0;
-                    myHP.setText(Integer.toString(playerHP)+"/"+Integer.toString(playerMaxHP));
-                    battleInfo2.setText("Police hits Player and deals 500 damage.");
-                } else {battleInfo2.setText("Police attacks Plyaer but does not hit.");}
-            } else if (playerHP>0) {
-                winnerIsPlayer=true;
+                    if (playerHP >= 500) {
+                        playerHP -= 500;
+                    } else {
+                        playerHP = 0;
+                    }
+                    myHP.setText(Integer.toString(playerHP)
+                            + "/" + Integer.toString(playerMaxHP));
+                    battleInfo2.setText("Police hits Player "
+                            + "and deals 500 damage.");
+                } else {
+                    battleInfo2.setText("Police attacks Plyaer "
+                            + "but does not hit.");
+                }
+            } else if (playerHP > 0) {
+                winnerIsPlayer = true;
                 fightStage.close();
                 showWinner();
             } else {
@@ -188,66 +303,82 @@ public class PirateEncController implements Initializable {
                 showWinner();
             }
     }
-    
+    /**
+     * Winner OK Action.
+     * @param event
+     */
     @FXML
-    private void winnerOKBAction(ActionEvent event) {
-        if(winnerIsPlayer) {
+    private void winnerOKBAction() {
+        if (winnerIsPlayer) {
             winnerStage.close();
-            spacefx.randomEvent.TravellingController.running=true;
+            spacefx.randomEvent.TravellingController.running = true;
+        } else {
+            System.exit(0);
         }
-        else System.exit(0);
     }
-    
+    /**
+     * Error OK Action.
+     * @param event
+     */
     @FXML
-    private void errOKBAction(ActionEvent event) {
+    private void errOKBAction() {
         errStage.close();
     }
-    
-    private void showFight(){
-        try {
-            FXMLLoader localFightLoader = new FXMLLoader(SpaceFX.class.getResource("randomEvent/encounter/pirate/pirateFight.fxml"));
-            AnchorPane localFightPage = (AnchorPane) localFightLoader.load();
-            Stage localFightStage = new Stage();
+    /**
+     * Show fight.
+     * @throws IOException E
+     */
+    private void showFight() throws IOException {
+            final FXMLLoader localFightLoader = new FXMLLoader(
+                    SpaceFX.class.getResource("randomEvent"
+                            + "/encounter/pirate/pirateFight.fxml"));
+            final AnchorPane localFightPage
+                    = (AnchorPane) localFightLoader.load();
+            final Stage localFightStage = new Stage();
             localFightStage.setTitle("Pirate Fight");
-            Scene scene = new Scene(localFightPage);
+            final Scene scene = new Scene(localFightPage);
             localFightStage.setScene(scene);
-            PirateEncController pirateController = localFightLoader.getController();
+            final PirateEncController pirateController
+                    = localFightLoader.getController();
             pirateController.setFightStage(localFightStage);
             localFightStage.show();
-        } catch (IOException exc) {
-            exc.printStackTrace();
-        }
     }
-    
-    private void showWinner() {
-        try {
-            FXMLLoader localWinnerLoader = new FXMLLoader(SpaceFX.class.getResource("randomEvent/encounter/pirate/FightWinner.fxml"));
-            AnchorPane localWinnerPage = (AnchorPane) localWinnerLoader.load();
-            Stage localWinnerStage = new Stage();
+    /**
+     * Show winner.
+     * @throws IOException E
+     */
+    private void showWinner() throws IOException {
+            final FXMLLoader localWinnerLoader = new FXMLLoader(
+                    SpaceFX.class.getResource("randomEvent"
+                            + "/encounter/pirate/FightWinner.fxml"));
+            final AnchorPane localWinnerPage
+                    = (AnchorPane) localWinnerLoader.load();
+            final Stage localWinnerStage = new Stage();
             localWinnerStage.setTitle("Pirate Fight");
-            Scene scene = new Scene(localWinnerPage);
+            final Scene scene = new Scene(localWinnerPage);
             localWinnerStage.setScene(scene);
-            PirateEncController pirateController = localWinnerLoader.getController();
-            pirateController.setWinnerStage(localWinnerStage,winnerIsPlayer);
+            final PirateEncController pirateController
+                    = localWinnerLoader.getController();
+            pirateController.setWinnerStage(localWinnerStage, winnerIsPlayer);
             localWinnerStage.show();
-        } catch (IOException exc) {
-            exc.printStackTrace();
-        }
     }
-    
-    private void showErr(String str) {
-        try {
-            FXMLLoader localErrLoader = new FXMLLoader(SpaceFX.class.getResource("randomEvent/encounter/pirate/PirateEncErr.fxml"));
-            AnchorPane localErrPage = (AnchorPane) localErrLoader.load();
-            Stage localErrStage = new Stage();
+    /**
+     * Show error.
+     * @param str STR
+     * @throws IOException E
+     */
+    private void showErr(final String str) throws IOException {
+            final FXMLLoader localErrLoader = new FXMLLoader(
+                    SpaceFX.class.getResource("randomEvent"
+                            + "/encounter/pirate/PirateEncErr.fxml"));
+            final AnchorPane localErrPage = (AnchorPane) localErrLoader.load();
+            final Stage localErrStage = new Stage();
             localErrStage.setTitle("Pirate Fight");
-            Scene scene = new Scene(localErrPage);
+            final Scene scene = new Scene(localErrPage);
             localErrStage.setScene(scene);
-            PirateEncController pirateController = localErrLoader.getController();
-            pirateController.setErrStage(localErrStage,str);
+            final PirateEncController pirateController
+                    = localErrLoader.getController();
+            pirateController.setErrStage(localErrStage, str);
             localErrStage.show();
-        } catch (IOException exc) {
-            exc.printStackTrace();
-        }
     }
 }

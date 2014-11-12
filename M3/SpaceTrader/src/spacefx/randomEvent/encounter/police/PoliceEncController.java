@@ -27,134 +27,265 @@ import spacefx.SpaceFX;
 import spacefx.randomEvent.encounter.pirate.PirateEncController;
 
 /**
- * FXML Controller class
- *
+ * Police encounter controller.
  * @author YaxiongLiu
  */
 public class PoliceEncController implements Initializable {
+    /**
+     * Variable Declaration.
+     */
     @FXML
-    private Button policeFightB;
+    private transient Button policeFightB;
+    /**
+     * Variable Declaration.
+     */
     @FXML
-    private Button policeEscapeB;
+    private transient Button policeEscapeB;
+    /**
+     * Variable Declaration.
+     */
     @FXML
-    private Label policeEncInfo;
+    private transient Label policeEncInfo;
+    /**
+     * Variable Declaration.
+     */
     @FXML
-    private Button policeBribeB;
+    private transient Button policeBribeB;
+    /**
+     * Variable Declaration.
+     */
     @FXML
-    private Button policeOKB;
+    private transient Button policeOKB;
+    /**
+     * Variable Declaration.
+     */
     @FXML
-    private Label myHP;
+    private transient Label myHP;
+    /**
+     * Variable Declaration.
+     */
     @FXML
-    private Label enemyHP;
+    private transient Label enemyHP;
+    /**
+     * Variable Declaration.
+     */
     @FXML
-    private Button escB;
+    private transient Button surB;
+    /**
+     * Variable Declaration.
+     */
     @FXML
-    private Button surB;
+    private transient Button attB;
+    /**
+     * Variable Declaration.
+     */
     @FXML
-    private Button attB;
+    private transient Button bribeOKB;
+    /**
+     * Variable Declaration.
+     */
     @FXML
-    private Button bribeOKB;
+    private transient Button bribeCancelB;
+    /**
+     * Variable Declaration.
+     */
     @FXML
-    private Button bribeCancelB;
+    private transient Label bribeAmount;
+    /**
+     * Variable Declaration.
+     */
     @FXML
-    private Label bribeAmount;
+    private transient Label battleInfo1;
+    /**
+     * Variable Declaration.
+     */
     @FXML
-    private Label battleInfo1;
+    private transient Label battleInfo2;
+    /**
+     * Variable Declaration.
+     */
     @FXML
-    private Label battleInfo2;
+    private transient Label winnerInfo1;
+    /**
+     * Variable Declaration.
+     */
     @FXML
-    private Label winnerInfo1;
+    private transient Label winnerInfo2;
+    /**
+     * Variable Declaration.
+     */
     @FXML
-    private Label winnerInfo2;
-    @FXML
-    private Button winnerOKB;
-    @FXML
-    private Label errMsg;
-    
-    private Player player = GameData.getPlayer();
-    private Ship ship = GameData.getShip();
-    private int playerMaxHP=2000;
-    private int playerHP=2000;
-    private int policeMaxHP=3000;
-    private int policeHP=3000;
-    private int bribeMoney;
-    private boolean hit;
-    private boolean winnerIsPlayer=false;
-    private Random rand = new Random();
-    private Stage theStage;
-    private Stage bribeStage;
-    private Stage fightStage;
-    private Stage winnerStage;
-    private Stage errStage;
-
+    private transient Label errMsg;
+    /**
+     * Variable Declaration.
+     */
+    private final transient Player player = GameData.getPlayer();
+    /**
+     * Variable Declaration.
+     */
+    private final transient Ship ship = GameData.getShip();
+    /**
+     * Variable Declaration.
+     */
+    private transient int playerMaxHP;
+    /**
+     * Variable Declaration.
+     */
+    private transient int playerHP;
+    /**
+     * Variable Declaration.
+     */
+    private transient int policeMaxHP;
+    /**
+     * Variable Declaration.
+     */
+    private transient int policeHP;
+    /**
+     * Variable Declaration.
+     */
+    private transient int bribeMoney;
+    /**
+     * Variable Declaration.
+     */
+    private transient boolean hit;
+    /**
+     * Variable Declaration.
+     */
+    private transient boolean winnerIsPlayer = false;
+    /**
+     * Variable Declaration.
+     */
+    private final transient Random rand = new Random();
+    /**
+     * Variable Declaration.
+     */
+    private transient Stage mainStage;
+    /**
+     * Variable Declaration.
+     */
+    private transient Stage bribeStage;
+    /**
+     * Variable Declaration.
+     */
+    private transient Stage fightStage;
+    /**
+     * Variable Declaration.
+     */
+    private transient Stage winnerStage;
+    /**
+     * Variable Declaration.
+     */
+    private transient Stage errStage;
+    /**
+     * Variable Declaration.
+     */
+    private static final transient int NARP = 200;
+    /**
+     * Variable Declaration.
+     */
+    private static final transient int FIRP = 300;
     /**
      * Initializes the controller class.
+     * @param url URL
+     * @param longrb RB
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(final URL url, final ResourceBundle longrb) {
         // TODO
-    }    
-
-    public void setTheStage(Stage theStage) {
-        this.theStage = theStage;
-        policeEncInfo.setText("Police is checking your cargo.");
-        policeGlobalData.setSitu("checking cargo");
-        theStage.initStyle(StageStyle.UNDECORATED);
-        theStage.initModality(Modality.APPLICATION_MODAL);
     }
-    
-    public void setBribeStage(Stage theStage) {
-        this.bribeStage = theStage;
+    /**
+     * Set main Stage.
+     * @param theStage main stage
+     */
+    public final void setTheStage(final Stage theStage) {
+        mainStage = theStage;
+        policeEncInfo.setText("Police is checking your cargo.");
+        PoliceGlobalData.setSitu("checking cargo");
+        mainStage.initStyle(StageStyle.UNDECORATED);
+        mainStage.initModality(Modality.APPLICATION_MODAL);
+    }
+    /**
+     * Set bribe stage.
+     * @param theStage bribe stage
+     */
+    public final void setBribeStage(final Stage theStage) {
+        bribeStage = theStage;
         bribeStage.initStyle(StageStyle.UNDECORATED);
         bribeStage.initModality(Modality.APPLICATION_MODAL);
     }
-    
-    public void setFightStage(Stage theStage) {
-        this.fightStage = theStage;
-        playerMaxHP=3500 + 800*player.getEngineer();
-        playerHP=playerMaxHP;
-        winnerIsPlayer=false;
-        enemyHP.setText(Integer.toString(policeHP)+"/"+Integer.toString(policeMaxHP));
-        myHP.setText(Integer.toString(playerHP)+"/"+Integer.toString(playerMaxHP));
+    /**
+     * Set fight stage.
+     * @param theStage fight stage
+     */
+    public final void setFightStage(final Stage theStage) {
+        fightStage = theStage;
+        playerMaxHP = 3500 + 800 * player.getEngineer();
+        playerHP = playerMaxHP;
+        policeMaxHP = 2500;
+        policeHP = policeMaxHP;
+        winnerIsPlayer = false;
+        enemyHP.setText(Integer.toString(policeHP)
+                + "/" + Integer.toString(policeMaxHP));
+        myHP.setText(Integer.toString(playerHP)
+                + "/" + Integer.toString(playerMaxHP));
         fightStage.initStyle(StageStyle.UNDECORATED);
         fightStage.initModality(Modality.APPLICATION_MODAL);
     }
-    
-    public void setWinnerStage(Stage theWinnerStage,boolean playerWin) {
-        this.winnerStage = theWinnerStage;
-        winnerIsPlayer=playerWin;
-        if (playerWin) winnerInfo1.setText("You Win");
-        else {
+    /**
+     * Set winner stage.
+     * @param theWinnerStage winner stage
+     * @param playerWin winner information
+     */
+    public final void setWinnerStage(final Stage theWinnerStage,
+            final boolean playerWin) {
+        winnerStage = theWinnerStage;
+        winnerIsPlayer = playerWin;
+        if (playerWin) {
+            winnerInfo1.setText("You Win");
+        } else {
             winnerInfo1.setText("Your ship has been destroyed.");
             winnerInfo2.setText("Game Over");
         }
         winnerStage.initStyle(StageStyle.UNDECORATED);
         winnerStage.initModality(Modality.APPLICATION_MODAL);
     }
-    
-    public void setErrStage(Stage theErrStage, String str) {
-        this.errStage=theErrStage;
+    /**
+     * Set error stage.
+     * @param theErrStage error stage
+     * @param str string
+     */
+    public final void setErrStage(final Stage theErrStage,
+            final String str) {
+        errStage = theErrStage;
         errMsg.setText(str);
         errStage.initStyle(StageStyle.UNDECORATED);
         errStage.initModality(Modality.APPLICATION_MODAL);
     }
-    
+    /**
+     * enter fight action.
+     * @throws IOException IOException
+     */
     @FXML
-    private void policeFightBAction(ActionEvent event) {
-        this.theStage.close();
-        policeGlobalData.setSitu("initial");
+    private void policeFightBAction() throws IOException {
+        mainStage.close();
+        PoliceGlobalData.setSitu("initial");
         showFight();
     }
-
+    /**
+     * escape police action.
+     */
     @FXML
-    private void policeEscapeBAction(ActionEvent event) {
-        this.theStage.close();
-        spacefx.randomEvent.TravellingController.running=true;
+    private void policeEscapeBAction() {
+        mainStage.close();
+        spacefx.randomEvent.TravellingController.running = true;
     }
-
+    /**
+     * bribe police action.
+     * @throws IOException IOException
+     */
     @FXML
-    private void policeBribeBAction(ActionEvent event) {
-        policeGlobalData.setSitu("bribing");
+    private void policeBribeBAction() throws IOException {
+        PoliceGlobalData.setSitu("bribing");
         policeOKB.setText("Next");
         policeOKB.setDisable(false);
         policeBribeB.setDisable(true);
@@ -162,65 +293,97 @@ public class PoliceEncController implements Initializable {
         policeEscapeB.setDisable(true);
         showBribe();
     }
-
+    /**
+     * Police OK Action.
+     */
     @FXML
-    private void policeOKBAction(ActionEvent event) {
-            if (policeGlobalData.getSitu().equals("bribed")) {
+    private void policeOKBAction() {
+            if (PoliceGlobalData.getSitu().equals("bribed")) {
                 policeEncInfo.setText("Police: I didn't see anything");
                 policeEscapeB.setText("Leave");
                 policeEscapeB.setDisable(false);
-            } else if (policeGlobalData.getSitu().equals("bribe cancelled")) {
+            } else if (PoliceGlobalData.getSitu().equals("bribe cancelled")) {
                 policeFightB.setDisable(false);
                 policeEscapeB.setDisable(false);
-            } else if ((policeGlobalData.getSitu().equals("checking cargo"))) {
+            } else if (PoliceGlobalData.getSitu().equals("checking cargo")) {
                 policeEncInfo.setText(fineInfo(GameData.getShip()));
                 policeOKB.setDisable(true);
                 policeEscapeB.setText("Leave");
             }
             policeOKB.setDisable(true);
     }
-    
+    /**
+     * Escape fight action.
+     */
     @FXML
-    private void escBAction(ActionEvent event) {
-        this.fightStage.close();
-        spacefx.randomEvent.TravellingController.running=true;
+    private void escBAction() {
+        fightStage.close();
+        spacefx.randomEvent.TravellingController.running = true;
     }
-
+    /**
+     * Surrender fight action.
+     * @param event
+     */
     @FXML
-    private void surBAction(ActionEvent event) {
+    private void surBAction(ActionEvent event) throws IOException {
         ship.emptyCargo();
         GameData.setShip(ship);
-        if(player.getCredit()>10000) {
+        if (player.getCredit() > 10000) {
             player.setCredit(10000);
             GameData.setPlayer(player);
         }
         attB.setDisable(true);
         surB.setDisable(true);
-        showErr("Police got everything you owned. \nBut left some money for you.");
+        showErr("Police got everything you owned. "
+                + "\nBut left some money for you.");
     }
-
+    /**
+     * Attack.
+     * @throws IOException IOException
+     */
     @FXML
-    private void attBAction(ActionEvent event) {
-            if (policeHP>0 && playerHP>0) {
-                if (rand.nextInt(10)<player.getFighter()+4) hit=true; 
-                else hit=false;
+    private void attBAction() throws IOException {
+            if (policeHP > 0 && playerHP > 0) {
+                if (rand.nextInt(10) < player.getFighter() + 4) {
+                    hit = true;
+                } else {
+                    hit = false;
+                }
                 if (hit) {
-                    if (policeHP>=500) policeHP-=500;
-                    else policeHP=0;
-                    enemyHP.setText(Integer.toString(policeHP)+"/"+Integer.toString(policeMaxHP));
-                    battleInfo1.setText("Player hits Police and deals 500 damage.");
-                } else {battleInfo1.setText("Player attacks Police but does not hit.");}
-                if (rand.nextInt(10)>player.getPilot()/3) hit = true;
-                else hit = false;
+                    if (policeHP >= 500) {
+                        policeHP -= 500;
+                    } else {
+                        policeHP = 0;
+                    }
+                    enemyHP.setText(Integer.toString(policeHP)
+                            + "/" + Integer.toString(policeMaxHP));
+                    battleInfo1.setText("Player hits Police "
+                            + "and deals 500 damage.");
+                } else {
+                    battleInfo1.setText("Player attacks Police "
+                            + "but does not hit.");
+                }
+                if (rand.nextInt(10) > player.getPilot() / 3) {
+                    hit = true;
+                } else {
+                    hit = false;
+                }
                 if (hit) {
-                    if (playerHP>=500) playerHP-=500;
-                    else playerHP=0;
-                    myHP.setText(Integer.toString(playerHP)+"/"+Integer.toString(playerMaxHP));
-                    battleInfo2.setText("Police hits Player and deals 500 damage.");
-                } else {battleInfo2.setText("Police attacks Plyaer but does not hit.");}
-                
-            } else if (playerHP>0) {
-                winnerIsPlayer=true;
+                    if (playerHP >= 500) {
+                        playerHP -= 500;
+                    } else {
+                        playerHP = 0;
+                    }
+                    myHP.setText(Integer.toString(playerHP)
+                            + "/" + Integer.toString(playerMaxHP));
+                    battleInfo2.setText("Police hits Player "
+                            + "and deals 500 damage.");
+                } else {
+                    battleInfo2.setText("Police attacks Plyaer "
+                            + "but does not hit.");
+                }
+            } else if (playerHP > 0) {
+                winnerIsPlayer = true;
                 fightStage.close();
                 showWinner();
             } else {
@@ -228,134 +391,167 @@ public class PoliceEncController implements Initializable {
                 showWinner();
             }
     }
-    
+    /**
+     * Bribe OK action.
+     */
     @FXML
-    private void bribeOKBAction(ActionEvent event) {
-        System.out.println(policeGlobalData.getSitu());
-        if (policeGlobalData.getSitu().equals("bribing")) {
-            bribeMoney = 500+rand.nextInt(500);
-            bribeAmount.setText("You are going to bribe police $" + Integer.toString(bribeMoney));
+    private void bribeOKBAction() {
+        if (PoliceGlobalData.getSitu().equals("bribing")) {
+            bribeMoney = 500 + rand.nextInt(500);
+            bribeAmount.setText("You are going to bribe police $"
+                    + Integer.toString(bribeMoney));
             bribeOKB.setText("OK");
             bribeCancelB.setText("Cancel");
-            policeGlobalData.setSitu("bribe amount shown");
-        } else if (policeGlobalData.getSitu().equals("bribe amount shown")){
-            policeGlobalData.setSitu("bribed");
+            PoliceGlobalData.setSitu("bribe amount shown");
+        } else if (PoliceGlobalData.getSitu().equals("bribe amount shown")) {
+            PoliceGlobalData.setSitu("bribed");
             player.loseCredit(bribeMoney);
             GameData.setPlayer(player);
             bribeStage.close();
         }
     }
-
+    /**
+     * Winner OK Action.
+     */
     @FXML
-    private void winnerOKBAction(ActionEvent event) {
-        if(winnerIsPlayer) {
+    private void winnerOKBAction() {
+        if (winnerIsPlayer) {
             winnerStage.close();
-            spacefx.randomEvent.TravellingController.running=true;
+            spacefx.randomEvent.TravellingController.running = true;
+        } else {
+            System.exit(0);
         }
-        else System.exit(0);
     }
-    
+    /**
+     * Cancel bribe.
+     */
     @FXML
-    private void bribeCancelBAction(ActionEvent event) {
-        policeGlobalData.setSitu("bribe cancelled");
+    private void bribeCancelBAction() {
+        PoliceGlobalData.setSitu("bribe cancelled");
         this.bribeStage.close();
     }
-    
+    /**
+     * Error OK action.
+     */
     @FXML
-    private void errOKBAction(ActionEvent event) {
+    private void errOKBAction() {
         errStage.close();
     }
-    
-    private void showBribe() {
-        try {
-            FXMLLoader localBribeLoader = new FXMLLoader(SpaceFX.class.getResource("randomEvent/encounter/police/BribePolice.fxml"));
-            AnchorPane localBribePage = (AnchorPane) localBribeLoader.load();
-            Stage localBribeStage = new Stage();
+    /**
+     * Show bribe stage.
+     * @throws IOException IOEception
+     */
+    private void showBribe() throws IOException {
+            final FXMLLoader localBribeLoader = new FXMLLoader(
+                    SpaceFX.class.getResource("randomEvent/"
+                            + "encounter/police/BribePolice.fxml"));
+            final AnchorPane localBribePage
+                    = (AnchorPane) localBribeLoader.load();
+            final Stage localBribeStage = new Stage();
             localBribeStage.setTitle("Bribe Police");
-            Scene scene = new Scene(localBribePage);
+            final Scene scene = new Scene(localBribePage);
             localBribeStage.setScene(scene);
-            PoliceEncController policeController = localBribeLoader.getController();
+            final PoliceEncController policeController
+                    = localBribeLoader.getController();
             policeController.setBribeStage(localBribeStage);
             localBribeStage.show();
-        } catch (IOException exc) {
-            exc.printStackTrace();
-        }
-        
     }
-    
-    private void showFight() {
-        try {
-            FXMLLoader localFightLoader = new FXMLLoader(SpaceFX.class.getResource("randomEvent/encounter/police/policeFight.fxml"));
-            AnchorPane localFightPage = (AnchorPane) localFightLoader.load();
-            Stage localFightStage = new Stage();
+    /**
+     * Show fight stage.
+     * @throws IOException IOException
+     */
+    private void showFight() throws IOException {
+            final FXMLLoader localFightLoader = new FXMLLoader(
+                    SpaceFX.class.getResource("randomEvent"
+                            + "/encounter/police/policeFight.fxml"));
+            final AnchorPane localFightPage
+                    = (AnchorPane) localFightLoader.load();
+            final Stage localFightStage = new Stage();
             localFightStage.setTitle("Police Fight");
-            Scene scene = new Scene(localFightPage);
+            final Scene scene = new Scene(localFightPage);
             localFightStage.setScene(scene);
-            PoliceEncController policeController = localFightLoader.getController();
+            final PoliceEncController policeController
+                    = localFightLoader.getController();
             policeController.setFightStage(localFightStage);
             localFightStage.show();
-        } catch (IOException exc) {
-            exc.printStackTrace();
-        }
     }
-    
-    private void showWinner() {
-        try {
-            FXMLLoader localWinnerLoader = new FXMLLoader(SpaceFX.class.getResource("randomEvent/encounter/pirate/FightWinner.fxml"));
-            AnchorPane localWinnerPage = (AnchorPane) localWinnerLoader.load();
-            Stage localWinnerStage = new Stage();
+    /**
+     * Show winner stage.
+     * @throws IOException IOException
+     */
+    private void showWinner() throws IOException {
+            final FXMLLoader localWinnerLoader = new FXMLLoader(
+                    SpaceFX.class.getResource("randomEvent"
+                            + "/encounter/pirate/FightWinner.fxml"));
+            final AnchorPane localWinnerPage
+                    = (AnchorPane) localWinnerLoader.load();
+            final Stage localWinnerStage = new Stage();
             localWinnerStage.setTitle("Police Fight");
-            Scene scene = new Scene(localWinnerPage);
+            final Scene scene = new Scene(localWinnerPage);
             localWinnerStage.setScene(scene);
-            PirateEncController pirateController = localWinnerLoader.getController();
-            pirateController.setWinnerStage(localWinnerStage,winnerIsPlayer);
+            final PirateEncController pirateController
+                    = localWinnerLoader.getController();
+            pirateController.setWinnerStage(localWinnerStage, winnerIsPlayer);
             localWinnerStage.show();
-        } catch (IOException exc) {
-            exc.printStackTrace();
-        }
     }
-    
-    private void showErr(String str) {
-        try {
-            FXMLLoader localErrLoader = new FXMLLoader(SpaceFX.class.getResource("randomEvent/encounter/police/PoliceEncErr.fxml"));
-            AnchorPane localErrPage = (AnchorPane) localErrLoader.load();
-            Stage localErrStage = new Stage();
+    /**
+     * Show error stage.
+     * @param str string
+     * @throws IOException IOException
+     */
+    private void showErr(final String str) throws IOException {
+            final FXMLLoader localErrLoader = new FXMLLoader(
+                    SpaceFX.class.getResource("randomEvent"
+                            + "/encounter/police/PoliceEncErr.fxml"));
+            final AnchorPane localErrPage = (AnchorPane) localErrLoader.load();
+            final Stage localErrStage = new Stage();
             localErrStage.setTitle("Pirate Fight");
-            Scene scene = new Scene(localErrPage);
+            final Scene scene = new Scene(localErrPage);
             localErrStage.setScene(scene);
-            PoliceEncController policeController = localErrLoader.getController();
-            policeController.setErrStage(localErrStage,str);
+            final PoliceEncController policeController
+                    = localErrLoader.getController();
+            policeController.setErrStage(localErrStage, str);
             localErrStage.show();
-        } catch (IOException exc) {
-            exc.printStackTrace();
-        }
     }
-    
-    private String fineInfo(Ship ship) {
-        String result = "";
-        if(ship.getFirearm()>0 && ship.getNarcotic()>0) {
-            result = "Plice found illegal good " + ship.getFirearm() + " firearms \nand " + ship.getNarcotic()  
-                    + " narcotics in your ship \nand took them away. You got a ticket \nand paid " 
-                    + Integer.toString(ship.getFirearm()*300+ship.getNarcotic()*200)
+    /**
+     * refresh fine info.
+     * @param localShip localShip
+     * @return string
+     */
+    public String fineInfo(final Ship localShip) {
+        String result;
+        if (localShip.getFirearm() > 0 && localShip.getNarcotic() > 0) {
+            result = "Plice found illegal good "
+                    + localShip.getFirearm() + " firearms \nand "
+                    + localShip.getNarcotic()
+                    + " narcotics in your ship "
+                    + "\nand took them away. You got a ticket \nand paid "
+                    + Integer.toString(localShip.getNarcotic() * NARP
+                            + localShip.getFirearm() * FIRP)
                     + " for it";
-            ship.setFirearm(0);
-            ship.setNarcotic(0);
-            GameData.setShip(ship);
-        } else if (ship.getFirearm()>0) {
-            result = "Plice found illegal good " + ship.getFirearm() + " firearms " 
-                    + "\nin your ship and took them away. \nYou got a ticket and paid " 
-                    + Integer.toString(ship.getFirearm()*300) + " for it";
-            ship.setFirearm(0);
-            GameData.setShip(ship);
-        } else if (ship.getNarcotic()>0) {
-            result = "Plice found illegal good " + ship.getNarcotic()  
-                    + " narcotics \nin your ship and took them away. \nYou got a ticket and paid " 
-                    + Integer.toString(ship.getNarcotic()*200)
+            localShip.setFirearm(0);
+            localShip.setNarcotic(0);
+            GameData.setShip(localShip);
+        } else if (localShip.getFirearm() > 0) {
+            result = "Plice found illegal good "
+                    + localShip.getFirearm() + " firearms "
+                    + "\nin your ship and took them "
+                    + "away. \nYou got a ticket and paid "
+                    + Integer.toString(localShip.getFirearm() * FIRP)
                     + " for it";
-            ship.setNarcotic(0);
-            GameData.setShip(ship);
+            localShip.setFirearm(0);
+            GameData.setShip(localShip);
+        } else if (localShip.getNarcotic() > 0) {
+            result = "Plice found illegal good " + localShip.getNarcotic()
+                    + " narcotics \nin your ship and took them away. "
+                    + "\nYou got a ticket and paid "
+                    + Integer.toString(localShip.getNarcotic() * NARP)
+                    + " for it";
+            localShip.setNarcotic(0);
+            GameData.setShip(localShip);
         } else {
-            result = "Police did not find any illegal good \nin your ship, your are good to go.";
+            result = "Police did not find any illegal good "
+                    + "\nin your ship, your are good to go.";
         }
         return result;
     }

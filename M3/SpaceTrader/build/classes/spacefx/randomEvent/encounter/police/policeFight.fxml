@@ -30,7 +30,7 @@
          </font>
       </Label>
       <Label fx:id="battleInfo1" layoutX="47.0" layoutY="49.0" text="battleInfo" />
-      <Button fx:id="escB" layoutX="303.0" layoutY="241.0" mnemonicParsing="false" onAction="#escBAction" prefHeight="30.0" prefWidth="150.0" text="Escape" />
+      <Button layoutX="303.0" layoutY="241.0" mnemonicParsing="false" onAction="#escBAction" prefHeight="30.0" prefWidth="150.0" text="Escape" />
       <Button fx:id="surB" layoutX="303.0" layoutY="211.0" mnemonicParsing="false" onAction="#surBAction" prefHeight="30.0" prefWidth="150.0" text="Surrender" />
       <Button fx:id="attB" layoutX="303.0" layoutY="181.0" mnemonicParsing="false" onAction="#attBAction" prefHeight="30.0" prefWidth="150.0" text="Attack" />
       <Label fx:id="battleInfo2" layoutX="47.0" layoutY="67.0" text="battleInfo" />
