@@ -79,10 +79,10 @@ public class ShipUpgradeUnitTest {
         ship.addUpgrade("crew", "goodCrew");
         String[] weapons = ship.getUpgradeList("weapon");
         String[] crews = ship.getUpgradeList("crew");
-        Assert.assertEquals("pulseLaser", weapons[0]);
+        Assert.assertEquals("beamLaser", weapons[0]);
         Assert.assertEquals(1, ship.getUpgradeCount("weapon"));
         Assert.assertEquals(0, ship.getSlots("weapon"));
-        Assert.assertEquals("pulseLaser", crews[0]);
+        Assert.assertEquals("goodCrew", crews[0]);
         Assert.assertEquals(1, ship.getUpgradeCount("crew"));
         Assert.assertEquals(1, ship.getSlots("crew"));
     }
