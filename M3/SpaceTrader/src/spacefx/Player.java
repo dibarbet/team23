@@ -14,19 +14,40 @@ import java.io.Serializable;
  */
 public class Player implements Serializable {
     // variable declariation
-    private String name; // the name of the player
-    private int pilot; // the pilot skill points of player
-    private int fighter; // the fighter skill point of player
-    private int trader; // the trader skill points of player
-    private int engineer; // the engineer skill point of player
-    private int investor; // the investor skill point of player
-    public int credit; // the credit skill point of player
-    private Ship currShip; // the current ship that the player owns
-    // end variable declariation
-    
     /**
-     * The constructor of Player class
-     * 
+     * Name of the player.
+     */
+    private final String name;
+    /**
+     * Pilot skill points.
+     */
+    private final int pilot;
+    /**
+     * Fighter skill points.
+     */
+    private final int fighter;
+    /**
+     * Trader skill points.
+     */
+    private final int trader;
+    /**
+     * Engineer skill points.
+     */
+    private final int engineer;
+    /**
+     * Investor skill points.
+     */
+    private final int investor;
+    /**
+     * Credit skill points.
+     */
+    public int credit;
+    /**
+     * Current ship.
+     */
+    private Ship currShip;
+    /**
+     * The constructor of Player class.
      * @param newName  the name of the player
      * @param newPilot  the pilot skill points of player
      * @param newFighter  the fighter skill points of player
@@ -34,37 +55,65 @@ public class Player implements Serializable {
      * @param newEngineer  the engineer kill points of player
      * @param newInvestor the investor skill points of player
      */
-    public Player(String newName, int newPilot, int newFighter, int newTrader, int newEngineer, int newInvestor) {
+    public Player(final String newName, final int newPilot,
+                  final int newFighter, final int newTrader,
+                  final int newEngineer, final int newInvestor) {
         name = newName; // set the player's name
         pilot = newPilot; // set player's pilot skill points
         fighter = newFighter; // set player's fighter skill point
         trader = newTrader; // set player's trader skill point
         engineer = newEngineer; // set player's engineer skill point
         investor = newInvestor; // set player's investor skill point
-        credit = 100000; // initialize the amount of money that play owns to 1000
+        credit = 100000; // initialize the amount of money that play owns
         currShip = new Gnat(); // initialize the ship of player
-    } // end constructor
-    
-    public Ship getShip() {
+    }
+    /**
+     * Getter for ship.
+     * @return current ship
+     */
+    public final Ship getShip() {
         return currShip;
     }
-    public void setShip(Ship aShip) {
+    /**
+     * Setter for ship.
+     * @param aShip the new ship
+     */
+    public final void setShip(final Ship aShip) {
         currShip = aShip;
     }
-    public int getCredit() {
+    /**
+     * Getter for credit.
+     * @return current credit
+     */
+    public final int getCredit() {
         return credit;
     }
-    public void setCredit(int amt) {
+    /**
+     * Setter for credit.
+     * @param amt new credit
+     */
+    public final void setCredit(final int amt) {
         credit = amt;
     }
-    
-    public int gainCredit(int gainedCredit) {
+    /**
+     * Adds credit to total credit.
+     * @param gainedCredit credit to add
+     * @return credit added
+     */
+    public final int gainCredit(final int gainedCredit) {
         credit = credit + gainedCredit;
         return gainedCredit;
     }
-    
-    public int loseCredit(int lostCredit) {
+    /**
+     * Takes away credit from total credit.
+     * @param lostCredit credit to subtract
+     * @return credit lost
+     */
+    public final int loseCredit(final int lostCredit) {
         int retcredit;
+        if (lostCredit < 0) {
+            return 0;
+        }
         if (credit > lostCredit) {
             credit = credit - lostCredit;
             retcredit = lostCredit;
@@ -75,26 +124,47 @@ public class Player implements Serializable {
         }
         return retcredit;
     }
-    public String toString() {
+    /**
+     * Returns the string representation.
+     * @return the string representation
+     */
+    @Override
+    public final String toString() {
         return name;
     }
-    
-    public int getPilot() {
+    /**
+     * Getter for pilot.
+     * @return value of pilot
+     */
+    public final int getPilot() {
         return pilot;
     }
-    
-    public int getFighter() {
+    /**
+     * Getter for fighter.
+     * @return value of fighter
+     */
+    public final int getFighter() {
         return fighter;
     }
-    
-    public int getEngineer() {
+    /**
+     * Getter for engineer.
+     * @return value of engineer
+     */
+    public final int getEngineer() {
         return engineer;
     }
-    
-    public int getTrader() {
+    /**
+     * Getter for trader.
+     * @return value of trader
+     */
+    public final int getTrader() {
         return trader;
     }
-    public int getInvestor() {
+    /**
+     * Getter for investor.
+     * @return value for investor
+     */
+    public final int getInvestor() {
         return investor;
     }
 }
