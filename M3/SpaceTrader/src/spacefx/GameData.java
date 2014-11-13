@@ -23,7 +23,7 @@ public final class GameData {
      * be saved easier.
      */
     private GameData() {
-        
+
     }
     /**
      * Sets the current game's player
@@ -87,15 +87,12 @@ public final class GameData {
     public static void setMarket(Market aMarket) {
         market = aMarket;
     }
-    
     public static SolarSystem getCurrSolarSys() {
         return universe.getCurrentSolarSystem();
     }
-    
     public static void setCurrSolarSys(SolarSystem aSolar) {
         universe.setCurrentSolarSystem(aSolar);
     }
-    
     /**
      * Returns list of all objects in class
      * @return the list
