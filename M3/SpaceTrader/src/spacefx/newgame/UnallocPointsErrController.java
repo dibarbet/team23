@@ -14,30 +14,34 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 /**
- * FXML Controller class
+ * FXML Controller class.
  *
  * @author YaxiongLiu
  */
 public class UnallocPointsErrController implements Initializable {
     @FXML
-    private Button unallocPointsErrOKButton;
+    private Button unallocPButton;
     private Stage theStage;
 
     /**
      * Initializes the controller class.
+     * @param url a URL
+     * @param resourceb a ResourceBundle
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(final URL url, final ResourceBundle resourceb) {
         // TODO
-    }    
-    
-    public void setTheStage(Stage theStage) {
-        this.theStage = theStage;
     }
-    
+    /**
+     * Setter for the stage.
+     * @param stage stage to be set.
+     */
+    public final void setTheStage(final Stage stage) {
+        theStage = stage;
+    }
+
     @FXML
-    private void handleUnallocPointErrButtonAction(ActionEvent event) {
+    private void handleUnallocPointErrButtonAction(final ActionEvent event) {
         this.theStage.close();
     }
-    
 }

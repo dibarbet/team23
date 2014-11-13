@@ -25,7 +25,7 @@ import spacefx.SpaceFX;
 import spacefx.Universe;
 
 /**
- * FXML Controller class
+ * FXML Controller class.
  *
  * @author YaxiongLiu, David Barbet
  */
@@ -42,66 +42,69 @@ public class NewGameWinController implements Initializable {
     private boolean gameCreated;
     @FXML
     private TextField name;
-    
+
     @FXML
     private Label pointsRemaining;
-    
+
     @FXML
     private Label pilotPoints;
-    
+
     @FXML
     private Label fighterPoints;
-    
+
     @FXML
     private Label traderPoints;
-    
+
     @FXML
     private Label engineerPoints;
-    
+
     @FXML
     private Label investorPoints;
-    
+
     @FXML
     private Button pilotMin;
-    
+
     @FXML
     private Button pilotMax;
-    
+
     @FXML
     private Button fighterMin;
-    
+
     @FXML
     private Button fighterMax;
-    
+
     @FXML
     private Button traderMin;
-    
+
     @FXML
     private Button traderMax;
-    
+
     @FXML
     private Button engineerMin;
-    
+
     @FXML
     private Button engineerMax;
-    
+
     @FXML
     private Button investorMin;
-    
+
     @FXML
     private Button investorMax;
-    
+
     @FXML
-    private Button ok;
-    
+    private Button buttonOK;
+
     @FXML
     private Button cancel;
-    
-    public void setTheStage(Stage theStage) {
-        this.theStage = theStage;
+
+    /**
+    * Setter for the stage.
+    * @param stage the stage to be set
+    */
+    public final void setTheStage(final Stage stage) {
+        theStage = stage;
     }
-    
-    
+
     @FXML
     private void handlePilotMin() {
         pointsLeft = Integer.parseInt(pointsRemaining.getText());
@@ -149,7 +152,6 @@ public class NewGameWinController implements Initializable {
             pointsRemaining.setText(Integer.toString(pointsLeft));
             if ((pointsLeft + 1) > 15) {
                 traderMin.setDisable(true);
-
             }
             enableMax();
         }
@@ -186,7 +188,6 @@ public class NewGameWinController implements Initializable {
                 investorMin.setDisable(true);
             }
             enableMax();
-            
         }
     }
     @FXML
@@ -240,7 +241,6 @@ public class NewGameWinController implements Initializable {
             enableMax();
         }
     }
-    
     @FXML
     private void handleEngineerMax() {
         pointsLeft = Integer.parseInt(pointsRemaining.getText());
@@ -315,33 +315,34 @@ public class NewGameWinController implements Initializable {
     @FXML
     private boolean isValidName() {
         pilotName = name.getText();
-        return !pilotName.equals("");
+        return !"".equals(pilotName);
     }
-    
     private boolean checkPoints() {
-        int totalPoints = numPilot + numTrader + numFighter + numInvestor
+        final int totalPoints = numPilot + numTrader + numFighter + numInvestor
                    + numEngineer;
         return totalPoints == 15;
     }
-    
     private void handleBadName() {
         /*
         Stage dialogBox = new Stage();
         dialogBox.initStyle(StageStyle.UTILITY);
-        Scene aScene = new Scene(new Group(new Text(25, 25, "Please enter a valid name")));
+        String s = "Please enter a valid name"
+        Scene aScene = new Scene(new Group(new Text(25, 25, s)));
         dialogBox.setHeight(80);
         dialogBox.setWidth(200);
         dialogBox.setScene(aScene);
         dialogBox.show();
         */
         try {
-            FXMLLoader loader = new FXMLLoader(SpaceFX.class.getResource("newgame/emptyNameErr.fxml"));
-            AnchorPane newPage = (AnchorPane) loader.load();
-            Stage newGameStage = new Stage();
+            String path = "newgame/emptyNameErr.fxml";
+            final FXMLLoader loader
+                    = new FXMLLoader(SpaceFX.class.getResource(path));
+            final AnchorPane newPage = (AnchorPane) loader.load();
+            final Stage newGameStage = new Stage();
             newGameStage.setTitle("Error");
-            Scene scene = new Scene(newPage);
+            final Scene scene = new Scene(newPage);
             newGameStage.setScene(scene);
-            EmptyNameErrController controller = loader.getController();
+            final EmptyNameErrController controller = loader.getController();
             controller.setTheStage(newGameStage);
             newGameStage.showAndWait();
         } catch (IOException e) {
@@ -352,20 +353,24 @@ public class NewGameWinController implements Initializable {
         /*
         Stage dialogBox = new Stage();
         dialogBox.initStyle(StageStyle.UTILITY);
-        Scene aScene = new Scene(new Group(new Text(25, 25, "Please make sure you have exactly 15 points")));
+        String s = "Please make sure you have exactly 15 points";
+        Scene aScene = new Scene(new Group(new Text(25, 25, s)));
         dialogBox.setHeight(80);
         dialogBox.setWidth(300);
         dialogBox.setScene(aScene);
         dialogBox.show();
         */
         try {
-            FXMLLoader loader = new FXMLLoader(SpaceFX.class.getResource("newgame/unallocPointsErr.fxml"));
-            AnchorPane newPage = (AnchorPane) loader.load();
-            Stage newGameStage = new Stage();
+            String path = "newgame/unallocPointsErr.fxml";
+            final FXMLLoader loader
+                    = new FXMLLoader(SpaceFX.class.getResource(path));
+            final AnchorPane newPage = (AnchorPane) loader.load();
+            final Stage newGameStage = new Stage();
             newGameStage.setTitle("Error");
-            Scene scene = new Scene(newPage);
+            final Scene scene = new Scene(newPage);
             newGameStage.setScene(scene);
-            UnallocPointsErrController controller = loader.getController();
+            final UnallocPointsErrController controller
+                    = loader.getController();
             controller.setTheStage(newGameStage);
             newGameStage.showAndWait();
         } catch (IOException e) {
@@ -377,17 +382,17 @@ public class NewGameWinController implements Initializable {
         if (isValidName() && checkPoints()) {
             player = new Player(pilotName, numPilot, numFighter, numTrader, numEngineer, numInvestor);
             GameData.setPlayer(player);
-            Ship startShip = new Gnat();
+            final Ship startShip = new Gnat();
             GameData.setShip(startShip);
-            Universe universe = new Universe();
+            final Universe universe = new Universe();
             GameData.setUniverse(universe);
             gameCreated = true;
             theStage.close();
         } else {
-            if (!isValidName()) {
-                handleBadName();
-            } else {
+            if (isValidName()) {
                 handleBadPoints();
+            } else {
+                handleBadName();
             }
         }
     }
@@ -395,14 +400,20 @@ public class NewGameWinController implements Initializable {
     private void handleCancel() {
         theStage.close();
     }
-    public boolean isGameCreated() {
+    /**
+     * Checks if game is created.
+     * @return gameCreated true if game is greated
+     */
+    public final boolean isGameCreated() {
         return gameCreated;
     }
     /**
      * Initializes the controller class.
+     * @param url a URL
+     * @param rebu a ResourceBundle
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public final void initialize(final URL url, final ResourceBundle rebu) {
         // TODO
         gameCreated = false;
         pilotMin.setDisable(true);
@@ -411,6 +422,5 @@ public class NewGameWinController implements Initializable {
         engineerMin.setDisable(true);
         investorMin.setDisable(true);
         pilotName = name.getText();
-    }    
-    
+    }
 }

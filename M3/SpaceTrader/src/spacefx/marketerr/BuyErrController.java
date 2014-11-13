@@ -14,7 +14,7 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 /**
- * FXML Controller class
+ * FXML Controller class.
  *
  * @author YaxiongLiu
  */
@@ -25,19 +25,24 @@ public class BuyErrController implements Initializable {
 
     /**
      * Initializes the controller class.
+     * @param url an URL
+     * @param resourcebundle a ResourceBundle
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(final URL url, final ResourceBundle resourcebundle) {
         // TODO
-    }    
-    
-    public void setTheStage(Stage theStage) {
-        this.theStage = theStage;
+    }
+
+    /**
+    * Setter for the stage.
+    * @param stage the stage to be set
+    */
+    public final void setTheStage(final Stage stage) {
+        theStage = stage;
     }
 
     @FXML
-    private void buyErrOKBAction(ActionEvent event) {
+    private void buyErrOKBAction(final ActionEvent event) {
         this.theStage.close();
     }
-    
 }
