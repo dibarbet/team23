@@ -131,7 +131,9 @@ public class Universe implements Serializable {
         "Zalkon",
         "Zuul"		
     };
-    
+    /**
+     * Constructor for universe.
+     */
     public Universe() {
         for (int i = 0; i < 114; i++) {
             int j = rand.nextInt(114);
@@ -143,39 +145,48 @@ public class Universe implements Serializable {
             names[j] = null;
             String[] n = new String[1];
             n[0] = name;
-            gameUniverse[i] = new SolarSystem(name, n, rand.nextInt(150), rand.nextInt(100));
+            gameUniverse[i] = new SolarSystem(name, n, rand.nextInt(150),
+                    rand.nextInt(100));
         }
         current = gameUniverse[0];
     }
-    
+
     @Override
-    public String toString() {
+    public final String toString() {
         String s = "";
         for (int i = 0; i < 113; i++) {
-            s += (gameUniverse[i].getSolarName() + ": " + gameUniverse[i].getX() + " " + gameUniverse[i].getY() + ", " + gameUniverse[i].getTechLevel() + ", " + gameUniverse[i].getResourceType() + ", " + gameUniverse[i].getGovType() + "\n");
+            s += (gameUniverse[i].getSolarName() + ": " + gameUniverse[i].getX()
+                    + " " + gameUniverse[i].getY() + ", "
+                    + gameUniverse[i].getTechLevel() + ", "
+                    + gameUniverse[i].getResourceType() + ", "
+                    + gameUniverse[i].getGovType() + "\n");
         }
         return s;
     }
-    
+
     /**
-     *
+     * Returns current solar system.
      * @return the current solar system
      */
-    public SolarSystem getCurrentSolarSystem() {
+    public final SolarSystem getCurrentSolarSystem() {
         return current;
     }
-    
-    public void setCurrentSolarSystem(SolarSystem solarSystem) {
+    /**
+     * Sets the current solar system.
+     * @param solarSystem new solar system
+     */
+    public final void setCurrentSolarSystem(final SolarSystem solarSystem) {
         current = solarSystem;
     }
-    
+
     /**
-     *
+     * Returns distance between 2 solar systems.
      * @param from the current solar system
      * @param to the destination solar system
      * @return double the distance between the two solar systems
      */
-    public static double distance(SolarSystem from, SolarSystem to) {
+    public static double distance(final SolarSystem from,
+            final SolarSystem to) {
         double a = Math.pow(to.getX() - from.getX(), 2);
         double b = Math.pow(to.getY() - from.getY(), 2);
         return Math.pow(a + b, 0.5);
