@@ -89,7 +89,8 @@ public class Shipyard implements CommandBuy {
      * @return true if tech level is greater than 4, false otherwise
      */
     public final boolean checkTechLevel() {
-        return GameData.getCurrSolarSys().getTechLevel() >= 4;
+        Universe universe = GameData.getUniverse();
+        return universe.getCurrentSolarSystem().getTechLevel() >= 4;
     }
 }
 

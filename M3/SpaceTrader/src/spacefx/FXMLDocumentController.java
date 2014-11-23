@@ -730,12 +730,9 @@ public class FXMLDocumentController implements Initializable {
             try {
                 OutputStream file = new FileOutputStream(savedFile);
                 OutputStream buffer = new BufferedOutputStream(file);
-                try {
-                    ObjectOutput output = new ObjectOutputStream(buffer);
-                    output.writeObject(GameData.getClassList());
-                } catch (EOFException eo) {
-                    System.out.println("Failed writing");
-                }
+                ObjectOutput output = new ObjectOutputStream(buffer);
+                output.writeObject(GameData.getClassList());
+                output.close();
             } catch (IOException e) {
                 System.out.println("Failed writing");
             }
@@ -760,17 +757,16 @@ public class FXMLDocumentController implements Initializable {
             try {
                 InputStream file = new FileInputStream(loadFile);
                 InputStream buffer = new BufferedInputStream(file);
+                ObjectInput input = new ObjectInputStream(buffer);
                 ArrayList<Object> aList;
-                try (ObjectInput input = new ObjectInputStream(buffer)) {
-                    aList = (ArrayList<Object>) input.readObject();
-                }
+                aList = (ArrayList<Object>) input.readObject();
                 GameData.setPlayer((Player) aList.get(0));
                 GameData.setShip((Ship) aList.get(1));
-                GameData.setSolarSystem((SolarSystem) aList.get(4));
                 GameData.setUniverse((Universe) aList.get(2));
+                GameData.setSolarSystem((SolarSystem) aList.get(4));
                 GameData.setMarket((Market) aList.get(3));
-                player = GameData.getPlayer();
                 universe = GameData.getUniverse();
+                System.out.println(player);
                 currentSolarSystem = universe.getCurrentSolarSystem();
                 gameCreated = true;
                 marketPlace.setDisable(false);
@@ -791,6 +787,7 @@ public class FXMLDocumentController implements Initializable {
                 refreshSolar();
                 refreshMarket();
             } catch (ClassNotFoundException | IOException e) {
+                e.printStackTrace();
                 System.out.println("Load failed");
             }
         }

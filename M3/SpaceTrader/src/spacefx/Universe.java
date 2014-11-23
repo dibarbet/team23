@@ -11,15 +11,15 @@ public class Universe implements Serializable {
     /**
      * Serial version uid.
      */
-    private static final long serialVersionUID = 1L;
+    //private static final long serialVersionUID = 1L;
     /**
      * Current solar.
      */
-    private transient SolarSystem current;
+    private SolarSystem current;
     /**
      * Game universe.
      */
-    protected final transient SolarSystem[] gameUniverse;
+    protected SolarSystem[] gameUniverse;
     /**
      * planets.
      */

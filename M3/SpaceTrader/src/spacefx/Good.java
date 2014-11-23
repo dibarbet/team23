@@ -26,88 +26,88 @@ public class Good {
     // this class uses defalt constructor
     //innner class for Good Water
     public static class Water {
-        final static String NAME = "Water"; // The name of Water
-        final static int MTLP = 0; // Minimum Tech Level to Produce Water
-        final static int MTLU = 0; // Minimum Tech Level to Use Water
-        final static int TTP = 2; // Tech Level which produces the most of Water
-        final public static int BASEPRICE = 30; // Base price of Water
-        final static int IPL = 3; // The Price of Water increase per tech level
-        final public static int VAR = 4; // the maximum percentage that 
+        final static String name = "Water"; // The name of Water
+        final static int mtlp = 0; // Minimum Tech Level to Produce Water
+        final static int mtlu = 0; // Minimum Tech Level to Use Water
+        final static int ttp = 2; // Tech Level which produces the most of Water
+        final public static int basePrice = 30; // Base price of Water
+        final static int ipl = 3; // The Price of Water increase per tech level
+        final public static int var = 4; // the maximum percentage that 
                                     // the price of Water can vary above or below the base
-        final static String IE = "DROUGHT"; // when event drought happens on a planet, 
+        final static String ie = "DROUGHT"; // when event drought happens on a planet, 
                                             // the price of Water may increase astronomically
-        final static String CR = "LOTSOFWATER"; // when event lots of water happends on a planet,
+        final static String cr = "LOTSOFWATER"; // when event lots of water happends on a planet,
                                                 // the price of Water is usullay low
-        final static String ER = "DESERT"; // When event desert happends on a planet,
+        final static String er = "DESERT"; // When event desert happends on a planet,
                                             // the resource of Water is expensive
-        final static int MTL = 30; // Min price of Water offered in space trade with random trader
-        final static int MTH = 50; // Max price of Water offered in space trade with random trader
+        final static int mtl = 30; // Min price of Water offered in space trade with random trader
+        final static int mth = 50; // Max price of Water offered in space trade with random trader
     } // end Water
     
     // the inner class of Good Furs
     public static class Furs {
-        final static String NAME = "Furs"; // The name of Furs
-        final static int MTLP = 0; // Minimum Tech Level to Produce Furs
-        final static int MTLU = 0; // Minimum Tech Level to Use Furs
-        final static int TTP = 0;  // Tech Level which produces the most of Furs
-        final public static int BASEPRICE = 250; // Base price of Furs
-        final static int IPL = 10; // The Price of Furs increase per tech level
-        final public static int VAR = 10; // the maximum percentage that 
+        final static String name = "Furs"; // The name of Furs
+        final static int mtlp = 0; // Minimum Tech Level to Produce Furs
+        final static int mtlu = 0; // Minimum Tech Level to Use Furs
+        final static int ttp = 0;  // Tech Level which produces the most of Furs
+        final public static int basePrice = 250; // Base price of Furs
+        final static int ipl = 10; // The Price of Furs increase per tech level
+        final public static int var = 10; // the maximum percentage that 
                                     // the price of Furs can vary above or below the base
-        final static String IE = "COLD"; // when event cold happens on a planet, 
+        final static String ie = "COLD"; // when event cold happens on a planet, 
                                          // the price of Furs may increase astronomically
-        final static String CR = "RICHFAUNA"; // when event rich fauna happends on a planet,
+        final static String cr = "RICHFAUNA"; // when event rich fauna happends on a planet,
                                                 // the price of Furs is usullay low
-        final static String ER = "LIFELESS"; // When event lifeless happends on a planet,
+        final static String er = "LIFELESS"; // When event lifeless happends on a planet,
                                             // the resource of Furs is expensive
-        final static int MTL = 230; // Min price of Furs offered in space trade with random trader
-        final static int MTH = 280; // Max price of Furs offered in space trade with random trader
+        final static int mtl = 230; // Min price of Furs offered in space trade with random trader
+        final static int mth = 280; // Max price of Furs offered in space trade with random trader
     } // end Furs
     // The inner class of Food
     public static class Food {
-        final static String NAME = "Food"; // The name of Food
-        final static int MTLP = 1;  // Minimum Tech Level to Produce Food
-        final static int MTLU = 0; // Minimum Tech Level to Use Food
-        final static int TTP = 1; // Tech Level which produces the most of Food
-        final public static int BASEPRICE = 100;  // Base price of Food
-        final static int IPL = 5; // The Price of Food increase per tech level
-        final public static int VAR = 5;  // the maximum percentage that
+        final static String name = "Food"; // The name of Food
+        final static int mtlp = 1;  // Minimum Tech Level to Produce Food
+        final static int mtlu = 0; // Minimum Tech Level to Use Food
+        final static int ttp = 1; // Tech Level which produces the most of Food
+        final public static int basePrice = 100;  // Base price of Food
+        final static int ipl = 5; // The Price of Food increase per tech level
+        final public static int var = 5;  // the maximum percentage that
                                     // the price of Food can vary above or below the base
-        final static String IE = "CROPFAIL";  // when event cold happens on a planet, 
+        final static String ie = "CROPFAIL";  // when event cold happens on a planet, 
                                          // the price of Food may increase astronomically
-        final static String CR = "RICHSOIL"; // when event rich fauna happends on a planet,
+        final static String cr = "RICHSOIL"; // when event rich fauna happends on a planet,
                                                 // the price of Food is usullay low
-        final static String ER = "POORSOIL"; // When event lifeless happends on a planet,
+        final static String er = "POORSOIL"; // When event lifeless happends on a planet,
                                             // the resource of Food is expensive
-        final static int MTL = 90; // Min price of Food offered in space trade with random trader
-        final static int MTH = 160; // Max price of Food offered in space trade with random trader
+        final static int mtl = 90; // Min price of Food offered in space trade with random trader
+        final static int mth = 160; // Max price of Food offered in space trade with random trader
     }// end Food
     
     // inner class of Ore
     public static class Ore {
-        final static String NAME = "Ore"; // The name of Ore
-        final static int MTLP = 2; // Minimum Tech level to produce Ore
-        final static int MTLU = 2; // Minimum tech level to use Ore
-        final static int TTP = 3; // Tech level which produces the most of Ore
-        final public static int BASEPRICE = 350; // the base price of Ore
-        final static int IPL = 20; // Price of Ore increase per tech level
-        final public static int VAR = 10; // The max perentage that the price can vary
+        final static String name = "Ore"; // The name of Ore
+        final static int mtlp = 2; // Minimum Tech level to produce Ore
+        final static int mtlu = 2; // Minimum tech level to use Ore
+        final static int ttp = 3; // Tech level which produces the most of Ore
+        final public static int basePrice = 350; // the base price of Ore
+        final static int ipl = 20; // Price of Ore increase per tech level
+        final public static int var = 10; // The max perentage that the price can vary
                                     // above or below the base
-        final static String IE = "WAR"; // When the event war happens on a planet
+        final static String ie = "WAR"; // When the event war happens on a planet
                                         // the price of Ore may increase astronomically
-        final static String CR = "MINERALRICH"; // when the event mineral rich happends on a planet,
+        final static String cr = "MINERALRICH"; // when the event mineral rich happends on a planet,
                                                 // the price of Ore is usually low
-        final static String ER = "MINERALPOOR"; // the event mineral poor happends on a planet,
+        final static String er = "MINERALPOOR"; // the event mineral poor happends on a planet,
                                                 // Ore is expensive
-        final static int MTL = 350; // Min price of Ore offered in space trade with random trader
-        final static int MTH = 420; // Max price of Ore offered in space trade with random trader
+        final static int mtl = 350; // Min price of Ore offered in space trade with random trader
+        final static int mth = 420; // Max price of Ore offered in space trade with random trader
     }// end Ore
     
     //inner class of Good Games
     public static class Games {
-        final static String NAME = "Games"; // The name of the resource Games
-        final static int MTLP = 3; // min tech level to produce Games
-        final static int MTLU = 1; // min tech level to use Games
+        final static String name = "Games"; // The name of the resource Games
+        final static int mtlp = 3; // min tech level to produce Games
+        final static int mtlu = 1; // min tech level to use Games
         final static int ttp = 6; // tech level which produce most of Games
         final public static int basePrice = 250; // base price of Games
         final static int ipl = -10; // price of Games increase per tech level
