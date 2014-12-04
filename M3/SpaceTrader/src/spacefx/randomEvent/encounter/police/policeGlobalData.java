@@ -9,11 +9,16 @@ package spacefx.randomEvent.encounter.police;
  *
  * @author YaxiongLiu
  */
-public class PoliceGlobalData {
+public final class PoliceGlobalData {
     /**
      * Situation String.
      */
     private static String situation = "initial";
+    /**
+     * Default constructor.
+     */
+    private PoliceGlobalData() {
+    }
     /**
      * Setter.
      * @param input input
